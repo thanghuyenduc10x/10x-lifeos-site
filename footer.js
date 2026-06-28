@@ -36,8 +36,8 @@
 
   var COMPASS = '<svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="22" stroke="currentColor" stroke-width="1.4" opacity=".5"/><circle cx="26" cy="26" r="15" stroke="currentColor" stroke-width=".8" opacity=".2"/><path d="M26 6 L29 24 L26 26 L23 24 Z" fill="currentColor"/><path d="M26 46 L23 28 L26 26 L29 28 Z" fill="currentColor" opacity=".3"/><path d="M46 26 L28 23 L26 26 L28 29 Z" fill="currentColor" opacity=".22"/><path d="M6 26 L24 29 L26 26 L24 23 Z" fill="currentColor" opacity=".22"/><circle cx="26" cy="26" r="3.4" fill="currentColor"/><circle cx="26" cy="26" r="1.7" fill="#070718"/></svg>';
 
-  /* Dấu hiệu thương hiệu: la bàn + cây cổ thụ — nét mảnh, đơn sắc trắng */
-  var MARK = '<svg viewBox="0 0 60 60" fill="none" stroke="currentColor" aria-label="10X Life OS"><circle cx="30" cy="30" r="26" stroke-width="1.3" opacity=".85"/><g stroke-width="1.2" opacity=".5"><path d="M30 3.5v4"/><path d="M30 52.5v4"/><path d="M3.5 30h4"/><path d="M52.5 30h4"/></g><g stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 45V28"/><path d="M30 45c-2 0-3.6 1.3-4.6 3M30 45c2 0 3.6 1.3 4.6 3"/><path d="M30 31c-3.2-.6-5.6-2.6-6-5.4M30 31c3.2-.6 5.6-2.6 6-5.4"/><circle cx="30" cy="20.5" r="5"/><circle cx="21.5" cy="25" r="4"/><circle cx="38.5" cy="25" r="4"/></g></svg>';
+  /* Dấu hiệu thương hiệu: LA BÀN tinh giản — nét mảnh, đơn sắc trắng */
+  var MARK = '<svg viewBox="0 0 52 52" fill="none" stroke="currentColor" aria-label="10X Life OS"><circle cx="26" cy="26" r="22" stroke-width="1.4" opacity=".85"/><circle cx="26" cy="26" r="15" stroke-width=".8" opacity=".25"/><path d="M26 6 L29 24 L26 26 L23 24 Z" fill="currentColor"/><path d="M26 46 L23 28 L26 26 L29 28 Z" fill="currentColor" opacity=".3"/><path d="M46 26 L28 23 L26 26 L28 29 Z" fill="currentColor" opacity=".25"/><path d="M6 26 L24 29 L26 26 L24 23 Z" fill="currentColor" opacity=".25"/><circle cx="26" cy="26" r="3.2" fill="currentColor"/></svg>';
 
   var HTML = '\
   <footer class="x10f"><div class="x10f__wrap">\
