@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blog · Case Thực Chiến — 10X Life OS</title>
+<meta name="description" content="Blog 10X Life OS — những case thực chiến: xây sản phẩm, hệ thống, AI từ ý tưởng đến triển khai. Đọc để wow, hứng thú, và làm được." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy-950:#070718;--navy-900:#0A0A24;--navy-800:#12123A;--navy-700:#1A1A50;--navy-600:#24246A;
+  --navy-300:#8888C0;--navy-200:#B0B0D8;--navy-100:#DDDDF0;
+  --o-700:#8C3F18;--o-500:#C96028;--o-400:#D97538;--o-300:#E89060;
+  --white:#fff;--green:#4CAF7D;
+  --fd:'Montserrat',sans-serif;--fb:'Be Vietnam Pro',sans-serif;--ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--navy-900);color:var(--navy-200);line-height:1.7;-webkit-font-smoothing:antialiased;font-size:16px}
+h1,h2,h3{font-family:var(--fd);color:#fff;line-height:1.15;letter-spacing:-.02em;text-wrap:balance}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin-inline:auto;padding-inline:24px}
+
+/* topbar */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,36,.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.tb-logo{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-weight:800;color:#fff;font-size:15px}
+.tb-logo img{height:26px}.tb-logo b{color:var(--o-400)}
+.spacer{flex:1}
+.tb-back{font-size:13.5px;color:var(--navy-200);display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border:1px solid rgba(255,255,255,.12);border-radius:8px;transition:all .2s}
+.tb-back:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.05)}
+.tb-back svg{width:15px;height:15px}
+
+/* header */
+.bhead{padding:64px 0 30px;position:relative;overflow:hidden}
+.bhead .gl{position:absolute;top:-140px;left:8%;width:420px;height:420px;border-radius:50%;filter:blur(120px);background:var(--o-700);opacity:.22;pointer-events:none}
+.bhead .wrap{position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--o-300);background:rgba(201,96,40,.12);border:1px solid rgba(201,96,40,.28);border-radius:999px;padding:8px 18px;margin-bottom:22px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--o-400);box-shadow:0 0 8px var(--o-400)}
+.bhead h1{font-size:clamp(32px,5vw,52px);font-weight:900;margin-bottom:16px}
+.bhead h1 b{color:var(--o-500)}
+.bhead p{font-size:clamp(15px,2vw,18px);color:var(--navy-200);max-width:620px;line-height:1.6}
+
+/* posts */
+.posts{padding:24px 0 70px}
+.posts .wrap{display:grid;grid-template-columns:1fr;gap:20px}
+.post{display:grid;grid-template-columns:300px 1fr;gap:0;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;overflow:hidden;transition:all .25s var(--ease)}
+.post:hover{border-color:rgba(201,96,40,.3);transform:translateY(-3px);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.post-thumb{position:relative;background:radial-gradient(120% 120% at 30% 10%,#1a1a4a,var(--navy-900));display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:200px}
+.post-thumb .badge{position:absolute;top:14px;left:14px;font-size:11px;font-weight:600;color:var(--o-300);background:rgba(10,10,36,.7);border:1px solid rgba(201,96,40,.3);border-radius:999px;padding:5px 12px;z-index:2}
+.post-thumb svg{width:74px;height:74px;color:var(--o-500);opacity:.92}
+.post-thumb .glow{position:absolute;width:200px;height:200px;border-radius:50%;filter:blur(50px);background:var(--o-700);opacity:.3}
+.post-body{padding:26px 30px;display:flex;flex-direction:column;justify-content:center}
+.post-meta{font-family:var(--fd);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy-300);margin-bottom:11px;display:flex;gap:12px;flex-wrap:wrap}
+.post-meta .cat{color:var(--o-400)}
+.post h2{font-size:clamp(21px,2.6vw,27px);font-weight:800;margin-bottom:11px}
+.post p{font-size:15px;color:var(--navy-300);line-height:1.6;margin-bottom:18px}
+.post .read{display:inline-flex;align-items:center;gap:8px;color:var(--o-400);font-weight:600;font-size:14.5px}
+.post .read svg{width:17px;height:17px;transition:transform .2s}
+.post:hover .read svg{transform:translateX(4px)}
+
+/* soon card */
+.soon{border-style:dashed;opacity:.7}
+.soon .post-thumb{background:rgba(255,255,255,.02)}
+.soon .post-thumb svg{color:var(--navy-300);opacity:.5}
+.soon h2{color:var(--navy-200)}
+.soon .tag{font-size:12px;color:var(--navy-300);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:5px 13px;align-self:flex-start}
+
+/* footer */
+.ftr{border-top:1px solid rgba(255,255,255,.07);padding:40px 0;background:var(--navy-950)}
+.ftr .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--navy-300)}
+.ftr b{color:#fff}.ftr a{color:var(--o-400)}
+.ftr .tagline{margin-left:auto;font-family:var(--fd);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+
+@media(max-width:680px){.post{grid-template-columns:1fr}.post-thumb{min-height:160px}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="tb-logo" href="https://10x-lifeos.com"><img src="assets/logo-white.png" alt="10X" onerror="this.style.display='none'">10X <b>Life OS</b></a>
+    <span class="spacer"></span>
+    <a class="tb-back" href="https://10x-lifeos.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/></svg>
+      Trang chủ
+    </a>
+  </div>
+</header>
+
+<section class="bhead">
+  <span class="gl"></span>
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Blog · 10X Life OS</span>
+    <h1>Case Thực Chiến: <b>Học từ việc làm thật</b></h1>
+    <p>Những hành trình xây sản phẩm, hệ thống và AI — từ ý tưởng đến triển khai. Mỗi bài viết để bạn <b style="color:var(--navy-100)">đọc xong là làm được.</b></p>
+  </div>
+</section>
+
+<section class="posts">
+  <div class="wrap">
+
+    <!-- Bài 1 -->
+    <a class="post" href="/blog-case-thuc-chien/">
+      <div class="post-thumb">
+        <span class="glow"></span>
+        <span class="badge">Case Thực Chiến</span>
+        <svg viewBox="0 0 52 52" fill="none">
+          <circle cx="26" cy="26" r="22" stroke="currentColor" stroke-width="1.4" opacity=".4"/>
+          <circle cx="26" cy="26" r="15" stroke="currentColor" stroke-width=".9" opacity=".2"/>
+          <path d="M26 6 L29 24 L26 26 L23 24 Z" fill="currentColor"/>
+          <path d="M26 46 L23 28 L26 26 L29 28 Z" fill="currentColor" opacity=".3"/>
+          <path d="M46 26 L28 23 L26 26 L28 29 Z" fill="currentColor" opacity=".22"/>
+          <path d="M6 26 L24 29 L26 26 L24 23 Z" fill="currentColor" opacity=".22"/>
+          <circle cx="26" cy="26" r="3.4" fill="currentColor"/><circle cx="26" cy="26" r="1.7" fill="#0A0A24"/>
+        </svg>
+      </div>
+      <div class="post-body">
+        <div class="post-meta"><span class="cat">Vibe Code · Sản phẩm</span><span>~12 phút đọc</span></div>
+        <h2>Từ Ý Tưởng đến Sản Phẩm Triển Khai trong một hành trình</h2>
+        <p>Vibe-code một app từ con số 0 đến chạy trên Mac &amp; Windows, tự đóng gói, lên website bán hàng — và bộ khung 7 chặng, 9 nguyên tắc, checklist để lặp lại N lần.</p>
+        <span class="read">Đọc bài <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+
+    <!-- Bài sắp tới (placeholder) -->
+    <div class="post soon">
+      <div class="post-thumb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      </div>
+      <div class="post-body">
+        <div class="post-meta"><span class="cat">Sắp ra mắt</span></div>
+        <h2>Bài viết tiếp theo đang được chuẩn bị…</h2>
+        <p>Những case thực chiến mới về AI, hệ thống vận hành và năng suất 10X sẽ lần lượt xuất hiện tại đây.</p>
+        <span class="tag">Coming soon</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div>Blog <b>10X Life OS</b> · Đúc kết bởi <b>Coach Thắng Huyền Đức</b> · <a href="https://10x-lifeos.com">10x-lifeos.com</a></div>
+    <span class="tagline">Khai Thông · Khai Mở · Khai Phóng</span>
+  </div>
+</footer>
+
+</body>
+</html>
