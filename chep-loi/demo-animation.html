@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chép Lời — Demo Animation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy-950:#070718;--navy-900:#0A0A24;--navy-800:#12123A;--navy-700:#1A1A50;--navy-600:#24246A;
+  --o-500:#C96028;--o-400:#D97538;--o-300:#E89060;
+  --white:#fff;--navy-200:#B0B0D8;--navy-300:#8888C0;--green:#4CAF7D;
+  --fd:'Montserrat',sans-serif;--fb:'Be Vietnam Pro',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#05050f;font-family:var(--fb);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:0;overflow:hidden}
+
+/* STAGE 16:9 */
+.stage{position:relative;width:100%;max-width:980px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;
+  background:radial-gradient(120% 130% at 30% 10%,#16163e 0%,var(--navy-900) 45%,var(--navy-950) 100%);
+  box-shadow:0 40px 100px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.05);color:var(--white)}
+.stage::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 120%,rgba(201,96,40,.18),transparent 70%);pointer-events:none}
+.gl{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none}
+.gl.o{width:380px;height:380px;background:var(--o-500);top:-130px;left:-90px;opacity:.28}
+.gl.n{width:340px;height:340px;background:var(--navy-600);bottom:-120px;right:-90px;opacity:.4}
+
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;opacity:0;transition:opacity .6s var(--ease);padding:6%}
+.scene.active{opacity:1}
+.scene.active .pop{animation:pop .7s var(--ease) both}
+.scene.active .rise{animation:rise .7s var(--ease) both}
+.scene.active .rise.d1{animation-delay:.12s}.scene.active .rise.d2{animation-delay:.24s}
+.scene.active .rise.d3{animation-delay:.36s}.scene.active .rise.d4{animation-delay:.48s}
+@keyframes pop{0%{opacity:0;transform:scale(.7)}60%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+@keyframes rise{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
+
+/* compass */
+.compass{width:84px;height:84px;color:var(--o-500);margin-bottom:20px}
+.compass circle,.compass path{transform-origin:center}
+.scene.active .compass{animation:spinIn 1.1s var(--ease) both}
+@keyframes spinIn{0%{opacity:0;transform:rotate(-90deg) scale(.6)}100%{opacity:1;transform:rotate(0) scale(1)}}
+
+h1.title{font-family:var(--fd);font-weight:900;font-size:clamp(34px,7vw,68px);letter-spacing:-.03em;line-height:1}
+h1.title b{color:var(--o-500)}
+.tagline{font-size:clamp(13px,1.9vw,18px);color:var(--navy-200);margin-top:14px;font-weight:300}
+.tagline em{color:var(--o-300);font-style:normal;font-weight:500}
+
+/* file cards (scene 2) */
+.s2-head{font-family:var(--fd);font-weight:700;font-size:clamp(16px,2.6vw,26px);margin-bottom:22px;color:#fff}
+.files{display:flex;flex-direction:column;gap:10px;width:min(560px,86%)}
+.fcard{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:11px;padding:13px 16px;text-align:left}
+.fcard .fi{width:30px;height:30px;border-radius:8px;background:rgba(201,96,40,.16);color:var(--o-300);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fcard .fi svg{width:16px;height:16px}
+.fcard .fn{font-size:clamp(12px,1.6vw,15px);color:#fff;font-weight:500}
+.fcard .fs{font-size:11px;color:var(--navy-300);font-family:var(--fd)}
+.scene.active .fcard{animation:slideIn .6s var(--ease) both}
+.scene.active .fcard:nth-child(1){animation-delay:.05s}
+.scene.active .fcard:nth-child(2){animation-delay:.2s}
+.scene.active .fcard:nth-child(3){animation-delay:.35s}
+@keyframes slideIn{0%{opacity:0;transform:translateX(-30px)}100%{opacity:1;transform:translateX(0)}}
+
+/* app mockup (scene 3) */
+.appwin{width:min(620px,92%);background:linear-gradient(180deg,#14143c,#0d0d28);border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.5);overflow:hidden;text-align:left}
+.aw-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.06)}
+.aw-bar i{width:11px;height:11px;border-radius:50%;display:block}
+.aw-bar i:nth-child(1){background:#ff5f57}.aw-bar i:nth-child(2){background:#febc2e}.aw-bar i:nth-child(3){background:#28c840}
+.aw-bar .awt{margin-left:8px;font-size:12px;color:var(--navy-300);font-weight:600}
+.aw-body{padding:16px 18px}
+.aw-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.aw-prog-l{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff}
+.aw-prog-l .pl{width:0;height:0;border-left:9px solid var(--o-400);border-top:6px solid transparent;border-bottom:6px solid transparent}
+.aw-gpu{font-family:var(--fd);font-size:11px;color:var(--o-300)}
+.aw-gpu b{color:#fff}
+.track{height:7px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:16px}
+.fill{height:100%;width:8%;border-radius:99px;background:linear-gradient(90deg,var(--o-500),var(--o-400))}
+.scene.active .fill{animation:fillUp 4.4s var(--ease) forwards}
+@keyframes fillUp{0%{width:8%}100%{width:100%}}
+.row{display:flex;align-items:center;gap:11px;padding:9px 4px}
+.row .rc{width:22px;height:22px;border-radius:50%;border:2px solid var(--navy-600);flex-shrink:0;position:relative;transition:all .3s var(--ease)}
+.row .rc svg{width:13px;height:13px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);color:#fff}
+.row .rn{flex:1;font-size:13px;color:#fff;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .rt{font-size:11px;font-weight:600;padding:3px 11px;border-radius:99px;opacity:0;transition:opacity .3s;font-family:var(--fb)}
+.row .rt.done{background:rgba(76,175,125,.16);color:var(--green)}
+.row .rt.run{background:rgba(201,96,40,.16);color:var(--o-300)}
+.row.is-done .rc{border-color:var(--green);background:var(--green)}
+.row.is-done .rc svg{transform:translate(-50%,-50%) scale(1)}
+.row.is-done .rt.done{opacity:1}
+.row .rt.run{opacity:1}
+.row.r1{transition-delay:0s}
+.scene.active .row.r1{animation:doneAt 4.6s var(--ease) forwards}
+.scene.active .row.r2{animation:doneAt2 4.6s var(--ease) forwards}
+/* use JS to toggle is-done instead for reliability */
+
+/* counter bubble */
+.cbub{position:absolute;top:11%;right:7%;background:var(--navy-800);border:1px solid rgba(201,96,40,.35);
+  border-radius:13px;padding:12px 17px;display:flex;align-items:center;gap:11px;box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.cbub .ci{width:32px;height:32px;border-radius:9px;background:rgba(201,96,40,.18);color:var(--o-300);display:flex;align-items:center;justify-content:center}
+.cbub .ci svg{width:17px;height:17px}
+.cbub .cn{font-family:var(--fd);font-weight:900;font-size:24px;color:#fff;line-height:1}
+.cbub .cl{font-size:10.5px;color:var(--navy-300);line-height:1.2}
+
+/* privacy (scene 4) */
+.lock{width:72px;height:72px;border-radius:18px;background:rgba(76,175,125,.14);border:1px solid rgba(76,175,125,.3);
+  color:var(--green);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.lock svg{width:36px;height:36px}
+.s4-h{font-family:var(--fd);font-weight:800;font-size:clamp(20px,3.4vw,34px);color:#fff;line-height:1.15;max-width:660px}
+.s4-h b{color:var(--green)}
+.s4-sub{font-size:clamp(12px,1.7vw,15px);color:var(--navy-200);margin-top:13px;display:flex;align-items:center;gap:9px}
+.s4-sub .cloud{position:relative;color:var(--navy-300)}
+.s4-sub .cloud svg{width:20px;height:20px}
+.s4-sub .cloud::after{content:"";position:absolute;left:-2px;top:50%;width:26px;height:2px;background:var(--o-400);transform:rotate(-18deg)}
+
+/* close (scene 5) */
+.s5-eye{font-family:var(--fd);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--o-300);margin-bottom:14px}
+.s5-title{font-family:var(--fd);font-weight:900;font-size:clamp(38px,8vw,76px);letter-spacing:-.03em;line-height:1}
+.s5-title b{color:var(--o-500)}
+.s5-val{font-size:clamp(13px,2vw,18px);color:var(--navy-200);margin-top:14px}
+.s5-val b{color:#fff;font-weight:600}
+.s5-cta{margin-top:24px;display:inline-flex;align-items:center;gap:9px;background:var(--o-500);color:#fff;font-family:var(--fb);
+  font-weight:600;font-size:15px;padding:14px 28px;border-radius:9px;box-shadow:0 10px 30px rgba(201,96,40,.4)}
+.s5-cta svg{width:18px;height:18px}
+.s5-foot{position:absolute;bottom:5%;display:flex;align-items:center;gap:9px;font-family:var(--fd);font-size:12px;color:var(--navy-300)}
+.s5-foot svg{width:20px;height:20px;color:var(--o-500)}
+
+/* progress dots */
+.dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.18);transition:all .4s}
+.dots i.on{background:var(--o-500);width:18px;border-radius:99px}
+.replay{position:absolute;top:12px;right:14px;z-index:6;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+  color:#fff;font-family:var(--fb);font-size:12px;padding:6px 13px;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:6px;opacity:.7}
+.replay:hover{opacity:1}
+.replay svg{width:13px;height:13px}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <span class="gl o"></span><span class="gl n"></span>
+  <button class="replay" onclick="play()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Xem lại</button>
+
+  <!-- SCENE 1 -->
+  <div class="scene" id="s1">
+    <svg class="compass" viewBox="0 0 52 52" fill="none">
+      <circle cx="26" cy="26" r="24" stroke="currentColor" stroke-width="1.2" opacity=".35"/>
+      <circle cx="26" cy="26" r="16" stroke="currentColor" stroke-width=".8" opacity=".15"/>
+      <path d="M26 5 L28.5 23 L26 26 L23.5 23 Z" fill="currentColor"/>
+      <path d="M26 47 L23.5 29 L26 26 L28.5 29 Z" fill="currentColor" opacity=".28"/>
+      <path d="M47 26 L29 23.5 L26 26 L29 28.5 Z" fill="currentColor" opacity=".22"/>
+      <path d="M5 26 L23 28.5 L26 26 L23 23.5 Z" fill="currentColor" opacity=".22"/>
+      <circle cx="26" cy="26" r="3.4" fill="currentColor"/><circle cx="26" cy="26" r="1.7" fill="#0A0A24"/>
+    </svg>
+    <h1 class="title pop">Chép <b>Lời</b></h1>
+    <div class="tagline rise d2">Giọng nói <em>→</em> Văn bản, ngay trên máy bạn.</div>
+  </div>
+
+  <!-- SCENE 2 -->
+  <div class="scene" id="s2">
+    <div class="s2-head pop">Thả cả thư mục ghi âm vào…</div>
+    <div class="files">
+      <div class="fcard"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><div><div class="fn">Buổi 2 coaching.m4a</div><div class="fs">2:10:13 · 64 MB</div></div></div>
+      <div class="fcard"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><div><div class="fn">DJI_…0007_D.WAV</div><div class="fs">01:50 · 21 MB</div></div></div>
+      <div class="fcard"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><div><div class="fn">DJI_…0008_D.WAV</div><div class="fs">01:43 · 20 MB</div></div></div>
+    </div>
+  </div>
+
+  <!-- SCENE 3 -->
+  <div class="scene" id="s3">
+    <div class="cbub pop"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></span><span><span class="cn" id="counter">1×</span><br><span class="cl">nhanh hơn<br>thời gian thực</span></span></div>
+    <div class="appwin">
+      <div class="aw-bar"><i></i><i></i><i></i><span class="awt">Chép Lời</span></div>
+      <div class="aw-body">
+        <div class="aw-top">
+          <div class="aw-prog-l"><span class="pl"></span> Đang chép lời</div>
+          <div class="aw-gpu">GPU · <b>nhanh ~17×</b></div>
+        </div>
+        <div class="track"><div class="fill"></div></div>
+        <div class="row r1"><span class="rc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span class="rn">DJI_…0007_D.WAV</span><span class="rt done">Xong</span></div>
+        <div class="row r2"><span class="rc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span class="rn">DJI_…0008_D.WAV</span><span class="rt done">Xong</span></div>
+        <div class="row r3"><span class="rc"></span><span class="rn">Buổi 2 coaching.m4a</span><span class="rt run">Đang chạy</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 4 -->
+  <div class="scene" id="s4">
+    <div class="lock pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+    <div class="s4-h rise">Âm thanh <b>không bao giờ</b> rời khỏi máy bạn.</div>
+    <div class="s4-sub rise d2">
+      <span class="cloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.6A4 4 0 0 0 6 19z"/></svg></span>
+      100% xử lý trên máy · Không gửi lên mạng
+    </div>
+  </div>
+
+  <!-- SCENE 5 -->
+  <div class="scene" id="s5">
+    <div class="s5-eye rise">Quà tặng đặc quyền · Cộng đồng 10X</div>
+    <div class="s5-title pop">Chép <b>Lời</b></div>
+    <div class="s5-val rise d2">Trị giá <b>$199</b> — Tải miễn phí, dùng trọn đời.</div>
+    <div class="s5-cta rise d3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M8 11l4 4 4-4"/><path d="M5 19h14"/></svg> Tải app miễn phí</div>
+    <div class="s5-foot">
+      <svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24" stroke="currentColor" stroke-width="1.4" opacity=".4"/><path d="M26 6 L29 24 L26 26 L23 24 Z" fill="currentColor"/><path d="M26 46 L23 28 L26 26 L29 28 Z" fill="currentColor" opacity=".3"/><circle cx="26" cy="26" r="3" fill="currentColor"/></svg>
+      10XLifeOS.Com
+    </div>
+  </div>
+
+  <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+
+<script>
+const sceneIds=['s1','s2','s3','s4','s5'];
+const durations=[2800,2700,6000,3000,4200]; // ms
+const scenes=sceneIds.map(id=>document.getElementById(id));
+const dots=[...document.querySelectorAll('.dots i')];
+let timer=null, ctimer=null;
+
+function countUp(){
+  const el=document.getElementById('counter');
+  let v=1; el.textContent='1×';
+  clearInterval(ctimer);
+  const start=performance.now(), dur=1600, target=17.4;
+  function step(t){
+    const p=Math.min(1,(t-start)/dur);
+    const eased=1-Math.pow(1-p,3);
+    const val=(1+eased*(target-1));
+    el.textContent=(val>=17.3? '17,4×' : Math.round(val)+'×');
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function show(i){
+  scenes.forEach((s,j)=>s.classList.toggle('active',j===i));
+  dots.forEach((d,j)=>d.classList.toggle('on',j===i));
+  // scene-3 internal animations
+  if(i===2){
+    countUp();
+    const r1=document.querySelector('#s3 .r1'), r2=document.querySelector('#s3 .r2');
+    r1.classList.remove('is-done'); r2.classList.remove('is-done');
+    setTimeout(()=>r1.classList.add('is-done'),2200);
+    setTimeout(()=>r2.classList.add('is-done'),3400);
+  }
+}
+function play(from){
+  clearTimeout(timer);
+  let i=from||0;
+  function next(){
+    show(i);
+    timer=setTimeout(()=>{ i=(i+1)%scenes.length; next(); }, durations[i]);
+  }
+  next();
+}
+window.addEventListener('load',()=>play(0));
+</script>
+</body>
+</html>
