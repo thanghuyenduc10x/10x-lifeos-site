@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chép Lời — Chép lời offline trên máy bạn · 10X Life OS</title>
+<meta name="description" content="Chép Lời — phần mềm chuyển giọng nói thành văn bản chạy thẳng trên máy bạn. Không internet, không giới hạn, không lộ dữ liệu. Quà tặng đặc quyền trị giá $199 cho thành viên Leader 10X & bạn bè thân thiết." />
+<meta property="og:title" content="Chép Lời — Chép lời offline, riêng tư tuyệt đối" />
+<meta property="og:description" content="Chuyển giọng nói thành văn bản ngay trên máy bạn. Nhanh 17× nhờ GPU, không gửi gì lên mạng. Quà tặng $199 từ Coach Thắng Huyền Đức." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy-950:#070718; --navy-900:#0A0A24; --navy-800:#12123A; --navy-700:#1A1A50;
+  --navy-600:#24246A; --navy-500:#353590; --navy-300:#8888C0; --navy-200:#B0B0D8; --navy-100:#DDDDF0;
+  --o-700:#8C3F18; --o-600:#A84F20; --o-500:#C96028; --o-400:#D97538; --o-300:#E89060; --o-200:#F0B090;
+  --white:#FFFFFF; --cream:#F8F7F4;
+  --green:#4CAF7D; --red:#E0775C;
+  --f-display:'Montserrat',sans-serif; --f-body:'Be Vietnam Pro',sans-serif;
+  --container:1140px; --r:16px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--f-body);background:var(--navy-900);color:var(--navy-200);line-height:1.65;
+  overflow-x:hidden;font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:.01em}
+h1,h2,h3,h4,.display{font-family:var(--f-display);color:var(--white);line-height:1.1;letter-spacing:-.02em;font-weight:800}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--container);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+em{font-style:normal;color:var(--o-400)}
+section{position:relative}
+
+/* glow background accents */
+.glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;z-index:0;pointer-events:none}
+
+/* ── TOP BAR ── */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,36,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.06)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.tb-logo{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;color:#fff;font-size:15px;letter-spacing:-.01em}
+.tb-logo img{height:26px;width:auto}
+.tb-logo b{color:var(--o-400)}
+.spacer{flex:1}
+.tb-back{font-size:13px;color:var(--navy-300);transition:color .2s}
+.tb-back:hover{color:#fff}
+
+/* ── BUTTONS ── */
+.btn{font-family:var(--f-body);font-weight:600;font-size:15px;border-radius:8px;border:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:9px;padding:13px 24px;line-height:1;transition:all .18s var(--ease);white-space:nowrap}
+.btn svg{width:18px;height:18px;flex-shrink:0}
+.btn-primary{background:var(--o-500);color:#fff;box-shadow:0 6px 22px rgba(201,96,40,.32)}
+.btn-primary:hover{background:var(--o-600);transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,96,40,.45)}
+.btn-ghost{background:rgba(255,255,255,.06);color:var(--navy-100);border:1px solid rgba(255,255,255,.12)}
+.btn-ghost:hover{background:rgba(255,255,255,.11);transform:translateY(-2px)}
+.btn-sm{font-size:13px;padding:9px 16px}
+.btn-lg{font-size:16px;padding:16px 30px}
+
+/* ── HERO ── */
+.hero{padding:clamp(48px,8vw,90px) 0 clamp(40px,6vw,70px);overflow:hidden}
+.hero .glow.a{top:-120px;left:-100px;width:480px;height:480px;background:var(--o-700)}
+.hero .glow.b{top:160px;right:-140px;width:420px;height:420px;background:var(--navy-600)}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,5vw,64px);align-items:center;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-body);font-weight:600;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--o-300);
+  background:rgba(201,96,40,.12);border:1px solid rgba(201,96,40,.28);border-radius:999px;padding:7px 15px;margin-bottom:22px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--o-400);box-shadow:0 0 8px var(--o-400)}
+.hero h1{font-size:clamp(44px,7vw,72px);font-weight:900;margin-bottom:18px}
+.hero h1 b{color:var(--o-500)}
+.hero-lead{font-size:clamp(16px,2.2vw,19px);color:var(--navy-100);line-height:1.6;max-width:520px;margin-bottom:14px}
+.hero-sub{font-size:15px;color:var(--navy-300);line-height:1.7;max-width:500px;margin-bottom:26px}
+.hero-sub b{color:var(--navy-100);font-weight:600}
+.value-pill{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(100deg,rgba(201,96,40,.18),rgba(201,96,40,.05));
+  border:1px solid rgba(201,96,40,.35);border-radius:12px;padding:11px 18px;margin-bottom:26px}
+.value-pill .strike{font-family:var(--f-display);font-weight:800;font-size:22px;color:#fff}
+.value-pill .vtxt{font-size:13px;color:var(--o-200);line-height:1.35}
+.value-pill .vtxt b{color:#fff}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.hero-note{font-size:12.5px;color:var(--navy-300);display:flex;align-items:center;gap:7px}
+.hero-note svg{width:15px;height:15px;color:var(--green)}
+
+/* app shot */
+.shot{position:relative}
+.shot-frame{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04)}
+.shot-frame img{width:100%;display:block}
+.shot-frame iframe{width:100%;aspect-ratio:16/9;border:0;display:block;background:#05050f}
+.shot-badge{position:absolute;z-index:2;background:var(--navy-800);border:1px solid rgba(255,255,255,.12);
+  border-radius:11px;padding:11px 15px;box-shadow:0 12px 32px rgba(0,0,0,.45);display:flex;align-items:center;gap:11px}
+.shot-badge .ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.shot-badge .ico.org{background:rgba(201,96,40,.18);color:var(--o-300)}
+.shot-badge .ico.grn{background:rgba(76,175,125,.16);color:var(--green)}
+.shot-badge .bn{font-family:var(--f-display);font-weight:800;color:#fff;font-size:16px;line-height:1.1}
+.shot-badge .bl{font-size:11px;color:var(--navy-300)}
+.shot-badge.tl{top:-18px;left:-22px}
+.shot-badge.br{bottom:-18px;right:-18px}
+
+/* ── STATS BAR ── */
+.stats{border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.015)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:34px 0}
+.stat{text-align:center}
+.stat .num{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,4vw,40px);color:#fff;letter-spacing:-.03em;line-height:1}
+.stat .num em{color:var(--o-400)}
+.stat .lbl{font-size:13px;color:var(--navy-300);margin-top:8px;line-height:1.4}
+
+/* ── SECTION SHELL ── */
+.sec{padding:clamp(56px,8vw,92px) 0}
+.sec-eyebrow{font-family:var(--f-body);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--o-400);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.sec-eyebrow::before{content:'';width:26px;height:1px;background:var(--o-500)}
+.sec h2{font-size:clamp(28px,4.2vw,42px);font-weight:800;margin-bottom:18px;max-width:760px}
+.sec h2 b{color:var(--o-500)}
+.sec-intro{font-size:16px;color:var(--navy-300);max-width:640px;line-height:1.7}
+
+/* problem / story */
+.story{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+.story-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(30px,5vw,58px);align-items:center}
+.coach-photo{border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 26px 60px rgba(0,0,0,.5);position:relative}
+.coach-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(10,10,36,.5));pointer-events:none}
+.coach-photo img{width:100%;display:block}
+.coach-glow{position:absolute;inset:-30px;z-index:-1;border-radius:50%;filter:blur(60px);background:var(--o-700);opacity:.22}
+.coach-cap{margin-top:16px;text-align:center}
+.cc-name{font-family:var(--f-display);font-weight:800;color:#fff;font-size:19px}
+.cc-role{font-size:13px;color:var(--o-300);margin-top:3px}
+.story-quote{border-left:3px solid var(--o-500);background:rgba(201,96,40,.05);border-radius:0 12px 12px 0;
+  padding:22px 28px;margin-top:28px;max-width:760px}
+.story-quote p{font-size:18px;color:#fff;line-height:1.65;font-style:italic;margin-bottom:10px}
+.story-quote .src{font-size:13px;color:var(--o-300);font-weight:600}
+
+/* feature cards */
+.f-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:42px}
+.f-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);
+  padding:28px;transition:all .25s var(--ease)}
+.f-card:hover{border-color:rgba(201,96,40,.3);transform:translateY(-3px);background:rgba(255,255,255,.045)}
+.f-ico{width:46px;height:46px;border-radius:11px;background:rgba(201,96,40,.13);color:var(--o-400);
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.f-ico svg{width:24px;height:24px}
+.f-card h3{font-size:19px;font-weight:700;color:#fff;margin-bottom:9px}
+.f-card p{font-size:14.5px;color:var(--navy-300);line-height:1.65}
+.f-card p b{color:var(--navy-100);font-weight:600}
+
+/* how it works */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:42px}
+.step{text-align:center;position:relative}
+.step-n{width:54px;height:54px;border-radius:50%;background:var(--navy-800);border:1.5px solid rgba(201,96,40,.4);
+  color:var(--o-400);font-family:var(--f-display);font-weight:800;font-size:22px;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.step h3{font-size:18px;font-weight:700;color:#fff;margin-bottom:8px}
+.step p{font-size:14px;color:var(--navy-300);line-height:1.6;max-width:280px;margin:0 auto}
+
+/* comparison */
+.cmp{margin-top:40px;border:1px solid rgba(255,255,255,.08);border-radius:var(--r);overflow:hidden}
+.cmp-row{display:grid;grid-template-columns:1.4fr 1fr 1fr;align-items:stretch}
+.cmp-row>div{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06);font-size:14.5px;display:flex;align-items:center;gap:9px}
+.cmp-head>div{font-family:var(--f-display);font-weight:700;color:#fff;font-size:14px;background:rgba(255,255,255,.03);text-transform:uppercase;letter-spacing:.04em}
+.cmp-head .col-us{background:rgba(201,96,40,.12);color:var(--o-300)}
+.cmp-row .rl{color:var(--navy-200);font-weight:500}
+.cmp .col-us{background:rgba(201,96,40,.05);color:#fff;font-weight:600}
+.cmp .col-them{color:var(--navy-300)}
+.cmp-row:last-child>div{border-bottom:none}
+.ck{color:var(--green);flex-shrink:0}
+.cr{color:var(--red);flex-shrink:0}
+
+/* download */
+.dl{background:linear-gradient(180deg,var(--navy-800),var(--navy-900));border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;padding:clamp(32px,5vw,52px);margin-top:10px;position:relative;overflow:hidden}
+.dl .glow{bottom:-160px;left:50%;transform:translateX(-50%);width:520px;height:300px;background:var(--o-700);opacity:.3}
+.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:34px 0 22px;position:relative;z-index:1}
+.dl-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px;
+  display:flex;flex-direction:column;align-items:flex-start;gap:6px;transition:all .25s var(--ease)}
+.dl-card:hover{border-color:rgba(201,96,40,.35);background:rgba(255,255,255,.06)}
+.dl-card.feat{border-color:rgba(201,96,40,.3);background:rgba(201,96,40,.06)}
+.dl-os{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.dl-os svg{width:26px;height:26px;color:#fff}
+.dl-os .n{font-family:var(--f-display);font-weight:700;color:#fff;font-size:17px}
+.dl-meta{font-size:12.5px;color:var(--navy-300);margin-bottom:14px;min-height:34px}
+.dl-tag{font-size:11px;font-weight:600;color:var(--o-300);background:rgba(201,96,40,.14);border:1px solid rgba(201,96,40,.25);
+  border-radius:999px;padding:3px 10px;margin-bottom:12px;align-self:flex-start}
+.dl-card .btn{width:100%;justify-content:center}
+.dl-notes{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.dl-note{display:flex;gap:11px;font-size:13px;color:var(--navy-300);line-height:1.55;background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 16px}
+.dl-note svg{width:18px;height:18px;color:var(--o-400);flex-shrink:0;margin-top:1px}
+.dl-note b{color:var(--navy-100);font-weight:600}
+
+/* gift band */
+.gift{text-align:center;background:radial-gradient(120% 140% at 50% 0%,rgba(201,96,40,.14),transparent 60%)}
+.gift .badge-lg{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:13px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--o-300);border:1px solid rgba(201,96,40,.3);border-radius:999px;padding:8px 18px;margin-bottom:24px}
+.gift h2{font-size:clamp(28px,4.5vw,46px);margin:0 auto 18px;max-width:760px}
+.gift h2 b{color:var(--o-500)}
+.gift p{font-size:17px;color:var(--navy-200);max-width:620px;margin:0 auto 30px;line-height:1.7}
+
+/* footer */
+.ftr{border-top:1px solid rgba(255,255,255,.07);padding:46px 0 40px;background:var(--navy-950)}
+.ftr-grid{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.ftr-logo{display:flex;align-items:center;gap:11px}
+.ftr-logo img{height:30px}
+.ftr-logo .ft{font-family:var(--f-display);font-weight:800;color:#fff;font-size:15px}
+.ftr-logo .ft b{color:var(--o-400)}
+.ftr-sig{font-size:13px;color:var(--navy-300);line-height:1.6}
+.ftr-sig b{color:var(--navy-100)}
+.ftr-sig a{color:var(--o-400)}
+.ftr-tag{font-family:var(--f-display);font-size:12px;color:var(--navy-300);letter-spacing:.1em;text-transform:uppercase}
+
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .story-grid{grid-template-columns:1fr;gap:32px}
+  .story-coach{max-width:360px;margin:0 auto;order:-1}
+  .shot{order:-1;max-width:480px;margin:0 auto}
+  .shot-frame{transform:none}
+  .stats .wrap{grid-template-columns:1fr 1fr;gap:28px 18px}
+  .f-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:30px}
+  .dl-grid{grid-template-columns:1fr}
+  .dl-notes{grid-template-columns:1fr}
+  .cmp-row{grid-template-columns:1.3fr .85fr .85fr}
+  .cmp-row>div{padding:13px 12px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="tb-logo" href="/"><img src="assets/logo-white.png" alt="10X Life OS" onerror="this.style.display='none'">Chép <b>Lời</b></a>
+    <span class="spacer"></span>
+    <a class="tb-back" href="https://10xlifeos.com">← 10XLifeOS.Com</a>
+    <a class="btn btn-primary btn-sm" href="#tai-app">Tải app</a>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <span class="glow a"></span><span class="glow b"></span>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="dot"></span> Quà tặng đặc quyền · Leader 10X &amp; bạn bè thân thiết</span>
+      <h1>Chép <b>Lời</b></h1>
+      <p class="hero-lead">Chuyển giọng nói thành văn bản — <b style="color:#fff">ngay trên máy bạn.</b></p>
+      <p class="hero-sub">Chép lại mọi buổi coaching, ghi âm, video, cuộc họp... ra văn bản tiếng Việt. Chạy thẳng trên máy: <b>không cần internet, không giới hạn số lượng, và không một giây dữ liệu nào rời khỏi máy bạn.</b></p>
+      <div class="value-pill">
+        <span class="strike">$199</span>
+        <span class="vtxt"><b>Trị giá $199</b> — tặng riêng bạn.<br>Miễn phí trọn đời, không thu thêm.</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#tai-app">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M8 11l4 4 4-4"/><path d="M5 19h14"/></svg>
+          Tải app miễn phí
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#cach-dung">Xem cách dùng</a>
+      </div>
+      <p class="hero-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        Cho cả máy Mac &amp; Windows · Cài 1 phút · Không cần tài khoản
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="shot-badge tl">
+        <span class="ico org"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></span>
+        <span><span class="bn">17,4×</span><br><span class="bl">nhanh hơn thời gian thực</span></span>
+      </div>
+      <div class="shot-frame">
+        <iframe src="demo-animation.html" title="Chép Lời — video demo sản phẩm" scrolling="no" loading="eager"></iframe>
+      </div>
+      <div class="shot-badge br">
+        <span class="ico grn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+        <span><span class="bn">100%</span><br><span class="bl">ngoại tuyến · riêng tư</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="num"><em>17,4×</em></div><div class="lbl">Nhanh hơn thời gian thực<br>(1 giờ ghi âm ≈ 3,5 phút)</div></div>
+    <div class="stat"><div class="num">2 ngày</div><div class="lbl">Chạy liên tục, không nghỉ<br>— bền bỉ, ổn định</div></div>
+    <div class="stat"><div class="num">500+</div><div class="lbl">File đã chép xong<br>~20 giờ ghi âm</div></div>
+    <div class="stat"><div class="num">0₫</div><div class="lbl">Chi phí mỗi tháng<br>Không giới hạn, không phí ẩn</div></div>
+  </div>
+</section>
+
+<!-- ── STORY / WHY ── -->
+<section class="sec story">
+  <div class="wrap story-grid">
+    <div class="story-text">
+      <div class="sec-eyebrow">Vì sao có app này</div>
+      <h2>Dữ liệu của bạn là <b>của bạn.</b> Không phải món hàng trên đám mây.</h2>
+      <p class="sec-intro">Các công cụ chép lời online bắt bạn <b style="color:var(--navy-100)">tải file ghi âm lên máy chủ của họ</b>, trả phí hằng tháng, và giới hạn số phút. Với những buổi coaching riêng tư, cuộc họp nội bộ, ghi âm cá nhân — đưa lên mạng là một rủi ro không đáng có.</p>
+      <div class="story-quote">
+        <p>"Chép Lời xử lý mọi thứ ngay trên máy bạn. Không một giây âm thanh nào rời khỏi máy. Đó là sự riêng tư tuyệt đối — thứ mà không công cụ đám mây nào cho bạn được."</p>
+        <div class="src">— Coach Thắng Huyền Đức · 10X Life OS</div>
+      </div>
+    </div>
+    <div class="story-coach">
+      <div class="coach-photo">
+        <span class="coach-glow"></span>
+        <img src="assets/coach-thang.png" alt="Coach Thắng Huyền Đức — 10X Life OS" />
+      </div>
+      <div class="coach-cap">
+        <div class="cc-name">Coach Thắng Huyền Đức</div>
+        <div class="cc-role">Mind Coach · Tỉnh thức · Tự học · AI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ── -->
+<section class="sec" id="vi-sao">
+  <div class="wrap">
+    <div class="sec-eyebrow">Điều làm nên khác biệt</div>
+    <h2>Bốn điều khiến Chép Lời <b>vượt trội</b></h2>
+    <div class="f-grid">
+      <div class="f-card">
+        <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h3>Riêng tư tuyệt đối</h3>
+        <p>Âm thanh xử lý <b>100% trên máy bạn</b>, không gửi gì lên internet. Sau lần cài đầu, app chạy hoàn toàn ngoại tuyến — tắt Wi-Fi vẫn chép bình thường.</p>
+      </div>
+      <div class="f-card">
+        <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20" opacity="0"/><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 .9-1 1.7M12 17h.01"/></svg></div>
+        <h3>Không phí, không giới hạn</h3>
+        <p>Chép <b>bao nhiêu file cũng được</b>, dài bao lâu cũng được — miễn phí trọn đời. Không gói thuê bao, không tính phút, không phí ẩn như các công cụ đám mây.</p>
+      </div>
+      <div class="f-card">
+        <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div>
+        <h3>Nhanh nhờ card đồ họa (GPU)</h3>
+        <p>Dùng sức mạnh GPU của máy: nhanh <b>~17 lần</b> thời gian thực. Một buổi coaching 1 tiếng được chép xong chỉ trong vài phút. Chạy được cả hàng trăm file liên tục.</p>
+      </div>
+      <div class="f-card">
+        <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5h16v2M9 20h6M12 5v15"/></svg></div>
+        <h3>Tiếng Việt chuẩn</h3>
+        <p>Nhận diện tiếng Việt rõ ràng, tự động lọc đoạn im lặng và tạp âm. Xuất ra <b>file phụ đề .srt + văn bản .txt</b> đặt ngay cạnh file gốc — dùng được ngay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="sec" id="cach-dung" style="background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)">
+  <div class="wrap">
+    <div class="sec-eyebrow">Dùng cực dễ — 3 bước</div>
+    <h2>Từ giọng nói đến văn bản, <b>chỉ 3 bước</b></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Chọn file hoặc thư mục</h3>
+        <p>Bấm "Chọn thư mục" hoặc "Chọn file" — kéo cả thư mục đầy ghi âm vào cũng được.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>App tự chép</h3>
+        <p>App chép từng file, hiện tiến độ rõ ràng. Lỡ tắt giữa chừng, mở lại nó chạy tiếp — không làm lại từ đầu.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Nhận kết quả</h3>
+        <p>Mỗi file ra một bản <b style="color:var(--navy-100)">.srt</b> (phụ đề) và <b style="color:var(--navy-100)">.txt</b> (văn bản) ngay cạnh file gốc.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPARISON ── -->
+<section class="sec" id="so-sanh">
+  <div class="wrap">
+    <div class="sec-eyebrow">So với công cụ đám mây</div>
+    <h2>Chép Lời <b>khác gì</b> các công cụ online?</h2>
+    <div class="cmp">
+      <div class="cmp-row cmp-head">
+        <div>Tiêu chí</div>
+        <div class="col-us">Chép Lời</div>
+        <div class="col-them">Công cụ đám mây</div>
+      </div>
+      <div class="cmp-row">
+        <div class="rl">Dữ liệu / Riêng tư</div>
+        <div class="col-us"><svg class="ck" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Ở lại trên máy bạn</div>
+        <div class="col-them"><svg class="cr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Tải lên máy chủ họ</div>
+      </div>
+      <div class="cmp-row">
+        <div class="rl">Chi phí</div>
+        <div class="col-us"><svg class="ck" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Miễn phí trọn đời</div>
+        <div class="col-them"><svg class="cr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Thuê bao hằng tháng</div>
+      </div>
+      <div class="cmp-row">
+        <div class="rl">Giới hạn số lượng</div>
+        <div class="col-us"><svg class="ck" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Không giới hạn</div>
+        <div class="col-them"><svg class="cr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Giới hạn phút / tháng</div>
+      </div>
+      <div class="cmp-row">
+        <div class="rl">Cần internet</div>
+        <div class="col-us"><svg class="ck" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Không (sau lần đầu)</div>
+        <div class="col-them"><svg class="cr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Luôn cần mạng</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DOWNLOAD ── -->
+<section class="sec" id="tai-app">
+  <div class="wrap">
+    <div class="dl">
+      <span class="glow"></span>
+      <div style="position:relative;z-index:1;text-align:center;max-width:600px;margin:0 auto">
+        <div class="sec-eyebrow" style="justify-content:center">Tải về &amp; cài ngay</div>
+        <h2 style="margin:0 auto 12px">Bắt đầu chép lời trong <b>1 phút</b></h2>
+        <p class="sec-intro" style="margin:0 auto">Chọn bản cho máy của bạn. File cài nhỏ gọn; lần đầu mở app sẽ tự tải "bộ não" AI (~1.6&nbsp;GB) về một lần, sau đó dùng ngoại tuyến hoàn toàn.</p>
+      </div>
+      <div class="dl-grid">
+        <div class="dl-card feat">
+          <div class="dl-os">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.6c0 1.1-.4 2.1-1.2 3-.9 1-2 1.5-3 1.4-.1-1.1.4-2.2 1.2-3 .8-.9 2-1.4 3-1.4zM20 17.2c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.4 3.4-4.1 3.4-1.5 0-1.9-1-4-1-2 0-2.5 1-4 1-1.7 0-3-1.7-4-3.2-2.8-4.3-3.1-9.3-1.4-12 1.2-1.9 3.1-3 4.9-3 1.8 0 3 1 4.5 1 1.5 0 2.4-1 4.5-1 1.6 0 3.3.9 4.5 2.4-4 2.2-3.3 7.9.1 9.8z"/></svg>
+            <span class="n">macOS</span>
+          </div>
+          <span class="dl-tag">Khuyến nghị cho máy Mac</span>
+          <div class="dl-meta">Máy Mac chip Apple (M1–M4). Nhanh nhất nhờ GPU Metal. ~6&nbsp;MB.</div>
+          <a class="btn btn-primary" href="download/ChepLoi-Mac.dmg" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M8 11l4 4 4-4"/><path d="M5 19h14"/></svg> Tải cho Mac (.dmg)
+          </a>
+        </div>
+        <div class="dl-card">
+          <div class="dl-os">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v7.3H3V5.5zM3 12.3h8v7.3l-8-1.1v-6.2zM12 4.3l9-1.3v8.7h-9V4.3zM12 12.3h9V21l-9-1.3v-7.4z"/></svg>
+            <span class="n">Windows</span>
+          </div>
+          <span class="dl-tag" style="color:var(--navy-200);background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)">Cho mọi máy Windows</span>
+          <div class="dl-meta">Bản thường — chạy được trên mọi máy Windows 10/11. ~4&nbsp;MB.</div>
+          <a class="btn btn-ghost" href="download/ChepLoi-Windows.exe" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M8 11l4 4 4-4"/><path d="M5 19h14"/></svg> Tải cho Windows
+          </a>
+        </div>
+        <div class="dl-card">
+          <div class="dl-os">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v7.3H3V5.5zM3 12.3h8v7.3l-8-1.1v-6.2zM12 4.3l9-1.3v8.7h-9V4.3zM12 12.3h9V21l-9-1.3v-7.4z"/></svg>
+            <span class="n">Windows GPU</span>
+          </div>
+          <span class="dl-tag">Máy có card đồ họa rời</span>
+          <div class="dl-meta">Bản tăng tốc — nhanh hơn nhiều nếu máy có card NVIDIA/AMD. ~9&nbsp;MB.</div>
+          <a class="btn btn-ghost" href="download/ChepLoi-Windows-GPU.exe" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M8 11l4 4 4-4"/><path d="M5 19h14"/></svg> Tải bản GPU
+          </a>
+        </div>
+      </div>
+      <div class="dl-notes">
+        <div class="dl-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span><b>Lần đầu mở sẽ có cảnh báo "nhà phát triển không xác định"</b> (vì app miễn phí, chưa mua chứng nhận). Trên Mac: bấm chuột phải vào app → <b>Mở</b>. Trên Windows: bấm <b>"More info → Run anyway"</b>. Hoàn toàn an toàn.</span>
+        </div>
+        <div class="dl-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M8 11l4 4 4-4"/><path d="M5 19h14"/></svg>
+          <span><b>Lần đầu cần internet</b> để tải "bộ não" AI (~1.6&nbsp;GB) về máy một lần duy nhất. Sau đó app chạy <b>hoàn toàn ngoại tuyến</b>, không gửi gì lên mạng.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GIFT BAND ── -->
+<section class="sec gift">
+  <div class="wrap">
+    <span class="badge-lg"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--o-400);display:inline-block"></span> Quà tặng đặc quyền · Trị giá $199</span>
+    <h2>Một món quà <b>nhỏ mà có tâm</b><br>cho cộng đồng 10X</h2>
+    <p>Chép Lời được trao tặng riêng cho <b style="color:#fff">thành viên Leader 10X</b> và <b style="color:#fff">bạn bè thân thiết</b> của Coach Thắng Huyền Đức. Hãy giữ lại nhiều thời gian hơn cho việc thật sự quan trọng — để máy lo phần chép lời.</p>
+    <a class="btn btn-primary btn-lg" href="#tai-app">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M8 11l4 4 4-4"/><path d="M5 19h14"/></svg>
+      Nhận app ngay — Miễn phí
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="ftr">
+  <div class="wrap ftr-grid">
+    <div class="ftr-logo">
+      <img src="assets/logo-white.png" alt="10X Life OS" onerror="this.style.display='none'">
+      <span class="ft">Chép <b>Lời</b></span>
+    </div>
+    <span class="spacer"></span>
+    <div class="ftr-sig">
+      Dev by <b>Thắng Huyền Đức</b> · <a href="https://10xlifeos.com">10XLifeOS.Com</a><br>
+      <span class="ftr-tag">Khai Thông · Khai Mở · Khai Phóng</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
