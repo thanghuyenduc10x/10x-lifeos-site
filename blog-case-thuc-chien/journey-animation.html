@@ -65,6 +65,7 @@ body{margin:0;height:100vh;overflow:hidden;font-family:var(--fb);display:flex;al
 .dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5}
 .dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.18);transition:all .4s}
 .dots i.on{background:var(--o-500);width:18px;border-radius:99px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
 </style></head>
 <body>
 <div class="stage" id="stage">
@@ -136,7 +137,8 @@ function show(i){
   if(i===2){const fl=document.getElementById('fanline');fl.style.width='0';fl.style.transition='none';
     setTimeout(()=>{fl.style.transition='width 1s var(--ease)';fl.style.width='calc(100% - 64px)'},60);}
 }
-function play(){ clearTimeout(timer); let i=0; (function next(){ show(i); timer=setTimeout(()=>{i=(i+1)%scenes.length;next();},durations[i]); })(); }
-window.addEventListener('load',play);
+function play(){ clearTimeout(timer); let i=0; (function next(){ show(i); if(i<scenes.length-1){ timer=setTimeout(()=>{i++;next();},durations[i]); } })(); }
+const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
+window.addEventListener('load',function(){ if(reduceMotion){ show(scenes.length-1); } else { play(); } });
 </script>
 </body></html>
