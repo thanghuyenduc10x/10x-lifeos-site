@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coach Thắng Huyền Đức — 10X Life OS</title>
+<meta name="description" content="Khai thông bế tắc · Khai mở tiềm năng · Khai phóng đột phá. Tròn đầy bên trong, Đủ đầy bên ngoài — cùng cộng đồng 10X Life OS." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Brand — 10X Life OS */
+    --navy-950:#070718; --navy-900:#0A0A24; --navy-800:#12123A; --navy-700:#1A1A50;
+    --navy-600:#24246A; --navy-500:#353590; --navy-300:#8888C0; --navy-200:#B0B0D8;
+    --o-600:#A84F20; --o-500:#C96028; --o-400:#D97538; --o-300:#E89060; --o-200:#F0B090;
+    --white:#FFFFFF; --cream:#F8F7F4; --ink:#12123A;
+    --f-display:'Montserrat',sans-serif; --f-body:'Be Vietnam Pro',sans-serif;
+    --container:1180px; --r:18px;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--f-body);background:var(--navy-900);color:var(--navy-200);
+    line-height:1.6;overflow-x:hidden;font-weight:400;letter-spacing:.01em;
+  }
+  h1,h2,h3,h4,.display{font-family:var(--f-display);color:var(--white);line-height:1.08;letter-spacing:-.02em;font-weight:800}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--container);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+  em{font-style:normal;color:var(--o-400)}
+
+  /* i18n */
+  .lang{display:none}
+  html[data-lang="vi"] .lang-vi{display:inline}
+  html[data-lang="en"] .lang-en{display:inline}
+  .lang.block{display:none}
+  html[data-lang="vi"] .lang-vi.block{display:block}
+  html[data-lang="en"] .lang-en.block{display:block}
+
+  /* ---------- NAV ---------- */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s var(--ease),backdrop-filter .4s,box-shadow .4s,padding .4s}
+  header.scrolled{background:rgba(10,10,36,.82);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(136,136,192,.12)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding-block:20px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:34px;width:auto}
+  .brand b{font-family:var(--f-display);color:#fff;font-weight:700;font-size:1.05rem;letter-spacing:.02em}
+  .nav-links{display:flex;align-items:center;gap:34px;font-size:.93rem;font-weight:500;color:var(--navy-200)}
+  .nav-links a{position:relative;transition:color .25s}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--o-500);transition:width .3s var(--ease)}
+  .nav-links a:hover{color:#fff}.nav-links a:hover::after{width:100%}
+  .nav-right{display:flex;align-items:center;gap:18px}
+  .langtog{display:flex;align-items:center;gap:2px;font-family:var(--f-display);font-weight:600;font-size:.8rem;color:var(--navy-300);border:1px solid rgba(136,136,192,.25);border-radius:999px;overflow:hidden}
+  .langtog button{background:none;border:0;color:var(--navy-300);padding:7px 12px;cursor:pointer;font:inherit;transition:.25s}
+  .langtog button.active{background:var(--o-500);color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--f-display);font-weight:700;font-size:.92rem;letter-spacing:.01em;padding:13px 24px;border-radius:999px;cursor:pointer;border:0;white-space:nowrap;transition:transform .25s var(--ease),box-shadow .25s,background .25s}
+  .btn-primary{background:var(--o-500);color:#fff;box-shadow:0 10px 30px -8px rgba(201,96,40,.6)}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--o-400);box-shadow:0 16px 40px -10px rgba(201,96,40,.7)}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(176,176,216,.35)}
+  .btn-ghost:hover{border-color:var(--o-400);color:var(--o-300);transform:translateY(-2px)}
+  .arrow{transition:transform .25s var(--ease)}
+  .btn:hover .arrow{transform:translateX(4px)}
+  .hamb{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .hamb span{width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding-top:170px;padding-bottom:90px;overflow:hidden;isolation:isolate}
+  .hero-bg{position:absolute;inset:0;z-index:-2;background:
+     radial-gradient(120% 90% at 50% -10%, var(--navy-700) 0%, var(--navy-900) 55%, var(--navy-950) 100%)}
+  /* lighthouse beam */
+  .beam{position:absolute;top:-20%;left:50%;width:140vw;height:140vh;z-index:-1;transform:translateX(-50%);
+    background:conic-gradient(from 200deg at 50% 0%, transparent 0deg, rgba(201,96,40,.0) 20deg, rgba(217,117,56,.10) 32deg, rgba(232,144,96,.16) 40deg, rgba(201,96,40,.05) 48deg, transparent 60deg);
+    filter:blur(6px);animation:sweep 14s var(--ease) infinite alternate;pointer-events:none}
+  @keyframes sweep{from{transform:translateX(-50%) rotate(-10deg)}to{transform:translateX(-50%) rotate(10deg)}}
+  .glow{position:absolute;top:6%;left:50%;width:680px;height:680px;max-width:90vw;z-index:-1;transform:translateX(-50%);
+    background:radial-gradient(circle,rgba(201,96,40,.22) 0%,rgba(201,96,40,0) 65%);pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:600;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--o-300);margin-bottom:26px}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--o-500);box-shadow:0 0 14px 2px var(--o-500)}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:900;margin-bottom:10px}
+  .hero h1 .line{display:block}
+  .manifesto{font-family:var(--f-display);font-weight:600;font-size:clamp(1.05rem,2.2vw,1.4rem);color:var(--navy-200);margin:22px 0 14px;letter-spacing:-.01em}
+  .hero p.sub{font-size:1.08rem;max-width:34ch;color:var(--navy-200);margin-bottom:34px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .micro{font-size:.84rem;color:var(--navy-300);margin-top:20px;display:flex;align-items:center;gap:8px}
+  .micro b{color:var(--o-300);font-family:var(--f-display)}
+  /* portrait */
+  .portrait{position:relative}
+  .portrait .ring{position:absolute;inset:-18px;border-radius:50%;border:1px dashed rgba(232,144,96,.35);animation:spin 38s linear infinite}
+  .portrait .ring::before{content:"";position:absolute;top:-5px;left:50%;width:9px;height:9px;margin-left:-4px;border-radius:50%;background:var(--o-500);box-shadow:0 0 12px 2px var(--o-400)}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .portrait .photo{position:relative;border-radius:50%;overflow:hidden;border:2px solid rgba(176,176,216,.25);box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+  .portrait .photo img{width:100%;aspect-ratio:1;object-fit:cover}
+  .badge{position:absolute;bottom:14px;left:-14px;background:rgba(18,18,58,.9);backdrop-filter:blur(8px);border:1px solid rgba(136,136,192,.25);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:11px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
+  .badge .n{font-family:var(--f-display);font-weight:800;color:#fff;font-size:1.3rem;line-height:1}
+  .badge .l{font-size:.72rem;color:var(--navy-300);line-height:1.2}
+
+  /* ---------- PROOF BAR ---------- */
+  .proof{border-block:1px solid rgba(136,136,192,.14);background:rgba(10,10,36,.5)}
+  .proof .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:36px}
+  .stat{text-align:center}
+  .stat .n{font-family:var(--f-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:#fff}
+  .stat .n em{color:var(--o-400)}
+  .stat .l{font-size:.82rem;color:var(--navy-300);margin-top:4px}
+
+  /* ---------- SECTIONS ---------- */
+  section{position:relative}
+  .sec{padding-block:clamp(72px,10vw,118px)}
+  .sec-head{max-width:680px;margin-bottom:54px}
+  .sec-head.center{margin-inline:auto;text-align:center}
+  .kicker{font-family:var(--f-display);font-weight:700;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--o-400);margin-bottom:16px;display:block}
+  .sec h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:18px}
+  .sec h2 em{color:var(--o-400)}
+  .lead{font-size:1.1rem;color:var(--navy-200)}
+
+  /* differentiation pillars */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .pill{background:linear-gradient(180deg,rgba(36,36,106,.32),rgba(18,18,58,.32));border:1px solid rgba(136,136,192,.16);border-radius:var(--r);padding:34px 30px;transition:transform .4s var(--ease),border-color .4s,background .4s}
+  .pill:hover{transform:translateY(-6px);border-color:rgba(217,117,56,.5);background:linear-gradient(180deg,rgba(36,36,106,.5),rgba(18,18,58,.4))}
+  .pill .ic{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;background:rgba(201,96,40,.14);border:1px solid rgba(217,117,56,.3);margin-bottom:22px;font-size:1.5rem}
+  .pill h3{font-size:1.25rem;margin-bottom:10px}
+  .pill p{font-size:.96rem;color:var(--navy-300)}
+  .pill .num{font-family:var(--f-display);font-weight:800;color:rgba(136,136,192,.3);font-size:.9rem;letter-spacing:.1em}
+
+  /* reframe band */
+  .reframe{background:var(--navy-950);border-block:1px solid rgba(136,136,192,.12)}
+  .reframe .wrap{text-align:center;padding-block:clamp(70px,9vw,100px)}
+  .reframe h2{font-size:clamp(1.8rem,4.4vw,3.1rem);max-width:18ch;margin-inline:auto}
+  .reframe h2 .strike{color:var(--navy-300);text-decoration:line-through;text-decoration-color:rgba(201,96,40,.6);text-decoration-thickness:2px}
+
+  /* community split */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .panel{background:linear-gradient(150deg,var(--navy-700),var(--navy-800));border:1px solid rgba(136,136,192,.18);border-radius:24px;padding:40px;position:relative;overflow:hidden}
+  .panel::after{content:"";position:absolute;top:-40%;right:-30%;width:300px;height:300px;background:radial-gradient(circle,rgba(201,96,40,.18),transparent 70%)}
+  .clist{list-style:none;display:grid;gap:16px;margin-top:8px}
+  .clist li{display:flex;gap:13px;align-items:flex-start;font-size:1rem;color:var(--navy-200)}
+  .clist .ck{flex:0 0 22px;height:22px;border-radius:50%;background:rgba(201,96,40,.15);border:1px solid var(--o-500);color:var(--o-300);display:grid;place-items:center;font-size:.7rem;margin-top:2px}
+
+  /* resource cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:linear-gradient(180deg,rgba(36,36,106,.28),rgba(18,18,58,.28));border:1px solid rgba(136,136,192,.16);border-radius:var(--r);overflow:hidden;transition:transform .4s var(--ease),border-color .4s}
+  .card:hover{transform:translateY(-6px);border-color:rgba(217,117,56,.45)}
+  .card .top{height:120px;background:linear-gradient(135deg,var(--navy-600),var(--navy-800));display:grid;place-items:center;font-size:2.2rem;border-bottom:1px solid rgba(136,136,192,.14)}
+  .card .body{padding:24px}
+  .card .tag{font-family:var(--f-display);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--o-400)}
+  .card h3{font-size:1.12rem;margin:8px 0 8px}
+  .card p{font-size:.9rem;color:var(--navy-300);margin-bottom:14px}
+  .card .go{font-family:var(--f-display);font-weight:700;font-size:.85rem;color:var(--o-300);display:inline-flex;gap:6px;align-items:center}
+
+  /* lead magnet */
+  .lead-magnet{margin-top:40px;background:linear-gradient(135deg,var(--o-600),var(--o-500));border-radius:24px;padding:clamp(34px,5vw,52px);display:grid;grid-template-columns:1.3fr .7fr;gap:36px;align-items:center;position:relative;overflow:hidden}
+  .lead-magnet::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 20%,rgba(255,255,255,.18),transparent 50%)}
+  .lead-magnet h3{font-size:clamp(1.4rem,3vw,2rem);color:#fff;position:relative}
+  .lead-magnet p{color:rgba(255,255,255,.9);position:relative;margin-top:10px}
+  .lm-form{position:relative;display:flex;flex-direction:column;gap:12px}
+  .lm-form input{padding:15px 18px;border-radius:12px;border:0;font:inherit;font-size:.95rem;background:rgba(255,255,255,.95);color:var(--ink)}
+  .lm-form button{background:var(--navy-800);color:#fff;justify-content:center}
+  .lm-form button:hover{background:var(--navy-900)}
+
+  /* pricing */
+  .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
+  .tier{background:linear-gradient(180deg,rgba(36,36,106,.26),rgba(18,18,58,.26));border:1px solid rgba(136,136,192,.16);border-radius:var(--r);padding:30px 24px;display:flex;flex-direction:column;transition:transform .4s var(--ease),border-color .4s}
+  .tier:hover{transform:translateY(-6px);border-color:rgba(136,136,192,.4)}
+  .tier.feat{border-color:var(--o-500);background:linear-gradient(180deg,rgba(168,79,32,.22),rgba(18,18,58,.4));box-shadow:0 30px 60px -28px rgba(201,96,40,.5)}
+  .tier .pill-tag{align-self:flex-start;font-family:var(--f-display);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--o-300);border:1px solid rgba(217,117,56,.4);border-radius:999px;padding:4px 11px;margin-bottom:16px}
+  .tier h3{font-size:1.2rem;margin-bottom:6px}
+  .tier .price{font-family:var(--f-display);font-weight:800;color:#fff;font-size:1.7rem;margin:6px 0}
+  .tier .price small{font-size:.8rem;color:var(--navy-300);font-weight:500}
+  .tier .desc{font-size:.86rem;color:var(--navy-300);margin-bottom:18px;min-height:38px}
+  .tier ul{list-style:none;display:grid;gap:9px;margin-bottom:22px;font-size:.86rem;color:var(--navy-200)}
+  .tier ul li{display:flex;gap:9px}.tier ul li::before{content:"›";color:var(--o-400);font-weight:700}
+  .tier .btn{margin-top:auto;justify-content:center;width:100%}
+  .tier .btn-soft{background:rgba(136,136,192,.12);color:#fff;border:1px solid rgba(136,136,192,.25)}
+  .tier .btn-soft:hover{background:rgba(136,136,192,.2)}
+
+  /* about */
+  .about{background:var(--cream);color:var(--ink)}
+  .about h2,.about h3,.about .display{color:var(--ink)}
+  .about .lead,.about p{color:#453E36}
+  .about .split{align-items:center}
+  .about .kicker{color:var(--o-600)}
+  .quote{font-family:var(--f-display);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.4;color:var(--ink);border-left:3px solid var(--o-500);padding-left:24px;margin:26px 0}
+  .sig{font-family:var(--f-display);font-weight:700;color:var(--ink);margin-top:18px}
+  .sig small{display:block;font-weight:500;color:#807870;font-size:.85rem;margin-top:2px}
+  .symbols{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+  .sym{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #EEECEA;border-radius:12px;padding:11px 15px;font-size:.85rem;font-weight:600;color:var(--ink)}
+  .sym .e{font-size:1.2rem}
+
+  /* final cta */
+  .final{position:relative;overflow:hidden;text-align:center;background:radial-gradient(120% 100% at 50% 120%,var(--navy-700),var(--navy-950))}
+  .final .wrap{padding-block:clamp(80px,11vw,130px);position:relative}
+  .final .glow{top:auto;bottom:-30%}
+  .final h2{font-size:clamp(2rem,5vw,3.4rem);max-width:20ch;margin:0 auto 18px}
+  .final p{font-size:1.1rem;max-width:48ch;margin:0 auto 34px;color:var(--navy-200)}
+  .final .hero-cta{justify-content:center}
+
+  /* footer */
+  footer{background:var(--navy-950);border-top:1px solid rgba(136,136,192,.12);padding-block:54px 30px;font-size:.9rem}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}
+  footer h4{font-family:var(--f-display);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-300);margin-bottom:16px;font-weight:700}
+  footer ul{list-style:none;display:grid;gap:10px}
+  footer a{color:var(--navy-200);transition:color .25s}footer a:hover{color:var(--o-300)}
+  .foot-brand img{height:38px;margin-bottom:16px}
+  .foot-brand p{color:var(--navy-300);max-width:34ch;font-size:.9rem}
+  .socials{display:flex;gap:12px;margin-top:18px}
+  .socials a{width:38px;height:38px;border-radius:10px;border:1px solid rgba(136,136,192,.2);display:grid;place-items:center;color:var(--navy-200);transition:.25s}
+  .socials a:hover{border-color:var(--o-500);color:var(--o-300);transform:translateY(-2px)}
+  .foot-bottom{border-top:1px solid rgba(136,136,192,.1);padding-top:24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--navy-300);font-size:.82rem}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:48px}
+    .portrait{max-width:340px;margin-inline:auto;order:-1}
+    .hero p.sub{max-width:none}
+    .split{grid-template-columns:1fr;gap:32px}
+    .pillars,.cards{grid-template-columns:1fr}
+    .tiers{grid-template-columns:repeat(2,1fr)}
+    .lead-magnet{grid-template-columns:1fr}
+    .proof .wrap{grid-template-columns:repeat(2,1fr);gap:30px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    /* collapse nav to hamburger on tablet & below */
+    .nav-links{position:fixed;inset:74px 16px auto 16px;flex-direction:column;gap:0;background:rgba(10,10,36,.97);backdrop-filter:blur(16px);border:1px solid rgba(136,136,192,.2);border-radius:16px;padding:10px;align-items:stretch;transform:translateY(-12px);opacity:0;pointer-events:none;transition:.3s}
+    .nav-links.open{transform:none;opacity:1;pointer-events:auto}
+    .nav-links a{padding:14px 16px;font-size:1rem}.nav-links a::after{display:none}
+    .hamb{display:flex}
+    .nav .btn-primary{display:none}
+  }
+  @media(max-width:680px){
+    .tiers{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .foot-bottom{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <img src="assets/logo-white.png" alt="10X Life OS" />
+      <b>10X Life OS</b>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#community"><span class="lang lang-vi">Cộng đồng</span><span class="lang lang-en">Community</span></a>
+      <a href="#resources"><span class="lang lang-vi">Tài nguyên</span><span class="lang lang-en">Resources</span></a>
+      <a href="#tiers"><span class="lang lang-vi">Lộ trình</span><span class="lang lang-en">Programs</span></a>
+      <a href="#about"><span class="lang lang-vi">Về Coach</span><span class="lang lang-en">About</span></a>
+    </nav>
+    <div class="nav-right">
+      <div class="langtog" role="group" aria-label="Language">
+        <button data-setlang="vi" class="active">VI</button>
+        <button data-setlang="en">EN</button>
+      </div>
+      <a href="#tiers" class="btn btn-primary">
+        <span class="lang lang-vi">Khai phóng ngay</span><span class="lang lang-en">Get started</span>
+        <span class="arrow">→</span>
+      </a>
+      <button class="hamb" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="beam"></div>
+  <div class="glow"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal"><span class="dot"></span>
+        <span class="lang lang-vi">Mind Coach · Tỉnh thức · Tự học · AI</span>
+        <span class="lang lang-en">Mind Coach · Awareness · Self-mastery · AI</span>
+      </span>
+      <h1 class="reveal">
+        <span class="line"><span class="lang lang-vi">Khai thông.</span><span class="lang lang-en">Unblock.</span></span>
+        <span class="line"><span class="lang lang-vi">Khai mở.</span><span class="lang lang-en">Unlock.</span></span>
+        <span class="line"><em><span class="lang lang-vi">Khai phóng.</span><span class="lang lang-en">Unleash.</span></em></span>
+      </h1>
+      <p class="manifesto reveal">
+        <span class="lang lang-vi">Tròn đầy bên trong — Đủ đầy bên ngoài.</span>
+        <span class="lang lang-en">Whole within — Abundant without.</span>
+      </p>
+      <p class="sub reveal">
+        <span class="lang lang-vi">Cùng cộng đồng <strong style="color:#fff">10X</strong>, thiết kế lại bản thân và cuộc đời — sống đột phá trong điềm tĩnh, nhất quán mỗi ngày.</span>
+        <span class="lang lang-en">With the <strong style="color:#fff">10X</strong> community, redesign yourself and your life — breakthrough work from a place of calm, consistent every day.</span>
+      </p>
+      <div class="hero-cta reveal">
+        <a href="#resources" class="btn btn-primary">
+          <span class="lang lang-vi">Nhận Hệ thống AI 7 ngày</span><span class="lang lang-en">Get the 7-Day AI System</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="#community" class="btn btn-ghost">
+          <span class="lang lang-vi">Khám phá cộng đồng 10X</span><span class="lang lang-en">Explore the 10X community</span>
+        </a>
+      </div>
+      <div class="micro reveal">
+        <b>300+</b>
+        <span class="lang lang-vi">phiên coaching 1:1 · Miễn phí để bắt đầu</span>
+        <span class="lang lang-en">1:1 coaching sessions · Free to start</span>
+      </div>
+    </div>
+
+    <div class="portrait reveal">
+      <div class="ring"></div>
+      <div class="photo"><img src="assets/coach-thang.png" alt="Coach Thắng Huyền Đức" /></div>
+      <div class="badge">
+        <div class="n">10X</div>
+        <div class="l">
+          <span class="lang lang-vi">Tự Nhiên · Tự Do<br>Tự Động</span>
+          <span class="lang lang-en">Natural · Free<br>Automatic</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF BAR ============ -->
+<div class="proof">
+  <div class="wrap">
+    <div class="stat reveal"><div class="n">300<em>+</em></div><div class="l"><span class="lang lang-vi">Phiên coaching 1:1</span><span class="lang lang-en">1:1 coaching sessions</span></div></div>
+    <div class="stat reveal"><div class="n">3</div><div class="l"><span class="lang lang-vi">Trụ cột chuyển hóa</span><span class="lang lang-en">Pillars of transformation</span></div></div>
+    <div class="stat reveal"><div class="n">90<em>%</em></div><div class="l"><span class="lang lang-vi">Vận hành tự động</span><span class="lang lang-en">Run on automation</span></div></div>
+    <div class="stat reveal"><div class="n">1<em>M</em></div><div class="l"><span class="lang lang-vi">Người Việt — tầm nhìn</span><span class="lang lang-en">Vietnamese — the vision</span></div></div>
+  </div>
+</div>
+
+<!-- ============ REFRAME ============ -->
+<div class="reframe">
+  <div class="wrap reveal">
+    <span class="kicker"><span class="lang lang-vi">Đây không phải một khóa học nữa</span><span class="lang lang-en">This is not another course</span></span>
+    <h2>
+      <span class="lang lang-vi block"><span class="strike">Không phải khóa học.</span> Đây là một <em>hệ điều hành</em> cho cuộc đời bạn.</span>
+      <span class="lang lang-en block"><span class="strike">Not a course.</span> It's an <em>operating system</em> for your life.</span>
+    </h2>
+  </div>
+</div>
+
+<!-- ============ 3 PILLARS ============ -->
+<section class="sec" id="system">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker"><span class="lang lang-vi">Triết lý 10X</span><span class="lang lang-en">The 10X philosophy</span></span>
+      <h2><span class="lang lang-vi">Làm ít hơn. Tạo ra <em>nhiều hơn</em>.</span><span class="lang lang-en">Do less. Create <em>more</em>.</span></h2>
+      <p class="lead"><span class="lang lang-vi">Phần lớn người ta thất bại không vì thiếu năng lực — mà vì đang sống cuộc đời của người khác. 10X bắt đầu từ ba trụ cột.</span><span class="lang lang-en">Most people fail not from lack of ability — but from living someone else's life. 10X begins with three pillars.</span></p>
+    </div>
+    <div class="pillars">
+      <div class="pill reveal">
+        <div class="ic">🧭</div>
+        <div class="num">01</div>
+        <h3><span class="lang lang-vi">Trở về Nội Tâm</span><span class="lang lang-en">Return Inward</span></h3>
+        <p><span class="lang lang-vi">Thấu hiểu → Chấp nhận → Trở thành chính mình. Khi hiểu rõ mình là ai, sức mạnh xuất hiện — không từ gồng mình, mà từ điềm tĩnh.</span><span class="lang lang-en">Understand → Accept → Become yourself. When you know who you are, power appears — not from forcing, but from calm.</span></p>
+      </div>
+      <div class="pill reveal">
+        <div class="ic">🌳</div>
+        <div class="num">02</div>
+        <h3><span class="lang lang-vi">Thấy Ra Tiềm Năng</span><span class="lang lang-en">See Your Potential</span></h3>
+        <p><span class="lang lang-vi">Giới hạn là nhận thức, không phải thực tại. Mục tiêu 10X buộc não tìm con đường hoàn toàn khác — vì con đường cũ không đưa tới đó.</span><span class="lang lang-en">Limits are perception, not reality. A 10X goal forces your mind onto an entirely new path — the old road never leads there.</span></p>
+      </div>
+      <div class="pill reveal">
+        <div class="ic">🏮</div>
+        <div class="num">03</div>
+        <h3><span class="lang lang-vi">Đòn Bẩy Bứt Phá</span><span class="lang lang-en">Breakthrough Leverage</span></h3>
+        <p><span class="lang lang-vi">10% thời gian cho chiến lược, 90% hệ thống tự vận hành. Bốn đòn bẩy: Siêu thức · AI &amp; Tự động hóa · Cộng đồng · Mạng xã hội.</span><span class="lang lang-en">10% of time on strategy, 90% on systems that run themselves. Four levers: Flow · AI &amp; Automation · Community · Social.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMUNITY ============ -->
+<section class="sec" id="community" style="background:var(--navy-950);border-block:1px solid rgba(136,136,192,.12)">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="kicker"><span class="lang lang-vi">Cộng đồng 10X</span><span class="lang lang-en">The 10X community</span></span>
+      <h2><span class="lang lang-vi">Một <em>huynh đệ</em> cùng nhau khai phóng.</span><span class="lang lang-en">A <em>brotherhood</em> growing together.</span></h2>
+      <p class="lead" style="margin-bottom:24px"><span class="lang lang-vi">Khác biệt thật chỉ có khi ta dám là chính mình — và bạn không cần đi một mình. Cộng đồng 10X trên Skool là nơi tự học, tự rèn và đồng hành mỗi ngày.</span><span class="lang lang-en">Real difference comes only when you dare to be yourself — and you don't have to walk alone. The 10X community on Skool is where you learn, train and grow together, daily.</span></p>
+      <a href="https://www.skool.com/" target="_blank" rel="noopener" class="btn btn-primary">
+        <span class="lang lang-vi">Vào cộng đồng trên Skool</span><span class="lang lang-en">Join the community on Skool</span>
+        <span class="arrow">→</span>
+      </a>
+      <p class="micro" style="margin-top:16px"><span class="lang lang-vi">Đăng nhập Skool · Miễn phí để bắt đầu</span><span class="lang lang-en">Log in via Skool · Free to start</span></p>
+    </div>
+    <div class="panel reveal">
+      <ul class="clist">
+        <li><span class="ck">✓</span><span class="lang lang-vi"><strong style="color:#fff">Tự học &amp; Tự rèn</strong> — ý tưởng → kỹ năng → thói quen, theo lộ trình rõ ràng.</span><span class="lang lang-en"><strong style="color:#fff">Self-learn &amp; self-train</strong> — idea → skill → habit, on a clear path.</span></li>
+        <li><span class="ck">✓</span><span class="lang lang-vi"><strong style="color:#fff">Coaching nhóm định kỳ</strong> — gỡ bế tắc cùng Coach Thắng và huynh đệ.</span><span class="lang lang-en"><strong style="color:#fff">Regular group coaching</strong> — unblock together with Coach Thắng and peers.</span></li>
+        <li><span class="ck">✓</span><span class="lang lang-vi"><strong style="color:#fff">Hệ thống &amp; templates</strong> — công cụ AI và quy trình rút ngắn 10 lần công sức.</span><span class="lang lang-en"><strong style="color:#fff">Systems &amp; templates</strong> — AI tools and processes that cut effort 10×.</span></li>
+        <li><span class="ck">✓</span><span class="lang lang-vi"><strong style="color:#fff">Trách nhiệm &amp; tiến độ</strong> — đồng hành để mỗi ngày đều có bằng chứng.</span><span class="lang lang-en"><strong style="color:#fff">Accountability &amp; progress</strong> — show up with proof, every single day.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESOURCES ============ -->
+<section class="sec" id="resources">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker"><span class="lang lang-vi">Nguồn tài nguyên</span><span class="lang lang-en">Resource hub</span></span>
+      <h2><span class="lang lang-vi">Cho đi <em>trước</em> — học mà làm được ngay.</span><span class="lang lang-en">Give <em>first</em> — learn what you can apply today.</span></h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="top">🤖</div>
+        <div class="body">
+          <span class="tag"><span class="lang lang-vi">Khóa học mini</span><span class="lang lang-en">Mini course</span></span>
+          <h3><span class="lang lang-vi">Hệ thống AI 7 ngày</span><span class="lang lang-en">7-Day AI System</span></h3>
+          <p><span class="lang lang-vi">Từ Zero đến workflow AI cá nhân. 30 phút/ngày × 7 — output cụ thể mỗi ngày.</span><span class="lang lang-en">From zero to a personal AI workflow. 30 min/day × 7 — a real output daily.</span></p>
+          <a class="go" href="#lm"><span class="lang lang-vi">Bắt đầu miễn phí</span><span class="lang lang-en">Start free</span> →</a>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="top">📿</div>
+        <div class="body">
+          <span class="tag"><span class="lang lang-vi">Khung ngày</span><span class="lang lang-en">Daily framework</span></span>
+          <h3><span class="lang lang-vi">Be · Do · Give · Have</span><span class="lang lang-en">Be · Do · Give · Have</span></h3>
+          <p><span class="lang lang-vi">Khung 4 bước thiết kế một ngày đột phá trong điềm tĩnh — tải về và dùng ngay.</span><span class="lang lang-en">The 4-step frame to design a breakthrough day, calmly — download and use today.</span></p>
+          <a class="go" href="#"><span class="lang lang-vi">Tải template</span><span class="lang lang-en">Get the template</span> →</a>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="top">🎥</div>
+        <div class="body">
+          <span class="tag"><span class="lang lang-vi">Video</span><span class="lang lang-en">Video</span></span>
+          <h3><span class="lang lang-vi">Thư viện 10X</span><span class="lang lang-en">The 10X library</span></h3>
+          <p><span class="lang lang-vi">Bài giảng về tỉnh thức, tự học và đòn bẩy AI — cập nhật mỗi tuần trên YouTube.</span><span class="lang lang-en">Lessons on awareness, self-learning and AI leverage — new every week on YouTube.</span></p>
+          <a class="go" href="#"><span class="lang lang-vi">Xem trên YouTube</span><span class="lang lang-en">Watch on YouTube</span> →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lead magnet -->
+    <div class="lead-magnet reveal" id="lm">
+      <div>
+        <h3><span class="lang lang-vi">Nhận miễn phí: Hệ thống AI 7 ngày</span><span class="lang lang-en">Free: the 7-Day AI System</span></h3>
+        <p><span class="lang lang-vi">Để lại email — tôi gửi bạn lộ trình + Notion template để bắt đầu ngay hôm nay.</span><span class="lang lang-en">Drop your email — I'll send the roadmap + Notion template so you can start today.</span></p>
+      </div>
+      <form class="lm-form" onsubmit="return false">
+        <input type="email" required placeholder="email@example.com" aria-label="Email" />
+        <button type="submit" class="btn">
+          <span class="lang lang-vi">Gửi cho tôi ngay</span><span class="lang lang-en">Send it to me</span>
+          <span class="arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIERS ============ -->
+<section class="sec" id="tiers" style="background:var(--navy-950);border-block:1px solid rgba(136,136,192,.12)">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker"><span class="lang lang-vi">Lộ trình đồng hành</span><span class="lang lang-en">Ways to grow with us</span></span>
+      <h2><span class="lang lang-vi">Chọn độ sâu bạn <em>sẵn sàng</em>.</span><span class="lang lang-en">Choose the depth you're <em>ready</em> for.</span></h2>
+    </div>
+    <div class="tiers">
+      <div class="tier reveal">
+        <span class="pill-tag">Free</span>
+        <h3><span class="lang lang-vi">Khám phá 10X</span><span class="lang lang-en">Explore 10X</span></h3>
+        <div class="price"><span class="lang lang-vi">Miễn phí</span><span class="lang lang-en">Free</span></div>
+        <p class="desc"><span class="lang lang-vi">Bắt đầu hành trình khai thông.</span><span class="lang lang-en">Begin your journey.</span></p>
+        <ul>
+          <li><span class="lang lang-vi">Nội dung cơ bản</span><span class="lang lang-en">Core content</span></li>
+          <li><span class="lang lang-vi">Cộng đồng huynh đệ</span><span class="lang lang-en">The community</span></li>
+        </ul>
+        <a href="#community" class="btn btn-soft"><span class="lang lang-vi">Vào ngay</span><span class="lang lang-en">Join</span></a>
+      </div>
+      <div class="tier reveal">
+        <span class="pill-tag">Basic</span>
+        <h3><span class="lang lang-vi">Học đầy đủ</span><span class="lang lang-en">Full learning</span></h3>
+        <div class="price">99k<small>/<span class="lang lang-vi">tháng</span><span class="lang lang-en">mo</span></small></div>
+        <p class="desc"><span class="lang lang-vi">Học đầy đủ + cộng đồng + tài liệu.</span><span class="lang lang-en">Full curriculum + community + resources.</span></p>
+        <ul>
+          <li><span class="lang lang-vi">Toàn bộ khóa học</span><span class="lang lang-en">All courses</span></li>
+          <li><span class="lang lang-vi">Thư viện tài liệu</span><span class="lang lang-en">Resource library</span></li>
+        </ul>
+        <a href="#community" class="btn btn-soft"><span class="lang lang-vi">Đăng ký</span><span class="lang lang-en">Subscribe</span></a>
+      </div>
+      <div class="tier feat reveal">
+        <span class="pill-tag"><span class="lang lang-vi">Phổ biến nhất</span><span class="lang lang-en">Most popular</span></span>
+        <h3>Pro · 10X Flow</h3>
+        <div class="price">199k<small>/<span class="lang lang-vi">tháng</span><span class="lang lang-en">mo</span></small></div>
+        <p class="desc"><span class="lang lang-vi">Coaching nhóm + templates hệ thống.</span><span class="lang lang-en">Group coaching + system templates.</span></p>
+        <ul>
+          <li><span class="lang lang-vi">Mọi quyền lợi Basic</span><span class="lang lang-en">Everything in Basic</span></li>
+          <li><span class="lang lang-vi">Coaching nhóm định kỳ</span><span class="lang lang-en">Regular group coaching</span></li>
+          <li><span class="lang lang-vi">Templates &amp; hệ thống AI</span><span class="lang lang-en">AI systems &amp; templates</span></li>
+        </ul>
+        <a href="#community" class="btn btn-primary" style="width:100%"><span class="lang lang-vi">Nâng cấp Pro</span><span class="lang lang-en">Go Pro</span><span class="arrow">→</span></a>
+      </div>
+      <div class="tier reveal">
+        <span class="pill-tag">Diamond</span>
+        <h3><span class="lang lang-vi">Done-For-You</span><span class="lang lang-en">Done-For-You</span></h3>
+        <div class="price">250<small>M/<span class="lang lang-vi">năm</span><span class="lang lang-en">yr</span></small></div>
+        <p class="desc"><span class="lang lang-vi">Đồng hành sâu nhất. Hệ thống tự vận hành 90%.</span><span class="lang lang-en">Our deepest partnership. 90% self-running systems.</span></p>
+        <ul>
+          <li><span class="lang lang-vi">Workshop AI Literacy</span><span class="lang lang-en">AI Literacy workshop</span></li>
+          <li><span class="lang lang-vi">10X CEO 90 ngày</span><span class="lang lang-en">10X CEO in 90 days</span></li>
+        </ul>
+        <a href="#about" class="btn btn-soft"><span class="lang lang-vi">Ứng tuyển</span><span class="lang lang-en">Apply</span></a>
+      </div>
+    </div>
+    <p class="micro reveal" style="justify-content:center;margin-top:26px"><span class="lang lang-vi">Còn có <strong style="color:var(--o-300)">Mastermind 1:1</strong> — đồng hành sâu, đo lường được. Hỏi Coach để biết thêm.</span><span class="lang lang-en">There's also a <strong style="color:var(--o-300)">1:1 Mastermind</strong> — deep, measurable partnership. Ask Coach to learn more.</span></p>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="sec about" id="about">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="kicker"><span class="lang lang-vi">Về Coach Thắng</span><span class="lang lang-en">About Coach Thắng</span></span>
+      <h2><span class="lang lang-vi">Người dẫn đường — không phán xét, chỉ <em>chỉ hướng</em>.</span><span class="lang lang-en">A guide — never judging, only <em>pointing the way</em>.</span></h2>
+      <p class="lead"><span class="lang lang-vi">Thắng Huyền Đức là Mind Coach về tỉnh thức, tự học, thiết kế cuộc đời và AI. Hình tượng người hiền triết và ngọn hải đăng: chiếu sáng con đường người khác chưa thấy, để mỗi người tự tin trở thành chính mình.</span><span class="lang lang-en">Thắng Huyền Đức is a Mind Coach in awareness, self-learning, life design and AI. The sage and the lighthouse: illuminating the path others can't yet see, so each person can confidently become themselves.</span></p>
+      <blockquote class="quote">
+        <span class="lang lang-vi">"Tôi là hình mẫu của làm việc đột phá — không phải vì làm nhiều hơn, mà vì một mũi tên bắn trúng nhiều đích, trong điềm tĩnh, nhất quán mỗi ngày."</span>
+        <span class="lang lang-en">"I am a model of breakthrough work — not by doing more, but by one arrow hitting many targets, in calm, consistent every day."</span>
+      </blockquote>
+      <div class="symbols">
+        <span class="sym"><span class="e">🧭</span><span class="lang lang-vi">La bàn · Định hướng</span><span class="lang lang-en">Compass · Direction</span></span>
+        <span class="sym"><span class="e">🌳</span><span class="lang lang-vi">Cây cổ thụ · Gốc rễ sâu</span><span class="lang lang-en">Tree · Deep roots</span></span>
+        <span class="sym"><span class="e">🏮</span><span class="lang lang-vi">Hải đăng · Dẫn đường</span><span class="lang lang-en">Lighthouse · Guidance</span></span>
+      </div>
+      <div class="sig">Coach Thắng Huyền Đức
+        <small><span class="lang lang-vi">Mind Coach — Tỉnh thức · Tự học · Thiết kế cuộc đời · AI &amp; Tự động hóa</span><span class="lang lang-en">Mind Coach — Awareness · Self-learning · Life design · AI &amp; Automation</span></small>
+      </div>
+    </div>
+    <div class="reveal panel" style="background:#fff;border-color:#EEECEA">
+      <ul class="clist">
+        <li><span class="ck" style="background:rgba(201,96,40,.1)">◆</span><span style="color:#453E36"><span class="lang lang-vi"><strong style="color:var(--ink)">Điềm tĩnh · Sâu sắc</strong> — trò chuyện ngang hàng với người giỏi nhất, vẫn giữ khiêm tốn.</span><span class="lang lang-en"><strong style="color:var(--ink)">Calm · Deep</strong> — speaks as a peer to the best, yet stays humble.</span></span></li>
+        <li><span class="ck" style="background:rgba(201,96,40,.1)">◆</span><span style="color:#453E36"><span class="lang lang-vi"><strong style="color:var(--ink)">Đóng gói &amp; Rút ngắn</strong> — ứng dụng → trải nghiệm → rút ngắn 10 lần công sức cho bạn.</span><span class="lang lang-en"><strong style="color:var(--ink)">Package &amp; shorten</strong> — apply → experience → cut your effort 10×.</span></span></li>
+        <li><span class="ck" style="background:rgba(201,96,40,.1)">◆</span><span style="color:#453E36"><span class="lang lang-vi"><strong style="color:var(--ink)">Đời Đạo Song Tu</strong> — đời thường và tu tập nội tâm song hành, không tách rời.</span><span class="lang lang-en"><strong style="color:var(--ink)">Life &amp; practice as one</strong> — the everyday and inner cultivation, inseparable.</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="glow"></div>
+  <div class="wrap reveal">
+    <span class="kicker"><span class="lang lang-vi">Hành động không độ trễ</span><span class="lang lang-en">Action without delay</span></span>
+    <h2><span class="lang lang-vi">Cuộc đời đáng sống bắt đầu từ <em>một bước</em> hôm nay.</span><span class="lang lang-en">A life worth living begins with <em>one step</em> today.</span></h2>
+    <p><span class="lang lang-vi">Khoảng cách giữa ý định và hành động càng ngắn, quyền năng càng lớn. Bắt đầu miễn phí ngay bây giờ.</span><span class="lang lang-en">The shorter the gap between intention and action, the greater your power. Start free, right now.</span></p>
+    <div class="hero-cta">
+      <a href="#resources" class="btn btn-primary"><span class="lang lang-vi">Nhận Hệ thống AI 7 ngày</span><span class="lang lang-en">Get the 7-Day AI System</span><span class="arrow">→</span></a>
+      <a href="#community" class="btn btn-ghost"><span class="lang lang-vi">Vào cộng đồng 10X</span><span class="lang lang-en">Join the 10X community</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/logo-white.png" alt="10X Life OS" />
+        <p><span class="lang lang-vi">Khai thông · Khai mở · Khai phóng — Tròn đầy bên trong, Đủ đầy bên ngoài.</span><span class="lang lang-en">Unblock · Unlock · Unleash — Whole within, abundant without.</span></p>
+        <div class="socials">
+          <a href="#" aria-label="YouTube">▶</a>
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="TikTok">♪</a>
+          <a href="#" aria-label="Skool">S</a>
+        </div>
+      </div>
+      <div>
+        <h4><span class="lang lang-vi">Khám phá</span><span class="lang lang-en">Explore</span></h4>
+        <ul>
+          <li><a href="#community"><span class="lang lang-vi">Cộng đồng 10X</span><span class="lang lang-en">10X community</span></a></li>
+          <li><a href="#resources"><span class="lang lang-vi">Tài nguyên</span><span class="lang lang-en">Resources</span></a></li>
+          <li><a href="#tiers"><span class="lang lang-vi">Lộ trình</span><span class="lang lang-en">Programs</span></a></li>
+          <li><a href="#about"><span class="lang lang-vi">Về Coach</span><span class="lang lang-en">About</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="lang lang-vi">Đăng nhập</span><span class="lang lang-en">Log in</span></h4>
+        <ul>
+          <li><a href="#"><span class="lang lang-vi">Cộng đồng (Skool)</span><span class="lang lang-en">Community (Skool)</span></a></li>
+          <li><a href="#"><span class="lang lang-vi">Học tập (LMS)</span><span class="lang lang-en">Learning (LMS)</span></a></li>
+          <li><a href="#"><span class="lang lang-vi">Tracking 10X</span><span class="lang lang-en">10X tracking</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="lang lang-vi">Liên hệ</span><span class="lang lang-en">Contact</span></h4>
+        <ul>
+          <li><a href="mailto:hello@10x-lifeos.com">hello@10x-lifeos.com</a></li>
+          <li><a href="https://10x-lifeos.com">10x-lifeos.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Coach Thắng Huyền Đức · 10X Life OS</span>
+      <span class="lang lang-vi">Tự Nhiên · Tự Do · Tự Động</span><span class="lang lang-en">Natural · Free · Automatic</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- Language toggle ----
+  const root = document.documentElement;
+  const saved = localStorage.getItem('lang10x');
+  if(saved){ setLang(saved); }
+  function setLang(l){
+    root.setAttribute('lang', l);
+    root.setAttribute('data-lang', l);
+    document.querySelectorAll('[data-setlang]').forEach(b=>b.classList.toggle('active', b.dataset.setlang===l));
+    localStorage.setItem('lang10x', l);
+  }
+  document.querySelectorAll('[data-setlang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.setlang)));
+
+  // ---- Sticky nav background ----
+  const hdr = document.getElementById('hdr');
+  const onScroll = ()=> hdr.classList.toggle('scrolled', window.scrollY > 20);
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // ---- Mobile menu ----
+  const hamb = document.getElementById('hamb'), nav = document.getElementById('navlinks');
+  hamb.addEventListener('click', ()=> nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+  // ---- Reveal on scroll ----
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i%4*60)+'ms'; io.observe(el); });
+</script>
+</body>
+</html>
