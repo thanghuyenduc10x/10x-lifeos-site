@@ -44,8 +44,10 @@ section{position:relative}
 .tb-logo img{height:26px;width:auto}
 .tb-logo b{color:var(--o-400)}
 .spacer{flex:1}
-.tb-back{font-size:13px;color:var(--navy-300);transition:color .2s}
-.tb-back:hover{color:#fff}
+.tb-back{font-size:13.5px;color:var(--navy-200);transition:all .2s;display:inline-flex;align-items:center;gap:7px;
+  padding:8px 14px;border:1px solid rgba(255,255,255,.12);border-radius:8px}
+.tb-back svg{width:15px;height:15px}
+.tb-back:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.05)}
 
 /* ── BUTTONS ── */
 .btn{font-family:var(--f-body);font-weight:600;font-size:15px;border-radius:8px;border:none;cursor:pointer;
@@ -133,6 +135,8 @@ section{position:relative}
 .coach-cap{margin-top:16px;text-align:center}
 .cc-name{font-family:var(--f-display);font-weight:800;color:#fff;font-size:19px}
 .cc-role{font-size:13px;color:var(--o-300);margin-top:3px}
+.coach-link{margin-top:16px}
+.coach-link svg{width:16px;height:16px}
 .story-quote{border-left:3px solid var(--o-500);background:rgba(201,96,40,.05);border-radius:0 12px 12px 0;
   padding:22px 28px;margin-top:28px;max-width:760px}
 .story-quote p{font-size:18px;color:#fff;line-height:1.65;font-style:italic;margin-bottom:10px}
@@ -237,7 +241,10 @@ section{position:relative}
   <div class="wrap">
     <a class="tb-logo" href="/"><img src="assets/logo-white.png" alt="10X Life OS" onerror="this.style.display='none'">Chép <b>Lời</b></a>
     <span class="spacer"></span>
-    <a class="tb-back" href="https://10x-lifeos.com">← 10XLifeOS.Com</a>
+    <a class="tb-back" href="https://10x-lifeos.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/></svg>
+      Trang chủ
+    </a>
     <a class="btn btn-primary btn-sm" href="#tai-app">Tải app</a>
   </div>
 </header>
@@ -317,6 +324,10 @@ section{position:relative}
       <div class="coach-cap">
         <div class="cc-name">Coach Thắng Huyền Đức</div>
         <div class="cc-role">Mind Coach · Tỉnh thức · Tự học · AI</div>
+        <a class="btn btn-ghost btn-sm coach-link" href="https://10x-lifeos.com/coach-thang">
+          Tìm hiểu về Coach Thắng
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
     </div>
   </div>
