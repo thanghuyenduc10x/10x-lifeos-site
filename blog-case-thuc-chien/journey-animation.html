@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="UTF-8" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--navy-950:#070718;--navy-900:#0A0A24;--navy-800:#12123A;--navy-700:#1A1A50;--navy-600:#24246A;
+  --o-500:#C96028;--o-400:#D97538;--o-300:#E89060;--white:#fff;--navy-200:#B0B0D8;--navy-300:#8888C0;--green:#4CAF7D;
+  --fd:'Montserrat',sans-serif;--fb:'Be Vietnam Pro',sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{margin:0;height:100vh;overflow:hidden;font-family:var(--fb);display:flex;align-items:center;justify-content:center;background:#05050f}
+.stage{position:absolute;inset:0;overflow:hidden;color:var(--white);
+  background:radial-gradient(120% 130% at 28% 12%,#16163e 0%,var(--navy-900) 46%,var(--navy-950) 100%)}
+.stage::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 45% at 50% 118%,rgba(201,96,40,.16),transparent 70%);pointer-events:none}
+.gl{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
+.gl.o{width:360px;height:360px;background:var(--o-500);top:-120px;left:-80px;opacity:.25}
+.gl.n{width:340px;height:340px;background:var(--navy-600);bottom:-120px;right:-80px;opacity:.42}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  opacity:0;transition:opacity .55s var(--ease);padding:5%}
+.scene.active{opacity:1}
+.scene.active .pop{animation:pop .7s var(--ease) both}
+.scene.active .rise{animation:rise .7s var(--ease) both}
+.scene.active .rise.d2{animation-delay:.18s}.scene.active .rise.d3{animation-delay:.34s}
+@keyframes pop{0%{opacity:0;transform:scale(.7)}60%{transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
+@keyframes rise{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
+.eye{font-family:var(--fd);font-size:clamp(11px,1.7vw,15px);letter-spacing:.16em;text-transform:uppercase;color:var(--o-300);margin-bottom:16px}
+.big{font-family:var(--fd);font-weight:900;font-size:clamp(30px,6vw,58px);letter-spacing:-.03em;line-height:1.02}
+.big b{color:var(--o-500)}
+.sub{font-size:clamp(13px,2vw,18px);color:var(--navy-200);margin-top:16px;font-weight:300;max-width:80%}
+.sub em{color:var(--o-300);font-style:normal}
+
+/* pipeline */
+.s2-title{font-family:var(--fd);font-weight:800;font-size:clamp(16px,2.6vw,24px);color:#fff;margin-bottom:34px}
+.pipe{display:flex;align-items:center;gap:clamp(6px,1.2vw,14px);flex-wrap:wrap;justify-content:center;max-width:94%}
+.node{display:flex;flex-direction:column;align-items:center;gap:9px;opacity:.25;transition:all .4s var(--ease);transform:translateY(6px)}
+.node.on{opacity:1;transform:translateY(0)}
+.node .dot{width:clamp(40px,6vw,58px);height:clamp(40px,6vw,58px);border-radius:50%;background:var(--navy-800);
+  border:1.5px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease)}
+.node.on .dot{border-color:var(--o-500);background:rgba(201,96,40,.16);box-shadow:0 0 22px rgba(201,96,40,.4)}
+.node .dot svg{width:clamp(20px,3vw,28px);height:clamp(20px,3vw,28px);color:var(--navy-300);transition:color .4s}
+.node.on .dot svg{color:var(--o-300)}
+.node .nl{font-size:clamp(9px,1.3vw,12.5px);color:var(--navy-300);font-weight:500;max-width:84px;line-height:1.2}
+.node.on .nl{color:#fff}
+.arrow{width:clamp(10px,1.6vw,20px);height:2px;background:rgba(255,255,255,.15);position:relative;flex-shrink:0;transition:background .4s}
+.arrow.on{background:var(--o-400)}
+
+/* 1 arrow N targets */
+.fan{position:relative;width:min(560px,90%);height:min(220px,40vh);margin:10px 0 4px}
+.src{position:absolute;left:0;top:50%;transform:translateY(-50%);width:64px;height:64px;border-radius:16px;
+  background:rgba(201,96,40,.16);border:1.5px solid var(--o-500);display:flex;align-items:center;justify-content:center;color:var(--o-300);box-shadow:0 0 26px rgba(201,96,40,.4)}
+.src svg{width:32px;height:32px}
+.tgt{position:absolute;right:0;width:auto;display:flex;align-items:center;gap:9px;font-size:clamp(11px,1.7vw,15px);color:#fff;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:8px 14px;
+  opacity:0;transition:all .5s var(--ease);transform:translateX(-14px)}
+.scene.active .tgt{opacity:1;transform:translateX(0)}
+.tgt .tk{color:var(--green);display:flex}.tgt .tk svg{width:15px;height:15px}
+.tgt.t1{top:2%}.tgt.t2{top:27%}.tgt.t3{top:52%}.tgt.t4{top:77%}
+.scene.active .tgt.t1{transition-delay:.15s}.scene.active .tgt.t2{transition-delay:.32s}
+.scene.active .tgt.t3{transition-delay:.49s}.scene.active .tgt.t4{transition-delay:.66s}
+.fanline{position:absolute;left:64px;top:50%;height:1.5px;background:linear-gradient(90deg,var(--o-500),transparent);transform-origin:left center}
+
+.mantra{font-family:var(--fd);font-weight:800;font-size:clamp(20px,3.6vw,38px);color:#fff;line-height:1.2;max-width:88%}
+.mantra b{color:var(--o-500)}
+.foot{position:absolute;bottom:6%;display:flex;align-items:center;gap:10px;font-family:var(--fd);font-size:clamp(10px,1.4vw,13px);
+  color:var(--navy-300);letter-spacing:.06em}
+.foot img{height:22px}
+.dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.18);transition:all .4s}
+.dots i.on{background:var(--o-500);width:18px;border-radius:99px}
+</style></head>
+<body>
+<div class="stage" id="stage">
+  <span class="gl o"></span><span class="gl n"></span>
+
+  <div class="scene" id="s1">
+    <div class="eye pop">Case Thực Chiến · 10X Life OS</div>
+    <div class="big pop">Từ <b>Ý tưởng</b> đến <b>Triển khai</b></div>
+    <div class="sub rise d2">Một hành trình vibe-code <em>thật</em> — và bộ khung lặp lại được.</div>
+  </div>
+
+  <div class="scene" id="s2">
+    <div class="s2-title pop">Hành trình 7 chặng</div>
+    <div class="pipe" id="pipe"></div>
+  </div>
+
+  <div class="scene" id="s3">
+    <div class="eye pop">Nguyên tắc cốt lõi</div>
+    <div class="big pop" style="margin-bottom:24px">Bắn <b>1 mũi tên</b> — trúng <b>N đích</b></div>
+    <div class="fan">
+      <div class="fanline" id="fanline"></div>
+      <div class="src"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 8l-3 3M12 8l3 3"/><circle cx="12" cy="16" r="6"/></svg></div>
+      <div class="tgt t1"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> App đa nền tảng</div>
+      <div class="tgt t2"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Landing page</div>
+      <div class="tgt t3"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Video · Slide · One-pager</div>
+      <div class="tgt t4"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Bài học tái dùng</div>
+    </div>
+  </div>
+
+  <div class="scene" id="s4">
+    <div class="mantra pop">Làm <b>1 lần</b> cho đàng hoàng →<br>để lại <b>1 tài sản</b> → lần sau <b>lắp lại.</b></div>
+    <div class="foot rise d3"><img src="assets/logo-white.png" onerror="this.style.display='none'" alt="10X"> 10x-lifeos.com · Khai Thông · Khai Mở · Khai Phóng</div>
+  </div>
+
+  <div class="dots"><i></i><i></i><i></i><i></i></div>
+</div>
+<script>
+const PHASES=[
+  {t:"Ý tưởng",p:'<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>'},
+  {t:"Động cơ",p:'<path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 8v4l3 2"/>'},
+  {t:"Sản phẩm",p:'<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/>'},
+  {t:"Đóng gói",p:'<path d="M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8"/>'},
+  {t:"Phân phối",p:'<path d="M12 3v12M8 11l4 4 4-4M5 21h14"/>'},
+  {t:"Sửa lỗi",p:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/>'},
+  {t:"Thị trường",p:'<path d="M3 21V7l9-4 9 4v14M9 21v-6h6v6"/>'},
+];
+const pipe=document.getElementById('pipe');
+PHASES.forEach((ph,i)=>{
+  if(i>0){const a=document.createElement('span');a.className='arrow';pipe.appendChild(a)}
+  const n=document.createElement('div');n.className='node';
+  n.innerHTML='<div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+ph.p+'</svg></div><div class="nl">'+ph.t+'</div>';
+  pipe.appendChild(n);
+});
+const nodes=[...pipe.querySelectorAll('.node')], arrows=[...pipe.querySelectorAll('.arrow')];
+
+const sceneIds=['s1','s2','s3','s4'], durations=[3000,6200,4200,4000];
+const scenes=sceneIds.map(id=>document.getElementById(id));
+const dots=[...document.querySelectorAll('.dots i')];
+let timer=null, phaseTimers=[];
+function lightPipe(){
+  phaseTimers.forEach(clearTimeout); phaseTimers=[];
+  nodes.forEach(n=>n.classList.remove('on')); arrows.forEach(a=>a.classList.remove('on'));
+  nodes.forEach((n,i)=>{ phaseTimers.push(setTimeout(()=>{ n.classList.add('on'); if(arrows[i-1])arrows[i-1].classList.add('on'); }, 250+i*700)); });
+}
+function show(i){
+  scenes.forEach((s,j)=>s.classList.toggle('active',j===i));
+  dots.forEach((d,j)=>d.classList.toggle('on',j===i));
+  if(i===1) lightPipe();
+  if(i===2){const fl=document.getElementById('fanline');fl.style.width='0';fl.style.transition='none';
+    setTimeout(()=>{fl.style.transition='width 1s var(--ease)';fl.style.width='calc(100% - 64px)'},60);}
+}
+function play(){ clearTimeout(timer); let i=0; (function next(){ show(i); timer=setTimeout(()=>{i=(i+1)%scenes.length;next();},durations[i]); })(); }
+window.addEventListener('load',play);
+</script>
+</body></html>
