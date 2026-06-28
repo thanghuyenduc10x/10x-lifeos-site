@@ -63,6 +63,8 @@ section{position:relative}
 .hero .glow.a{top:-120px;left:-100px;width:480px;height:480px;background:var(--o-700)}
 .hero .glow.b{top:160px;right:-140px;width:420px;height:420px;background:var(--navy-600)}
 .hero-grid{display:flex;flex-direction:column;gap:clamp(34px,4vw,50px);position:relative;z-index:1}
+.hero-top{display:grid;grid-template-columns:1.32fr 1fr;gap:clamp(34px,5vw,60px);align-items:center}
+.hero-right{display:flex;flex-direction:column;align-items:flex-start}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-body);font-weight:600;font-size:12px;
   letter-spacing:.08em;text-transform:uppercase;color:var(--o-300);
   background:rgba(201,96,40,.12);border:1px solid rgba(201,96,40,.28);border-radius:999px;padding:7px 15px;margin-bottom:22px}
@@ -180,7 +182,7 @@ section{position:relative}
 .dl-card:hover{border-color:rgba(201,96,40,.35);background:rgba(255,255,255,.06)}
 .dl-card.feat{border-color:rgba(201,96,40,.3);background:rgba(201,96,40,.06)}
 .dl-os{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.dl-os svg{width:26px;height:26px;color:#fff}
+.dl-os svg{width:26px;height:26px;color:var(--o-400)}
 .dl-os .n{font-family:var(--f-display);font-weight:700;color:#fff;font-size:17px}
 .dl-meta{font-size:12.5px;color:var(--navy-300);margin-bottom:14px;min-height:34px}
 .dl-tag{font-size:11px;font-weight:600;color:var(--o-300);background:rgba(201,96,40,.14);border:1px solid rgba(201,96,40,.25);
@@ -214,6 +216,7 @@ section{position:relative}
 
 @media(max-width:880px){
   .hero-grid{gap:32px}
+  .hero-top{grid-template-columns:1fr;gap:26px}
   .story-grid{grid-template-columns:1fr;gap:32px}
   .story-coach{max-width:360px;margin:0 auto;order:-1}
   .shot{margin:0 auto}
@@ -243,31 +246,35 @@ section{position:relative}
 <section class="hero">
   <span class="glow a"></span><span class="glow b"></span>
   <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow"><span class="dot"></span> Quà tặng đặc quyền · Leader 10X &amp; bạn bè thân thiết</span>
-      <h1>Chép <b>Lời</b></h1>
-      <p class="hero-lead">Chuyển giọng nói thành văn bản — <b style="color:#fff">ngay trên máy bạn.</b></p>
-      <p class="hero-sub">Chép lại mọi buổi coaching, ghi âm, video, cuộc họp... ra văn bản tiếng Việt. Chạy thẳng trên máy: <b>không cần internet, không giới hạn số lượng, và không một giây dữ liệu nào rời khỏi máy bạn.</b></p>
-      <div class="value-pill">
-        <span class="strike">$199</span>
-        <span class="vtxt"><b>Trị giá $199</b> — tặng riêng bạn.<br>Miễn phí trọn đời, không thu thêm.</span>
+    <div class="hero-top">
+      <div class="hero-left">
+        <span class="eyebrow"><span class="dot"></span> Quà tặng đặc quyền · Leader 10X &amp; bạn bè thân thiết</span>
+        <h1>Chép <b>Lời</b></h1>
+        <p class="hero-lead">Chuyển giọng nói thành văn bản — <b style="color:#fff">ngay trên máy bạn.</b></p>
+        <p class="hero-sub">Chép lại mọi buổi coaching, ghi âm, video, cuộc họp... ra văn bản tiếng Việt. Chạy thẳng trên máy: <b>không cần internet, không giới hạn số lượng, và không một giây dữ liệu nào rời khỏi máy bạn.</b></p>
       </div>
-      <div class="hero-cta">
-        <a class="btn btn-primary btn-lg" href="#tai-app">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M8 11l4 4 4-4"/><path d="M5 19h14"/></svg>
-          Tải app miễn phí
-        </a>
-        <a class="btn btn-ghost btn-lg" href="#cach-dung">Xem cách dùng</a>
-      </div>
-      <p class="hero-note">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-        Cho cả máy Mac &amp; Windows · Cài 1 phút · Không cần tài khoản
-      </p>
-      <div class="hero-coach">
-        <img src="assets/coach-thang.png" alt="Coach Thắng Huyền Đức" />
-        <div class="hc-txt">
-          <b>Quà tặng riêng từ Coach Thắng Huyền Đức</b>
-          <span>Mind Coach · 10X Life OS</span>
+      <div class="hero-right">
+        <div class="value-pill">
+          <span class="strike">$199</span>
+          <span class="vtxt"><b>Trị giá $199</b> — tặng riêng bạn.<br>Miễn phí trọn đời, không thu thêm.</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="#tai-app">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M8 11l4 4 4-4"/><path d="M5 19h14"/></svg>
+            Tải app miễn phí
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#cach-dung">Xem cách dùng</a>
+        </div>
+        <p class="hero-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Cho cả máy Mac &amp; Windows · Cài 1 phút · Không cần tài khoản
+        </p>
+        <div class="hero-coach">
+          <img src="assets/coach-thang.png" alt="Coach Thắng Huyền Đức" />
+          <div class="hc-txt">
+            <b>Quà tặng riêng từ Coach Thắng Huyền Đức</b>
+            <span>Mind Coach · 10X Life OS</span>
+          </div>
         </div>
       </div>
     </div>
