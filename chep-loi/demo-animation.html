@@ -136,6 +136,9 @@ h1.title b{color:var(--o-500)}
   color:#fff;font-family:var(--fb);font-size:12px;padding:6px 13px;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:6px;opacity:.7}
 .replay:hover{opacity:1}
 .replay svg{width:13px;height:13px}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
 </style>
 </head>
 <body>
@@ -250,11 +253,18 @@ function play(from){
   let i=from||0;
   function next(){
     show(i);
-    timer=setTimeout(()=>{ i=(i+1)%scenes.length; next(); }, durations[i]);
+    // chạy một vòng rồi DỪNG ở màn cuối (không lặp vô hạn -> đỡ ngốn pin)
+    if(i < scenes.length-1){
+      timer=setTimeout(()=>{ i++; next(); }, durations[i]);
+    }
   }
   next();
 }
-window.addEventListener('load',()=>play(0));
+const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
+window.addEventListener('load',()=>{
+  // nếu người dùng bật "giảm chuyển động": hiện thẳng màn kết (CTA $199), không chạy
+  if(reduceMotion){ show(scenes.length-1); } else { play(0); }
+});
 </script>
 </body>
 </html>

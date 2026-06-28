@@ -8,18 +8,27 @@
 <meta property="og:title" content="Chép Lời — Chép lời offline, riêng tư tuyệt đối" />
 <meta property="og:description" content="Chuyển giọng nói thành văn bản ngay trên máy bạn. Nhanh 17× nhờ GPU, không gửi gì lên mạng. Quà tặng $199 từ Coach Thắng Huyền Đức." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://10x-lifeos.com/chep-loi/" />
+<meta property="og:image" content="https://10x-lifeos.com/chep-loi/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Chép Lời — Chép lời offline, riêng tư tuyệt đối" />
+<meta name="twitter:description" content="Chuyển giọng nói thành văn bản ngay trên máy bạn. Quà tặng $199 từ Coach Thắng Huyền Đức." />
+<meta name="twitter:image" content="https://10x-lifeos.com/chep-loi/assets/og-cover.png" />
+<link rel="canonical" href="https://10x-lifeos.com/chep-loi/" />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Montserrat:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 <style>
 :root{
   --navy-950:#070718; --navy-900:#0A0A24; --navy-800:#12123A; --navy-700:#1A1A50;
   --navy-600:#24246A; --navy-500:#353590; --navy-300:#8888C0; --navy-200:#B0B0D8; --navy-100:#DDDDF0;
   --o-700:#8C3F18; --o-600:#A84F20; --o-500:#C96028; --o-400:#D97538; --o-300:#E89060; --o-200:#F0B090;
   --white:#FFFFFF; --cream:#F8F7F4;
-  --green:#4CAF7D; --red:#E0775C;
-  --f-display:'Montserrat',sans-serif; --f-body:'Be Vietnam Pro',sans-serif;
+  --green:#4CAF7D; --red:#E0775C; --sand:#C9B79C;
+  --f-head:'Fraunces','Georgia',serif; --f-display:'Montserrat',sans-serif; --f-body:'Be Vietnam Pro',sans-serif;
   --container:1140px; --r:16px;
   --ease:cubic-bezier(.22,1,.36,1);
 }
@@ -27,7 +36,7 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--f-body);background:var(--navy-900);color:var(--navy-200);line-height:1.65;
   overflow-x:hidden;font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:.01em}
-h1,h2,h3,h4,.display{font-family:var(--f-display);color:var(--white);line-height:1.1;letter-spacing:-.02em;font-weight:800;text-wrap:balance}
+h1,h2,h3,h4,.display{font-family:var(--f-head);color:var(--white);line-height:1.08;letter-spacing:-.015em;font-weight:600;text-wrap:balance;font-optical-sizing:auto}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--container);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
@@ -35,7 +44,7 @@ em{font-style:normal;color:var(--o-400)}
 section{position:relative}
 
 /* glow background accents */
-.glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;z-index:0;pointer-events:none}
+.glow{position:absolute;border-radius:50%;filter:blur(100px);opacity:.26;z-index:0;pointer-events:none}
 
 /* ── TOP BAR ── */
 .topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,36,.82);backdrop-filter:blur(14px);
@@ -66,13 +75,13 @@ section{position:relative}
 .hero .glow.a{top:-120px;left:-100px;width:480px;height:480px;background:var(--o-700)}
 .hero .glow.b{top:160px;right:-140px;width:420px;height:420px;background:var(--navy-600)}
 .hero-grid{display:flex;flex-direction:column;gap:clamp(34px,4vw,50px);position:relative;z-index:1}
-.hero-top{display:grid;grid-template-columns:1.32fr 1fr;gap:clamp(34px,5vw,60px);align-items:center}
+.hero-top{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:clamp(34px,5vw,60px);align-items:center}
 .hero-right{display:flex;flex-direction:column;align-items:flex-start}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-body);font-weight:600;font-size:12px;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--o-300);
-  background:rgba(201,96,40,.12);border:1px solid rgba(201,96,40,.28);border-radius:999px;padding:7px 15px;margin-bottom:22px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;max-width:100%;font-family:var(--f-body);font-weight:600;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--o-300);line-height:1.5;
+  background:rgba(201,96,40,.12);border:1px solid rgba(201,96,40,.28);border-radius:18px;padding:8px 16px;margin-bottom:22px}
 .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--o-400);box-shadow:0 0 8px var(--o-400)}
-.hero h1{font-size:clamp(44px,7vw,72px);font-weight:900;margin-bottom:18px}
+.hero h1{font-size:clamp(46px,7.4vw,78px);font-weight:700;margin-bottom:18px;letter-spacing:-.02em}
 .hero h1 b{color:var(--o-500)}
 .hero-lead{font-size:clamp(16px,2.2vw,19px);color:var(--navy-100);line-height:1.6;max-width:520px;margin-bottom:14px}
 .hero-sub{font-size:15px;color:var(--navy-300);line-height:1.7;max-width:500px;margin-bottom:26px}
@@ -121,7 +130,7 @@ section{position:relative}
 .sec-eyebrow{font-family:var(--f-body);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--o-400);margin-bottom:14px;display:flex;align-items:center;gap:12px}
 .sec-eyebrow::before{content:'';width:26px;height:1px;background:var(--o-500)}
-.sec h2{font-size:clamp(28px,4.2vw,42px);font-weight:800;margin-bottom:18px;max-width:940px}
+.sec h2{font-size:clamp(29px,4.4vw,44px);font-weight:600;margin-bottom:18px;max-width:940px}
 .sec h2 b{color:var(--o-500)}
 .sec-intro{font-size:16px;color:var(--navy-300);max-width:640px;line-height:1.7}
 
@@ -148,9 +157,13 @@ section{position:relative}
 .f-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);
   padding:28px;transition:all .25s var(--ease)}
 .f-card:hover{border-color:rgba(201,96,40,.3);transform:translateY(-3px);background:rgba(255,255,255,.045)}
-.f-ico{width:46px;height:46px;border-radius:11px;background:rgba(201,96,40,.13);color:var(--o-400);
-  display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.f-ico svg{width:24px;height:24px}
+.f-ico{position:relative;width:52px;height:52px;border-radius:50%;background:rgba(201,96,40,.07);
+  border:1.5px solid rgba(201,96,40,.4);color:var(--o-400);
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.f-ico::before,.f-ico::after{content:'';position:absolute;background:rgba(201,96,40,.5)}
+.f-ico::before{top:-1px;left:50%;width:1.5px;height:5px;transform:translateX(-50%)}
+.f-ico::after{bottom:-1px;left:50%;width:1.5px;height:5px;transform:translateX(-50%)}
+.f-ico svg{width:23px;height:23px;stroke-width:1.7}
 .f-card h3{font-size:19px;font-weight:700;color:#fff;margin-bottom:9px}
 .f-card p{font-size:14.5px;color:var(--navy-300);line-height:1.65}
 .f-card p b{color:var(--navy-100);font-weight:600}
@@ -221,7 +234,7 @@ section{position:relative}
 
 @media(max-width:880px){
   .hero-grid{gap:32px}
-  .hero-top{grid-template-columns:1fr;gap:26px}
+  .hero-top{grid-template-columns:minmax(0,1fr);gap:26px}
   .story-grid{grid-template-columns:1fr;gap:32px}
   .story-coach{max-width:360px;margin:0 auto;order:-1}
   .shot{margin:0 auto}
@@ -233,9 +246,51 @@ section{position:relative}
   .cmp-row{grid-template-columns:1.3fr .85fr .85fr}
   .cmp-row>div{padding:13px 12px;font-size:13px}
 }
+
+/* ── motif la bàn + cây cổ thụ (tĩnh, mờ) ── */
+.hero-motif{position:absolute;z-index:0;pointer-events:none;color:var(--sand);opacity:.05;
+  top:30px;right:-50px;width:clamp(320px,38vw,540px);height:auto}
+.gift-motif{position:absolute;z-index:0;pointer-events:none;color:var(--o-400);opacity:.045;
+  top:-30px;left:50%;transform:translateX(-50%);width:320px}
+
+/* ── hé lộ khi cuộn (rất khẽ, một lần) ── */
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ── điều hướng bàn phím rõ ── */
+a:focus-visible,.btn:focus-visible,button:focus-visible{outline:2px solid var(--o-300);outline-offset:3px;border-radius:8px}
+.skip{position:absolute;left:-9999px;top:0;z-index:200}
+.skip:focus{left:16px;top:12px;background:var(--o-500);color:#fff;padding:10px 16px;border-radius:8px;font-weight:600}
+
+/* ── tôn trọng "giảm chuyển động" ── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
+
+/* ── điện thoại nhỏ: thiết kế riêng (≤560px) ── */
+@media(max-width:560px){
+  .sec{padding:46px 0}
+  .hero{padding:32px 0 28px}
+  .hero h1{font-size:clamp(40px,13vw,54px)}
+  .hero-cta{flex-direction:column;width:100%}
+  .hero-cta .btn{width:100%;justify-content:center}
+  .value-pill,.dl-card{padding:16px}
+  .hero-motif{opacity:.04;width:270px;right:-70px}
+  .cmp-row.cmp-head{display:none}
+  .cmp-row{display:block;border-bottom:1px solid rgba(255,255,255,.08);padding:8px 0}
+  .cmp-row:last-child{border-bottom:none}
+  .cmp-row>div{border:none;padding:5px 16px;font-size:14px}
+  .cmp-row .rl{font-family:var(--f-head);color:#fff;font-weight:600;font-size:16.5px;padding-top:12px}
+  .cmp .col-us{background:transparent;color:var(--navy-100)}
+  .cmp .col-us::before{content:'Chép Lời';color:var(--o-300);font-weight:600;min-width:74px;display:inline-block}
+  .cmp .col-them::before{content:'Đám mây';color:var(--navy-300);font-weight:600;min-width:74px;display:inline-block}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Bỏ qua tới nội dung chính</a>
 
 <!-- ── TOP BAR ── -->
 <header class="topbar">
@@ -251,8 +306,20 @@ section{position:relative}
 </header>
 
 <!-- ── HERO ── -->
-<section class="hero">
-  <span class="glow a"></span><span class="glow b"></span>
+<section class="hero" id="main">
+  <span class="glow a"></span>
+  <svg class="hero-motif" viewBox="0 0 200 200" fill="none" stroke="currentColor" aria-hidden="true">
+    <circle cx="100" cy="100" r="92" stroke-width="1"/>
+    <circle cx="100" cy="100" r="70" stroke-width=".6"/>
+    <g stroke-width="1"><path d="M100 4v16"/><path d="M100 180v16"/><path d="M4 100h16"/><path d="M180 100h16"/></g>
+    <g stroke-width=".5"><path d="M30 30l11 11"/><path d="M170 30l-11 11"/><path d="M30 170l11-11"/><path d="M170 170l-11-11"/></g>
+    <g stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M100 152V90"/>
+      <path d="M100 152c-7 0-12 4-15 10M100 152c7 0 12 4 15 10"/>
+      <path d="M100 100c-11-2-19-9-20-19M100 100c11-2 19-9 20-19"/>
+      <circle cx="100" cy="68" r="18"/><circle cx="71" cy="84" r="14"/><circle cx="129" cy="84" r="14"/>
+    </g>
+  </svg>
   <div class="wrap hero-grid">
     <div class="hero-top">
       <div class="hero-left">
@@ -278,7 +345,7 @@ section{position:relative}
           Cho cả máy Mac &amp; Windows · Cài 1 phút · Không cần tài khoản
         </p>
         <div class="hero-coach">
-          <img src="assets/coach-thang.png" alt="Coach Thắng Huyền Đức" />
+          <img src="assets/coach-avatar.jpg" alt="Coach Thắng Huyền Đức" width="54" height="54" decoding="async" />
           <div class="hc-txt">
             <b>Quà tặng riêng từ Coach Thắng Huyền Đức</b>
             <span>Mind Coach · 10X Life OS</span>
@@ -289,7 +356,7 @@ section{position:relative}
 
     <div class="shot">
       <div class="shot-frame">
-        <iframe src="demo-animation.html" title="Chép Lời — video demo sản phẩm" scrolling="no" loading="eager"></iframe>
+        <iframe src="demo-animation.html" title="Chép Lời — video demo sản phẩm" scrolling="no" loading="lazy"></iframe>
       </div>
     </div>
   </div>
@@ -320,7 +387,7 @@ section{position:relative}
     <div class="story-coach">
       <div class="coach-photo">
         <span class="coach-glow"></span>
-        <img src="assets/coach-thang.png" alt="Coach Thắng Huyền Đức — 10X Life OS" />
+        <img src="assets/coach-thang-760.jpg" alt="Coach Thắng Huyền Đức — 10X Life OS" width="749" height="796" loading="lazy" decoding="async" />
       </div>
       <div class="coach-cap">
         <div class="cc-name">Coach Thắng Huyền Đức</div>
@@ -485,6 +552,13 @@ section{position:relative}
 
 <!-- ── GIFT BAND ── -->
 <section class="sec gift">
+  <svg class="gift-motif" viewBox="0 0 120 120" fill="none" stroke="currentColor" aria-hidden="true">
+    <circle cx="60" cy="60" r="54" stroke-width="1"/><circle cx="60" cy="60" r="40" stroke-width=".6"/>
+    <path d="M60 12 L66 54 L60 60 L54 54 Z" fill="currentColor" stroke="none"/>
+    <path d="M60 108 L54 66 L60 60 L66 66 Z" fill="currentColor" stroke="none" opacity=".5"/>
+    <path d="M108 60 L66 54 L60 60 L66 66 Z" fill="currentColor" stroke="none" opacity=".5"/>
+    <path d="M12 60 L54 66 L60 60 L54 54 Z" fill="currentColor" stroke="none" opacity=".5"/>
+  </svg>
   <div class="wrap">
     <span class="badge-lg"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--o-400);display:inline-block"></span> Quà tặng đặc quyền · Trị giá $199</span>
     <h2>Một món quà <b>nhỏ mà có tâm</b><br>cho cộng đồng 10X</h2>
@@ -499,6 +573,21 @@ section{position:relative}
 <!-- ── FOOTER ── -->
 <div id="site-footer"></div>
 <script src="/footer.js"></script>
+
+<script>
+(function(){
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  if(!('IntersectionObserver' in window)) return;
+  var els = document.querySelectorAll('.f-card,.step,.dl-card,.story-quote');
+  els.forEach(function(el){el.classList.add('reveal')});
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.1, rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(el){io.observe(el)});
+  // phao cứu sinh: nếu vì lý do gì observer không chạy, vẫn hiện sau 2s
+  setTimeout(function(){ els.forEach(function(el){el.classList.add('in')}); }, 2000);
+})();
+</script>
 
 </body>
 </html>
