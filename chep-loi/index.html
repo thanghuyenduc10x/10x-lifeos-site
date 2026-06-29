@@ -139,8 +139,10 @@ section{position:relative}
 .story-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(30px,5vw,58px);align-items:center}
 .coach-photo{border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.1);
   box-shadow:0 26px 60px rgba(0,0,0,.5);position:relative}
-.coach-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(10,10,36,.5));pointer-events:none}
-.coach-photo img{width:100%;display:block}
+.coach-photo::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(78% 72% at 50% 36%,rgba(10,10,36,0) 26%,rgba(10,10,36,.4) 78%,rgba(7,7,24,.72) 100%),
+            linear-gradient(180deg,rgba(10,10,36,0) 48%,rgba(10,10,36,.5))}
+.coach-photo img{width:100%;display:block;filter:saturate(.82) contrast(1.04) brightness(.97)}
 .coach-glow{position:absolute;inset:-30px;z-index:-1;border-radius:50%;filter:blur(60px);background:var(--o-700);opacity:.22}
 .coach-cap{margin-top:16px;text-align:center}
 .cc-name{font-family:var(--f-display);font-weight:800;color:#fff;font-size:19px}
