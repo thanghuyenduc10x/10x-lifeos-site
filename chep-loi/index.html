@@ -247,9 +247,10 @@ section{position:relative}
   .cmp-row>div{padding:13px 12px;font-size:13px}
 }
 
-/* ── motif la bàn + cây cổ thụ (tĩnh, mờ) ── */
-.hero-motif{position:absolute;z-index:0;pointer-events:none;color:var(--sand);opacity:.05;
-  top:30px;right:-50px;width:clamp(320px,38vw,540px);height:auto}
+/* ── watermark LA BÀN (biểu tượng thương hiệu, tĩnh, mờ) ── */
+.hero-motif{position:absolute;z-index:0;pointer-events:none;opacity:.06;
+  top:24px;right:-46px;width:clamp(320px,38vw,520px);height:auto;
+  filter:grayscale(1) brightness(2.4)}
 .gift-motif{position:absolute;z-index:0;pointer-events:none;color:var(--o-400);opacity:.045;
   top:-30px;left:50%;transform:translateX(-50%);width:320px}
 
@@ -308,18 +309,7 @@ a:focus-visible,.btn:focus-visible,button:focus-visible{outline:2px solid var(--
 <!-- ── HERO ── -->
 <section class="hero" id="main">
   <span class="glow a"></span>
-  <svg class="hero-motif" viewBox="0 0 200 200" fill="none" stroke="currentColor" aria-hidden="true">
-    <circle cx="100" cy="100" r="92" stroke-width="1"/>
-    <circle cx="100" cy="100" r="70" stroke-width=".6"/>
-    <g stroke-width="1"><path d="M100 4v16"/><path d="M100 180v16"/><path d="M4 100h16"/><path d="M180 100h16"/></g>
-    <g stroke-width=".5"><path d="M30 30l11 11"/><path d="M170 30l-11 11"/><path d="M30 170l11-11"/><path d="M170 170l-11-11"/></g>
-    <g stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M100 152V90"/>
-      <path d="M100 152c-7 0-12 4-15 10M100 152c7 0 12 4 15 10"/>
-      <path d="M100 100c-11-2-19-9-20-19M100 100c11-2 19-9 20-19"/>
-      <circle cx="100" cy="68" r="18"/><circle cx="71" cy="84" r="14"/><circle cx="129" cy="84" r="14"/>
-    </g>
-  </svg>
+  <img class="hero-motif" src="/assets/emblems/la-ban.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="wrap hero-grid">
     <div class="hero-top">
       <div class="hero-left">
