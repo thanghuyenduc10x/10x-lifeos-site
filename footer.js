@@ -9,11 +9,15 @@
   var YEAR = 2026;
 
   var CSS = '\
-  .x10f{position:relative;background:#070718;border-top:1px solid rgba(255,255,255,.07);\
+  .x10f{position:relative;overflow:hidden;background:#070718;border-top:1px solid rgba(255,255,255,.07);\
     font-family:"Be Vietnam Pro",sans-serif;color:#8888C0;font-size:15px;line-height:1.7;margin-top:60px}\
   .x10f a{color:#B0B0D8;text-decoration:none;transition:color .2s}\
   .x10f a:hover{color:#fff}\
-  .x10f__wrap{max-width:1080px;margin-inline:auto;padding:0 24px}\
+  .x10f__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}\
+  .x10f__bg img{position:absolute;display:block;object-fit:contain;filter:grayscale(1) brightness(2.4)}\
+  .x10f__bg .laban{top:50%;right:-72px;width:360px;height:369px;transform:translateY(-46%);opacity:.08}\
+  .x10f__bg .haidang{bottom:-54px;left:-44px;width:212px;height:237px;opacity:.075}\
+  .x10f__wrap{position:relative;z-index:1;max-width:1080px;margin-inline:auto;padding:0 24px}\
   .x10f__divider{display:flex;align-items:center;gap:18px;padding-top:48px}\
   .x10f__divider .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent)}\
   .x10f__divider svg{width:26px;height:26px;color:#C96028;flex-shrink:0;opacity:.9}\
@@ -36,7 +40,8 @@
     border-top:1px solid rgba(255,255,255,.06);padding:22px 0 40px;font-size:13px;color:#7A7AB0}\
   .x10f__bar b{color:#B0B0D8;font-weight:600}\
   .x10f__bar .right{font-family:"Montserrat",sans-serif;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#7A7AB0}\
-  @media(max-width:720px){.x10f__main{grid-template-columns:1fr 1fr;gap:30px}.x10f__brand{grid-column:1/-1}.x10f__bar{justify-content:center;text-align:center}}\
+  @media(max-width:720px){.x10f__main{grid-template-columns:1fr 1fr;gap:30px}.x10f__brand{grid-column:1/-1}.x10f__bar{justify-content:center;text-align:center}\
+    .x10f__bg .laban{width:240px;height:246px;right:-92px;opacity:.07}.x10f__bg .haidang{width:150px;height:168px;opacity:.065}}\
   ';
 
   /* la bàn nhỏ trên đường kẻ phân cách */
@@ -57,7 +62,12 @@
   }
 
   var HTML = '\
-  <footer class="x10f"><div class="x10f__wrap">\
+  <footer class="x10f">\
+    <div class="x10f__bg" aria-hidden="true">\
+      <img class="laban" src="/assets/emblems/la-ban.svg" alt="" loading="lazy" decoding="async">\
+      <img class="haidang" src="/assets/emblems/hai-dang.svg" alt="" loading="lazy" decoding="async">\
+    </div>\
+    <div class="x10f__wrap">\
     <div class="x10f__divider"><span class="line"></span>' + COMPASS + '<span class="line"></span></div>\
     <div class="x10f__main">\
       <div class="x10f__brand">\
