@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Case Thực Chiến: Từ Ý Tưởng Đến Sản Phẩm Triển Khai — 10X Life OS</title>
+<meta name="description" content="Hành trình vibe-code thật một sản phẩm từ ý tưởng đến triển khai + thị trường. 7 chặng, 9 nguyên tắc, checklist — làm 1 lần dùng N lần." />
+<meta property="og:title" content="Case Thực Chiến: Từ Ý Tưởng Đến Sản Phẩm Triển Khai — 10X Life OS" />
+<meta property="og:description" content="Hành trình vibe-code thật một sản phẩm từ ý tưởng đến triển khai + thị trường. 7 chặng, 9 nguyên tắc, checklist — làm 1 lần dùng N lần." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://10x-lifeos.com/blog-case-thuc-chien/" />
+<meta property="og:image" content="https://10x-lifeos.com/og-cover.png" />
+<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Case Thực Chiến: Từ Ý Tưởng Đến Sản Phẩm Triển Khai — 10X Life OS" />
+<meta name="twitter:description" content="Hành trình vibe-code thật một sản phẩm từ ý tưởng đến triển khai + thị trường. 7 chặng, 9 nguyên tắc, checklist — làm 1 lần dùng N lần." />
+<meta name="twitter:image" content="https://10x-lifeos.com/og-cover.png" />
+<link rel="canonical" href="https://10x-lifeos.com/blog-case-thuc-chien/" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Montserrat:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy-950:#070718;--navy-900:#0A0A24;--navy-800:#12123A;--navy-700:#1A1A50;--navy-600:#24246A;--navy-500:#353590;
+  --navy-300:#8888C0;--navy-200:#B0B0D8;--navy-100:#DDDDF0;
+  --o-700:#8C3F18;--o-600:#A84F20;--o-500:#C96028;--o-400:#D97538;--o-300:#E89060;--o-200:#F0B090;
+  --white:#fff;--green:#4CAF7D;--red:#E0775C;
+  --fd:'Montserrat',sans-serif;--fb:'Be Vietnam Pro',sans-serif;
+  --f-head:'Fraunces','Georgia',serif;
+  --prose:760px;--wide:1080px;--ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--navy-900);color:var(--navy-200);line-height:1.75;-webkit-font-smoothing:antialiased;font-size:17px;letter-spacing:.01em}
+h1,h2,h3{font-family:var(--f-head);font-weight:600;color:#fff;line-height:1.18;letter-spacing:-.015em;font-optical-sizing:auto;text-wrap:balance}
+h4{font-family:var(--fd);color:#fff;line-height:1.18;letter-spacing:-.02em;text-wrap:balance}
+a{color:var(--o-400);text-decoration:none}a:hover{color:var(--o-300)}
+img{max-width:100%;display:block}
+em{font-style:normal;color:var(--o-400);font-weight:500}
+.wrap{max-width:var(--prose);margin-inline:auto;padding-inline:24px}
+.wide{max-width:var(--wide);margin-inline:auto;padding-inline:24px}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,36,.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.topbar .wide{display:flex;align-items:center;gap:16px;height:60px}
+.tb-logo{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-weight:800;color:#fff;font-size:15px}
+.tb-logo img{height:26px}.tb-logo b{color:var(--o-400)}
+.spacer{flex:1}
+.tb-back{font-size:13.5px;color:var(--navy-200);display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border:1px solid rgba(255,255,255,.12);border-radius:8px;transition:all .2s}
+.tb-back:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.05)}
+.tb-back svg{width:15px;height:15px}
+
+/* hero */
+.hero{padding:60px 0 36px;text-align:center;position:relative;overflow:hidden}
+.hero .gl{position:absolute;border-radius:50%;filter:blur(110px);opacity:.4;pointer-events:none;z-index:0}
+.hero .gl.a{top:-120px;left:10%;width:400px;height:400px;background:var(--o-700);opacity:.25}
+.hero .gl.b{top:60px;right:8%;width:360px;height:360px;background:var(--navy-600)}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--o-300);background:rgba(201,96,40,.12);border:1px solid rgba(201,96,40,.28);border-radius:999px;padding:8px 18px;margin-bottom:24px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--o-400);box-shadow:0 0 8px var(--o-400)}
+.hero h1{font-size:clamp(32px,5.5vw,56px);font-weight:700;margin-bottom:20px}
+.hero h1 b{color:var(--o-500)}
+.hero .lead{font-size:clamp(16px,2.2vw,20px);color:var(--navy-100);max-width:620px;margin:0 auto 14px;line-height:1.6}
+.byline{font-size:14px;color:var(--navy-300);margin-bottom:34px}
+.byline b{color:var(--navy-100)}
+.hero-anim{max-width:var(--wide);margin:8px auto 0;padding-inline:24px}
+.anim-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.anim-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#05050f}
+
+/* prose */
+.body{padding:30px 0 60px}
+.body p{margin:0 0 22px;color:var(--navy-200)}
+.body p b,.body li b{color:#fff;font-weight:600}
+.body h2{font-size:clamp(25px,3.6vw,34px);font-weight:700;margin:54px 0 18px;padding-top:10px}
+.body h2 .num{color:var(--o-500);font-family:var(--fd);font-weight:800}
+.body h3{font-size:21px;font-weight:700;color:#fff;margin:34px 0 12px}
+.body ul{margin:0 0 22px;padding-left:0;list-style:none}
+.body ul li{position:relative;padding-left:30px;margin-bottom:11px;color:var(--navy-200)}
+.body ul li::before{content:"";position:absolute;left:6px;top:11px;width:7px;height:7px;border-radius:2px;background:var(--o-500);transform:rotate(45deg)}
+.lead-in{font-size:20px;color:var(--navy-100);line-height:1.7;border-left:3px solid var(--o-500);padding-left:22px;margin:0 0 30px}
+
+.callout{background:rgba(201,96,40,.06);border:1px solid rgba(201,96,40,.22);border-radius:14px;padding:22px 26px;margin:28px 0}
+.callout .ct{font-family:var(--fd);font-weight:700;color:var(--o-300);font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.callout .ct svg{width:18px;height:18px}
+.callout p{margin:0;color:var(--navy-100);font-size:16px}
+.callout p:not(:last-child){margin-bottom:10px}
+
+.quote{font-family:var(--fd);font-weight:700;font-size:clamp(22px,3.4vw,30px);color:#fff;line-height:1.32;text-align:center;
+  max-width:680px;margin:46px auto;text-wrap:balance}
+.quote b{color:var(--o-500)}
+
+/* figure / illustration */
+figure{margin:34px 0}
+.fig-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px;overflow:hidden}
+figcaption{text-align:center;font-size:14px;color:var(--navy-300);margin-top:14px;font-style:italic}
+
+/* leverage table */
+.lev{width:100%;border-collapse:collapse;margin:8px 0;font-size:15.5px}
+.lev th,.lev td{text-align:left;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top}
+.lev th{font-family:var(--fd);color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.04em;background:rgba(255,255,255,.03)}
+.lev td:first-child{color:#fff;font-weight:500;white-space:nowrap}
+.lev td:last-child{color:var(--navy-300)}
+.lev tr:last-child td{border-bottom:none}
+
+/* checklist */
+.check{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:8px 26px 22px}
+.check h4{font-size:15px;color:var(--o-300);margin:22px 0 10px;font-family:var(--fd);letter-spacing:.03em}
+.check label{display:flex;gap:12px;align-items:flex-start;padding:7px 0;font-size:15.5px;color:var(--navy-200);cursor:pointer}
+.check .box{width:20px;height:20px;border-radius:5px;border:1.5px solid var(--navy-500);flex-shrink:0;margin-top:2px}
+
+/* CTA */
+.cta{background:linear-gradient(180deg,var(--navy-800),var(--navy-900));border:1px solid rgba(201,96,40,.22);border-radius:22px;
+  padding:44px 36px;text-align:center;margin:50px auto;max-width:var(--prose)}
+.cta h3{font-size:26px;margin-bottom:12px}.cta h3 b{color:var(--o-500)}
+.cta p{color:var(--navy-300);margin-bottom:24px}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--o-500);color:#fff;font-family:var(--fb);font-weight:600;font-size:15px;
+  padding:14px 28px;border-radius:9px;box-shadow:0 8px 28px rgba(201,96,40,.35);transition:all .2s}
+.btn:hover{background:var(--o-600);color:#fff;transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+
+/* footer */
+.ftr{border-top:1px solid rgba(255,255,255,.07);padding:40px 0;background:var(--navy-950);margin-top:40px}
+.ftr .wide{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--navy-300)}
+.ftr img{height:40px;border-radius:50%}
+.ftr b{color:#fff}
+.ftr .tagline{margin-left:auto;font-family:var(--fd);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+
+svg .stroke{stroke:var(--o-500)}
+@media(max-width:680px){.body h2{font-size:24px}.hero h1{font-size:30px}}
+
+/* accessibility + reduced motion */
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+a:focus-visible,.btn:focus-visible,button:focus-visible,[class*=back]:focus-visible{outline:2px solid #E89060;outline-offset:3px;border-radius:8px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:12px;z-index:200;background:#C96028;color:#fff;padding:10px 16px;border-radius:8px;font-weight:600}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua tới nội dung chính</a>
+
+<header class="topbar">
+  <div class="wide">
+    <a class="tb-logo" href="https://10x-lifeos.com"><img src="assets/logo-white.png" alt="10X" onerror="this.style.display='none'">10X <b>Life OS</b></a>
+    <span class="spacer"></span>
+    <a class="tb-back" href="/blog/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Tất cả bài viết
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="gl a"></span><span class="gl b"></span>
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Case Thực Chiến · 10X Life OS</span>
+    <h1>Từ <b>Ý Tưởng</b> đến <b>Sản Phẩm Triển Khai</b><br>trong một hành trình</h1>
+    <p class="lead">Câu chuyện thật: vibe-code một app từ con số 0 đến chạy trên Mac &amp; Windows, tự đóng gói, lên website bán hàng — và để lại một <em>bộ khung lặp lại được</em>.</p>
+    <p class="byline">Đúc kết bởi <b>Coach Thắng Huyền Đức</b> · ~12 phút đọc</p>
+  </div>
+  <div class="hero-anim">
+    <div class="anim-frame"><iframe src="journey-animation.html" title="Hành trình 7 chặng" scrolling="no" loading="lazy"></iframe></div>
+  </div>
+</section>
+
+<!-- BODY -->
+<article class="body" id="main">
+<div class="wrap">
+
+  <p class="lead-in">Trong một hành trình làm việc, chúng tôi đã đi từ một ý tưởng đơn giản — <em>"một app chép lời để tặng bạn bè"</em> — đến: app chạy thật <b>17,4× nhanh hơn thời gian thực</b>, file cài cho cả Mac &amp; Windows tự dựng, một website bán hàng có video, và quan trọng hơn cả: <b>một bộ khung để lặp lại cho mọi sản phẩm sau.</b></p>
+
+  <p>Bài viết này không phải lý thuyết. Đây là <b>quy trình thật</b> — kèm những cú vấp thật và những "khoảnh khắc à-ra-thế" — được rút thành thứ bạn có thể <b>tự làm theo</b>.</p>
+
+  <p>Người làm sản phẩm đẳng cấp thế giới không làm <em>nhanh hơn</em>. Họ làm sao để <b>không phải làm lại.</b> Mỗi việc họ làm đều để lại một "tài sản tái dùng" — lần sau chỉ lắp lại, không xây lại. Đó là tinh thần của cả bài này.</p>
+
+  <h2><span class="num">01</span> &nbsp;Bức tranh lớn: hành trình 7 chặng</h2>
+  <p>Mọi sản phẩm số, dù lớn hay nhỏ, đều đi qua 7 chặng. Cái khó không phải là <em>biết</em> 7 chặng — mà là đi đúng <b>thứ tự</b> và không bỏ chặng nào:</p>
+
+  <figure><div class="fig-card">
+    <svg viewBox="0 0 760 150" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Be Vietnam Pro,sans-serif">
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><path d="M0 1L5 4L0 7" fill="none" stroke="#D97538" stroke-width="1.4"/></marker></defs>
+      <line x1="55" y1="55" x2="705" y2="55" stroke="#24246A" stroke-width="2"/>
+      <g text-anchor="middle" font-size="12">
+        <g><circle cx="55" cy="55" r="22" fill="rgba(201,96,40,.16)" stroke="#C96028" stroke-width="1.4"/><text x="55" y="59" fill="#E89060" font-weight="700">1</text><text x="55" y="98" fill="#fff">Ý tưởng</text></g>
+        <g><circle cx="163" cy="55" r="22" fill="rgba(201,96,40,.16)" stroke="#C96028" stroke-width="1.4"/><text x="163" y="59" fill="#E89060" font-weight="700">2</text><text x="163" y="98" fill="#fff">Động cơ</text></g>
+        <g><circle cx="271" cy="55" r="22" fill="rgba(201,96,40,.16)" stroke="#C96028" stroke-width="1.4"/><text x="271" y="59" fill="#E89060" font-weight="700">3</text><text x="271" y="98" fill="#fff">Sản phẩm</text></g>
+        <g><circle cx="380" cy="55" r="22" fill="rgba(201,96,40,.16)" stroke="#C96028" stroke-width="1.4"/><text x="380" y="59" fill="#E89060" font-weight="700">4</text><text x="380" y="98" fill="#fff">Đóng gói</text></g>
+        <g><circle cx="489" cy="55" r="22" fill="rgba(201,96,40,.16)" stroke="#C96028" stroke-width="1.4"/><text x="489" y="59" fill="#E89060" font-weight="700">5</text><text x="489" y="98" fill="#fff">Phân phối</text></g>
+        <g><circle cx="597" cy="55" r="22" fill="rgba(201,96,40,.16)" stroke="#C96028" stroke-width="1.4"/><text x="597" y="59" fill="#E89060" font-weight="700">6</text><text x="597" y="98" fill="#fff">Sửa lỗi</text></g>
+        <g><circle cx="705" cy="55" r="22" fill="rgba(201,96,40,.16)" stroke="#C96028" stroke-width="1.4"/><text x="705" y="59" fill="#E89060" font-weight="700">7</text><text x="705" y="98" fill="#fff">Thị trường</text></g>
+      </g>
+    </svg>
+  </div><figcaption>7 chặng — đi đúng thứ tự, de-risk dần từ trái sang phải.</figcaption></figure>
+
+  <p>Sai lầm phổ biến nhất: lao vào <b>Chặng 3 (làm app, làm UI)</b> ngay khi có ý tưởng — trước khi chứng minh được <b>Chặng 2 (động cơ)</b> có chạy nổi không. Đến cuối mới phát hiện cái lõi bất khả thi, công sức đổ sông.</p>
+
+  <h2><span class="num">02</span> &nbsp;Nguyên tắc #1: De-risk theo thứ tự</h2>
+  <p>Người giỏi <b>tấn công rủi ro lớn nhất trước.</b> Với app chép lời, thứ rủi ro nhất không phải giao diện — mà là: <em>"Liệu AI có chép tiếng Việt chính xác &amp; đủ nhanh trên máy thường không?"</em></p>
+  <p>Nên việc đầu tiên không phải vẽ nút bấm, mà là một <b>"spike"</b>: code thử cái lõi, chạy trên một file ghi âm <b>2 tiếng thật</b>, rồi <em>đo</em>. Kết quả: 17,4× — chạy được. Chỉ KHI ĐÓ mới đáng bỏ công làm app.</p>
+
+  <figure><div class="fig-card">
+    <svg viewBox="0 0 760 130" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Be Vietnam Pro,sans-serif">
+      <g>
+        <rect x="30" y="38" width="200" height="54" rx="12" fill="rgba(201,96,40,.14)" stroke="#C96028" stroke-width="1.5"/>
+        <text x="130" y="62" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">CỔNG 1 · Động cơ</text>
+        <text x="130" y="80" text-anchor="middle" fill="#E89060" font-size="11">Rủi ro NHẤT — làm trước</text>
+        <path d="M240 65 L290 65" stroke="#D97538" stroke-width="2" marker-end="url(#ar2)"/>
+        <rect x="300" y="38" width="160" height="54" rx="12" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+        <text x="380" y="62" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">CỔNG 2 · App</text>
+        <text x="380" y="80" text-anchor="middle" fill="#8888C0" font-size="11">Bọc động cơ</text>
+        <path d="M470 65 L520 65" stroke="#D97538" stroke-width="2" marker-end="url(#ar2)"/>
+        <rect x="530" y="38" width="200" height="54" rx="12" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+        <text x="630" y="62" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">CỔNG 3 · Đóng gói</text>
+        <text x="630" y="80" text-anchor="middle" fill="#8888C0" font-size="11">Cho người thường cài</text>
+      </g>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><path d="M0 1L5 4L0 7" fill="none" stroke="#D97538" stroke-width="1.4"/></marker></defs>
+    </svg>
+  </div><figcaption>Khung 3-Cổng: nếu Cổng 1 fail, không tốn công Cổng 2-3.</figcaption></figure>
+
+  <h2><span class="num">03</span> &nbsp;Nguyên tắc #2: ĐO, đừng ĐOÁN</h2>
+  <p>Đây là bài học đắt giá nhất. Khi bản Windows bị báo <b>"treo"</b>, phản xạ thường là đoán nguyên nhân rồi sửa. Chúng tôi làm ngược lại: <b>tái hiện trên Mac (ép chạy CPU) rồi bấm giờ.</b></p>
+  <p>Sự thật lộ ra: <b>không hề treo — chỉ chậm.</b> Máy có GPU chạy 17×, máy chỉ có CPU chạy ~2,5×. Một giả thuyết khác ("do tính năng flash-attn") cũng bị chính số đo <b>bác bỏ</b>. Nếu sửa theo cảm giác, đã sửa nhầm chỗ và mất hàng giờ.</p>
+
+  <div class="callout">
+    <div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Quy trình sửa lỗi vàng</div>
+    <p><b>Tái hiện → Đo → Cô lập biến → Sửa → Xác minh lại.</b></p>
+    <p>"Treo" thường là "chậm". "Lỗi" thường là "hiểu nhầm". Luôn chẩn đoán bằng <em>số liệu</em> trước khi đụng vào code.</p>
+  </div>
+
+  <h2><span class="num">04</span> &nbsp;Nguyên tắc vàng: bắn 1 mũi tên, trúng N đích</h2>
+  <p class="lead-in">Đây là phần quan trọng nhất. Mỗi khi làm việc gì <b>lần thứ hai</b>, hãy hỏi: <em>"Làm sao để lần thứ ba không phải làm nữa?"</em> — rồi biến nó thành một <b>tài sản tái dùng.</b></p>
+
+  <p>Trong hành trình này, mỗi tài sản dưới đây được làm <b>một lần</b>, nhưng phục vụ <b>mọi sản phẩm/phiên bản sau</b>:</p>
+
+  <table class="lev">
+    <tr><th>Tài sản (làm 1 lần)</th><th>Trúng N đích</th></tr>
+    <tr><td>1 file CI tự động</td><td>Tự dựng Mac + Windows + GPU cho MỌI phiên bản, mãi mãi</td></tr>
+    <tr><td>1 bộ Design Tokens</td><td>App · Landing · Slide · Video animation · One-pager đều đồng bộ</td></tr>
+    <tr><td>1 mẫu "cuốn sổ" dữ liệu</td><td>Mọi app xử lý nhiều việc đều bền, tắt-mở chạy tiếp</td></tr>
+    <tr><td>1 hệ "bộ nhớ" dự án</td><td>Phiên sau nối tiếp ngay, không dò lại từ đầu</td></tr>
+    <tr><td>1 khung 3-Cổng + checklist</td><td>Áp cho mọi ý tưởng sản phẩm mới</td></tr>
+  </table>
+
+  <p><b>Ví dụ sống:</b> chính trang web, video, slide và one-pager bạn vừa thấy — tất cả sinh ra từ <b>cùng một bộ màu + font</b>. Có bộ nhận diện chuẩn, làm tài sản marketing nhanh gấp nhiều lần và <em>đồng bộ tuyệt đối.</em></p>
+
+  <h2><span class="num">05</span> &nbsp;Những cú vấp — học từ lỗi thật</h2>
+  <ul>
+    <li><b>"Treo" = chậm, không phải hỏng.</b> Chẩn đoán (đo) trước khi sửa.</li>
+    <li><b>Tự bác bỏ giả thuyết của mình bằng số đo</b> — đừng yêu giả thuyết của mình.</li>
+    <li><b>Bẫy đường dẫn quá 260 ký tự trên Windows</b> (MAX_PATH) — kinh điển, rút ngắn thư mục build là xong.</li>
+    <li><b>Tên miền sai 1 ký tự = cả web "chết".</b> Luôn kiểm tra link live trên trình duyệt thật trước khi gửi.</li>
+    <li><b>Bản tăng tốc GPU không chạy trên máy thiếu driver</b> → giữ luôn bản thường để phủ mọi máy (ship 2 bản).</li>
+    <li><b>Cho "người soi" độc lập phản biện TRƯỚC mỗi lần build tốn 30 phút</b> — kiểm tra rẻ hơn thất bại.</li>
+  </ul>
+
+  <div class="quote">"Làm <b>1 lần</b> cho đàng hoàng → để lại <b>1 tài sản</b> → lần sau <b>lắp lại</b>, không xây lại."</div>
+
+  <h2><span class="num">06</span> &nbsp;Checklist — in ra &amp; làm theo</h2>
+  <p>Đây là phần để bạn <b>thực sự làm được.</b> Lần tới có ý tưởng, mở checklist này và tick từng dòng:</p>
+
+  <div class="check">
+    <h4>① Ý TƯỞNG &amp; ② ĐỘNG CƠ</h4>
+    <label><span class="box"></span> Viết được "đau 1 câu" (ai · đau gì · giải sao) + 3 ràng buộc cứng</label>
+    <label><span class="box"></span> Code thử cái LÕI, chạy trên dữ liệu THẬT, đo bằng số</label>
+    <label><span class="box"></span> Thử ca biên xấu nhất trước (file hỏng, im lặng…)</label>
+    <h4>③ SẢN PHẨM &amp; ④ ĐÓNG GÓI</h4>
+    <label><span class="box"></span> 1 nguồn sự thật cho trạng thái · xử lý nền (UI không đơ)</label>
+    <label><span class="box"></span> Tắt/mở lại chạy tiếp · bỏ qua việc đã xong</label>
+    <label><span class="box"></span> File cài nhỏ · thử cài trên máy SẠCH (không phải máy dev)</label>
+    <h4>⑤ PHÂN PHỐI &amp; ⑥ SỬA LỖI</h4>
+    <label><span class="box"></span> 1 file CI build đa nền tảng · gắn nhãn → tự phát hành</label>
+    <label><span class="box"></span> Tái hiện · đo · xác minh lại (không tin suông)</label>
+    <h4>⑦ THỊ TRƯỜNG &amp; SAU CÙNG</h4>
+    <label><span class="box"></span> Landing đúng nhận diện + bằng chứng THẬT · kiểm tra link live</label>
+    <label><span class="box"></span> Ghi lại điều KHÔNG hiển nhiên · biến việc-lần-2 thành template</label>
+  </div>
+
+  <div class="cta">
+    <h3>Muốn xem <b>sản phẩm thật</b> của hành trình này?</h3>
+    <p>Chính là app "Chép Lời" — chép lời offline, riêng tư tuyệt đối, miễn phí.</p>
+    <a class="btn" href="https://10x-lifeos.com/chep-loi/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      Xem app Chép Lời
+    </a>
+  </div>
+
+  <div style="text-align:center;margin:36px 0 4px">
+    <a href="/blog/" style="display:inline-flex;align-items:center;gap:9px;color:#B0B0D8;font-weight:600;font-size:15px;padding:12px 24px;border:1px solid rgba(255,255,255,.12);border-radius:10px">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Về tất cả bài viết
+    </a>
+  </div>
+
+</div>
+</article>
+
+<div id="site-footer"></div>
+<script src="/footer.js"></script>
+
+</body>
+</html>
