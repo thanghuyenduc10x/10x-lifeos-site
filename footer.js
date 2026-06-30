@@ -87,11 +87,14 @@
   function L(vi, en) {
     return '<span class="lang lang-vi">' + vi + '</span><span class="lang lang-en">' + en + '</span>';
   }
+  function ext(href) {
+    return /^https?:/.test(href) ? ' target="_blank" rel="noopener noreferrer"' : '';
+  }
   function li(href, ico, label) {
-    return '<li><a href="' + href + '"><span class="x10f__ico">' + ico + '</span>' + label + '</a></li>';
+    return '<li><a href="' + href + '"' + ext(href) + '><span class="x10f__ico">' + ico + '</span>' + label + '</a></li>';
   }
   function so(href, name, svg) {
-    return '<a href="' + href + '" aria-label="' + name + '">' + svg + '</a>';
+    return '<a href="' + href + '"' + ext(href) + ' aria-label="' + name + '">' + svg + '</a>';
   }
 
   var HTML = '\
@@ -109,7 +112,7 @@
         <div class="x10f__motto">Khai Thông · Khai Mở · Khai Phóng</div>\
         <div class="x10f__tag">' + L('<em>Tròn đầy bên trong</em> — Đủ đầy bên ngoài.', '<em>Whole within</em> — abundant without.') + '</div>\
         <div class="x10f__social">' +
-          so('#', 'YouTube', SO_yt) + so('#', 'Facebook', SO_fb) + so('#', 'TikTok', SO_tt) + so('#', 'Skool', SO_sk) +
+          so('#', 'YouTube', SO_yt) + so('https://www.facebook.com/CoachThangHuyenDuc', 'Facebook', SO_fb) + so('#', 'TikTok', SO_tt) + so('https://www.skool.com/leader-10x-mo-khoa-lanh-ao-7648', 'Skool', SO_sk) +
         '</div>\
       </div>\
       <div class="x10f__col">\
@@ -133,7 +136,7 @@
       <div class="x10f__col">\
         <h4>' + L('Khu vực thành viên', 'Member Area') + '</h4>\
         <ul>' +
-          li('#', IC_skool, L('Cộng đồng (Skool)', 'Community (Skool)')) +
+          li('https://www.skool.com/leader-10x-mo-khoa-lanh-ao-7648', IC_skool, L('Cộng đồng (Skool)', 'Community (Skool)')) +
           li('#', IC_lms, L('Học tập (LMS)', 'Learning (LMS)')) +
           li('#', IC_track, L('Tracking 10X', '10X Tracking')) +
         '</ul>\
