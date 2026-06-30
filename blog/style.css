@@ -2,7 +2,7 @@
   --navy-950:#070718;--navy-900:#0A0A24;--navy-800:#12123A;--navy-700:#1A1A50;--navy-600:#24246A;--navy-300:#8888C0;--navy-200:#B0B0D8;
   --o-600:#A84F20;--o-500:#C96028;--o-400:#D97538;--o-300:#E89060;
   --cream:#F8F7F4;--paper:#fff;--ink:#12123A;--ink-soft:#3f3a33;--ink-mute:#807870;
-  --f-display:'Montserrat',sans-serif;--f-body:'Be Vietnam Pro',sans-serif;
+  --f-display:'Montserrat',sans-serif;--f-serif:'Fraunces','Georgia',serif;--f-body:'Be Vietnam Pro',sans-serif;
   --wrap:1180px;--read:730px;--ease:cubic-bezier(.22,1,.36,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -11,7 +11,7 @@ body{font-family:var(--f-body);background:var(--navy-900);color:var(--navy-200);
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
-h1,h2,h3,.display{font-family:var(--f-display);color:#fff;line-height:1.12;letter-spacing:-.02em}
+h1,h2,h3,.display{font-family:var(--f-serif);color:#fff;line-height:1.14;letter-spacing:-.01em}
 em{font-style:normal;color:var(--o-400)}
 
 /* nav */
