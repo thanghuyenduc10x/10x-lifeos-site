@@ -112,7 +112,7 @@
         <div class="x10f__motto">Khai Thông · Khai Mở · Khai Phóng</div>\
         <div class="x10f__tag">' + L('<em>Tròn đầy bên trong</em> — Đủ đầy bên ngoài.', '<em>Whole within</em> — abundant without.') + '</div>\
         <div class="x10f__social">' +
-          so('#', 'YouTube', SO_yt) + so('https://www.facebook.com/CoachThangHuyenDuc', 'Facebook', SO_fb) + so('#', 'TikTok', SO_tt) + so('https://www.skool.com/leader-10x-mo-khoa-lanh-ao-7648', 'Skool', SO_sk) +
+          so('https://www.youtube.com/@Th%E1%BA%AFngHuy%E1%BB%81n%C4%90%E1%BB%A9cCoach', 'YouTube', SO_yt) + so('https://www.facebook.com/CoachThangHuyenDuc', 'Facebook', SO_fb) + so('#', 'TikTok', SO_tt) + so('https://www.skool.com/leader-10x-mo-khoa-lanh-ao-7648', 'Skool', SO_sk) +
         '</div>\
       </div>\
       <div class="x10f__col">\
@@ -130,7 +130,7 @@
         <ul>' +
           li('/chep-loi/', IC_mic, L('Chép Lời — offline', 'Chép Lời — offline')) +
           li('/#resources', IC_ai, L('Hệ thống AI 7 ngày', '7-Day AI System')) +
-          li('#', IC_play, L('Thư viện 10X (YouTube)', '10X Library (YouTube)')) +
+          li('https://www.youtube.com/@Th%E1%BA%AFngHuy%E1%BB%81n%C4%90%E1%BB%A9cCoach', IC_play, L('Thư viện 10X (YouTube)', '10X Library (YouTube)')) +
         '</ul>\
       </div>\
       <div class="x10f__col">\
