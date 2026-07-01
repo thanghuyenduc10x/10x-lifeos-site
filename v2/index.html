@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Coach Thắng Huyền Đức — 10X Life OS · v2 demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Montserrat:wght@500;600;700;800&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --n-950:#070718;--n-900:#0A0A24;--n-800:#12123A;--n-700:#1A1A50;--n-600:#24246A;--n-400:#5858A8;--n-300:#8888C0;--n-200:#B0B0D8;--n-100:#DDDDF0;
+  --o-700:#8C3F18;--o-600:#A84F20;--o-500:#C96028;--o-400:#D97538;--o-300:#E89060;--o-200:#F0B090;
+  --bg:var(--n-950);--surface:var(--n-800);--border:rgba(255,255,255,.07);--border-h:rgba(201,96,40,.28);
+  --text:var(--n-100);--text-muted:var(--n-300);--accent:var(--o-500);
+  --f-head:'Fraunces','Georgia',serif;--f-body:'Be Vietnam Pro',sans-serif;--f-label:'Montserrat',sans-serif;
+  --wrap:1120px;--ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-body);background:var(--bg);color:var(--text-muted);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.veil{position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(120% 80% at 50% -10%,#16163e 0%,var(--n-900) 42%,var(--n-950) 100%)}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3{font-family:var(--f-head);color:#fff;line-height:1.08;letter-spacing:-.02em;font-weight:500;font-optical-sizing:auto;text-wrap:balance}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(22px,5vw,44px)}
+.eyebrow{font-family:var(--f-label);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--o-300)}
+em{font-style:italic;color:var(--o-400)}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* cursor spotlight */
+.cursor-glow{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:0;transition:opacity .5s var(--ease);mix-blend-mode:screen;background:radial-gradient(440px circle at var(--mx,50%) var(--my,40%),rgba(217,117,56,.13),rgba(201,96,40,.05) 34%,transparent 62%)}
+.cursor-glow.on{opacity:1}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,10,36,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav .in{max-width:var(--wrap);margin-inline:auto;padding:13px clamp(22px,5vw,44px);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand svg{width:30px;height:30px;color:#EDEDFA}
+.brand b{font-family:var(--f-label);font-weight:800;color:#fff;font-size:1rem;letter-spacing:-.01em}
+.brand b i{color:var(--o-400);font-style:normal}
+.nav-links{display:flex;gap:26px;font-size:.92rem;font-weight:500}
+.nav-links a{color:var(--n-200);transition:color .2s}.nav-links a:hover{color:#fff}
+.cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-label);font-weight:700;font-size:.86rem;padding:11px 20px;border-radius:999px;background:var(--o-600);color:#fff;white-space:nowrap;box-shadow:0 10px 28px -8px rgba(201,96,40,.5);transition:transform .25s,background .25s}
+.cta:hover{transform:translateY(-2px);background:var(--o-500)}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;padding:40px 0}
+.hero .compass{position:absolute;top:50%;right:6%;width:min(48vw,540px);transform:translateY(-50%);opacity:.06;filter:grayscale(1) brightness(2.2);pointer-events:none;z-index:0}
+.hero .in{position:relative;z-index:2;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(22px,5vw,44px);width:100%;display:grid;grid-template-columns:1.06fr .94fr;gap:24px;align-items:center}
+.hero-txt{transition:transform .55s var(--ease)}
+.hero:hover .hero-txt{transform:translateY(-6px)}
+.hero .eyebrow{display:inline-block;margin-bottom:26px}
+.hero h1{font-size:clamp(46px,7.6vw,92px);font-weight:400;letter-spacing:-.03em;line-height:.98;transition:transform .55s var(--ease),text-shadow .55s}
+.hero:hover h1{transform:translateY(-4px);text-shadow:0 18px 54px rgba(201,96,40,.28)}
+.hero h1 b{font-weight:500;color:var(--o-400);font-style:italic}
+.creed{font-family:var(--f-head);font-style:italic;font-size:clamp(18px,2.4vw,26px);color:var(--n-100);margin-top:20px}
+.hero p.sub{font-size:15.5px;color:var(--text-muted);max-width:40ch;margin-top:16px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-label);font-weight:600;font-size:.9rem;padding:12px 22px;border-radius:999px;border:1px solid rgba(176,176,216,.32);color:#fff;transition:.25s}
+.btn-ghost:hover{border-color:var(--o-400);color:var(--o-300);transform:translateY(-2px)}
+.proof{font-size:13px;color:var(--n-400);margin-top:20px;font-family:var(--f-label);letter-spacing:.02em}
+.proof b{color:var(--o-300)}
+.portrait{position:relative;justify-self:center;align-self:end}
+.portrait .bgl{position:absolute;left:50%;top:44%;width:440px;height:440px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(201,96,40,.4),rgba(201,96,40,.08) 42%,transparent 66%);filter:blur(8px)}
+.portrait .ring{position:absolute;left:50%;top:44%;width:400px;height:400px;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(232,144,96,.32);animation:spin 40s linear infinite}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.portrait img{position:relative;z-index:2;width:min(44vw,500px);height:auto;filter:drop-shadow(0 26px 40px rgba(0,0,0,.55))}
+
+/* section */
+.sec{padding:clamp(70px,10vw,120px) 0;position:relative}
+.sec-head{text-align:center;max-width:640px;margin:0 auto clamp(40px,5vw,60px)}
+.sec-head h2{font-size:clamp(30px,5vw,52px);margin:14px 0}
+.sec-head p{color:var(--text-muted)}
+
+/* reframe */
+.reframe{text-align:center}
+.reframe h2{font-size:clamp(30px,5.4vw,58px);max-width:20ch;margin:0 auto;line-height:1.12}
+.reframe .k{font-family:var(--f-label);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--o-300);margin-bottom:20px}
+
+/* pillars */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{border:1px solid var(--border);border-radius:18px;padding:30px;background:rgba(255,255,255,.02);transition:transform .35s var(--ease),border-color .35s}
+.card:hover{transform:translateY(-5px);border-color:var(--border-h)}
+.card .ico{width:44px;height:44px;color:var(--o-400);margin-bottom:18px}
+.card h3{font-size:1.4rem;color:#fff;margin-bottom:8px}
+.card p{font-size:.96rem;color:var(--text-muted)}
+
+/* tiers */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.tier{border:1px solid var(--border);border-radius:18px;padding:26px 22px;background:rgba(255,255,255,.02);display:flex;flex-direction:column}
+.tier.feat{border-color:rgba(201,96,40,.5);background:linear-gradient(180deg,rgba(201,96,40,.08),rgba(201,96,40,.01))}
+.tier .nm{font-family:var(--f-label);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--o-300)}
+.tier .pr{font-family:var(--f-head);color:#fff;font-size:2rem;font-weight:500;margin:10px 0 4px}
+.tier .pr small{font-size:.9rem;color:var(--n-400);font-family:var(--f-body)}
+.tier p{font-size:.9rem;color:var(--text-muted);margin:10px 0 20px;flex:1}
+.tier .go{font-family:var(--f-label);font-weight:700;font-size:.85rem;color:var(--o-300)}
+.tier.feat .go{color:#fff;background:var(--o-500);padding:9px 0;border-radius:999px;text-align:center}
+
+/* final cta */
+.finalcta{text-align:center;background:radial-gradient(120% 100% at 50% 0,rgba(201,96,40,.12),transparent 60%)}
+.finalcta h2{font-size:clamp(30px,5vw,52px);margin-bottom:18px}
+.finalcta .cta{font-size:1rem;padding:15px 30px}
+
+/* footer */
+.foot{border-top:1px solid var(--border);padding:44px 0;text-align:center;background:var(--n-950)}
+.foot .name{font-family:var(--f-label);font-weight:800;color:#fff;font-size:20px}
+.foot .name b{color:var(--o-400)}
+.foot .mt{font-family:var(--f-label);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--n-300);margin:10px 0}
+.foot .cr{font-size:13px;color:var(--n-400)}
+.foot .cr b{color:var(--o-400)}
+
+@media(max-width:820px){.hero .in{grid-template-columns:1fr}.portrait{margin-top:24px}.grid3,.grid4{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="veil"></div><div class="grain"></div>
+
+<nav class="nav"><div class="in">
+  <a class="brand" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.3"/><path d="M12 18.6 L10.2 12.7 L12 12 L13.8 12.7 Z"/><path d="M12 5.4 L13.8 12 L12 12.7 L10.2 12 Z" fill="#C96028" stroke="#C96028"/><circle cx="12" cy="12" r="1.05" fill="currentColor" stroke="none"/></svg><b>10X <i>Life OS</i></b></a>
+  <div class="nav-links"><a href="#">Cộng đồng</a><a href="#">Lộ trình</a><a href="#">Blog</a><a href="#">Chép Lời</a><a href="#">Về Coach</a></div>
+  <a class="cta" href="#">Khai phóng ngay <span>→</span></a>
+</div></nav>
+
+<section class="hero">
+  <img class="compass" src="assets/la-ban.svg" alt="">
+  <div class="in">
+    <div class="hero-txt">
+      <span class="eyebrow">Mind Coach · Tỉnh thức · Tự học · AI</span>
+      <h1>Khai thông.<br>Khai mở.<br><b>Khai phóng.</b></h1>
+      <div class="creed">Tròn đầy bên trong — Đủ đầy bên ngoài.</div>
+      <p class="sub">Cùng cộng đồng <b style="color:#fff">10X</b>, thiết kế lại bản thân và cuộc đời — sống đột phá trong điềm tĩnh, nhất quán mỗi ngày.</p>
+      <div class="hero-cta">
+        <a class="cta" href="#">Nhận Hệ thống AI 7 ngày <span>→</span></a>
+        <a class="btn-ghost" href="#">Khám phá cộng đồng 10X</a>
+      </div>
+      <div class="proof"><b>300+</b> phiên coaching 1:1 · Miễn phí để bắt đầu</div>
+    </div>
+    <div class="portrait">
+      <span class="bgl"></span><span class="ring"></span>
+      <img src="assets/coach-thang-cutout.webp" alt="Coach Thắng Huyền Đức">
+    </div>
+  </div>
+</section>
+
+<section class="sec reframe wrap">
+  <div class="rv">
+    <div class="k">Định vị</div>
+    <h2>Không phải một khoá học. Mà là một <em>Hệ điều hành</em> cho cuộc đời.</h2>
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head rv"><span class="eyebrow">Ba trụ cột</span><h2>Ba cách <em>hiện diện</em></h2><p>Một la bàn nội tâm — ba vai dẫn đường.</p></div>
+  <div class="grid3">
+    <div class="card rv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6l1.5 6L12 13l-1.5-1z" fill="currentColor"/></svg><h3>Tỉnh thức</h3><p>Trở về Nội Tâm — nghe chính mình trước khi dẫn ai. Điềm tĩnh đến từ năng lực, không từ đè nén.</p></div>
+    <div class="card rv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7c-1.6-1-4-1.4-6-1.2V18c2-.2 4.4.2 6 1.2M12 7c1.6-1 4-1.4 6-1.2V18c-2-.2-4.4.2-6 1.2M12 7v12"/></svg><h3>Tự học</h3><p>Thiết kế lại cuộc đời như một sản phẩm — làm một lần cho chuẩn, các lần sau cứ thế chạy.</p></div>
+    <div class="card rv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/></svg><h3>AI &amp; Tự động hoá</h3><p>Coach làm 10% (chiến lược + hồn), AI làm 90% — nhân bản bạn, không nhân bản việc.</p></div>
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head rv"><span class="eyebrow">Lộ trình</span><h2>Bốn tầng <em>10X</em></h2><p>Từ miễn phí đến đồng hành trọn gói.</p></div>
+  <div class="grid4">
+    <div class="tier rv"><div class="nm">Free</div><div class="pr">0đ</div><p>Cộng đồng + tài nguyên khởi đầu. Vào ngay.</p><div class="go">Vào ngay →</div></div>
+    <div class="tier rv"><div class="nm">Basic</div><div class="pr">99k<small>/tháng</small></div><p>Skool + lớp nền tảng. Bắt đầu có nhịp.</p><div class="go">Đăng ký →</div></div>
+    <div class="tier rv feat"><div class="nm">Pro</div><div class="pr">199k<small>/tháng</small></div><p>Hệ thống đầy đủ + coaching nhóm. Tăng tốc.</p><div class="go">Nâng cấp Pro →</div></div>
+    <div class="tier rv"><div class="nm">Diamond</div><div class="pr">250M<small>/năm</small></div><p>Done-for-you 1:1. AI CEO 90 ngày.</p><div class="go">Ứng tuyển →</div></div>
+  </div>
+</section>
+
+<section class="sec finalcta wrap">
+  <div class="rv">
+    <h2>Bắt đầu <em>khai thông</em> hôm nay.</h2>
+    <a class="cta" href="#">Nhận Hệ thống AI 7 ngày <span>→</span></a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="name">10X <b>Life OS</b></div>
+  <div class="mt">Khai Thông · Khai Mở · Khai Phóng</div>
+  <div class="cr">© 2026 · <b>10X Life OS</b> · Coach Thắng Huyền Đức</div>
+</footer>
+
+<script>
+document.querySelectorAll('.rv').forEach(function(e){});
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&'IntersectionObserver'in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+}else{document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})}
+/* cursor spotlight */
+(function(){
+  if(matchMedia('(pointer:coarse)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var g=document.createElement('div');g.className='cursor-glow';document.body.appendChild(g);
+  var mx=innerWidth/2,my=innerHeight*.4,tx=mx,ty=my,raf=false,on=false;
+  function u(){raf=false;mx+=(tx-mx)*.18;my+=(ty-my)*.18;g.style.setProperty('--mx',mx.toFixed(1)+'px');g.style.setProperty('--my',my.toFixed(1)+'px');if(Math.abs(tx-mx)>.4||Math.abs(ty-my)>.4){raf=true;requestAnimationFrame(u)}}
+  addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;if(!on){on=true;g.classList.add('on')}if(!raf){raf=true;requestAnimationFrame(u)}},{passive:true});
+})();
+</script>
+</body></html>
