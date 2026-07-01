@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<!-- ============================================================
+     MẪU LANDING SẢN PHẨM 10X — COPY file này cho app mới.
+     Cách dùng: cp -R _mau /ten-app  →  đổi {{...}} thành nội dung thật.
+     KHÔNG viết lại CSS/icon/topbar — đã dùng chung brand.css + icons.js +
+     header.js + footer.js. Chỉ điền nội dung + đổi nút tải + đổi data-ic.
+     Soi checklist.html trước khi push.
+     ============================================================ -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{Tên app}} — {{mô tả ngắn}} · 10X Life OS</title>
+<meta name="description" content="{{Mô tả 1-2 câu cho SEO + thẻ chia sẻ}}" />
+<meta property="og:title" content="{{Tên app}} — {{mô tả ngắn}}" />
+<meta property="og:description" content="{{Mô tả chia sẻ Facebook/Zalo}}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://10x-lifeos.com/{{ten-app}}/" />
+<meta property="og:image" content="https://10x-lifeos.com/{{ten-app}}/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://10x-lifeos.com/{{ten-app}}/" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Montserrat:wght@600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/brand.css" />
+</head>
+<body>
+
+<!-- TOP BAR (khung chung) -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="tb-logo" href="/"><span class="ic10" data-ic="compass"></span> {{Tên}}<b>App</b></a>
+    <span class="spacer"></span>
+    <a class="tb-back" href="https://10x-lifeos.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/></svg>
+      <span>Trang chủ</span>
+    </a>
+    <span id="site-langtog"></span>
+    <a class="btn btn-primary btn-sm" href="#tai-ve">Tải app</a>
+  </div>
+</header>
+
+<div class="veil"></div><div class="grain"></div>
+
+<!-- HERO 2 cột -->
+<div class="hero" id="main">
+  <span class="glow a"></span>
+  <img class="hero-motif" src="/assets/emblems/la-ban.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+  <div class="wrap hero-grid">
+    <div class="hero-top">
+      <div class="hero-left">
+        <span class="hero-badge"><span class="dot"></span> {{Badge — vd Quà tặng · Miễn phí trọn đời}}</span>
+        <!-- ĐỪNG hardcode <br> trong h1; để text-wrap:balance lo. Nếu cần buộc 2 chữ cuối: dùng &nbsp; -->
+        <h1>{{Tiêu đề mạnh}} <em>{{phần nhấn cam}}</em></h1>
+        <p class="hero-lead">{{Câu pitch 1 dòng — <b>điểm nổi bật</b>}}</p>
+        <p class="hero-sub">{{Mô tả — <b>không mạng, không tài khoản…</b>}}</p>
+      </div>
+      <div class="hero-right">
+        <div class="value-pill">
+          <span class="ic10" data-ic="gift"></span>
+          <span class="vtxt"><b>{{Giá trị / quà}}</b><br>{{dòng phụ}}</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="#tai-ve">Tải app miễn phí</a>
+          <a class="btn btn-ghost btn-lg" href="#cach-dung">Xem cách dùng</a>
+        </div>
+        <p class="hero-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> {{Mac & Windows · Cài 1 phút · Không cần tài&nbsp;khoản}}</p>
+        <div class="hero-coach">
+          <img src="assets/coach-avatar.jpg" alt="Coach Thắng Huyền Đức" width="52" height="52" decoding="async" />
+          <div class="hc-txt"><b>Món quà từ Coach Thắng Huyền Đức</b><span>Mind Coach · 10X Life OS</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Ô demo LUÔN rộng bằng khổ viết. Tạo demo.html (16:9) rồi nhúng: -->
+    <div class="shot">
+      <div class="shot-frame"><iframe src="demo.html" title="{{Tên}} — demo" scrolling="no" loading="lazy"></iframe></div>
+      <div class="shot-cap">{{Caption ngắn dưới demo}}</div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES — icon lấy từ icons.js (data-ic), KHÔNG vẽ tay -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">{{Nhãn}}</div><h2>{{Tiêu đề mục}} <em>{{nhấn}}</em></h2><p>{{intro}}</p></div>
+    <div class="grid">
+      <div class="card rv"><div class="ic"><span class="ic10" data-ic="shield"></span></div><h3>{{Tên tính năng}}</h3><p>{{mô tả}}</p></div>
+      <div class="card rv"><div class="ic"><span class="ic10" data-ic="offline"></span></div><h3>{{Tên}}</h3><p>{{mô tả}}</p></div>
+      <div class="card rv"><div class="ic"><span class="ic10" data-ic="bolt"></span></div><h3>{{Tên}}</h3><p>{{mô tả}}</p></div>
+      <div class="card rv"><div class="ic"><span class="ic10" data-ic="refresh"></span></div><h3>{{Tên}}</h3><p>{{mô tả}}</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="sec" id="cach-dung">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">Dùng thế nào</div><h2>Ba nhịp. <em>Xong.</em></h2></div>
+    <div class="steps">
+      <div class="step rv"><h4>{{Bước 1}}</h4><p>{{mô tả}}</p></div>
+      <div class="step rv"><h4>{{Bước 2}}</h4><p>{{mô tả}}</p></div>
+      <div class="step rv"><h4>{{Bước 3}}</h4><p>{{mô tả}}</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD — file cục bộ trong download/ (tên SẠCH, không kèm version) -->
+<section class="sec" id="tai-ve">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">Tải về</div><h2>Miễn phí, mãi mãi.</h2></div>
+    <div class="grid">
+      <a class="card rv" href="download/{{Ten}}-Mac-Apple.dmg" download><div class="ic"><span class="ic10" data-ic="gift"></span></div><h3>macOS (chip Apple)</h3><p>Tải file .dmg</p></a>
+      <a class="card rv" href="download/{{Ten}}-Windows.exe" download><div class="ic"><span class="ic10" data-ic="gift"></span></div><h3>Windows 10 / 11</h3><p>Tải file .exe</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER + JS dùng chung -->
+<div id="site-footer"></div>
+<script src="/header.js"></script>
+<script src="/footer.js"></script>
+<script src="/icons.js"></script>
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(e){io.observe(e)});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},2200);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Checklist trước khi push — 10X Life OS</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Montserrat:wght@700;800&family=Be+Vietnam+Pro:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/brand.css" />
+<style>
+  .page{max-width:760px;margin-inline:auto;padding:48px clamp(20px,5vw,32px) 80px}
+  .khead{font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--o-300);margin-bottom:10px}
+  .page h1{font-size:clamp(30px,5vw,44px);margin-bottom:8px}
+  .page .sub{color:var(--n-300);margin-bottom:14px}
+  .bar{height:8px;border-radius:99px;background:rgba(136,136,192,.15);overflow:hidden;margin:18px 0 6px}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--o-500),var(--o-400));transition:width .3s var(--ease)}
+  .prog{font-family:var(--f-mono);font-size:13px;color:var(--n-300)}
+  .grp{margin-top:34px}
+  .grp > .cat{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--o-300);border-bottom:1px solid rgba(217,117,56,.25);padding-bottom:8px;margin-bottom:6px}
+  label.item{display:flex;gap:13px;align-items:flex-start;padding:12px 6px;border-bottom:1px solid rgba(136,136,192,.1);cursor:pointer;font-size:15px;color:var(--n-100)}
+  label.item:hover{background:rgba(255,255,255,.015)}
+  label.item input{appearance:none;-webkit-appearance:none;flex:0 0 20px;height:20px;margin-top:1px;border-radius:6px;border:1.6px solid rgba(136,136,192,.5);background:rgba(136,136,192,.06);cursor:pointer;position:relative;transition:all .2s}
+  label.item input:checked{background:var(--o-500);border-color:var(--o-500)}
+  label.item input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #0A0A24;border-width:0 2.4px 2.4px 0;transform:rotate(45deg)}
+  label.item.done{color:var(--n-400);text-decoration:line-through;text-decoration-color:rgba(136,136,192,.4)}
+  .item b{color:#fff;font-weight:600}
+  .item code{font-family:var(--f-mono);font-size:.85em;color:var(--o-300);background:rgba(0,0,0,.3);padding:1px 6px;border-radius:5px}
+  .reset{margin-top:26px;font-family:var(--f-body);font-weight:600;font-size:13px;color:var(--n-300);background:transparent;border:1px solid rgba(136,136,192,.3);border-radius:9px;padding:8px 16px;cursor:pointer}
+  .reset:hover{color:#fff;border-color:var(--o-400)}
+  .note{margin-top:22px;border-radius:12px;padding:14px 18px;background:rgba(201,96,40,.07);border:1px solid rgba(217,117,56,.3);font-size:14px;color:var(--n-200)}
+</style>
+</head>
+<body>
+<div class="veil"></div><div class="grain"></div>
+<div class="page">
+  <div class="khead">10X · Trước khi push</div>
+  <h1>Checklist một trang</h1>
+  <p class="sub">Soi trước khi <code>git push</code>. Lưới an toàn cuối — code chung (brand.css/icons.js) đã ép phần lớn, cái này soi phần còn lại.</p>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="prog"><span id="done">0</span>/<span id="total">0</span> mục</div>
+
+  <div class="grp">
+    <div class="cat">① Khung chung (đừng tự chế)</div>
+    <label class="item"><input type="checkbox"><span>Dùng <b>brand.css</b> (<code>&lt;link href="/brand.css"&gt;</code>) + font Google đủ 4 (Fraunces · Montserrat · Be Vietnam Pro · JetBrains Mono).</span></label>
+    <label class="item"><input type="checkbox"><span>Có <b>topbar</b> (logo + Trang chủ + <code>#site-langtog</code> + Tải app) và nạp <code>/header.js</code> + <code>/footer.js</code>.</span></label>
+    <label class="item"><input type="checkbox"><span>App mới: <b>copy từ <code>_mau/landing-san-pham.html</code></b> — không dựng lại từ số 0.</span></label>
+  </div>
+
+  <div class="grp">
+    <div class="cat">② Icon</div>
+    <label class="item"><input type="checkbox"><span>Icon lấy từ <b>icons.js</b> (<code>data-ic="..."</code>) — <b>KHÔNG vẽ SVG inline</b>. Thiếu icon nào thì thêm vào icons.js.</span></label>
+    <label class="item"><input type="checkbox"><span>Mỗi icon <b>đúng 1 chấm/nét cam</b> #C96028; thân trung tính (<code>--n-100</code>) để chấm cam nổi; căn giữa trong ô.</span></label>
+  </div>
+
+  <div class="grp">
+    <div class="cat">③ Chữ &amp; xuống dòng</div>
+    <label class="item"><input type="checkbox"><span><b>Không hardcode <code>&lt;br&gt;</code></b> trong heading — để <code>text-wrap:balance</code> lo. Cột hẹp thì giảm cỡ chữ.</span></label>
+    <label class="item"><input type="checkbox"><span><b>KHÔNG</b> <code>text-wrap:pretty</code> / gạch nối tự động (off-brand). Chặn khổ bằng <code>max-width</code> px.</span></label>
+    <label class="item"><input type="checkbox"><span>Không chữ mồ côi cuối dòng — buộc 2 chữ cuối bằng <code>&amp;nbsp;</code> (vd <code>máy&amp;nbsp;bạn.</code>).</span></label>
+    <label class="item"><input type="checkbox"><span>Không còn chuỗi tiếng Anh sót (dùng <code>t()</code> nếu là app; đọc kỹ nếu là trang web).</span></label>
+  </div>
+
+  <div class="grp">
+    <div class="cat">④ Footer · demo · nút tải</div>
+    <label class="item"><input type="checkbox"><span>Footer chung (footer.js): emblem <b>la bàn</b> (không hải đăng), watermark căn giữa mờ. Có đủ app trong cột Sản phẩm.</span></label>
+    <label class="item"><input type="checkbox"><span>Card demo <b>rộng bằng khổ viết</b> (16:9). Caption mono 12px màu <code>--n-300</code>.</span></label>
+    <label class="item"><input type="checkbox"><span>Nút tải trỏ <b>file cục bộ <code>download/</code></b>, tên SẠCH không kèm version (link không hỏng khi ra bản mới).</span></label>
+  </div>
+
+  <div class="grp">
+    <div class="cat">⑤ Chia sẻ &amp; test</div>
+    <label class="item"><input type="checkbox"><span>Thẻ OG đủ (title/description/url/image 1200×630) + favicon <code>/favicon.png</code> + canonical.</span></label>
+    <label class="item"><input type="checkbox"><span>Xem thử <b>máy tính &amp; điện thoại</b> (Chrome mobile kiểm ở ~500px). Không vỡ layout, không cắt chữ.</span></label>
+    <label class="item"><input type="checkbox"><span>Nếu là app: có <b>1 bài case-study trong <code>/blog/</code></b> + liệt kê ở trang <code>/blog/</code>.</span></label>
+    <label class="item"><input type="checkbox"><span>Push xong: <b>kiểm live</b> bằng <code>curl</code> (HTTP 200 + grep marker mới), chèn <code>?v=…</code> để vượt cache.</span></label>
+  </div>
+
+  <button class="reset" onclick="document.querySelectorAll('input').forEach(function(c){c.checked=false});upd()">Xóa hết dấu tick</button>
+  <div class="note">💡 Chuẩn gốc: <b>brand-identity-10xlifeos-v2.html</b> (bộ nhận diện) + cẩm nang <b>Đóng gói &amp; Xuất bản</b> (mục "Chuẩn nhận diện kỹ thuật"). Nghi ngờ gì → mở 2 file đó, đừng đoán.</div>
+</div>
+<script>
+  var boxes=[].slice.call(document.querySelectorAll('input[type=checkbox]'));
+  document.getElementById('total').textContent=boxes.length;
+  function upd(){var d=boxes.filter(function(b){return b.checked}).length;
+    document.getElementById('done').textContent=d;
+    document.getElementById('bar').style.width=(d/boxes.length*100)+'%';
+    boxes.forEach(function(b){b.closest('.item').classList.toggle('done',b.checked)});}
+  boxes.forEach(function(b){b.addEventListener('change',upd)});upd();
+</script>
+</body>
+</html>
