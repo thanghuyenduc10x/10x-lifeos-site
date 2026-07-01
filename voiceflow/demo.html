@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VoiceFlow — Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--o-500:#C96028;--o-400:#D97538;--o-300:#E89060;--green:#4CAF7D;--txt:#EDEDFA;--f-body:'Be Vietnam Pro',sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:radial-gradient(120% 100% at 50% 0%,#14143c,#05050f);font-family:var(--f-body);color:var(--txt);
+    display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .stage{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:4%}
+  .win{width:min(90%,640px);background:rgba(18,18,58,.72);border:1px solid rgba(255,255,255,.09);border-radius:16px;
+    box-shadow:0 30px 70px rgba(0,0,0,.5);overflow:hidden;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .win-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .win-bar i{width:11px;height:11px;border-radius:50%;background:#3a3a5c}
+  .win-bar i:nth-child(1){background:#E0775C}.win-bar i:nth-child(2){background:#D9A93B}.win-bar i:nth-child(3){background:#4CAF7D}
+  .win-bar .t{margin-left:10px;font-size:12.5px;color:#8888c0}
+  .win-body{padding:22px 24px 6px;min-height:150px}
+  .app-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8888c0;margin-bottom:12px}
+  .typed{font-size:clamp(16px,2.6vw,21px);line-height:1.6;color:#fff;min-height:3.3em}
+  .cursor{display:inline-block;width:2px;height:1.05em;background:var(--o-400);vertical-align:-3px;margin-left:2px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .pill{display:flex;align-items:center;gap:13px;margin:14px 24px 24px;padding:12px 18px;background:#0A0A24;
+    border:1px solid rgba(217,117,56,.42);border-radius:12px;width:fit-content;transition:border-color .3s}
+  .bars{display:flex;align-items:flex-end;gap:3px;height:20px}
+  .bars span{width:4px;background:var(--o-500);border-radius:2px;height:22%;animation:eq 1s ease-in-out infinite}
+  .bars span:nth-child(2){animation-delay:.12s}.bars span:nth-child(3){animation-delay:.24s}
+  .bars span:nth-child(4){animation-delay:.36s}.bars span:nth-child(5){animation-delay:.18s}
+  .bars span:nth-child(6){animation-delay:.28s}.bars span:nth-child(7){animation-delay:.06s}
+  @keyframes eq{0%,100%{height:22%}50%{height:100%}}
+  .pill .st{font-size:13.5px;color:var(--o-300);font-weight:500}
+  .pill .ck{width:19px;height:19px;color:var(--green);display:none}
+  .pill.done{border-color:rgba(76,175,125,.5)}
+  .pill.done .bars{display:none}
+  .pill.done .ck{display:block}
+  .pill.done .st{color:var(--green)}
+  @media(prefers-reduced-motion:reduce){.bars span{animation:none;height:60%}.cursor{animation:none}}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="win">
+      <div class="win-bar"><i></i><i></i><i></i><span class="t">Tin nhắn · Zalo</span></div>
+      <div class="win-body">
+        <div class="app-label">Đang soạn — bằng giọng nói</div>
+        <div class="typed"><span id="tx"></span><span class="cursor"></span></div>
+      </div>
+      <div class="pill" id="pill">
+        <div class="bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span class="st" id="st">VoiceFlow đang nghe…</span>
+      </div>
+    </div>
+  </div>
+<script>
+  var phrases = [
+    "Gửi anh bản kế hoạch tuần này nhé, chiều họp xong em cập nhật thêm phần ngân sách.",
+    "Cảm ơn cả nhà, deadline dời sang thứ Sáu — cứ thong thả làm cho chắc tay.",
+    "Ghi nhanh ý này kẻo quên: mai gọi cho khách, chốt lịch demo sản phẩm sáng thứ Ba."
+  ];
+  var tx = document.getElementById('tx'), st = document.getElementById('st'), pill = document.getElementById('pill'), pi = 0;
+  function type(str, done){
+    var i = 0; pill.classList.remove('done'); st.textContent = 'VoiceFlow đang nghe…';
+    (function step(){
+      if (i <= str.length){ tx.textContent = str.slice(0, i); i++; setTimeout(step, 32 + Math.random()*46); }
+      else { done(); }
+    })();
+  }
+  function run(){
+    tx.textContent = '';
+    type(phrases[pi], function(){
+      pill.classList.add('done'); st.textContent = 'Đã dán vào ô chat ✓';
+      setTimeout(function(){ pi = (pi+1) % phrases.length; run(); }, 2400);
+    });
+  }
+  run();
+</script>
+</body>
+</html>
