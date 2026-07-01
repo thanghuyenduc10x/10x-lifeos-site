@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VoiceFlow: một đêm, một app — và con bug suýt bỏ cuộc — Coach Thắng Huyền Đức</title>
+<meta name="description" content="Cách một app biến tiếng Việt thành chữ được dựng từ mã nguồn mở, tự đóng gói ba nền tảng, săn con bug 'đơ' đến tận gốc, rồi nâng cấp từ 6 lên 9 điểm — và những bài học về việc làm ra thứ chạy được." />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="VoiceFlow: một đêm, một app — và con bug suýt bỏ cuộc" />
+<meta property="og:description" content="Fork mã nguồn mở, Việt hoá, tự đóng gói ba nền, đọc log truy tận gốc một con bug, rồi audit và nâng cấp. Quy trình thật, cú vấp thật." />
+<meta property="og:url" content="https://10x-lifeos.com/blog/voiceflow-hau-truong.html" />
+<meta property="og:image" content="https://10x-lifeos.com/og-cover.png" />
+<link rel="canonical" href="https://10x-lifeos.com/blog/voiceflow-hau-truong.html" />
+<link rel="icon" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Montserrat:wght@400;500;600;700;800;900&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/blog/style.css" />
+<style>
+  .case-wrap{max-width:820px;margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+  .case-hero{padding:50px 0 24px;position:relative;isolation:isolate}
+  .case-hero::before{content:"";position:absolute;inset:0 0 auto;height:300px;z-index:-1;background:radial-gradient(55% 100% at 50% 0,rgba(201,96,40,.13),transparent 70%)}
+  .case-hero .back{font-size:.85rem;color:var(--navy-300);display:inline-flex;gap:7px;align-items:center;transition:color .2s}
+  .case-hero .back:hover{color:var(--o-300)}
+  .case-hero .eyebrow{font-family:var(--f-display);font-weight:700;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--o-400);margin:20px 0 0;display:block}
+  .case-hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;max-width:20ch;margin:14px 0 16px;line-height:1.1}
+  .case-hero .lead{font-size:1.16rem;color:var(--navy-200);max-width:60ch}
+  .case-hero .byline{margin-top:20px;font-size:.88rem;color:var(--navy-300);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .case-hero .byline .d{width:4px;height:4px;border-radius:50%;background:var(--navy-300)}
+  .case-body{font-size:1.08rem;color:var(--navy-200);line-height:1.8;padding-bottom:40px}
+  .case-body p{margin:0 0 1.2em}
+  .case-body strong{color:#fff;font-weight:700}
+  .case-body em{color:var(--o-300);font-style:normal;font-weight:600}
+  .lead-in{font-size:1.22rem!important;color:#fff!important;font-weight:500}
+  .callout{border-left:3px solid var(--o-500);background:rgba(201,96,40,.07);border-radius:0 12px 12px 0;padding:18px 24px;margin:1.8em 0;font-family:var(--f-display);font-weight:600;font-size:1.18rem;color:#fff;line-height:1.5}
+  .sec{margin:50px 0}
+  .sec .num{font-family:var(--f-display);font-weight:800;font-size:2.4rem;color:rgba(217,117,56,.4);line-height:1}
+  .sec h2{font-size:clamp(1.4rem,3.2vw,1.95rem);color:#fff;margin:2px 0 16px;letter-spacing:-.01em}
+  .fig{background:#0b0b24;border:1px solid rgba(136,136,192,.16);border-radius:16px;padding:24px 22px;margin:26px 0}
+  .fig svg{display:block;width:100%;height:auto}
+  .fig figcaption{font-size:.82rem;color:var(--navy-300);text-align:center;margin-top:14px;line-height:1.5}
+  .flow-list{list-style:none;margin:1.2em 0;display:grid;gap:13px}
+  .flow-list li{display:flex;gap:12px;align-items:flex-start;color:var(--navy-200)}
+  .flow-list li::before{content:"→";color:var(--o-400);font-weight:700;flex:none}
+  .flow-list strong{color:#fff}
+  .loop{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:1.4em 0;font-family:var(--f-display);font-weight:600;font-size:.92rem}
+  .loop span{background:rgba(201,96,40,.12);border:1px solid rgba(217,117,56,.35);color:var(--o-300);padding:8px 14px;border-radius:999px}
+  .loop b{color:var(--navy-300)}
+  .check{background:#0b0b24;border:1px solid rgba(136,136,192,.16);border-radius:16px;padding:28px;margin:24px 0}
+  .check h4{font-family:var(--f-display);color:var(--o-300);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin:20px 0 10px}
+  .check h4:first-child{margin-top:0}
+  .check .ci{display:flex;gap:11px;align-items:flex-start;color:var(--navy-200);font-size:.97rem;margin:8px 0}
+  .check .ci::before{content:"☐";color:var(--o-400);flex:none;font-size:1.05rem;line-height:1.3}
+  .case-cta{text-align:center;background:linear-gradient(135deg,var(--o-600),var(--o-500));border-radius:20px;padding:44px 32px;margin:46px 0 0;position:relative;overflow:hidden}
+  .case-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 16%,rgba(255,255,255,.16),transparent 55%)}
+  .case-cta h3{color:#fff;font-size:clamp(1.3rem,3vw,1.6rem);margin-bottom:8px;position:relative}
+  .case-cta p{color:rgba(255,255,255,.92);margin-bottom:22px;position:relative}
+  .case-cta .btn{background:var(--navy-800);color:#fff;position:relative}
+  .case-cta .btn:hover{background:var(--navy-900)}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+<article>
+  <div class="case-hero case-wrap">
+    <a class="back" href="/blog/">← Tất cả bài viết</a>
+    <span class="tag tag-sci">🔬 Hệ thống &amp; AI</span>
+    <span class="eyebrow">Hậu trường · 10X Life OS</span>
+    <h1>VoiceFlow: một đêm, một app — và con bug suýt bỏ cuộc</h1>
+    <p class="lead">Cách một app biến tiếng Việt thành chữ được dựng, đóng gói cho cả Mac và Windows, vá lỗi và nâng cấp. Và những gì nó dạy về việc làm ra thứ chạy được.</p>
+    <div class="byline"><span>Coach Thắng Huyền Đức</span><span class="d"></span><span>01/07/2026</span><span class="d"></span><span>9 phút đọc</span></div>
+  </div>
+
+  <div class="case-body case-wrap">
+    <p class="lead-in">Một ý muốn rất nhỏ: "làm một app chép lời tiếng Việt, để tặng bạn bè."</p>
+    <p>Nói tiếng Việt vào, chữ hiện ra. Chạy ngay trên máy, riêng tư tuyệt đối, không gửi giọng nói mình đi đâu cả. Nghe đơn giản.</p>
+    <p>Kết quả sau một chặng làm là <strong>VoiceFlow</strong>: app chạy thật trên Mac và Windows, có bản cài tự dựng, tự cập nhật. Trên đường đi có một con bug làm app đơ cứng — con bug suýt khiến tôi bỏ cuộc, cho tới khi tôi ngồi xuống đọc log.</p>
+    <p>Bài này không phải lý thuyết. Đây là hậu trường thật — kèm những cú vấp thật — kể lại thành bốn chặng để bạn cũng làm được, không phải mò lại từ đầu.</p>
+    <div class="callout">Người làm sản phẩm giỏi không viết <em>nhiều code hơn</em>. Họ chọn <em>đứng trên vai người khổng lồ</em>, rồi để lại một bộ khung lắp lại được cho lần sau.</div>
+
+    <section class="sec">
+      <div class="num">01</div>
+      <h2>Dựng lõi: chọn một việc, đứng trên vai người khổng lồ</h2>
+      <p>Chặng đầu không phải là vẽ giao diện đẹp. Mà là trả lời một câu: <em>app này làm thật tốt một việc gì?</em></p>
+      <p>Với VoiceFlow, câu trả lời gọn: <strong>nói tiếng Việt → ra chữ, chạy offline, riêng tư.</strong> Một mũi tên, một đích. Không ôm đồm.</p>
+      <p>Và tôi không viết lại từ số 0. Có sẵn một dự án mã nguồn mở tốt tên là <strong>Handy</strong> — một app chép lời. Thay vì xây lại cả cái nền, tôi <em>fork</em> nó về repo riêng, rồi cải tiến trên đó. Đứng trên vai người khổng lồ tiết kiệm hàng tháng trời.</p>
+      <figure class="fig">
+        <svg viewBox="0 0 680 138" role="img" xmlns="http://www.w3.org/2000/svg" font-family="'Be Vietnam Pro',sans-serif">
+          <title>Fork mã nguồn mở rồi Việt hoá thay vì viết lại từ đầu</title>
+          <desc>Từ dự án Handy có sẵn, fork về VoiceFlow, đổi nhận diện và Việt hoá, chạy lõi trên máy mình.</desc>
+          <g font-size="12.5" font-weight="600">
+            <rect x="20" y="46" width="150" height="44" rx="11" fill="#16163e" stroke="rgba(136,136,192,.28)"/><text x="95" y="66" text-anchor="middle" fill="#c4c4e6">Handy</text><text x="95" y="82" text-anchor="middle" font-size="10.5" fill="#8888c0">mã nguồn mở</text>
+            <rect x="265" y="46" width="150" height="44" rx="11" fill="rgba(201,96,40,.2)" stroke="#C96028" stroke-width="1.6"/><text x="340" y="66" text-anchor="middle" fill="#fff" font-weight="700">Fork riêng</text><text x="340" y="82" text-anchor="middle" font-size="10.5" fill="#E89060">repo của mình</text>
+            <rect x="510" y="46" width="150" height="44" rx="11" fill="#16163e" stroke="rgba(136,136,192,.28)"/><text x="585" y="66" text-anchor="middle" fill="#fff" font-weight="700">VoiceFlow</text><text x="585" y="82" text-anchor="middle" font-size="10.5" fill="#8888c0">Việt hoá + nhận diện</text>
+          </g>
+          <g fill="#5a5a8a" font-size="18"><text x="217" y="74" text-anchor="middle">›</text><text x="462" y="74" text-anchor="middle">›</text></g>
+          <rect x="188" y="14" width="150" height="20" rx="10" fill="rgba(201,96,40,.16)" stroke="#C96028"/>
+          <text x="263" y="28" text-anchor="middle" font-size="10.5" font-weight="700" fill="#E89060">tiết kiệm hàng tháng</text>
+          <path d="M263 34 L263 46" stroke="#C96028" stroke-width="1.6"/>
+          <text x="20" y="122" font-size="11.5" fill="#8888c0">Không xây lại cái nền — cải tiến trên nền đã tốt sẵn.</text>
+        </svg>
+        <figcaption>Fork nền tốt sẵn → đổi tên, đổi màu, mặc định tiếng Việt → chạy lõi trên máy mình trước.</figcaption>
+      </figure>
+      <p>Việt hoá không chỉ là dịch nút bấm. Tôi đặt tên VoiceFlow, khoác bộ màu navy/cam của 10X, mặc định ngôn ngữ tiếng Việt, và chọn đúng model nhận giọng Việt — model hiểu được cả khi mình nói xen vài từ tiếng Anh.</p>
+      <p>Nguyên tắc của chặng này: lo phần <em>ruột</em> trước. Đảm bảo cái lõi nói-ra-chữ chạy đúng trên máy mình — rồi mới lo đóng gói cho người khác. Vẽ giao diện cho một cái lõi chưa chạy là xây nhà trên cát.</p>
+    </section>
+
+    <section class="sec">
+      <div class="num">02</div>
+      <h2>Để máy chủ đóng gói ba nền — đừng build tay</h2>
+      <p>App chạy trên máy tôi rồi. Nhưng bạn bè tôi dùng Mac, dùng Windows, có người dùng Linux. Ngồi build tay từng bản cho từng hệ là một cực hình — và lần nào cũng sót.</p>
+      <p>Nên tôi viết một "công thức" đóng gói tự động: gắn một nhãn phiên bản, <em>máy chủ tự làm phần còn lại</em>. Nó dựng bản Mac, bản Windows, bản Linux, tự ký để app cập nhật được, rồi tự đăng lên trang tải về. Tôi chỉ tăng số phiên bản và đẩy lên — khoảng 20–25 phút sau là có đủ bản cài.</p>
+      <ul class="flow-list">
+        <li><strong>Viết một lần</strong> — một quy trình build cho cả ba hệ, dùng lại mãi mãi.</li>
+        <li><strong>Tạo khoá ký riêng</strong> — khoá kế thừa từ dự án gốc không dùng được, phải tự tạo khoá mới của mình.</li>
+        <li><strong>Gắn nhãn rồi đẩy</strong> — tăng số (ví dụ v0.8.5), push, máy chủ tự chạy.</li>
+        <li><strong>Thử trên máy sạch</strong> — tải bản cài về một máy chưa từng làm dev để chắc bạn bè mở là chạy.</li>
+      </ul>
+      <div class="callout">Một tài sản làm một lần — một file quy trình build — phục vụ <em>mọi phiên bản về sau</em>. Đó mới là đòn bẩy thật.</div>
+      <p>Và đây là cú vấp đầu tiên, cú vấp mà ai làm lần đầu cũng gặp. Lần đóng gói đầu tiên, <strong>cả ba bản đều lỗi — mỗi bản một lý do khác nhau.</strong> Bản Mac cố nạp một "chứng chỉ rỗng". Bản Windows sai mật khẩu khoá. Bản Linux thiếu công cụ đóng gói. Không có bản nào giống bản nào.</p>
+      <p>Phản xạ lúc đó là nản, hoặc là đoán bừa rồi sửa lung tung. Tôi làm khác: mở <em>nhật ký lỗi</em> của từng bản ra đọc, tìm đúng nguyên nhân gốc của mỗi cái, vá từng cái một — rồi chạy lại. Lần hai: xanh hết cả bốn bản.</p>
+      <div class="callout">Lần đầu luôn trục trặc. Đó là chuyện <em>bình thường</em>, không phải dấu hiệu bạn dở. Đọc log, sửa đúng gốc, chạy lại.</div>
+    </section>
+
+    <section class="sec">
+      <div class="num">03</div>
+      <h2>Săn con bug "đơ" — đọc dấu vết, sửa tận gốc</h2>
+      <p>Đây là chặng suýt làm tôi bỏ cuộc. Có một triệu chứng khó chịu: đang ghi âm, nếu cái micro Bluetooth rớt sóng giữa chừng, thanh ghi âm <strong>đứng hình</strong>. App kẹt ở trạng thái "đang bận" mãi mãi. Chỉ tắt đi mở lại mới hết.</p>
+      <p>Một con bug như thế rất dễ khiến người ta buông tay — vì nó "chập chờn", khó tái hiện, nghe như một thứ ma quái không đầu không cuối. Nhưng tôi tin một điều: <em>một lỗi khó chịu gần như luôn có một nguyên nhân gốc rất cụ thể.</em> Cứ đọc dấu vết và lần theo là ra.</p>
+      <div class="loop"><span>Đọc log</span><b>→</b><span>Tìm chỗ kẹt</span><b>→</b><span>Sửa tận gốc</span><b>→</b><span>Soi đối kháng</span><b>→</b><span>Xác minh</span></div>
+      <p>Nhật ký chỉ thẳng đường: ngay khi micro rớt, log ghi "thiết bị không còn khả dụng", rồi ngay sau đó "bỏ qua lệnh: đang bận". Có manh mối là có hướng. Lần theo, tôi tìm ra đúng chỗ kẹt: luồng xử lý âm thanh đang <em>chờ mãi</em> một mẩu dữ liệu không bao giờ tới — vì cái micro đã chết rồi — nên nó không bao giờ nghe thấy lệnh "Dừng".</p>
+      <figure class="fig">
+        <svg viewBox="0 0 680 176" role="img" xmlns="http://www.w3.org/2000/svg" font-family="'Be Vietnam Pro',sans-serif">
+          <title>Micro rớt sóng khiến luồng chờ mãi và app kẹt busy</title>
+          <desc>Trước khi vá: micro chết thì luồng chờ mẫu không bao giờ tới, lệnh dừng không tới, app kẹt. Sau khi vá: luồng kiểm lệnh mỗi vòng và tự thoát.</desc>
+          <text x="20" y="22" font-size="11" font-weight="700" letter-spacing="1.5" fill="#8888c0">TRƯỚC — KẸT</text>
+          <g font-size="12" font-weight="600">
+            <rect x="20" y="34" width="130" height="38" rx="9" fill="#16163e" stroke="rgba(136,136,192,.28)"/><text x="85" y="57" text-anchor="middle" fill="#c4c4e6">Micro chết</text>
+            <rect x="188" y="34" width="150" height="38" rx="9" fill="#16163e" stroke="rgba(136,136,192,.28)"/><text x="263" y="57" text-anchor="middle" fill="#c4c4e6">Chờ mẫu mãi</text>
+            <rect x="376" y="34" width="150" height="38" rx="9" fill="rgba(201,96,40,.2)" stroke="#C96028" stroke-width="1.6"/><text x="451" y="52" text-anchor="middle" fill="#fff" font-weight="700">Lệnh Dừng</text><text x="451" y="66" text-anchor="middle" font-size="10.5" fill="#E89060">không bao giờ tới</text>
+            <rect x="564" y="34" width="96" height="38" rx="9" fill="#16163e" stroke="rgba(136,136,192,.28)"/><text x="612" y="57" text-anchor="middle" fill="#c4c4e6">Kẹt "busy"</text>
+          </g>
+          <g fill="#5a5a8a" font-size="16"><text x="169" y="58" text-anchor="middle">›</text><text x="357" y="58" text-anchor="middle">›</text><text x="545" y="58" text-anchor="middle">›</text></g>
+          <line x1="20" y1="96" x2="660" y2="96" stroke="rgba(136,136,192,.14)" stroke-width="1"/>
+          <text x="20" y="120" font-size="11" font-weight="700" letter-spacing="1.5" fill="#E89060">SAU — TỰ THOÁT</text>
+          <g font-size="12" font-weight="600">
+            <rect x="20" y="132" width="150" height="38" rx="9" fill="rgba(217,117,56,.14)" stroke="rgba(217,117,56,.4)"/><text x="95" y="155" text-anchor="middle" fill="#fff">Kiểm lệnh mỗi vòng</text>
+            <rect x="208" y="132" width="170" height="38" rx="9" fill="rgba(217,117,56,.14)" stroke="rgba(217,117,56,.4)"/><text x="293" y="155" text-anchor="middle" fill="#fff">Micro chết → báo "hết luồng"</text>
+            <rect x="416" y="132" width="150" height="38" rx="9" fill="rgba(86,160,120,.16)" stroke="rgba(86,160,120,.4)"/><text x="491" y="155" text-anchor="middle" fill="#fff">Thoát sạch + van an toàn</text>
+          </g>
+          <g fill="#5a5a8a" font-size="16"><text x="189" y="156" text-anchor="middle">›</text><text x="397" y="156" text-anchor="middle">›</text></g>
+        </svg>
+        <figcaption>Gốc: luồng chặn chờ mẫu không tới nên bỏ lỡ lệnh Dừng. Vá: kiểm lệnh mỗi vòng, tự thoát khi micro chết, thêm van an toàn.</figcaption>
+      </figure>
+      <p>Bản vá không chỉ một chỗ, mà nhiều lớp: luồng luôn kiểm lệnh Dừng mỗi vòng thay vì chờ vô hạn; khi micro chết thì tự báo "hết luồng" để thoát ra; và thêm một van an toàn phòng khi đường dừng cũng bị treo.</p>
+      <p>Nhưng tôi không tin ngay bản vá của chính mình. Trước khi phát hành, tôi cho <strong>ba "chuyên gia ảo" soi đối kháng</strong> — ba góc nhìn độc lập, mỗi góc cố tình đi tìm một loại lỗi khác nhau: một góc soi xem còn kẹt lại chỗ nào không, một góc soi xem có bị mất tiếng không, một góc soi xem có làm hỏng thứ đang chạy tốt không. Kết luận cả ba: an toàn để phát hành.</p>
+      <div class="callout">Từ <em>treo vĩnh viễn phải khởi động lại</em> → giờ app tự nhận ra micro mất và phục hồi cho lần ghi sau. Con bug tưởng ma quái, hoá ra chỉ là một chỗ chờ sai.</div>
+    </section>
+
+    <section class="sec">
+      <div class="num">04</div>
+      <h2>Audit &amp; nâng cấp — từ 6 lên 9 điểm, có kiểm chứng</h2>
+      <p>App đã chạy, đã hết đơ. Nhưng "chạy được" và "đáng dùng" là hai chuyện. Chặng cuối là ngồi lại đánh giá toàn diện — rồi nâng cấp những thứ người dùng <em>cảm nhận được</em>, không đập đi làm lại, cũng không ôm hết một lần.</p>
+      <p>Tôi audit ba góc song song, mỗi góc một báo cáo độc lập: một góc soi kiến trúc và cấu trúc bên trong; một góc soi tốc độ trên chip Apple; một góc soi giao diện và trải nghiệm. Ba góc nhìn khác nhau soi ra những thứ mà một góc nhìn duy nhất sẽ bỏ sót.</p>
+      <ul class="flow-list">
+        <li><strong>Hết đơ</strong> — con bug micro rớt sóng ở chặng trên đã vá gọn.</li>
+        <li><strong>Nhẹ &amp; nhanh hơn</strong> — tối ưu đúng cho chip Apple, bỏ những việc thừa.</li>
+        <li><strong>Chữ dễ đọc</strong> — chỉnh màu chữ đạt chuẩn tương phản, dùng được cả bằng bàn phím.</li>
+        <li><strong>Hết chữ tiếng Anh sót</strong> — Việt hoá cho tự nhiên, không lạc tông.</li>
+      </ul>
+      <p>Có một điều tôi cố ý làm, và tôi nghĩ nó quan trọng hơn cả danh sách trên: <strong>ghi rõ những gì để lại đợt sau.</strong> Thay vì hứa hẹn "làm hết", tôi liệt kê trung thực phần chưa làm — những thứ rủi ro cao hơn, cần thời gian hơn — để dành cho phiên bản kế. Đó là cách giữ cho mỗi lần nâng cấp đều an toàn và có kiểm chứng.</p>
+      <p>Và thứ tự vẫn là bất di bất dịch: xây bản thật → chạy thử trên máy → soi đối kháng → <em>rồi mới</em> phát hành. Không tin bản vá cho tới khi có bằng chứng nó chạy.</p>
+    </section>
+
+    <section class="sec">
+      <div class="num">05</div>
+      <h2>6 bài học mang đi</h2>
+      <p>Bốn chặng trên chưng cất lại thành sáu bài học. Chúng không chỉ đúng cho một app chép lời — chúng đúng cho gần như mọi thứ ta bắt tay làm:</p>
+      <ul class="flow-list">
+        <li><strong>Một việc, làm thật tốt.</strong> Một app — một đích. Đừng ôm đồm.</li>
+        <li><strong>Đứng trên vai người khổng lồ.</strong> Fork nền tốt sẵn, cải tiến trên đó — nhanh gấp nhiều lần làm từ số 0.</li>
+        <li><strong>Để máy chủ đóng gói.</strong> Một quy trình tự build Mac/Windows/Linux — đừng ngồi build tay từng bản.</li>
+        <li><strong>Lần đầu luôn trục trặc.</strong> Đọc log, sửa đúng gốc, chạy lại — đừng đoán, đừng nản.</li>
+        <li><strong>Chạy thử + soi đối kháng rồi mới phát hành.</strong> Đừng tin bản vá cho tới khi có bằng chứng.</li>
+        <li><strong>Đánh số phiên bản mỗi lần.</strong> Mỗi lần đẩy là tăng số và ghi rõ "sửa gì".</li>
+      </ul>
+      <div class="callout">Làm một lần cho đàng hoàng. Để lại một tài sản. Lần sau <em>lắp lại</em>, không xây lại.</div>
+    </section>
+
+    <section class="sec">
+      <div class="num">06</div>
+      <h2>Checklist — in ra và làm theo</h2>
+      <p>Lần tới bạn bắt tay làm một thứ gì đó chạy được, mở checklist này ra và tick từng dòng:</p>
+      <div class="check">
+        <h4>① Dựng lõi</h4>
+        <div class="ci">Chốt một việc app làm thật tốt (một mũi tên, một đích)</div>
+        <div class="ci">Tìm nền mã nguồn mở tốt sẵn để đứng lên, thay vì viết từ 0</div>
+        <div class="ci">Chạy phần "ruột" trên máy mình trước khi lo đóng gói</div>
+        <h4>② Đóng gói</h4>
+        <div class="ci">Một quy trình build tự động cho mọi nền · tự ký để cập nhật</div>
+        <div class="ci">Lần đầu lỗi → đọc log từng bản, vá đúng gốc, chạy lại</div>
+        <div class="ci">Thử cài trên máy SẠCH (không phải máy dev)</div>
+        <h4>③ Săn lỗi</h4>
+        <div class="ci">Đọc log tìm dấu vết trước khi đụng code</div>
+        <div class="ci">Truy đến đúng chỗ kẹt · sửa tận gốc nhiều lớp</div>
+        <div class="ci">Cho nhiều góc độc lập soi đối kháng trước khi tin bản vá</div>
+        <h4>④ Nâng cấp</h4>
+        <div class="ci">Audit nhiều góc song song · sửa cái cảm nhận được trước</div>
+        <div class="ci">Xây → chạy thử → soi → rồi mới phát hành</div>
+        <div class="ci">Ghi rõ "để lại đợt sau" · tăng số phiên bản mỗi lần</div>
+      </div>
+    </section>
+
+    <div class="case-cta">
+      <h3>Muốn xem sản phẩm thật?</h3>
+      <p>Chính là VoiceFlow — app chép lời tiếng Việt, chạy offline, riêng tư tuyệt đối, miễn phí.</p>
+      <a href="/#resources" class="btn">Khám phá tài nguyên 10X →</a>
+    </div>
+  </div>
+</article>
+</main>
+
+<div id="site-footer"></div>
+<script src="/header.js"></script>
+<script src="/footer.js"></script>
+</body>
+</html>
