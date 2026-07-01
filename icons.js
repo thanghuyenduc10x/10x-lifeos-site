@@ -33,12 +33,12 @@
     'infinity': '<svg ' + A + '><path d="M9.6 12 C9.6 13.9 8.1 15 6.6 15 C5.1 15 4 13.8 4 12 C4 10.2 5.1 9 6.6 9 C8.6 9 9.9 12 12 12 C14.1 12 15.4 9 17.4 9 C18.9 9 20 10.2 20 12 C20 13.8 18.9 15 17.4 15 C15.9 15 14.4 13.9 14.4 12"/><circle cx="12" cy="12" r="1.05" fill="' + O + '" stroke="none"/></svg>',
     /* offline / máy tính riêng tư */
     'offline': '<svg ' + A + '><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8 20h8M12 16.5V20"/><circle cx="12" cy="10.5" r="1" fill="' + O + '" stroke="none"/></svg>',
-    /* ngôn ngữ / dịch (Việt–Anh) */
-    'translate': '<svg ' + A + '><path d="M3 5h9M7.5 3.5v1.5c0 5-3 8-5 9M4.5 9c0 3.5 4.5 6.5 8 7"/><path d="M13 20l4-9 4 9M14.5 17h5"/><circle cx="17" cy="11" r=".2" stroke="' + O + '"/></svg>',
+    /* ngôn ngữ / dịch (Việt–Anh) — thanh ngang chữ A màu cam */
+    'translate': '<svg ' + A + '><path d="M3 5h9M7.5 3.5v1.5c0 5-3 8-5 9M4.5 9c0 3.5 4.5 6.5 8 7"/><path d="M13 20l4-9 4 9"/><path d="M14.5 17h5" stroke="' + O + '"/></svg>',
     /* tự cập nhật */
     'refresh': '<svg ' + A + '><path d="M20.5 12a8.5 8.5 0 1 1-2.5-6"/><path d="M20.5 4v5h-5" stroke="' + O + '"/></svg>',
-    /* nhanh / tia sét */
-    'bolt': '<svg ' + A + '><path d="M13 3 L5 13h6l-1 8 8-11h-6z"/><circle cx="12" cy="12" r=".2" stroke="' + O + '"/></svg>',
+    /* nhanh / tia sét — lõi sét chấm cam */
+    'bolt': '<svg ' + A + '><path d="M13 3 L5 13h6l-1 8 8-11h-6z"/><circle cx="11" cy="12" r="1" fill="' + O + '" stroke="none"/></svg>',
     /* miễn phí / quà tặng */
     'gift': '<svg ' + A + '><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8C12 8 11 3.5 8.7 3.5A2.3 2.3 0 0 0 8.7 8H12M12 8s1-4.5 3.3-4.5A2.3 2.3 0 0 1 15.3 8H12" stroke="' + O + '"/></svg>',
     /* dán / clipboard */
