@@ -131,6 +131,8 @@
           li('/chep-loi/', IC_mic, L('Chép Lời — chép âm thanh', 'Chép Lời — audio to text')) +
           li('/fc-fastcapture/', IC_capture, L('FC-FastCapture — ảnh &amp; GIF', 'FC-FastCapture — screenshots &amp; GIF')) +
           li('/voiceflow/', IC_wave, L('VoiceFlow — nói thành chữ', 'VoiceFlow — voice to text')) +
+          '<li style="opacity:.4"><span class="x10f__ico">' + IC_ai + '</span>' + L('Sắp ra mắt…', 'Coming soon…') + '</li>' +
+          '<li style="opacity:.4"><span class="x10f__ico">' + IC_ai + '</span>' + L('Sắp ra mắt…', 'Coming soon…') + '</li>' +
           li('/#resources', IC_ai, L('Hệ thống AI 7 ngày', '7-Day AI System')) +
           li('https://www.youtube.com/@Th%E1%BA%AFngHuy%E1%BB%81n%C4%90%E1%BB%A9cCoach', IC_play, L('Thư viện 10X (YouTube)', '10X Library (YouTube)')) +
         '</ul>\
@@ -145,7 +147,7 @@
       </div>\
     </div>\
     <div class="x10f__bar">\
-      <div>© ' + YEAR + ' · <b>10X Life OS</b> · Coach Thắng Huyền Đức · <a href="mailto:hello@10x-lifeos.com">hello@10x-lifeos.com</a></div>\
+      <div>© ' + YEAR + ' · <b style="color:#D97538">10X Life OS</b> · Coach Thắng Huyền Đức · <a href="mailto:hello@10x-lifeos.com">hello@10x-lifeos.com</a></div>\
       <div class="right">' + L('Thiết kế &amp; phát triển bởi Thắng Huyền Đức', 'Designed &amp; built by Thắng Huyền Đức') + '</div>\
     </div>\
   </div></footer>';
