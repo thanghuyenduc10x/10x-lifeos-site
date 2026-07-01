@@ -87,7 +87,9 @@ b,strong{color:var(--white);font-weight:600}
 .hero-lead{font-size:clamp(16px,2.1vw,19px);color:var(--n-100);line-height:1.6;max-width:520px}
 .hero-lead b{color:#fff;font-weight:600}
 .value-pill{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(100deg,rgba(201,96,40,.18),rgba(201,96,40,.05));border:1px solid rgba(201,96,40,.35);border-radius:12px;padding:12px 18px;margin-bottom:22px}
-.value-pill .vp-ico{width:26px;height:26px;color:var(--o-300);flex-shrink:0}
+.value-pill .vp-ico{display:flex;align-items:center;color:var(--n-100);flex-shrink:0}
+.value-pill .vp-ico svg{width:26px;height:26px}
+.ic10{display:flex;align-items:center;justify-content:center}
 .value-pill .vtxt{font-size:13px;color:var(--o-200);line-height:1.4}
 .value-pill .vtxt b{color:#fff}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px}
@@ -258,7 +260,7 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
       </div>
       <div class="hero-right">
         <div class="value-pill">
-          <svg class="vp-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8C12 8 11 3 8.5 3a2.5 2.5 0 0 0 0 5H12zM12 8s1-5 3.5-5a2.5 2.5 0 0 1 0 5H12z"/></svg>
+          <span class="vp-ico" data-ic="gift"></span>
           <span class="vtxt"><b>Trị giá $39 — tặng riêng anh em</b><br>Miễn phí trọn đời, không quảng cáo, không thu&nbsp;phí.</span>
         </div>
         <div class="hero-cta">
@@ -343,10 +345,10 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
 <section class="sec" style="padding-top:0"><div class="wrap">
   <div class="sec-head rv"><span class="eyebrow">Khác biệt</span><h2>Bốn điều khiến nó <em>đáng để bên cạnh</em></h2></div>
   <div class="diff-grid">
-    <div class="diff rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L19.4 6.1 V11.5 C19.4 16 16 19.4 12 20.6 C8 19.4 4.6 16 4.6 11.5 V6.1 Z"/><path d="M9 12 L11 14 L15 9.9" stroke="#C96028"/></svg></div><h3>Riêng tư tuyệt đối</h3><p>Chạy 100% trên máy. Không gửi một tấm ảnh nào đi đâu, không qua máy chủ ai cả.</p></div>
-    <div class="diff rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 L5.7 15.6 L15.4 5.9 A2 2 0 0 1 18.2 8.7 L8.5 18.4 Z"/><path d="M13.6 7.7 L16.4 10.5"/><circle cx="5.95" cy="18.05" r="1" fill="#C96028" stroke="none"/></svg></div><h3>Sửa ngay trên ảnh</h3><p>Mũi tên, khung, bút dạ quang, làm mờ che thông tin, đánh số bước, chữ, màu — tại chỗ, không mở app khác.</p></div>
-    <div class="diff rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.3" y="5.5" width="17.4" height="13" rx="2.5"/><path d="M10.4 9.9 L14.6 12 L10.4 14.1 Z"/><circle cx="7" cy="8.7" r="1.1" fill="#C96028" stroke="none"/></svg></div><h3>Quay GIF + click xuyên</h3><p>Quay vùng màn hình thành GIF — và vẫn thao tác được app bên dưới trong lúc quay.</p></div>
-    <div class="diff rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.6 12 C9.6 13.9 8.1 15 6.6 15 C5.1 15 4 13.8 4 12 C4 10.2 5.1 9 6.6 9 C8.6 9 9.9 12 12 12 C14.1 12 15.4 9 17.4 9 C18.9 9 20 10.2 20 12 C20 13.8 18.9 15 17.4 15 C15.9 15 14.4 13.9 14.4 12"/><circle cx="12" cy="12" r="1.05" fill="#C96028" stroke="none"/></svg></div><h3>Miễn phí, không giới hạn</h3><p>Không tài khoản, không quảng cáo, không watermark, không bản dùng thử. Trọn đời.</p></div>
+    <div class="diff rv"><div class="ic"><span class="ic10" data-ic="shield"></span></div><h3>Riêng tư tuyệt đối</h3><p>Chạy 100% trên máy. Không gửi một tấm ảnh nào đi đâu, không qua máy chủ ai cả.</p></div>
+    <div class="diff rv"><div class="ic"><span class="ic10" data-ic="edit"></span></div><h3>Sửa ngay trên ảnh</h3><p>Mũi tên, khung, bút dạ quang, làm mờ che thông tin, đánh số bước, chữ, màu — tại chỗ, không mở app khác.</p></div>
+    <div class="diff rv"><div class="ic"><span class="ic10" data-ic="video"></span></div><h3>Quay GIF + click xuyên</h3><p>Quay vùng màn hình thành GIF — và vẫn thao tác được app bên dưới trong lúc quay.</p></div>
+    <div class="diff rv"><div class="ic"><span class="ic10" data-ic="infinity"></span></div><h3>Miễn phí, không giới hạn</h3><p>Không tài khoản, không quảng cáo, không watermark, không bản dùng thử. Trọn đời.</p></div>
   </div>
 </div></section>
 
@@ -409,6 +411,7 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
 <div id="site-footer"></div>
 <script src="/header.js"></script>
 <script src="/footer.js"></script>
+<script src="/icons.js"></script>
 
 <script>
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
