@@ -54,6 +54,9 @@ b,strong{color:var(--white);font-weight:600}
   padding:16px 32px;border-radius:13px;background:linear-gradient(150deg,var(--o-400),var(--o-600));
   box-shadow:0 14px 32px -12px rgba(201,96,40,.7);transition:transform .2s var(--ease),box-shadow .2s}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 22px 44px -12px rgba(201,96,40,.85)}
+.cta-btn.alt{background:transparent;color:var(--o-300);border:1.5px solid rgba(201,96,40,.55);box-shadow:none}
+.cta-btn.alt:hover{background:rgba(201,96,40,.1);border-color:var(--o-400);box-shadow:0 14px 30px -16px rgba(201,96,40,.6)}
+.chip{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.03em;color:var(--n-300);opacity:.85;margin-top:5px}
 .ghost{font-family:var(--f-mono);font-size:13px;color:var(--n-300);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.18);padding-bottom:2px}
 .ghost:hover{color:var(--o-300)}
 .btn-row{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
@@ -204,7 +207,7 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
     <a class="cta-btn" href="https://github.com/thanghuyenduc10x/fc-fastcapture/releases/download/v1.0/FC-FastCapture.dmg">↓ Tải app miễn phí</a>
     <a class="ghost" href="#demo">Xem demo 15s</a>
   </div>
-  <div class="cta-sub rv in">macOS Apple Silicon · .dmg ~58MB · <b style="color:var(--o-300)">Trị giá $39 — tặng riêng anh em, miễn phí trọn đời</b></div>
+  <div class="cta-sub rv in">macOS Apple Silicon (M1–M4) · .dmg ~58MB · <b style="color:var(--o-300)">Trị giá $39 — tặng riêng anh em, miễn phí trọn đời</b><br><span class="chip">Máy Mac Intel? <a href="#tai" style="color:var(--o-300);border-bottom:1px solid rgba(201,96,40,.4)">Tải bản Intel ở đây ↓</a></span></div>
 
   <!-- DEMO 15s (animated) -->
   <div class="demo-wrap rv in" id="demo">
@@ -321,10 +324,12 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
     <div class="badge">Quà tặng · Trị giá $39 · Miễn phí trọn đời</div>
     <h2>Nhận app ngay — <em>Miễn phí</em></h2>
     <div class="btn-row">
-      <a class="cta-btn" href="https://github.com/thanghuyenduc10x/fc-fastcapture/releases/download/v1.0/FC-FastCapture.dmg">↓ Tải FC-FastCapture cho macOS</a>
+      <a class="cta-btn" href="https://github.com/thanghuyenduc10x/fc-fastcapture/releases/download/v1.0/FC-FastCapture.dmg">↓ Tải cho <b>Apple Silicon</b> (M1–M4)</a>
+      <a class="cta-btn alt" href="https://github.com/thanghuyenduc10x/fc-fastcapture/releases/download/v1.0/FC-FastCapture-Intel.dmg">↓ Tải cho <b>Mac Intel</b></a>
     </div>
-    <div class="cta-sub">Apple Silicon (M1–M4) · .dmg ~58MB · không quảng cáo, không thu phí</div>
-    <div class="warn">Bản Mac Intel &amp; Windows đang trên đường — cùng một lõi.</div>
+    <div class="cta-sub">.dmg ~58–68MB · không quảng cáo, không thu phí, không giới hạn</div>
+    <div class="chip">Không rõ máy nào? Bấm  Apple → <b style="color:var(--n-100)">About This Mac</b>: thấy <b style="color:var(--n-100)">Apple M1/M2/M3/M4</b> → chọn Apple Silicon; thấy <b style="color:var(--n-100)">Intel</b> → chọn Mac Intel.</div>
+    <div class="warn">Bản Windows đang trên đường — cùng một lõi.</div>
   </div>
 </div></section>
 
