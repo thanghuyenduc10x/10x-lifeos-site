@@ -61,8 +61,47 @@ b,strong{color:var(--white);font-weight:600}
 .ghost:hover{color:var(--o-300)}
 .btn-row{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
 
-/* hero */
-.hero{text-align:center;padding:70px 0 40px}
+/* topbar chung (chuẩn 10X) */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,36,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(136,136,192,.12)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.tb-logo{display:flex;align-items:center;gap:10px;font-family:var(--f-head);font-weight:700;color:#fff;font-size:15px;text-decoration:none}
+.tb-logo .fc-s{width:28px;height:28px;border-radius:8px;background:linear-gradient(150deg,var(--o-400),var(--o-600));display:flex;align-items:center;justify-content:center;font-family:var(--f-body);font-weight:700;color:#fff;font-size:12px}
+.tb-logo b{color:var(--o-400)}
+.spacer{flex:1}
+.tb-back{display:inline-flex;align-items:center;gap:7px;color:var(--n-200);font-size:.9rem;font-weight:500;transition:color .2s;text-decoration:none}
+.tb-back:hover{color:#fff}
+.tb-back svg{width:17px;height:17px}
+.tb-cta{font-family:var(--f-body);font-weight:600;font-size:13.5px;color:#fff;text-decoration:none;padding:9px 16px;border-radius:10px;background:linear-gradient(150deg,var(--o-400),var(--o-600))}
+@media(max-width:560px){.tb-back span{display:none}}
+
+/* hero — 2 cột (chuẩn landing sản phẩm) */
+.hero{padding:clamp(36px,6.5vw,72px) 0 clamp(40px,6vw,64px);position:relative;overflow:hidden}
+.glow{position:absolute;border-radius:50%;filter:blur(100px);opacity:.24;z-index:0;pointer-events:none}
+.hero .glow.a{top:-120px;left:-110px;width:440px;height:440px;background:var(--o-600)}
+.hero-motif{position:absolute;top:6%;right:-150px;width:min(44vw,440px);opacity:.06;z-index:0;pointer-events:none}
+.hero-grid{display:flex;flex-direction:column;gap:clamp(32px,4vw,48px);position:relative;z-index:1}
+.hero-top{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(32px,5vw,56px);align-items:center}
+.hero-right{display:flex;flex-direction:column;align-items:flex-start}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--f-body);font-weight:600;font-size:12px;color:var(--o-300);background:rgba(201,96,40,.12);border:1px solid rgba(201,96,40,.28);border-radius:18px;padding:8px 16px;margin-bottom:22px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--o-400);box-shadow:0 0 8px var(--o-400)}
+.hero-lead{font-size:clamp(16px,2.1vw,19px);color:var(--n-100);line-height:1.6;max-width:520px}
+.hero-lead b{color:#fff;font-weight:600}
+.value-pill{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(100deg,rgba(201,96,40,.18),rgba(201,96,40,.05));border:1px solid rgba(201,96,40,.35);border-radius:12px;padding:12px 18px;margin-bottom:22px}
+.value-pill .vp-ico{width:26px;height:26px;color:var(--o-300);flex-shrink:0}
+.value-pill .vtxt{font-size:13px;color:var(--o-200);line-height:1.4}
+.value-pill .vtxt b{color:#fff}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+.hero-cta .cta-btn{font-size:15px;padding:14px 22px}
+.hero-note{font-size:12.5px;color:var(--n-300);display:flex;align-items:flex-start;gap:7px}
+.hero-note svg{width:15px;height:15px;color:var(--o-400);flex-shrink:0;margin-top:2px}
+.hero-coach{display:flex;align-items:center;gap:14px;margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08)}
+.hero-coach img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(201,96,40,.5);box-shadow:0 6px 18px rgba(0,0,0,.4);flex-shrink:0}
+.hero-coach .hc-txt{display:flex;flex-direction:column;gap:2px}
+.hero-coach .hc-txt b{color:#fff;font-weight:600;font-size:14px;line-height:1.3}
+.hero-coach .hc-txt span{color:var(--o-300);font-size:12px}
+.shot{position:relative;width:100%}
+@media(max-width:880px){.hero-top{grid-template-columns:minmax(0,1fr);gap:26px}.shot{max-width:640px;margin:0 auto}}
+.hero-left h1{text-align:left}
 .hero .badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;
   color:var(--o-300);background:rgba(201,96,40,.1);border:1px solid rgba(201,96,40,.28);border-radius:100px;padding:7px 16px;margin-bottom:26px}
 .hero .badge b{color:#fff;font-weight:600}
@@ -192,25 +231,54 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
 <body>
 <div class="veil"></div><div class="grain"></div>
 
-<!-- NAV -->
-<nav class="nav"><div class="wrap">
-  <div class="brand"><span class="fc-s">FC</span> FC-FastCapture</div>
-  <a class="dl" href="#tai">Tải miễn phí</a>
-</div></nav>
+<!-- TOP BAR (khung chung 10X) -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="tb-logo" href="/"><span class="fc-s">FC</span> FC-<b>FastCapture</b></a>
+    <span class="spacer"></span>
+    <a class="tb-back" href="https://10x-lifeos.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/></svg>
+      <span>Trang chủ</span>
+    </a>
+    <span id="site-langtog"></span>
+    <a class="tb-cta" href="#tai">Tải app</a>
+  </div>
+</header>
 
 <!-- HERO -->
-<header class="hero"><div class="wrap">
-  <div class="badge rv in">Quà tặng · <b>10X Life OS &amp; anh em build cùng AI</b></div>
-  <h1 class="rv in">Chụp, sửa, gửi —<br><em>ngay trên máy bạn.</em></h1>
-  <p class="lead rv in">Chụp màn hình + quay GIF, sửa thẳng trên ảnh. Chạy <b>100% trên máy</b>: không tài khoản, không quảng cáo, không thu phí, không giới hạn.</p>
-  <div class="btn-row rv in">
-    <a class="cta-btn" href="https://github.com/thanghuyenduc10x/fc-fastcapture/releases/download/v1.0/FC-FastCapture.dmg">↓ Tải app miễn phí</a>
-    <a class="ghost" href="#demo">Xem demo 15s</a>
-  </div>
-  <div class="cta-sub rv in">macOS Apple Silicon (M1–M4) · .dmg ~58MB · <b style="color:var(--o-300)">Trị giá $39 — tặng riêng anh em, miễn phí trọn đời</b><br><span class="chip">Máy Mac Intel? <a href="#tai" style="color:var(--o-300);border-bottom:1px solid rgba(201,96,40,.4)">Tải bản Intel ở đây ↓</a></span></div>
+<div class="hero" id="main">
+  <span class="glow a"></span>
+  <img class="hero-motif" src="/assets/emblems/la-ban.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+  <div class="wrap hero-grid">
+    <div class="hero-top">
+      <div class="hero-left">
+        <span class="hero-badge"><span class="dot"></span> Quà tặng · 10X Life OS &amp; anh em build cùng AI</span>
+        <h1>Chụp, sửa, gửi —<br><em>ngay trên máy bạn.</em></h1>
+        <p class="hero-lead">Chụp màn hình + quay GIF, sửa thẳng trên ảnh. Chạy <b>100% trên máy</b>: không tài khoản, không quảng cáo, không thu phí, không giới hạn.</p>
+      </div>
+      <div class="hero-right">
+        <div class="value-pill">
+          <svg class="vp-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8C12 8 11 3 8.5 3a2.5 2.5 0 0 0 0 5H12zM12 8s1-5 3.5-5a2.5 2.5 0 0 1 0 5H12z"/></svg>
+          <span class="vtxt"><b>Trị giá $39 — tặng riêng anh em</b><br>Miễn phí trọn đời, không quảng cáo, không thu phí.</span>
+        </div>
+        <div class="hero-cta">
+          <a class="cta-btn" href="https://github.com/thanghuyenduc10x/fc-fastcapture/releases/latest/download/FC-FastCapture.dmg">↓ Apple Silicon (M1–M4)</a>
+          <a class="cta-btn alt" href="https://github.com/thanghuyenduc10x/fc-fastcapture/releases/latest/download/FC-FastCapture-Intel.dmg">↓ Mac Intel</a>
+        </div>
+        <p class="hero-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> macOS Apple Silicon &amp; Intel · .dmg ~58MB · Không cần tài khoản</p>
+        <div class="hero-coach">
+          <img src="assets/coach-avatar.jpg" alt="Coach Thắng Huyền Đức" width="52" height="52" decoding="async" />
+          <div class="hc-txt">
+            <b>Món quà từ Coach Thắng Huyền Đức</b>
+            <span>Mind Coach · 10X Life OS</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- DEMO 15s (animated) -->
-  <div class="demo-wrap rv in" id="demo">
+    <div class="shot">
+      <!-- DEMO 15s (animated) — giữ nguyên -->
+      <div class="demo-wrap rv in" id="demo">
     <div class="device">
       <div class="dev-bar"><i></i><i></i><i></i><span class="lbl">demo · 15s</span></div>
       <div class="stage">
@@ -235,8 +303,10 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
       </div>
     </div>
     <div class="demo-cap">Bấm phím tắt → kéo chọn vùng → sửa trên ảnh → lưu</div>
+      </div>
+    </div>
   </div>
-</div></header>
+</div>
 
 <!-- METRICS -->
 <section><div class="wrap metrics rv">
@@ -324,8 +394,8 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
     <div class="badge">Quà tặng · Trị giá $39 · Miễn phí trọn đời</div>
     <h2>Nhận app ngay — <em>Miễn phí</em></h2>
     <div class="btn-row">
-      <a class="cta-btn" href="https://github.com/thanghuyenduc10x/fc-fastcapture/releases/download/v1.0/FC-FastCapture.dmg">↓ Tải cho <b>Apple Silicon</b> (M1–M4)</a>
-      <a class="cta-btn alt" href="https://github.com/thanghuyenduc10x/fc-fastcapture/releases/download/v1.0/FC-FastCapture-Intel.dmg">↓ Tải cho <b>Mac Intel</b></a>
+      <a class="cta-btn" href="https://github.com/thanghuyenduc10x/fc-fastcapture/releases/latest/download/FC-FastCapture.dmg">↓ Tải cho <b>Apple Silicon</b> (M1–M4)</a>
+      <a class="cta-btn alt" href="https://github.com/thanghuyenduc10x/fc-fastcapture/releases/latest/download/FC-FastCapture-Intel.dmg">↓ Tải cho <b>Mac Intel</b></a>
     </div>
     <div class="cta-sub">.dmg ~58–68MB · không quảng cáo, không thu phí, không giới hạn</div>
     <div class="chip">Không rõ máy nào? Bấm  Apple → <b style="color:var(--n-100)">About This Mac</b>: thấy <b style="color:var(--n-100)">Apple M1/M2/M3/M4</b> → chọn Apple Silicon; thấy <b style="color:var(--n-100)">Intel</b> → chọn Mac Intel.</div>
@@ -334,6 +404,7 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
 </div></section>
 
 <div id="site-footer"></div>
+<script src="/header.js"></script>
 <script src="/footer.js"></script>
 
 <script>
