@@ -48,6 +48,8 @@ a{color:var(--o-300);text-decoration:none}
 
 /* ── header ── */
 .kb-head{padding:clamp(30px,5vw,52px) 0 clamp(20px,3vw,30px);text-align:center;position:relative}
+.home-link{position:absolute;top:16px;left:clamp(16px,4vw,32px);z-index:5;font-family:var(--f-label);font-size:12px;font-weight:600;letter-spacing:.03em;color:var(--n-300);display:inline-flex;align-items:center;gap:6px;transition:color .2s}
+.home-link:hover{color:var(--o-300)}
 .compass{width:64px;height:64px;margin:0 auto 20px;display:block}
 .kb-head h1{font-size:clamp(30px,5.4vw,52px);font-weight:500;letter-spacing:-.02em;line-height:1.03}
 .kb-head h1 em{color:var(--o-400);font-style:italic;font-weight:600}
@@ -213,7 +215,7 @@ a.case-imglink{display:block}a.case-imglink:hover .case-img{border-color:var(--b
 <div class="veil"></div><div class="grain"></div>
 
 <!-- ══ HEADER ══ -->
-<header class="kb-head"><div class="wrap">
+<header class="kb-head"><a class="home-link" href="/">← 10x-lifeos.com</a><div class="wrap">
   <svg class="compass" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="32" cy="32" r="29" stroke="rgba(201,96,40,.35)" stroke-width="1.5"/>
     <circle cx="32" cy="32" r="22" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
