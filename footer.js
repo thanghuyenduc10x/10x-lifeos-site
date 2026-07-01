@@ -77,6 +77,8 @@
   var IC_skool = '<svg ' + IS + '><path d="M3 9l9-3.8L21 9l-9 3.8z"/><path d="M7.5 11v4.2c0 .9 2 1.8 4.5 1.8s4.5-.9 4.5-1.8V11"/></svg>';
   var IC_lms = '<svg ' + IS + '><path d="M5 5.4A1.4 1.4 0 0 1 6.4 4H18.5v15.2H6.4A1.4 1.4 0 0 0 5 20.6z"/><path d="M5 20.6A1.4 1.4 0 0 1 6.4 19.2H18.5"/><path d="M8.5 8.4h6M8.5 11.4h4"/></svg>';
   var IC_track = '<svg ' + IS + '><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.6"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><path d="M12 3.6v2.2M12 18.2v2.2M3.6 12h2.2M18.2 12h2.2"/></svg>';
+  var IC_capture = '<svg ' + IS + '><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3.1"/></svg>';
+  var IC_wave = '<svg ' + IS + '><path d="M4 10.5v3M8 7.8v8.4M12 4.6v14.8M16 7.8v8.4M20 10.5v3"/></svg>';
 
   /* SOCIAL (đơn sắc, lấy từ trang chủ) */
   var SO_yt = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8c.2.9.9 1.6 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4c.9-.2 1.6-.9 1.8-1.8C22 15.2 22 12 22 12s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg>';
@@ -128,7 +130,9 @@
       <div class="x10f__col">\
         <h4>' + L('Sản phẩm & Tài nguyên', 'Products & Resources') + '</h4>\
         <ul>' +
-          li('/chep-loi/', IC_mic, L('Chép Lời — offline', 'Chép Lời — offline')) +
+          li('/chep-loi/', IC_mic, L('Chép Lời — chép âm thanh', 'Chép Lời — audio to text')) +
+          li('/fc-fastcapture/', IC_capture, L('FC-FastCapture — ảnh &amp; GIF', 'FC-FastCapture — screenshots &amp; GIF')) +
+          li('/voiceflow/', IC_wave, L('VoiceFlow — nói thành chữ', 'VoiceFlow — voice to text')) +
           li('/#resources', IC_ai, L('Hệ thống AI 7 ngày', '7-Day AI System')) +
           li('https://www.youtube.com/@Th%E1%BA%AFngHuy%E1%BB%81n%C4%90%E1%BB%A9cCoach', IC_play, L('Thư viện 10X (YouTube)', '10X Library (YouTube)')) +
         '</ul>\
