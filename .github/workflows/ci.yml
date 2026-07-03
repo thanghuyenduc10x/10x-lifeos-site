@@ -1,0 +1,48 @@
+name: Kiểm tra site trước khi lên sóng
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  kiem-tra:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # ── CỔNG CỨNG (đỏ = chặn) ──
+      - name: "Chặn file cài đặt trong repo (dùng GitHub Releases)"
+        run: |
+          bins=$(git ls-files '*.dmg' '*.exe' '*.zip' '*.pkg' '*.msi' || true)
+          if [ -n "$bins" ]; then
+            echo "::error::File cài đặt phải phát hành qua GitHub Releases, không commit vào site:"
+            echo "$bins"; exit 1
+          fi
+
+      - name: "Chặn file quá 2MB"
+        run: |
+          big=$(git ls-files -z | xargs -0 -I{} sh -c '[ $(stat -c%s "{}") -gt 2097152 ] && echo "{}"' || true)
+          if [ -n "$big" ]; then
+            echo "::error::File vượt 2MB — cân nhắc nén/WebP/Releases:"
+            echo "$big"; exit 1
+          fi
+
+      - name: "File sống còn phải tồn tại"
+        run: |
+          for f in index.html robots.txt sitemap.xml .htaccess footer.js header.js; do
+            [ -f "$f" ] || { echo "::error::Thiếu $f"; exit 1; }
+          done
+
+      # ── CỔNG MỀM (báo cáo, chưa chặn — siết dần ở GĐ1) ──
+      - name: "HTML hợp lệ (báo cáo)"
+        continue-on-error: true
+        run: |
+          npm install -g --silent html-validate@8
+          html-validate --formatter stylish "index.html" "blog/*.html" "chep-loi/index.html" "voiceflow/index.html" "fc-fastcapture/*.html" "coach-thang/index.html" "vibe-code-os/index.html" || true
+
+      - name: "Link nội bộ không gãy (báo cáo)"
+        continue-on-error: true
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --root-dir "$PWD" --no-progress --exclude-path _mau --exclude-path v2 "**/*.html"
+          fail: false
