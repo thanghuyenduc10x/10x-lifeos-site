@@ -1,1 +1,13 @@
 .DS_Store
+Thumbs.db
+*.log
+
+# File cài đặt — KHÔNG BAO GIỜ commit; dùng GitHub Releases
+*.dmg
+*.exe
+*.zip
+*.pkg
+*.msi
+
+# Cấu hình phiên làm việc cục bộ
+.claude/settings.local.json

@@ -1,0 +1,28 @@
+# ══ 10X Life OS — bảo mật & điều hướng (GĐ0, 2026-07-03) ══
+# File này do LiteSpeed/Apache đọc. Sửa xong PHẢI kiểm tra site còn sống (curl -sI https://10x-lifeos.com/).
+
+# — Chuyển hướng thư mục blog cũ về bài chính thức —
+RedirectMatch 301 ^/blog-case-thuc-chien/.*$ /blog/case-thuc-chien.html
+
+# — Chặn thư mục template nội bộ khỏi công chúng —
+RedirectMatch 403 ^/_mau/.*$
+
+<IfModule mod_headers.c>
+  # Buộc trình duyệt luôn dùng HTTPS trong 1 năm
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  # Chặn đoán sai loại file (giảm rủi ro XSS)
+  Header always set X-Content-Type-Options "nosniff"
+  # Không cho site khác nhúng trang này vào iframe (chống clickjacking)
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Không rò rỉ URL đầy đủ khi bấm link ra ngoài
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Tắt các quyền trình duyệt không dùng tới
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=(), payment=(), interest-cohort=()"
+  # Chỉ cho phép tải tài nguyên từ chính site + Google Fonts (thêm domain analytics vào đây khi lắp)
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; frame-src 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+
+  # HTML luôn hỏi bản mới → deploy hiện ngay, hết cảnh cache 7 ngày
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

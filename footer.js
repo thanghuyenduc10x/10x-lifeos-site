@@ -131,6 +131,7 @@
           li('/chep-loi/', IC_mic, L('Chép Lời — chép âm thanh', 'Chép Lời — audio to text')) +
           li('/fc-fastcapture/', IC_capture, L('FC-FastCapture — ảnh &amp; GIF', 'FC-FastCapture — screenshots &amp; GIF')) +
           li('/voiceflow/', IC_wave, L('VoiceFlow — nói thành chữ', 'VoiceFlow — voice to text')) +
+          li('/vibe-code-os/', IC_route, L('La Bàn Vibe-Code — xây app cùng AI', 'Vibe-Code Compass — build apps with AI')) +
           '<li style="opacity:.4"><span class="x10f__ico">' + IC_ai + '</span>' + L('Sắp ra mắt…', 'Coming soon…') + '</li>' +
           '<li style="opacity:.4"><span class="x10f__ico">' + IC_ai + '</span>' + L('Sắp ra mắt…', 'Coming soon…') + '</li>' +
           li('/#resources', IC_ai, L('Hệ thống AI 7 ngày', '7-Day AI System')) +
