@@ -7,7 +7,7 @@ Repo này là **website đang chạy thật** tại https://10x-lifeos.com.
 
 ## 6 luật bất biến
 1. **KHÔNG commit file cài đặt** (`*.dmg` `*.exe` `*.zip` — đã chặn trong .gitignore + CI). File cài app phát hành qua **GitHub Releases** (repo `voiceflow`, `Cheploi-v2`, `fc-fastcapture`) kèm `SHA256SUMS.txt`, link dạng `releases/latest/download/<file>`.
-2. **KHÔNG tạo khối `:root{}` hay token màu/font mới** trong trang. Nguồn token duy nhất: `brand.css` (sẽ là `theme.css` sau GĐ1). Nguồn sự thật thiết kế: `~/10X-Brain/brand/brand-identity-10xlifeos-v2.html`.
+2. **KHÔNG tạo khối `:root{}` hay token màu/font mới** trong trang. Nguồn token duy nhất: **`/theme.css`** (kèm `/theme.js`; brand.css là tiền thân — không dùng cho trang mới). theme.css có sẵn ALIAS tên cũ (--navy-*/--n950/--fh/--container…) nên trang cũ link vào là chạy; khi migrate 1 trang: link theme.css?v=N TRƯỚC CSS riêng → xoá :root của trang → xoá các rule trùng theme → đổi font URL về URL CHUẨN ghi ở đầu theme.css → screenshot so trước/sau. Đã migrate: blog/ (4 trang). Nguồn sự thật thiết kế: `~/10X-Brain/brand/brand-identity-10xlifeos-v2.html`.
 3. **Component dùng chung**: nav = `header.js`, chân trang = `footer.js`, icon = `icons.js`. Sửa 1 file → mọi trang đổi theo; sau khi sửa phải kiểm tra ít nhất trang chủ + 1 trang blog + 1 trang app.
 4. **`.htaccess` là cửa an toàn** (security headers, redirect, chặn `_mau/`). Sửa xong bắt buộc `curl -sI https://10x-lifeos.com/` xác nhận site còn sống + header còn đủ.
 5. **`/v2/` = demo reskin (noindex), `_mau/` = template nội bộ (chặn public)** — không coi là trang thật, không link tới từ trang thật.
