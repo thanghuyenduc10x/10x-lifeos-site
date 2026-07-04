@@ -261,6 +261,15 @@
   .foot-mark svg{width:38px;height:38px;flex-shrink:0}
   .foot-name{font-family:var(--f-display);font-weight:800;font-size:1.24rem;color:#fff;letter-spacing:-.01em}
   .foot-name b{color:var(--o-400)}
+.v2fig{position:relative;isolation:isolate}
+.v2fig .pglow{position:absolute;left:50%;top:47%;width:120%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:0;background:radial-gradient(circle,rgba(201,96,40,.42),rgba(201,96,40,.08) 42%,transparent 66%);filter:blur(8px);pointer-events:none}
+.v2fig .pcompass{position:absolute;left:50%;top:47%;width:158%;height:auto;transform:translate(-50%,-50%);z-index:0;opacity:.07;filter:grayscale(1) brightness(2.2);pointer-events:none}
+.v2fig .ring{position:absolute!important;left:50%;top:47%;inset:auto!important;width:min(30vw,360px)!important;height:min(30vw,360px)!important;transform:translate(-50%,-50%);border-radius:50%;z-index:1;animation:spin2 40s linear infinite!important}
+@keyframes spin2{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+.v2fig .photo{position:relative;z-index:2;border-radius:0!important;overflow:visible!important;border:0!important;box-shadow:none!important;background:none!important}
+.v2fig .photo img{width:100%!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;filter:drop-shadow(0 26px 40px rgba(0,0,0,.55))}
+.v2fig .badge{z-index:3}
+@keyframes spin2{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
 </style>
   <script src="/ga.js"></script>
 </head>
@@ -335,9 +344,11 @@
       </div>
     </div>
 
-    <div class="portrait reveal">
+    <div class="portrait reveal v2fig">
+      <span class="pglow"></span>
+      <img class="pcompass" src="/assets/emblems/la-ban.svg" alt="">
       <div class="ring"></div>
-      <div class="photo"><picture><source srcset="assets/coach-thang.webp" type="image/webp"><img src="assets/coach-thang.png" alt="Coach Thắng Huyền Đức" width="749" height="796" fetchpriority="high" decoding="async" /></picture></div>
+      <div class="photo"><picture><source srcset="/assets/coach-thang-cutout.webp" type="image/webp"><img src="/assets/coach-thang-cutout.webp" alt="Coach Thắng Huyền Đức" width="1400" height="933" fetchpriority="high" decoding="async" /></picture></div>
       <div class="badge">
         <div class="n">10X</div>
         <div class="l">
