@@ -132,7 +132,7 @@
           li('/fc-fastcapture/', IC_capture, L('FC-FastCapture — ảnh &amp; GIF', 'FC-FastCapture — screenshots &amp; GIF')) +
           li('/voiceflow/', IC_wave, L('VoiceFlow — nói thành chữ', 'VoiceFlow — voice to text')) +
           li('/vibe-code-os/', IC_route, L('La Bàn Vibe-Code — xây app cùng AI', 'Vibe-Code Compass — build apps with AI')) +
-          '<li style="opacity:.4"><span class="x10f__ico">' + IC_ai + '</span>' + L('Sắp ra mắt…', 'Coming soon…') + '</li>' +
+          li('/Khampha-Diemthanghoa/', IC_ai, L('La Bàn 30 Ngày — Cố vấn Sự nghiệp', 'La Bàn 30 Ngày — Career compass')) +
           '<li style="opacity:.4"><span class="x10f__ico">' + IC_ai + '</span>' + L('Sắp ra mắt…', 'Coming soon…') + '</li>' +
           li('/#resources', IC_ai, L('Hệ thống AI 7 ngày', '7-Day AI System')) +
           li('https://www.youtube.com/@Th%E1%BA%AFngHuy%E1%BB%81n%C4%90%E1%BB%A9cCoach', IC_play, L('Thư viện 10X (YouTube)', '10X Library (YouTube)')) +
