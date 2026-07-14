@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tối ưu dòng chảy công việc — Roadmap &amp; Prompt · 10X Life OS</title>
+<meta name="description" content="Dùng AI để thiết kế lại dòng chảy công việc: mô hình Input → Process → Output → Outcome, roadmap 6 bước, tự động hóa một phần, thư viện prompt copy-được và 7 case thực chiến. Từ AI 1 Ngày của Coach Thắng Huyền Đức." />
+<meta property="og:title" content="Tối ưu dòng chảy công việc — Roadmap & Prompt" />
+<meta property="og:description" content="Đổi quy trình → đổi kết quả. Mô hình Input→Outcome, roadmap, thư viện prompt + 7 case thực chiến. 10X Life OS." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://10x-lifeos.com/Toi-uu-Dong-Chay/" />
+<meta property="og:image" content="https://10x-lifeos.com/Toi-uu-Dong-Chay/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Tối ưu dòng chảy công việc — Roadmap & Prompt" />
+<meta name="twitter:description" content="Đổi quy trình → đổi kết quả. Roadmap + thư viện prompt + 7 case thực chiến. 10X Life OS." />
+<meta name="twitter:image" content="https://10x-lifeos.com/Toi-uu-Dong-Chay/assets/og-cover.png" />
+<link rel="canonical" href="https://10x-lifeos.com/Toi-uu-Dong-Chay/" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/theme.css?v=1" />
+<script src="/theme.js?v=1" defer></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{overflow-x:hidden}
+  .veil{position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(120% 80% at 50% -10%,#16163e 0%,var(--n-900) 42%,var(--n-950) 100%)}
+  .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--o-500);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:100;font-family:var(--f-label);font-size:13px}
+  .skip:focus{left:0}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--o-300);outline-offset:3px;border-radius:6px}
+
+  .sec{padding:clamp(50px,8vh,96px) 0;border-top:1px solid rgba(255,255,255,.06)}
+  .sec:first-of-type{border-top:none}
+  .shead{max-width:var(--read);margin-bottom:clamp(28px,4vh,44px)}
+  .shead h2{font-size:var(--fs-2);margin:10px 0 12px}
+  .shead h2 em{font-style:italic;color:var(--o-400)}
+  .shead p{color:var(--text-muted);font-size:var(--fs-lead)}
+
+  .hero{padding:clamp(60px,12vh,140px) 0 clamp(40px,6vh,70px)}
+  .backlink{font-family:var(--f-label);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);display:inline-flex;gap:7px;margin-bottom:20px}
+  .backlink:hover{color:var(--o-300)}
+  .hero h1{font-size:var(--fs-display);font-weight:500;letter-spacing:-.03em;margin:14px 0 18px}
+  .hero h1 em{font-style:italic;font-weight:600;color:var(--o-400)}
+  .hero .lead{font-size:clamp(17px,2.4vw,22px);color:var(--n-100);max-width:680px;font-family:var(--f-head);font-style:italic;line-height:1.5}
+  .hero .sub{color:var(--text-muted);max-width:620px;margin-top:16px;font-size:var(--fs-lead)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .anchors{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:34px;font-family:var(--f-label);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  .anchors a{color:var(--text-muted);border-bottom:1px solid transparent;padding-bottom:2px}
+  .anchors a:hover{color:var(--o-300);border-color:var(--o-500)}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .quoteline{font-family:var(--f-head);font-style:italic;font-size:clamp(19px,2.6vw,27px);color:#fff;line-height:1.45;border-left:3px solid var(--o-500);padding:8px 0 8px 26px;margin-top:26px;max-width:760px}
+  .quoteline em{color:var(--o-300)}
+
+  /* IPO flow */
+  .ipo{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .ipo .box{background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:22px 20px;position:relative}
+  .ipo .box.out{border-color:rgba(201,96,40,.34);background:rgba(201,96,40,.05)}
+  .ipo .box .t{font-family:var(--f-label);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--o-300);font-weight:700;margin-bottom:8px}
+  .ipo .box h3{font-size:1.05rem;margin-bottom:6px}
+  .ipo .box p{color:var(--text-muted);font-size:13.5px;line-height:1.5}
+  .ipo .arrow{display:none}
+
+  .rmap{display:grid;gap:16px}
+  .rstep{background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:clamp(22px,2.6vw,30px);display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;transition:border-color .3s var(--ease)}
+  .rstep:hover{border-color:var(--border-hover)}
+  .rstep .no{font-family:var(--f-head);font-weight:600;font-size:clamp(34px,4vw,48px);color:var(--o-500);line-height:.9;min-width:56px}
+  .rstep h3{font-size:1.22rem;margin-bottom:6px}
+  .rstep .goal{color:var(--text-muted);font-size:14.5px}
+  .rstep .goal b{color:var(--text)}
+
+  .cbx{background:#0b0b20;border:1px solid rgba(136,136,192,.18);border-radius:var(--r-md);margin:14px 0;overflow:hidden}
+  .cbx-head{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid rgba(136,136,192,.14);background:rgba(255,255,255,.02)}
+  .cbx-head .pl{font-family:var(--f-label);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--o-300)}
+  .cbx-head .copy{margin-left:auto;font-family:var(--f-label);font-size:12px;font-weight:600;letter-spacing:.03em;color:var(--o-200);background:rgba(201,96,40,.12);border:1px solid rgba(201,96,40,.3);border-radius:8px;padding:6px 13px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .18s}
+  .cbx-head .copy:hover{background:rgba(201,96,40,.24);color:#fff}
+  .cbx-head .copy.ok{background:var(--green);border-color:var(--green);color:#fff}
+  .cbx-head .copy svg{width:14px;height:14px}
+  .cbx pre{font-family:var(--f-body);font-size:14.5px;line-height:1.62;color:var(--n-100);white-space:pre-wrap;word-break:break-word;padding:16px 18px}
+  .cbx pre .br{color:var(--o-300)}
+
+  /* results grid */
+  .results{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .res{background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:22px 22px}
+  .res .rt{font-family:var(--f-label);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--o-300);font-weight:700;margin-bottom:12px}
+  .res .ba{font-family:var(--f-head);font-size:clamp(19px,2.3vw,25px);color:#fff;font-weight:600;line-height:1.12}
+  .res .ba em{color:var(--o-400);font-style:normal}
+  .res .tl{color:var(--text-muted);font-size:12.5px;margin-top:9px;line-height:1.5}
+
+  .mis{display:grid;gap:9px;max-width:var(--read)}
+  .mis li{list-style:none;position:relative;padding-left:30px;color:var(--text-body);font-size:15px}
+  .mis li::before{content:'✕';position:absolute;left:4px;top:1px;color:var(--danger);font-weight:700}
+  .mis li b{color:var(--text)}
+
+  @media(max-width:820px){.ipo{grid-template-columns:1fr 1fr}.results{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.two,.results,.ipo{grid-template-columns:1fr}.rstep{grid-template-columns:1fr;gap:10px}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua tới nội dung</a>
+<div class="veil"></div><div class="grain"></div>
+
+<main id="main">
+
+  <header class="hero sec" style="border:none">
+    <div class="wrap">
+      <a class="backlink" href="/AI-1Day/">← Phần 1 · Giao tiếp với AI</a>
+      <div class="eyebrow rv">10X Life OS · AI 1 Ngày · Phần 2</div>
+      <h1 class="rv">Tối ưu <em>dòng chảy</em> công việc</h1>
+      <p class="lead rv">Đổi quy trình → đổi kết quả. Cùng một sức bỏ ra, output khác hẳn.</p>
+      <p class="sub rv">Dùng AI để thiết kế lại dòng chảy công việc: mô hình <b>Input → Process → Output → Outcome</b>, roadmap tối ưu 1 công việc, tự động hóa một phần, thư viện prompt copy-được, và 7 case thực chiến.</p>
+      <div class="cta-row rv">
+        <a class="btn btn-primary btn-lg" href="#roadmap">Bắt đầu roadmap</a>
+        <a class="btn btn-ghost btn-lg" href="#cases">Xem kết quả thực chiến</a>
+      </div>
+      <nav class="anchors rv" aria-label="Mục lục">
+        <a href="#goc">Nguyên tắc gốc</a>
+        <a href="#ipo">Input → Outcome</a>
+        <a href="#roadmap">Roadmap 6 bước</a>
+        <a href="#auto">Tự động hóa một phần</a>
+        <a href="#prompts">Thư viện prompt</a>
+        <a href="#cases">Case thực chiến</a>
+        <a href="#mistakes">Sai lầm</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="sec" id="goc">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Nguyên tắc gốc</div>
+        <h2>Đừng làm nhanh hơn — <em>thiết kế lại</em> quy trình.</h2>
+        <p>Muốn tăng hiệu suất, đừng cố làm nhanh hơn ở quy trình cũ. Cùng một Input, đổi Process sẽ ra Output khác chất lượng.</p>
+      </div>
+      <div class="two rv">
+        <div class="card"><h3>Đặt mục tiêu ngay từ đầu</h3><p>Ghi vào đầu: <b>"50% công việc lặp lại sẽ giao cho AI."</b> Định nghĩa hiệu suất gấp đôi — thời gian giảm nửa, hoặc cùng thời gian mà khối lượng tăng.</p></div>
+        <div class="card"><h3>Chọn đúng việc để tối ưu</h3><p>Ưu tiên việc <b>lặp đi lặp lại và tốn thời gian nhất</b>. Chọn 3 việc lặp → chọn 1 việc nặng nhất → tối ưu để cắt 50%.</p></div>
+      </div>
+      <p class="quoteline rv">"Mình không còn là người làm việc <em>trong</em> hệ thống nữa — mà bắt đầu là người <em>kaizen</em> hệ thống."</p>
+    </div>
+  </section>
+
+  <section class="sec" id="ipo">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Mô hình lõi</div>
+        <h2>Input → Process → Output → <em>Outcome</em></h2>
+        <p>Phân biệt then chốt: Output là thứ mình <b>tạo ra</b>; Outcome là kết quả <b>thật sự</b> nhận về. Tối ưu phải nhắm Outcome.</p>
+      </div>
+      <div class="ipo rv">
+        <div class="box"><span class="t">Input</span><h3>Đầu vào</h3><p>Nguyên liệu + công sức bạn bỏ vào.</p></div>
+        <div class="box"><span class="t">Process</span><h3>Quy trình</h3><p>Các bước biến đầu vào thành đầu ra.</p></div>
+        <div class="box"><span class="t">Output</span><h3>Thứ tạo ra</h3><p>Ví dụ: 100 tin nhắn chào gửi đi.</p></div>
+        <div class="box out"><span class="t">Outcome</span><h3>Thứ thật sự muốn</h3><p>Ví dụ: ~10 khách phản hồi (tỷ lệ ~10%).</p></div>
+      </div>
+      <p class="quoteline rv" style="margin-top:26px">Ví dụ "ghi chép": giấy bút → note app → <em>ghi âm + AI bóc tách, lưu Notion phân loại</em>. Cùng một Input, cấp 3 cho Output tái dùng vĩnh viễn — và giải phóng luôn việc ghi chép.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="roadmap">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Roadmap</div>
+        <h2>6 bước tối ưu <em>một công việc</em> với AI</h2>
+      </div>
+      <div class="rmap">
+        <div class="rstep rv"><div class="no">1</div><div><h3>Khởi động</h3><p class="goal">Hỏi AI "bạn là ai, biết gì về tôi, giúp được gì". Kích hoạt bối cảnh cố vấn.</p></div></div>
+        <div class="rstep rv"><div class="no">2</div><div><h3>Mô tả Input – Output – kỳ vọng 50/50</h3><p class="goal">Nói hết ý tưởng: đầu vào đang có, đầu ra muốn, target, và <b>"tôi làm 50% – AI làm 50%"</b>.</p></div></div>
+        <div class="rstep rv"><div class="no">3</div><div><h3>Bắt AI tóm tắt TRƯỚC khi làm</h3><p class="goal">"Khoan, đừng nhảy vào thực thi — hãy ở chế độ <b>planning</b>, viết lại xem bạn hiểu gì về yêu cầu."</p></div></div>
+        <div class="rstep rv"><div class="no">4</div><div><h3>Bóc tách quy trình → phân vai</h3><p class="goal">Bắt AI vẽ từng bước, rồi chỉ rõ <b>bước nào người làm, bước nào AI làm</b>.</p></div></div>
+        <div class="rstep rv"><div class="no">5</div><div><h3>Khoanh vùng + deadline</h3><p class="goal">Gom phạm vi lại (vd "3 ngày cho giai đoạn 1"), tránh để AI mở rộng vấn đề vô tận.</p></div></div>
+        <div class="rstep rv"><div class="no">6</div><div><h3>Chạy Version 1 → tinh chỉnh</h3><p class="goal">Ra bản chạy được (dù sai/tốn một tí), rồi kaizen dần. <b>Đừng chờ hoàn hảo.</b></p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="auto">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Tự động hóa</div>
+        <h2>Một phần <em>A→B→C</em>, không ép A→Z</h2>
+        <p>"Đừng tự động hóa toàn phần — sẽ đau đầu." Chia dòng chảy thành khúc, phân định người/AI theo từng khúc.</p>
+      </div>
+      <div class="two rv">
+        <div class="card"><h3>Phân vai người / AI</h3><p>"Công việc của tôi có 10 bước — đâu là bước tôi làm, đâu là bước bạn làm?" Vd pipeline content: người = ghi âm/coaching; AI = tổng hợp, bóc tách, gợi ý, lưu Notion.</p></div>
+        <div class="card"><h3>Kiến trúc 3 tầng</h3><p><b>Cổng giao tiếp</b> (Telegram/ChatGPT) → <b>Bộ não</b> (GPT/Gemini/Claude, thay được) → <b>Bộ nhớ</b> (Notion/Drive/Obsidian).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="prompts">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Thư viện Prompt</div>
+        <h2>Copy &amp; <em>dán vào AI</em></h2>
+        <p>Bộ prompt từ ca thị phạm thật (tối ưu quy trình "chào khách"). Thay [phần trong ngoặc] bằng việc của bạn.</p>
+      </div>
+
+      <div class="cbx rv"><div class="cbx-head"><span class="pl">① Mô tả việc lặp (Input→Output)</span><button class="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button></div><pre>Tôi đang có một công việc lặp lại: <span class="br">[mô tả quy trình từng bước hiện tại]</span>. Đầu ra tôi muốn là <span class="br">[target cụ thể]</span>. Bạn hãy hóa thân thành một chuyên gia xây hệ thống &amp; tự động hóa, đưa cho tôi một kịch bản rõ ràng, ứng dụng được ngay, có công cụ/phần mềm thực tế.</pre></div>
+
+      <div class="cbx rv"><div class="cbx-head"><span class="pl">② Workflow 50/50 + planning trước</span><button class="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button></div><pre>Viết lại cho tôi một workflow phân công: tôi làm gì để chiếm 50% thời gian, AI làm 50% còn lại. Khoan, đừng nhảy vào thực thi — hãy ở chế độ planning, brainstorm lại, và viết lại cho tôi xem bạn đã hiểu gì về yêu cầu này.</pre></div>
+
+      <div class="cbx rv"><div class="cbx-head"><span class="pl">③ Audit công cụ cho người no-code</span><button class="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button></div><pre>Hãy đưa cho tôi app nào nên dùng, chi phí bao nhiêu, mất bao lâu setup, có cần code không. Lưu ý tôi là người NO-CODE — hướng dẫn từng bước. Và đã có ai làm tương tự thành công chưa?</pre></div>
+
+      <div class="cbx rv"><div class="cbx-head"><span class="pl">④ Phản biện điểm nghẽn (output → outcome)</span><button class="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button></div><pre>Tôi muốn phản biện: tôi không nghĩ điểm nghẽn lớn nhất là <span class="br">[việc A số lượng]</span>, mà là <span class="br">[chất lượng đầu vào B]</span>. Hãy thiết kế lại quy trình tập trung vào điểm nghẽn thật này.</pre></div>
+
+      <div class="cbx rv"><div class="cbx-head"><span class="pl">⑤ 4 chiêu phản biện AI</span><button class="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button></div><pre>1. Căn cứ vào đâu mà bạn kết luận như vậy? Có kiểm chứng nguồn chưa?
+2. Nếu bạn là top chuyên gia thế giới về [lĩnh vực], hãy phản biện lại kết quả này.
+3. Nếu bỏ bước [A] mà vẫn đạt [kết quả], thì có cách nào khác không?
+4. Tôi chỉ muốn làm 50%. Phần còn lại bạn nghĩ tiếp và đề xuất.</pre></div>
+    </div>
+  </section>
+
+  <section class="sec" id="cases">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Thực chiến</div>
+        <h2>7 dòng chảy được <em>cắt gọt</em> — con số thật</h2>
+        <p>Kết quả từ một Demo Day: mỗi người tự tối ưu một quy trình của chính mình bằng AI.</p>
+      </div>
+      <div class="results">
+        <div class="res rv"><div class="rt">SEO Content</div><div class="ba">1 ngày → <em>15 phút</em>/bài</div><div class="tl">GA4 + Search Console qua API → Claude Code + Obsidian · ~4$/tháng</div></div>
+        <div class="res rv"><div class="rt">Viết blog</div><div class="ba">6–8h → <em>~1 giờ</em>/bài</div><div class="tl">Search Console → AI cluster chủ đề → nháp blog · Apps Script miễn phí</div></div>
+        <div class="res rv"><div class="rt">Chào khách B2B</div><div class="ba">30 → <em>150</em> khách/ngày</div><div class="tl">Apify → Grok chấm &amp; cá nhân hóa → Apps Script → Sheet CRM · ~1$/ngày</div></div>
+        <div class="res rv"><div class="rt">Marketing đa kênh</div><div class="ba">tiết kiệm <em>70–80%</em></div><div class="tl">GA gắn Sheet + đăng chéo 24/7 · content ×3–×5</div></div>
+        <div class="res rv"><div class="rt">Onboarding nhân sự</div><div class="ba">7 ngày → <em>1 ngày</em></div><div class="tl">WhatsApp → Sheet + Telegram bot tri thức nội bộ (Dify)</div></div>
+        <div class="res rv"><div class="rt">Nhận đơn / công nợ</div><div class="ba">nhận đơn <em>−70%</em></div><div class="tl">Google Sheet + Apps Script (lệnh tiếng Việt) · hết sai xót</div></div>
+      </div>
+      <p class="quoteline rv" style="margin-top:28px">"Giới hạn lớn nhất khiến mình không làm là do mình <em>tự nghĩ ra</em> thôi."</p>
+    </div>
+  </section>
+
+  <section class="sec" id="mistakes">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Tránh</div>
+        <h2>Sai lầm <em>thường gặp</em></h2>
+      </div>
+      <ul class="mis rv">
+        <li>Ép <b>tự động hóa toàn phần A→Z</b> ngay từ đầu.</li>
+        <li>Nhảy vào thực thi ngay, <b>bỏ qua bước planning</b> / làm rõ.</li>
+        <li>Tin AI 100%, không phản biện → bị dắt mũi (AI bịa nguồn, bịa link, nịnh).</li>
+        <li>Không định nghĩa rõ Output/Outcome → để AI "vẽ linh tinh".</li>
+        <li><b>Nhầm Output với Outcome</b> (đếm số lượng mà quên chất lượng/kết quả thật).</li>
+        <li>Sợ kỹ thuật, tự nhủ "cái này khó lắm" → <b>trì hoãn</b>; deadline lớn không chia nhỏ.</li>
+        <li>Nhồi cả kho dữ liệu <b>bẩn</b> cho AI đọc (thuộc 100 cuốn thay vì 5 cuốn tinh hoa).</li>
+        <li>Chỉ "tham khảo" AI rồi vẫn tự làm thủ công.</li>
+      </ul>
+      <p class="quoteline rv" style="margin-top:34px">"Version 1 nó chạy được — kể cả nó sai. Quan trọng nhất là mình đã <em>test được hệ thống đã chạy</em>."</p>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="/header.js"></script>
+<script src="/footer.js"></script>
+<script src="/icons.js"></script>
+
+<script>
+(function(){
+  var rv=document.querySelectorAll('.rv');
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){rv.forEach(function(e){e.classList.add('in')});}
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});rv.forEach(function(e){io.observe(e);});}
+  document.querySelectorAll('.cbx .copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var txt=b.closest('.cbx').querySelector('pre').innerText;
+      navigator.clipboard.writeText(txt).then(function(){
+        var s=b.querySelector('.ct'),o=s.textContent;s.textContent='Đã copy';b.classList.add('ok');
+        setTimeout(function(){s.textContent=o;b.classList.remove('ok');},1500);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
