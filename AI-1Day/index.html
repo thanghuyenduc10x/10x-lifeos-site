@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Giao tiếp với AI — Roadmap &amp; Thư viện Prompt · 10X Life OS</title>
+<meta name="description" content="Cách trò chuyện với AI hiệu quả: roadmap 6 bước biến AI từ kẻ sai vặt thành đối tác tư duy, kèm thư viện prompt copy-được. Từ buổi học AI 1 ngày của Coach Thắng Huyền Đức." />
+<meta property="og:title" content="Giao tiếp với AI — Roadmap & Thư viện Prompt" />
+<meta property="og:description" content="Roadmap 6 bước trò chuyện với AI + thư viện prompt copy-được. Biến AI thành đối tác tư duy. 10X Life OS." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://10x-lifeos.com/AI-1Day/" />
+<meta property="og:image" content="https://10x-lifeos.com/AI-1Day/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Giao tiếp với AI — Roadmap & Thư viện Prompt" />
+<meta name="twitter:description" content="Roadmap 6 bước + thư viện prompt copy-được. Biến AI thành đối tác tư duy. 10X Life OS." />
+<meta name="twitter:image" content="https://10x-lifeos.com/AI-1Day/assets/og-cover.png" />
+<link rel="canonical" href="https://10x-lifeos.com/AI-1Day/" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/theme.css?v=1" />
+<script src="/theme.js?v=1" defer></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{overflow-x:hidden}
+  .veil{position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(120% 80% at 50% -10%,#16163e 0%,var(--n-900) 42%,var(--n-950) 100%)}
+  .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--o-500);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:100;font-family:var(--f-label);font-size:13px}
+  .skip:focus{left:0}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--o-300);outline-offset:3px;border-radius:6px}
+
+  .sec{padding:clamp(50px,8vh,96px) 0;border-top:1px solid rgba(255,255,255,.06)}
+  .sec:first-of-type{border-top:none}
+  .shead{max-width:var(--read);margin-bottom:clamp(28px,4vh,44px)}
+  .shead h2{font-size:var(--fs-2);margin:10px 0 12px}
+  .shead h2 em{font-style:italic;color:var(--o-400)}
+  .shead p{color:var(--text-muted);font-size:var(--fs-lead)}
+
+  /* hero */
+  .hero{padding:clamp(66px,13vh,150px) 0 clamp(40px,6vh,70px);text-align:left}
+  .hero h1{font-size:var(--fs-display);font-weight:500;letter-spacing:-.03em;margin:16px 0 18px}
+  .hero h1 em{font-style:italic;font-weight:600;color:var(--o-400)}
+  .hero .lead{font-size:clamp(17px,2.4vw,22px);color:var(--n-100);max-width:660px;font-family:var(--f-head);font-style:italic;line-height:1.5}
+  .hero .sub{color:var(--text-muted);max-width:600px;margin-top:16px;font-size:var(--fs-lead)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .anchors{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:34px;font-family:var(--f-label);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  .anchors a{color:var(--text-muted);border-bottom:1px solid transparent;padding-bottom:2px}
+  .anchors a:hover{color:var(--o-300);border-color:var(--o-500)}
+
+  /* reframe two cards */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .quoteline{font-family:var(--f-head);font-style:italic;font-size:clamp(19px,2.6vw,27px);color:#fff;line-height:1.45;border-left:3px solid var(--o-500);padding:8px 0 8px 26px;margin-top:26px;max-width:760px}
+  .quoteline em{color:var(--o-300)}
+
+  /* roadmap */
+  .rmap{display:grid;gap:16px}
+  .rstep{background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:clamp(22px,2.6vw,30px);display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;transition:border-color .3s var(--ease)}
+  .rstep:hover{border-color:var(--border-hover)}
+  .rstep .no{font-family:var(--f-head);font-weight:600;font-size:clamp(34px,4vw,48px);color:var(--o-500);line-height:.9;min-width:56px}
+  .rstep h3{font-size:1.22rem;margin-bottom:6px}
+  .rstep .goal{color:var(--text-muted);font-size:14.5px}
+  .rstep .goal b{color:var(--text)}
+  .rstep .tag{display:inline-block;font-family:var(--f-label);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--o-300);background:rgba(201,96,40,.1);border:1px solid rgba(201,96,40,.25);border-radius:999px;padding:3px 11px;margin-top:12px}
+
+  /* code block + copy */
+  .cbx{background:#0b0b20;border:1px solid rgba(136,136,192,.18);border-radius:var(--r-md);margin:14px 0;overflow:hidden}
+  .cbx-head{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid rgba(136,136,192,.14);background:rgba(255,255,255,.02)}
+  .cbx-head .pl{font-family:var(--f-label);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--o-300)}
+  .cbx-head .copy{margin-left:auto;font-family:var(--f-label);font-size:12px;font-weight:600;letter-spacing:.03em;color:var(--o-200);background:rgba(201,96,40,.12);border:1px solid rgba(201,96,40,.3);border-radius:8px;padding:6px 13px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .18s}
+  .cbx-head .copy:hover{background:rgba(201,96,40,.24);color:#fff}
+  .cbx-head .copy.ok{background:var(--green);border-color:var(--green);color:#fff}
+  .cbx-head .copy svg{width:14px;height:14px}
+  .cbx pre{font-family:var(--f-body);font-size:14.5px;line-height:1.62;color:var(--n-100);white-space:pre-wrap;word-break:break-word;padding:16px 18px}
+  .cbx pre .br{color:var(--o-300)}
+
+  /* levels */
+  .levels{display:grid;gap:12px}
+  .lvl{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:var(--r-md);padding:18px 22px}
+  .lvl.hot{border-color:rgba(201,96,40,.34);background:rgba(201,96,40,.05)}
+  .lvl .n{font-family:var(--f-head);font-style:italic;font-size:1.5rem;color:var(--o-400);min-width:34px}
+  .lvl h4{font-size:1.05rem;margin-bottom:3px}
+  .lvl p{color:var(--text-muted);font-size:14px}
+  .lvl .badge{display:inline-block;font-family:var(--f-label);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--o-600);border-radius:5px;padding:2px 8px;margin-left:8px;vertical-align:middle}
+
+  /* keys grid */
+  .keys{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .key{background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:22px 24px}
+  .key .kn{font-family:var(--f-head);font-style:italic;color:var(--o-500);font-size:1.4rem;line-height:1;margin-bottom:8px}
+  .key h4{font-size:1.08rem;margin-bottom:6px}
+  .key p{color:var(--text-muted);font-size:14px;line-height:1.55}
+  .key p em{color:var(--o-300);font-style:italic}
+
+  /* mistakes */
+  .mis{display:grid;gap:9px;max-width:var(--read)}
+  .mis li{list-style:none;position:relative;padding-left:30px;color:var(--text-body);font-size:15px}
+  .mis li::before{content:'✕';position:absolute;left:4px;top:1px;color:var(--danger);font-weight:700}
+  .mis li b{color:var(--text)}
+
+  @media(max-width:640px){
+    .two,.keys{grid-template-columns:1fr}
+    .rstep{grid-template-columns:1fr;gap:10px}
+    .rstep .no{font-size:2.2rem}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua tới nội dung</a>
+<div class="veil"></div><div class="grain"></div>
+
+<main id="main">
+
+  <!-- HERO -->
+  <header class="hero sec" style="border:none">
+    <div class="wrap">
+      <div class="eyebrow rv">10X Life OS · AI 1 Ngày</div>
+      <h1 class="rv">Giao tiếp với <em>AI</em></h1>
+      <p class="lead rv">Biến AI từ <em>kẻ sai vặt</em> thành đối tác tư duy — bằng cách trò chuyện, không ra lệnh.</p>
+      <p class="sub rv">Trang này gói lại toàn bộ cách trò chuyện với AI trong buổi học: một <b>roadmap 6 bước</b> và một <b>thư viện prompt copy-được</b>. Vào đây, tự thực hành theo.</p>
+      <div class="cta-row rv">
+        <a class="btn btn-primary btn-lg" href="#roadmap">Bắt đầu roadmap</a>
+        <a class="btn btn-ghost btn-lg" href="#prompts">Thư viện prompt</a>
+      </div>
+      <nav class="anchors rv" aria-label="Mục lục">
+        <a href="#goc">Nguyên tắc gốc</a>
+        <a href="#roadmap">Roadmap 6 bước</a>
+        <a href="#levels">4 cấp độ</a>
+        <a href="#prompts">Thư viện prompt</a>
+        <a href="#keys">7 chìa khóa</a>
+        <a href="#mistakes">Sai lầm</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- NGUYÊN TẮC GỐC -->
+  <section class="sec" id="goc">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Nguyên tắc gốc</div>
+        <h2>Cho AI <em>hiểu mình</em> trước.</h2>
+        <p>AI trả lời chung chung vì nó hiểu bạn chung chung. Giống hỏi một người quen sẽ khác hỏi một người lạ.</p>
+      </div>
+      <div class="two rv">
+        <div class="card">
+          <h3>Bạn đang có một giáo sư…</h3>
+          <p>Trình độ AI ở tầm tiến sĩ, giáo sư. Nhưng đa số đang sai vặt nó như một người chạy việc — chỉ để dịch, tóm tắt, viết lại. <b>Ra lệnh cụt → nhận câu trả lời cụt.</b></p>
+        </div>
+        <div class="card">
+          <h3>…hãy đổi cách nhìn</h3>
+          <p>Xem AI là <b>đối tác tư duy</b>. Muốn là đối tác thì cần giao tiếp, trao đổi và thấu hiểu lẫn nhau. Việc đầu tiên không phải ra lệnh — mà là làm cho nó hiểu bạn.</p>
+        </div>
+      </div>
+      <p class="quoteline rv">"Nếu giao thanh kiếm sắc vào tay đứa trẻ 5 tuổi, nó mang đi <em>đào đất</em>. Vấn đề là ta có nhìn ra đó là thanh kiếm sắc không."</p>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="sec" id="roadmap">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Roadmap</div>
+        <h2>6 bước <em>trò chuyện</em> với AI</h2>
+        <p>Đi hết 6 bước là bạn tự nâng mình từ Cấp 1–2 (hỏi đáp / ra lệnh) lên Cấp 3–4 (cộng tác / tự động hóa).</p>
+      </div>
+      <div class="rmap">
+        <div class="rstep rv"><div class="no">0</div><div><h3>Chuẩn bị</h3><p class="goal">Bật <b>giọng nói</b> (nói nhanh hơn gõ, nạp nhiều bối cảnh hơn). Xác định bạn cần AI đóng <b>vai gì</b>.</p><span class="tag">Sẵn sàng nói, không gõ</span></div></div>
+        <div class="rstep rv"><div class="no">1</div><div><h3>Cho AI hiểu mình</h3><p class="goal">Nói theo khung: <b>Tôi là ai · đang làm gì (&amp; vướng ở đâu) · muốn gì · cần bạn là…</b>. Nói dài, đủ bối cảnh — đừng ra lệnh cụt.</p><span class="tag">AI nắm chân dung bạn</span></div></div>
+        <div class="rstep rv"><div class="no">2</div><div><h3>Bắt AI hỏi ngược</h3><p class="goal">Yêu cầu AI phỏng vấn lại bạn để đào sâu. Trả lời hết những gì có trong đầu.</p><span class="tag">Đào sâu · khai phóng</span></div></div>
+        <div class="rstep rv"><div class="no">3</div><div><h3>Đối thoại &amp; phản biện</h3><p class="goal">Đọc <b>từng ý</b>, sửa chỗ AI hiểu sai. Hỏi "căn cứ vào đâu?". Yêu cầu thẳng thắn — đừng để nó nịnh.</p><span class="tag">AI hiểu đúng, không ảo</span></div></div>
+        <div class="rstep rv"><div class="no">4</div><div><h3>Chốt &amp; lượng hóa</h3><p class="goal">Bắt AI tóm tắt lại. Đo <b>trước → sau</b>: "lâu nay mất 4 tiếng, có cách nào còn 2 tiếng không?"</p><span class="tag">Kết quả cụ thể</span></div></div>
+        <div class="rstep rv"><div class="no">5</div><div><h3>Đóng gói &amp; lưu</h3><p class="goal">Xuất hồ sơ ra <b>file .txt</b> → nạp vào <b>Project / Custom Instruction / Memory</b>. Lần sau AI đã hiểu bạn, không phải nói lại từ đầu.</p><span class="tag">Cố vấn AI tái dùng</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEVELS -->
+  <section class="sec" id="levels">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Tự chấm</div>
+        <h2>Bạn đang ở <em>cấp nào?</em></h2>
+      </div>
+      <div class="levels">
+        <div class="lvl rv"><span class="n">1</span><div><h4>Hỏi đáp</h4><p>Dùng AI như "Google thông minh". Hỏi gì đáp nấy → câu trả lời chung chung.</p></div></div>
+        <div class="lvl hot rv"><span class="n">2</span><div><h4>Giao lệnh <span class="badge">đa số kẹt ở đây</span></h4><p>Đưa một câu lệnh, nhận một kết quả. Nhưng AI chưa hiểu bạn → kết quả nông, phải sửa nhiều.</p></div></div>
+        <div class="lvl rv"><span class="n">3</span><div><h4>Cộng tác</h4><p>Cho AI hiểu bối cảnh &amp; mục tiêu, trò chuyện và phản biện qua lại. AI thành cố vấn — "anh hiểu em, em hiểu anh".</p></div></div>
+        <div class="lvl rv"><span class="n">4</span><div><h4>Tự động hóa</h4><p>Đóng gói quy trình cho AI tự chạy ~90%, bạn chỉ can thiệp vài điểm. Bạn thành người thiết kế.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMPTS -->
+  <section class="sec" id="prompts">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Thư viện Prompt</div>
+        <h2>Copy &amp; <em>dán vào AI</em></h2>
+        <p>Thay [phần trong ngoặc] bằng thông tin của bạn. Nên đọc bằng giọng nói (VoiceFlow) để nạp nhiều bối cảnh hơn.</p>
+      </div>
+
+      <div class="cbx rv"><div class="cbx-head"><span class="pl">① Mồi — khi đã dùng AI lâu</span><button class="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button></div><pre>Lục lại lịch sử trò chuyện, xem bạn hiểu gì về tôi.</pre></div>
+
+      <div class="cbx rv"><div class="cbx-head"><span class="pl">② Khởi tạo Cố vấn AI</span><button class="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button></div><pre>Tôi đang muốn xây dựng một cố vấn AI. Tôi muốn bạn trở thành người cố vấn cho tôi: khi tôi chia sẻ vấn đề về công việc, cuộc sống, suy nghĩ — bạn như một người giỏi hơn tôi, am hiểu rất rõ chân dung và công việc của tôi, cho tôi lời khuyên sát sườn, cụ thể, trực chỉ, KHÔNG nịnh bợ. Trong cuộc trò chuyện này tôi sẽ mô tả thông tin về tôi — hãy đặt cho tôi những câu hỏi để bạn hiểu sâu sắc về tôi. Hướng dẫn tôi cách xây dựng cố vấn này.</pre></div>
+
+      <div class="cbx rv"><div class="cbx-head"><span class="pl">③ Bắt AI hỏi ngược</span><button class="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button></div><pre>Hãy đặt cho tôi khoảng 10 câu hỏi sát sườn nhất để bạn hiểu về tôi và công việc của tôi.</pre></div>
+
+      <div class="cbx rv"><div class="cbx-head"><span class="pl">④ Xuất hồ sơ ra file .txt</span><button class="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button></div><pre>Từ toàn bộ cuộc trò chuyện, hãy tóm tắt chân dung tổng thể về tôi và tạo thành một INSTRUCTION cho một người cố vấn để tôi tạo Project trên ChatGPT. Xuất ra dạng file .txt.</pre></div>
+
+      <div class="cbx rv"><div class="cbx-head"><span class="pl">⑤ Template theo khung (ví dụ Sale)</span><button class="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button></div><pre>Tôi đang là <span class="br">[vai trò]</span> ở <span class="br">[công ty]</span>. 3 việc chính: <span class="br">[...]</span>. Tôi đang vướng ở <span class="br">[...]</span>, tôi muốn <span class="br">[...]</span>. Tôi cần bạn là chuyên gia <span class="br">[lĩnh vực]</span> — hãy gợi ý và phản biện cách để tôi cải thiện.</pre></div>
+
+      <div class="cbx rv"><div class="cbx-head"><span class="pl">⑥ 4 chiêu phản biện AI</span><button class="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button></div><pre>1. Căn cứ vào đâu mà bạn kết luận như vậy? Có kiểm chứng nguồn chưa?
+2. Nếu bạn là top chuyên gia giỏi nhất thế giới về [lĩnh vực], hãy phản biện lại chính kết quả này.
+3. Nếu bỏ bước [A] mà vẫn đạt [kết quả], thì có cách nào khác không?
+4. Tôi chỉ muốn làm 50%. Phần còn lại bạn làm — hãy nghĩ tiếp và đề xuất.</pre></div>
+    </div>
+  </section>
+
+  <!-- KEYS -->
+  <section class="sec" id="keys">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Chìa khóa</div>
+        <h2>7 <em>chìa khóa</em> giao tiếp với AI</h2>
+      </div>
+      <div class="keys">
+        <div class="key rv"><div class="kn">1</div><h4>Cho AI hiểu mình trước</h4><p>Đây là nguyên tắc gốc. Hiểu chung chung → trả lời chung chung.</p></div>
+        <div class="key rv"><div class="kn">2</div><h4>Nói, đừng gõ</h4><p><em>"Ngày xưa nói máy không hiểu, giờ nói máy sẽ hiểu."</em> Lời nói đi trước chữ viết.</p></div>
+        <div class="key rv"><div class="kn">3</div><h4>Càng dài càng tốt</h4><p>AI hiểu một từ trong cả bối cảnh; nói lan man nhiều thông tin nhưng tổng kết lại cực chính xác.</p></div>
+        <div class="key rv"><div class="kn">4</div><h4>Bắt AI hỏi ngược</h4><p>Để nó phỏng vấn lại bạn — đào sâu và khai phóng chính mình.</p></div>
+        <div class="key rv"><div class="kn">5</div><h4>Phản biện, đừng để nó nịnh</h4><p>AI mặc định "Ui bạn thật tuyệt vời". Cố vấn thật phải thẳng thắn.</p></div>
+        <div class="key rv"><div class="kn">6</div><h4>Nâng AI thành đối tác</h4><p><em>"AI không phải người sai vặt. AI là một đối tác."</em></p></div>
+        <div class="key rv"><div class="kn">7</div><h4>Sửa qua lại = huấn luyện</h4><p>Đọc từng ý → sửa chỗ sai → xuất .txt → lưu vào Project để tái dùng.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISTAKES -->
+  <section class="sec" id="mistakes">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Tránh</div>
+        <h2>Sai lầm <em>thường gặp</em></h2>
+      </div>
+      <ul class="mis rv">
+        <li>Dùng AI như <b>kẻ sai vặt</b> (chỉ dịch, tóm tắt vặt) trong khi trình độ nó là giáo sư.</li>
+        <li>Ra lệnh cụt / chung chung → nhận câu trả lời lan man.</li>
+        <li>Không cung cấp bối cảnh về bản thân.</li>
+        <li>Chỉ gõ tay → giới hạn lượng thông tin nạp vào.</li>
+        <li>Trả lời AI quá ít — thật ra vì mình chưa nghĩ sâu.</li>
+        <li>Để AI nịnh / dẫn mình đi lạc.</li>
+        <li>Mỗi lần prompt lại từ đầu, không dùng Project/Memory.</li>
+        <li>Không trao đổi lại để sửa khi AI hiểu sai.</li>
+        <li>Dùng AI khiến đầu mình lười ("ok, ok, ok").</li>
+      </ul>
+      <p class="quoteline rv" style="margin-top:34px">"Hãy dùng AI để làm cho mình <em>lớn hơn</em>, để cái đầu của mình mở ra."</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── FOOTER (khung chung 10X) ── -->
+<div id="site-footer"></div>
+<script src="/header.js"></script>
+<script src="/footer.js"></script>
+<script src="/icons.js"></script>
+
+<script>
+(function(){
+  // reveal — chạy 1 lần
+  var rv=document.querySelectorAll('.rv');
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){rv.forEach(function(e){e.classList.add('in')});}
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});rv.forEach(function(e){io.observe(e);});}
+  // copy
+  document.querySelectorAll('.cbx .copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var txt=b.closest('.cbx').querySelector('pre').innerText;
+      navigator.clipboard.writeText(txt).then(function(){
+        var s=b.querySelector('.ct'),o=s.textContent;s.textContent='Đã copy';b.classList.add('ok');
+        setTimeout(function(){s.textContent=o;b.classList.remove('ok');},1500);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
