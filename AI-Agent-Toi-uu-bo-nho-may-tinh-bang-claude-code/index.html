@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Agent tối ưu bộ nhớ máy tính bằng Claude Code · 10X Life OS</title>
+<meta name="description" content="Câu chuyện dựng một AI Agent chạy local bằng Claude Code để dọn ổ cứng đầy: phân biệt 'giải phóng dung lượng' với 'bỏ thùng rác', tự động mỗi tuần, an toàn tuyệt đối. Bằng chứng thật: phát hiện 361GB ẩn trong Google Drive. Khung Input → Process → Output → Outcome." />
+<meta property="og:title" content="AI Agent tối ưu bộ nhớ máy tính bằng Claude Code" />
+<meta property="og:description" content="Từ ổ cứng đầy đến 337GB giải phóng được — hành trình dựng một AI Agent dọn ổ chạy local, an toàn, tự động mỗi tuần. Bài học theo khung Input→Outcome." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://10x-lifeos.com/AI-Agent-Toi-uu-bo-nho-may-tinh-bang-claude-code/" />
+<meta property="og:image" content="https://10x-lifeos.com/AI-Agent-Toi-uu-bo-nho-may-tinh-bang-claude-code/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI Agent tối ưu bộ nhớ máy tính bằng Claude Code" />
+<meta name="twitter:description" content="Ổ cứng đầy → 337GB giải phóng được. AI Agent dọn ổ chạy local, an toàn, tự động. Bài học Input→Outcome." />
+<meta name="twitter:image" content="https://10x-lifeos.com/AI-Agent-Toi-uu-bo-nho-may-tinh-bang-claude-code/assets/og-cover.png" />
+<link rel="canonical" href="https://10x-lifeos.com/AI-Agent-Toi-uu-bo-nho-may-tinh-bang-claude-code/" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/theme.css?v=1" />
+<script src="/theme.js?v=1" defer></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{overflow-x:hidden}
+  .veil{position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(120% 80% at 50% -10%,#16163e 0%,var(--n-900) 42%,var(--n-950) 100%)}
+  .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--o-500);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:100;font-family:var(--f-label);font-size:13px}
+  .skip:focus{left:0}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--o-300);outline-offset:3px;border-radius:6px}
+
+  .sec{padding:clamp(50px,8vh,96px) 0;border-top:1px solid rgba(255,255,255,.06)}
+  .sec:first-of-type{border-top:none}
+  .shead{max-width:var(--read);margin-bottom:clamp(28px,4vh,44px)}
+  .shead h2{font-size:var(--fs-2);margin:10px 0 12px}
+  .shead h2 em{font-style:italic;color:var(--o-400)}
+  .shead p{color:var(--text-muted);font-size:var(--fs-lead)}
+
+  .hero{padding:clamp(60px,12vh,140px) 0 clamp(40px,6vh,70px)}
+  .backlink{font-family:var(--f-label);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);display:inline-flex;gap:7px;margin-bottom:20px}
+  .backlink:hover{color:var(--o-300)}
+  .hero h1{font-size:var(--fs-display);font-weight:500;letter-spacing:-.03em;margin:14px 0 18px}
+  .hero h1 em{font-style:italic;font-weight:600;color:var(--o-400)}
+  .hero .lead{font-size:clamp(17px,2.4vw,22px);color:var(--n-100);max-width:700px;font-family:var(--f-head);font-style:italic;line-height:1.5}
+  .hero .sub{color:var(--text-muted);max-width:640px;margin-top:16px;font-size:var(--fs-lead)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .anchors{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:34px;font-family:var(--f-label);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  .anchors a{color:var(--text-muted);border-bottom:1px solid transparent;padding-bottom:2px}
+  .anchors a:hover{color:var(--o-300);border-color:var(--o-500)}
+
+  /* stat band under hero */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
+  .stat{background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:20px}
+  .stat .n{font-family:var(--f-head);font-weight:600;font-size:clamp(24px,3.2vw,34px);color:var(--o-400);line-height:1}
+  .stat .l{color:var(--text-muted);font-size:12.5px;margin-top:8px;line-height:1.45}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .quoteline{font-family:var(--f-head);font-style:italic;font-size:clamp(19px,2.6vw,27px);color:#fff;line-height:1.45;border-left:3px solid var(--o-500);padding:8px 0 8px 26px;margin-top:26px;max-width:780px}
+  .quoteline em{color:var(--o-300)}
+
+  /* problem list */
+  .prob{display:grid;gap:9px;max-width:var(--read)}
+  .prob li{list-style:none;position:relative;padding-left:30px;color:var(--text-body);font-size:15px}
+  .prob li::before{content:'⚠';position:absolute;left:2px;top:1px;color:var(--o-400)}
+  .prob li b{color:var(--text)}
+
+  /* IPO flow */
+  .ipo{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .ipo .box{background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:22px 20px;position:relative}
+  .ipo .box.out{border-color:rgba(201,96,40,.34);background:rgba(201,96,40,.05)}
+  .ipo .box .t{font-family:var(--f-label);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--o-300);font-weight:700;margin-bottom:8px}
+  .ipo .box h3{font-size:1.05rem;margin-bottom:6px}
+  .ipo .box p{color:var(--text-muted);font-size:13.5px;line-height:1.5}
+
+  /* story timeline */
+  .rmap{display:grid;gap:16px}
+  .rstep{background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:clamp(22px,2.6vw,30px);display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;transition:border-color .3s var(--ease)}
+  .rstep:hover{border-color:var(--border-hover)}
+  .rstep .no{font-family:var(--f-head);font-weight:600;font-size:clamp(30px,3.6vw,42px);color:var(--o-500);line-height:.9;min-width:52px}
+  .rstep h3{font-size:1.18rem;margin-bottom:6px}
+  .rstep .goal{color:var(--text-muted);font-size:14.5px;line-height:1.55}
+  .rstep .goal b{color:var(--text)}
+
+  /* comparison: before wrong vs right */
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .vs .col{border-radius:var(--r-lg);padding:24px;border:1px solid rgba(255,255,255,.08)}
+  .vs .col.bad{background:rgba(200,60,60,.05);border-color:rgba(200,60,60,.28)}
+  .vs .col.good{background:rgba(201,96,40,.05);border-color:rgba(201,96,40,.34)}
+  .vs .col .tag{font-family:var(--f-label);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+  .vs .col.bad .tag{color:#e08a8a}
+  .vs .col.good .tag{color:var(--o-300)}
+  .vs .col h3{font-size:1.08rem;margin-bottom:8px}
+  .vs .col p{color:var(--text-muted);font-size:14px;line-height:1.55}
+
+  /* lessons */
+  .lessons{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .lesson{background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:24px;transition:border-color .3s var(--ease)}
+  .lesson:hover{border-color:var(--border-hover)}
+  .lesson .k{font-family:var(--f-head);font-weight:600;font-size:20px;color:var(--o-500);line-height:1;margin-bottom:12px}
+  .lesson h3{font-size:1.1rem;margin-bottom:8px}
+  .lesson p{color:var(--text-muted);font-size:14px;line-height:1.58}
+  .lesson p b{color:var(--text)}
+
+  /* results grid */
+  .results{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .res{background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:22px}
+  .res .rt{font-family:var(--f-label);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--o-300);font-weight:700;margin-bottom:12px}
+  .res .ba{font-family:var(--f-head);font-size:clamp(19px,2.3vw,25px);color:#fff;font-weight:600;line-height:1.12}
+  .res .ba em{color:var(--o-400);font-style:normal}
+  .res .tl{color:var(--text-muted);font-size:12.5px;margin-top:9px;line-height:1.5}
+
+  .mis{display:grid;gap:9px;max-width:var(--read)}
+  .mis li{list-style:none;position:relative;padding-left:30px;color:var(--text-body);font-size:15px}
+  .mis li::before{content:'✕';position:absolute;left:4px;top:1px;color:var(--danger);font-weight:700}
+  .mis li b{color:var(--text)}
+
+  @media(max-width:820px){.ipo,.stats{grid-template-columns:1fr 1fr}.results{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.two,.results,.ipo,.stats,.vs,.lessons{grid-template-columns:1fr}.rstep{grid-template-columns:1fr;gap:10px}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua tới nội dung</a>
+<div class="veil"></div><div class="grain"></div>
+
+<main id="main">
+
+  <header class="hero sec" style="border:none">
+    <div class="wrap">
+      <a class="backlink" href="/">← 10X Life OS</a>
+      <div class="eyebrow rv">10X Life OS · AI Agent thực chiến</div>
+      <h1 class="rv">Tối ưu <em>bộ nhớ máy tính</em> bằng Claude Code</h1>
+      <p class="lead rv">Ổ cứng cứ đầy. Nhưng thủ phạm không nằm ở nơi ai cũng nghĩ.</p>
+      <p class="sub rv">Câu chuyện dựng một <b>AI Agent chạy local</b> để dọn ổ: quét, phân biệt "giải phóng dung lượng" với "bỏ thùng rác", tự động mỗi tuần — <b>an toàn tuyệt đối, không mất một file nào</b>. Kể theo khung <b>Input → Process → Output → Outcome</b>.</p>
+      <div class="cta-row rv">
+        <a class="btn btn-primary btn-lg" href="#cauchuyen">Đọc câu chuyện</a>
+        <a class="btn btn-ghost btn-lg" href="#baihoc">Nhảy tới bài học</a>
+      </div>
+      <div class="stats rv">
+        <div class="stat"><div class="n">361 GB</div><div class="l">file ẩn được tìm thấy đang chiếm ổ</div></div>
+        <div class="stat"><div class="n">337 GB</div><div class="l">có thể giải phóng an toàn</div></div>
+        <div class="stat"><div class="n">0</div><div class="l">file bị mất — trash, không xóa vĩnh viễn</div></div>
+        <div class="stat"><div class="n">Mỗi tuần</div><div class="l">tự chạy, tối thứ Sáu 20h</div></div>
+      </div>
+      <nav class="anchors rv" aria-label="Mục lục">
+        <a href="#vande">Vấn đề</a>
+        <a href="#giaiphap">Giải pháp</a>
+        <a href="#ipo">Input → Outcome</a>
+        <a href="#cauchuyen">Câu chuyện</a>
+        <a href="#bangchung">Bằng chứng</a>
+        <a href="#baihoc">Bài học</a>
+        <a href="#saitlam">Sai lầm</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="sec" id="vande">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Vấn đề</div>
+        <h2>Ổ cứng đầy — và <em>không biết vì đâu</em>.</h2>
+        <p>Quy trình làm việc rất đời thường: copy cả thư mục media, video quay được vào máy, đồng bộ Google Drive. Rồi ổ cứng cứ đầy dần mà không rõ thủ phạm.</p>
+      </div>
+      <ul class="prob rv">
+        <li>Copy file nặng vào máy để upload lên Drive, xong <b>quên xóa bản trên máy</b>.</li>
+        <li>File <b>trùng lặp</b> rải rác nhiều nơi, không ai rà.</li>
+        <li>Video quay (DJI, screen record) <b>mỗi file 10–17GB</b> — vài buổi là hết ổ.</li>
+        <li>Muốn một thứ <b>tự động, hàng tuần</b> lo giúp — nhưng phải an toàn, không được xóa nhầm.</li>
+      </ul>
+      <p class="quoteline rv">"Vấn đề lớn nhất của tôi là thường xuyên bị tràn bộ nhớ, do có những file nặng."</p>
+    </div>
+  </section>
+
+  <section class="sec" id="giaiphap">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Giải pháp</div>
+        <h2>Một AI Agent dọn ổ, <em>chạy ngay trên máy</em>.</h2>
+        <p>Không phải AI trên mây (không với xuống được ổ cứng của bạn) — mà là Claude Code chạy local, được hẹn giờ tự động, với một nguyên tắc bất di bất dịch: <b>an toàn trước, tiện lợi sau</b>.</p>
+      </div>
+      <div class="two rv">
+        <div class="card"><h3>Lớp thực thi tách khỏi lớp quyết định</h3><p>Một script Python <b>xác định</b> (không giao việc xóa cho AI tự do quyết); AI chỉ đọc kết quả và viết báo cáo dễ hiểu. Tránh rủi ro "AI xóa nhầm vì tưởng tượng".</p></div>
+        <div class="card"><h3>Con người giữ nút bấm cuối</h3><p>Một trang checklist hiện lên: bạn tick thư mục muốn giữ, xem trước bằng link mở thư mục thật, rồi mới quyết. Không có mặt → <b>không dọn gì</b>.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ipo">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Khung tư duy</div>
+        <h2>Input → Process → Output → <em>Outcome</em></h2>
+        <p>Cùng một dự án, soi qua 4 tầng. Then chốt là phân biệt <b>Output</b> (thứ làm ra) với <b>Outcome</b> (thứ thật sự muốn) — vì nhắm nhầm sẽ phá hủy chính mục tiêu.</p>
+      </div>
+      <div class="ipo rv">
+        <div class="box"><span class="t">Input</span><h3>Đầu vào</h3><p>Một yêu cầu còn mơ hồ + một ổ cứng đang đầy + niềm tin "file nặng nằm ở Downloads".</p></div>
+        <div class="box"><span class="t">Process</span><h3>Quy trình</h3><p>Điều tra hiện trường → dựng V1 → phát hiện giả định sai → sửa hướng → kiểm thử bằng file giả.</p></div>
+        <div class="box"><span class="t">Output</span><h3>Thứ tạo ra</h3><p>Bộ script quét, trang checklist web, routine hẹn giờ launchd, báo cáo tiếng Việt.</p></div>
+        <div class="box out"><span class="t">Outcome</span><h3>Thứ thật sự muốn</h3><p>~337GB giải phóng được <b>mà không mất một file nào trên cloud</b> — ổ nhẹ, dữ liệu an toàn, tự chạy mỗi tuần.</p></div>
+      </div>
+      <p class="quoteline rv" style="margin-top:26px">Nếu chỉ nhắm Output — "xóa cho nhẹ ổ" — ta sẽ bỏ file vào thùng rác và <em>mất luôn trên cloud</em>. Đúng Outcome mới lộ ra hành động đúng: <em>giải phóng dung lượng</em>, không phải xóa.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="cauchuyen">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Câu chuyện</div>
+        <h2>Hành trình đi từ <em>giả định sai</em> đến gốc rễ thật</h2>
+        <p>Phần hay nhất của dự án không phải lúc code chạy — mà là lúc bằng chứng lật ngược giả định ban đầu.</p>
+      </div>
+      <div class="rmap">
+        <div class="rstep rv"><div class="no">1</div><div><h3>Giả định ban đầu</h3><p class="goal">"File nặng chắc nằm ở <b>Downloads / Movies / Desktop</b>." Agent V1 được dựng để quét đúng 3 nơi này, so khớp với Drive rồi bỏ thùng rác bản trùng.</p></div></div>
+        <div class="rstep rv"><div class="no">2</div><div><h3>Quét thật → con số không khớp linh cảm</h3><p class="goal">V1 chỉ thấy vài file lẻ. Nhưng người dùng chỉ vào Finder: hàng loạt video <b>17GB nằm NGAY TRONG thư mục Google Drive</b>. Đây là khoảnh khắc lật.</p></div></div>
+        <div class="rstep rv"><div class="no">3</div><div><h3>Đào tới bằng chứng</h3><p class="goal">Quét bên trong Drive: <b>361.7GB</b> file lớn đang được tải về máy (materialized), riêng một thư mục Record đã <b>67 file / 112GB</b>. Thủ phạm thật lộ diện.</p></div></div>
+        <div class="rstep rv"><div class="no">4</div><div><h3>Nhận ra hành động đúng phải khác hẳn</h3><p class="goal">File trong Drive mà bỏ thùng rác = <b>xóa luôn trên cloud</b>. Cách đúng là "Giải phóng dung lượng" — xóa bản máy, giữ bản cloud. Hai loại file, hai cách xử lý.</p></div></div>
+        <div class="rstep rv"><div class="no">5</div><div><h3>Thành thật về giới hạn kỹ thuật</h3><p class="goal">macOS không có lệnh tự động "giải phóng dung lượng" cho Google Drive (đã kiểm <span style="font-family:var(--f-body)">fileproviderctl</span>, <span style="font-family:var(--f-body)">brctl</span>). Nên Agent chuyển sang <b>bán tự động</b>: tìm + mở sẵn thư mục để người dùng một-cú-bấm.</p></div></div>
+        <div class="rstep rv"><div class="no">6</div><div><h3>Kiểm thử bằng file giả trước khi đụng thật</h3><p class="goal">Tạo file giả trong <span style="font-family:var(--f-body)">/tmp</span>, chạy thử toàn bộ luồng: bỏ thùng rác đúng, khôi phục được, huỷ = không mất gì. An tâm rồi mới bật thật.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="bangchung">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Bằng chứng</div>
+        <h2>Con số thật — <em>không phỏng đoán</em></h2>
+        <p>Tất cả đo trực tiếp trên máy trong đúng phiên làm việc này.</p>
+      </div>
+      <div class="results">
+        <div class="res rv"><div class="rt">Phát hiện gốc rễ</div><div class="ba"><em>361.7 GB</em> ẩn trong Drive</div><div class="tl">99 file lớn đang tải về máy, trải trên 26 thư mục — thứ V1 hoàn toàn bỏ sót</div></div>
+        <div class="res rv"><div class="rt">Điểm nóng nhất</div><div class="ba">1 thư mục = <em>112 GB</em></div><div class="tl">Thư mục "Record" chứa 67 video, riêng nó gần bằng cả ổ trống còn lại</div></div>
+        <div class="res rv"><div class="rt">Giải phóng được</div><div class="ba"><em>336.9 GB</em></div><div class="tl">Qua "Giải phóng dung lượng" — giữ nguyên bản trên cloud</div></div>
+        <div class="res rv"><div class="rt">Rủi ro mất dữ liệu</div><div class="ba"><em>0</em> file</div><div class="tl">Dùng Thùng rác (khôi phục 30 ngày), không bao giờ xóa vĩnh viễn</div></div>
+        <div class="res rv"><div class="rt">Mức tự động</div><div class="ba">tự chạy <em>hàng tuần</em></div><div class="tl">launchd hẹn tối thứ Sáu 20h — không cần nhớ, không cần gõ lệnh</div></div>
+        <div class="res rv"><div class="rt">Phụ thuộc cài đặt</div><div class="ba"><em>0</em> phần mềm thêm</div><div class="tl">Chỉ dùng Python có sẵn của macOS — không cài rclone/fdupes gì cả</div></div>
+      </div>
+      <p class="quoteline rv" style="margin-top:28px">"Đây mới chính là thủ phạm làm đầy ổ cứng." — <em>bằng chứng nói, không phải linh cảm.</em></p>
+    </div>
+  </section>
+
+  <section class="sec" id="baihoc">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Bài học</div>
+        <h2>6 bài học rút ra theo <em>workflow</em></h2>
+        <p>Áp dụng được cho bất kỳ dự án nào bạn làm cùng AI Agent, không riêng việc dọn ổ.</p>
+      </div>
+      <div class="lessons">
+        <div class="lesson rv"><div class="k">01</div><h3>Đừng tin giả định — đi tìm bằng chứng trên hiện trường</h3><p>Giả định "file ở Downloads" trông rất hợp lý. Chỉ khi <b>quét thật và đo</b>, sự thật 361GB nằm trong Drive mới lộ ra. Bằng chứng lật giả định.</p></div>
+        <div class="lesson rv"><div class="k">02</div><h3>Phân biệt Output với Outcome</h3><p>Output = "xóa file cho nhẹ ổ". Outcome thật = "ổ nhẹ <b>mà không mất dữ liệu</b>". Nhắm nhầm Output sẽ phá hủy Outcome — bỏ thùng rác = mất cả cloud.</p></div>
+        <div class="lesson rv"><div class="k">03</div><h3>An toàn là thiết kế, không phải lời hứa</h3><p>Trash thay vì xóa vĩnh viễn · chạy thử (dry-run) · con người tick duyệt · hết giờ chờ thì không làm gì. Mỗi lớp là một <b>phanh</b> cài sẵn.</p></div>
+        <div class="lesson rv"><div class="k">04</div><h3>Con người giữ nút bấm ở khúc mơ hồ</h3><p>Việc chắc chắn thì tự động; việc mơ hồ (file trùng, thư mục đang dùng dở) thì <b>chỉ báo, để người quyết</b> qua checkbox loại trừ.</p></div>
+        <div class="lesson rv"><div class="k">05</div><h3>Thành thật về giới hạn kỹ thuật</h3><p>"Cloud không với xuống ổ local", "không có lệnh evict" — nói thẳng ràng buộc <b>trước</b>, rồi thiết kế quanh nó, thay vì hứa hão rồi vỡ.</p></div>
+        <div class="lesson rv"><div class="k">06</div><h3>Version 1 chạy được rồi mới kaizen</h3><p>Test từng phần bằng file giả, ra bản chạy được, rồi mới mở rộng. <b>Đừng chờ hoàn hảo</b> — nhưng cũng đừng đụng dữ liệu thật khi chưa kiểm.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="cachlam">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Cách nó hoạt động</div>
+        <h2>Hai loại file, <em>hai cách xử lý</em></h2>
+        <p>Sai lầm chí mạng nếu gộp chung. Đây là ranh giới an toàn quan trọng nhất của cả hệ thống.</p>
+      </div>
+      <div class="vs rv">
+        <div class="col good"><div class="tag">☁️ File TRONG Google Drive</div><h3>Giải phóng dung lượng</h3><p>Xóa bản tải về máy, <b>giữ nguyên trên cloud</b>. Agent tìm + mở sẵn thư mục; bạn Cmd+A → chuột phải → "Giải phóng dung lượng". Tuyệt đối KHÔNG bỏ thùng rác.</p></div>
+        <div class="col bad"><div class="tag">🗑️ File NGOÀI Drive (bản sao)</div><h3>Bỏ Thùng rác</h3><p>File ở Downloads/Movies/Desktop trùng tên + dung lượng với bản đã có trên Drive — chỉ là bản sao local, bỏ Thùng rác an toàn, khôi phục được 30 ngày.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="saitlam">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Tránh</div>
+        <h2>Sai lầm <em>dễ mắc</em> khi tự động dọn file</h2>
+      </div>
+      <ul class="mis rv">
+        <li>Bỏ thùng rác file <b>nằm trong thư mục sync</b> → mất luôn trên cloud.</li>
+        <li>Giao quyền <b>xóa vĩnh viễn</b> cho AI tự quyết, không có phanh.</li>
+        <li>Quét sai chỗ vì tin giả định, <b>bỏ sót nơi ngốn ổ thật</b>.</li>
+        <li>Không phân biệt <b>Output với Outcome</b> → tối ưu nhầm mục tiêu.</li>
+        <li>Chỉ giữ 1 bản duy nhất mà không nghĩ tới rủi ro (cân nhắc nguyên tắc <b>3-2-1</b> cho dữ liệu quý).</li>
+        <li>Đụng thẳng dữ liệu thật khi <b>chưa kiểm thử</b> bằng file giả.</li>
+      </ul>
+      <p class="quoteline rv" style="margin-top:34px">Một AI Agent tốt không phải cái xóa nhanh nhất — mà là cái <em>bạn dám giao</em> vì biết nó sẽ không làm hại.</p>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="/header.js"></script>
+<script src="/footer.js"></script>
+<script src="/icons.js"></script>
+
+<script>
+(function(){
+  var rv=document.querySelectorAll('.rv');
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){rv.forEach(function(e){e.classList.add('in')});}
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});rv.forEach(function(e){io.observe(e);});}
+})();
+</script>
+</body>
+</html>
