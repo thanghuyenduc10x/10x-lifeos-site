@@ -96,8 +96,20 @@
   .mis li::before{content:'✕';position:absolute;left:4px;top:1px;color:var(--danger);font-weight:700}
   .mis li b{color:var(--text)}
 
-  @media(max-width:820px){.ipo{grid-template-columns:1fr 1fr}.results{grid-template-columns:1fr 1fr}}
-  @media(max-width:560px){.two,.results,.ipo{grid-template-columns:1fr}.rstep{grid-template-columns:1fr;gap:10px}}
+  /* testimonials K5 */
+  .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .tq{background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:26px 24px 20px;position:relative;margin:0;transition:border-color .3s var(--ease)}
+  .tq:hover{border-color:var(--border-hover)}
+  .tq::before{content:'\201C';position:absolute;top:8px;left:18px;font-family:var(--f-head);font-size:52px;line-height:1;color:rgba(201,96,40,.4);pointer-events:none}
+  .tq blockquote{font-family:var(--f-head);font-style:italic;font-size:15.5px;line-height:1.6;color:var(--n-100);margin:14px 0 0}
+  .tq blockquote em{font-style:italic;color:var(--o-300)}
+  .tq figcaption{font-family:var(--f-label);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);margin-top:16px}
+  .tq figcaption::before{content:'—';color:var(--o-500);margin-right:7px}
+  .tq.feat{margin-bottom:14px;padding:clamp(28px,3.4vw,40px)}
+  .tq.feat blockquote{font-size:clamp(18px,2.4vw,24px);line-height:1.55;max-width:820px}
+
+  @media(max-width:820px){.ipo{grid-template-columns:1fr 1fr}.results{grid-template-columns:1fr 1fr}.tgrid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.two,.results,.ipo,.tgrid{grid-template-columns:1fr}.rstep{grid-template-columns:1fr;gap:10px}}
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -125,6 +137,7 @@
         <a href="#auto">Tự động hóa một phần</a>
         <a href="#prompts">Thư viện prompt</a>
         <a href="#cases">Case thực chiến</a>
+        <a href="#camnhan">Cảm nhận học viên</a>
         <a href="#mistakes">Sai lầm</a>
       </nav>
     </div>
@@ -232,6 +245,50 @@
         <div class="res rv"><div class="rt">Nhận đơn / công nợ</div><div class="ba">nhận đơn <em>−70%</em></div><div class="tl">Google Sheet + Apps Script (lệnh tiếng Việt) · hết sai xót</div></div>
       </div>
       <p class="quoteline rv" style="margin-top:28px">"Giới hạn lớn nhất khiến mình không làm là do mình <em>tự nghĩ ra</em> thôi."</p>
+    </div>
+  </section>
+
+  <section class="sec" id="camnhan">
+    <div class="wrap">
+      <div class="shead rv">
+        <div class="eyebrow">Học viên nói gì</div>
+        <h2>Cảm nhận sau <em>một ngày</em> thiết kế lại dòng chảy</h2>
+        <p>Vòng chia sẻ cuối buổi workshop 14/07/2026 — lớp 27 học viên (BKE &amp; các cộng đồng bạn). Trích nguyên văn, rút gọn; tạm ẩn tên theo nguyên tắc riêng tư.</p>
+      </div>
+
+      <figure class="tq feat rv">
+        <blockquote>Mình từng rất sợ AI — cảm giác lệ thuộc, nó đưa ra một tràng mình không kiểm chứng được, nên mình từ chối, không dùng. Bài học hôm nay là <em>làm sao cho AI hiểu được mình</em> — hóa ra trước giờ mình chưa từng cung cấp cho bạn ấy những thông tin bạn ấy cần để trả lời sát với mình.</blockquote>
+        <figcaption>Học viên K5 · từ "sợ AI" đến chủ động dùng</figcaption>
+      </figure>
+
+      <div class="tgrid">
+        <figure class="tq rv">
+          <blockquote>Đề bài em trăn trở <em>cả tháng</em> vừa rồi — trong <em>một ngày</em> hôm nay đã giải xong, ra được quy trình.</blockquote>
+          <figcaption>Học viên K5 · vận hành</figcaption>
+        </figure>
+        <figure class="tq rv">
+          <blockquote>Bình thường em viết một bài mất hơn <em>2 tiếng</em>, tuần ra 3 bài. Với quy trình mới, một bài chỉ khoảng <em>30 phút</em> — vì lâu nhất là nghĩ "viết gì", giờ chỉ việc tập trung viết.</blockquote>
+          <figcaption>Học viên K5 · sáng tạo nội dung</figcaption>
+        </figure>
+        <figure class="tq rv">
+          <blockquote>Trước em dùng AI sai cách — nó làm em bị brain rot, lâu rồi mình không nghĩ gì cả. Muốn nói ra được với AI thì trong đầu phải có dòng suy nghĩ — <em>dùng voice bắt mình suy nghĩ nhiều hơn</em>.</blockquote>
+          <figcaption>Học viên K5 · truyền thông</figcaption>
+        </figure>
+        <figure class="tq rv">
+          <blockquote>Từ khóa của mình sáng nay: <em>hãy tự nói ra</em>. Nói dù lời không chuẩn chỉnh — mà AI đúc kết ra đúng từ khóa của mình, những từ mình không nghĩ ra. WOW thật sự.</blockquote>
+          <figcaption>Học viên K5 · kinh doanh</figcaption>
+        </figure>
+        <figure class="tq rv">
+          <blockquote>Trước mình hay lưu prompt của các thầy trên mạng — lưu vào cả một kho mà không bao giờ dùng, vì không hiểu cấu trúc. Hôm nay có khung "tôi đang — tôi muốn — tôi cần bạn" là mình <em>làm chủ</em> công cụ này.</blockquote>
+          <figcaption>Học viên K5 · quản lý</figcaption>
+        </figure>
+        <figure class="tq rv">
+          <blockquote>Em từng tham gia rất nhiều buổi về AI — toàn thứ cao siêu, học xong buổi nào cũng mịt mù. Hôm nay biết một cách tiếp cận mới: <em>tái tạo bộ não của mình</em> để giao tiếp với AI.</blockquote>
+          <figcaption>Học viên K5 · làm video &amp; truyền thông</figcaption>
+        </figure>
+      </div>
+
+      <p class="quoteline rv" style="margin-top:28px">"Khi nói chuyện với cố vấn AI, bạn ấy cho mình cái key rất quan trọng: sự nghiệp và gia đình sẽ trở thành <em>một</em> — chứ không phải hai con đường đi lệch nhau. Đó là món quà lớn nhất mình nhận được từ khóa học."</p>
     </div>
   </section>
 
