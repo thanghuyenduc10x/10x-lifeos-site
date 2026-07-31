@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>10xTyping — Nói, để chữ tự viết · Đọc chính tả AI tiếng Việt cho macOS &amp; Android</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<meta property="og:title" content="10xTyping — Nói, để chữ tự viết" />
+<meta property="og:description" content="Đọc chính tả AI tiếng-Việt-trước-tiên cho macOS &amp; Android. Nói tự nhiên kể cả ừm à — AI viết thành văn bản sạch theo 4 chế độ Chat · Email · Origin · Note, dịch sang Anh/Trung/Pháp. Dữ liệu chỉ nằm trên máy bạn." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://10x-lifeos.com/app-10xtyping/" />
+<meta property="og:image" content="https://10x-lifeos.com/app-10xtyping/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="10xTyping — Nói, để chữ tự viết" />
+<meta name="twitter:description" content="Đọc chính tả AI tiếng-Việt-trước-tiên cho macOS &amp; Android. Nói tự nhiên — AI viết thành văn bản sạch theo 4 chế độ, dịch Anh/Trung/Pháp. Dữ liệu chỉ nằm trên máy bạn." />
+<meta name="twitter:image" content="https://10x-lifeos.com/app-10xtyping/assets/og-cover.png" />
+<meta name="description" content="10xTyping: giữ phím tắt trên Mac hoặc chạm mic trên bàn phím Android, nói tự nhiên tiếng Việt — AI bỏ từ đệm, viết thành văn bản sạch theo 4 chế độ Chat/Email/Origin/Note, dịch sang Anh · Trung · Pháp. Có engine trên máy 0 đồng. Không tài khoản, dữ liệu chỉ nằm trên máy bạn." />
+<link rel="canonical" href="https://10x-lifeos.com/app-10xtyping/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/theme.css?v=1" />
+<script src="/theme.js?v=1" defer></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-body);background:var(--n-950);color:var(--n-200);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--f-head);color:var(--white);font-weight:600;letter-spacing:-.015em;line-height:1.12;text-wrap:balance}
+b,strong{color:var(--white);font-weight:600}
+img{max-width:100%;height:auto;display:block}
+.skip{position:absolute;left:-9999px;top:0;background:var(--o-500);color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:100}
+.skip:focus{left:0}
+:focus-visible{outline:2px solid #E89060;outline-offset:2px}
+.veil{position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(120% 80% at 50% -10%,#16163e 0%,var(--n-900) 42%,var(--n-950) 100%)}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(22px,5vw,40px)}
+.eyebrow{font-family:var(--f-label);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--o-300)}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}}
+
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(7,7,24,.7);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:13px}
+.nav .brand{display:flex;align-items:center;gap:10px;font-family:var(--f-head);font-weight:600;color:#fff;font-size:16px}
+.nav .mk-s{width:30px;height:30px;border-radius:9px;background:linear-gradient(150deg,#5E5CE6,#8B88FF);display:flex;align-items:center;justify-content:center}
+.nav a.dl{font-family:var(--f-body);font-weight:600;font-size:13.5px;color:#fff;text-decoration:none;padding:9px 18px;border-radius:9px;background:linear-gradient(150deg,var(--o-400),var(--o-600))}
+
+.cta-btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--f-body);font-weight:600;font-size:16.5px;color:#fff;text-decoration:none;padding:16px 32px;border-radius:13px;background:linear-gradient(150deg,var(--o-400),var(--o-600));box-shadow:0 14px 32px -12px rgba(201,96,40,.7);transition:transform .2s var(--ease),box-shadow .2s}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 22px 44px -12px rgba(201,96,40,.85)}
+.cta-btn.alt{background:transparent;color:var(--o-300);border:1.5px solid rgba(201,96,40,.55);box-shadow:none}
+.cta-btn.alt:hover{background:rgba(201,96,40,.1);border-color:var(--o-400)}
+.btn-row{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
+.chip{display:inline-block;font-size:13px;color:var(--text-muted);margin-top:10px}
+
+.hero{padding:76px 0 44px;text-align:center}
+.hero h1{font-size:clamp(34px,5.4vw,58px);margin-top:14px}
+.hero h1 em{font-style:normal;color:var(--o-300)}
+.hero .sub{max-width:640px;margin:20px auto 0;font-size:clamp(16px,2vw,18.5px);color:var(--n-200)}
+.hero .btn-row{margin-top:34px}
+
+/* Mockup thanh nổi khi đang ghi — vẽ thuần CSS/SVG, không screenshot */
+.fbar{margin:36px auto 0;max-width:520px;background:rgba(14,14,32,.92);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:16px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 24px 60px -24px rgba(0,0,0,.8)}
+.fbar .grip{color:rgba(255,255,255,.35);font-size:15px;letter-spacing:1px}
+.fbar svg{flex:1;min-width:0;height:34px}
+.fbar .tm{font-family:var(--f-label);font-weight:600;font-size:14px;color:#EDEDF0;font-variant-numeric:tabular-nums}
+.fbar .stop{background:#FF453A;color:#fff;font-weight:700;font-size:12.5px;padding:7px 13px;border-radius:9px;white-space:nowrap}
+.fbar .esc{background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-weight:600;font-size:12px;padding:7px 11px;border-radius:9px}
+.fbar-cap{margin-top:10px;font-size:12.5px;color:var(--text-muted)}
+
+.sec{padding:64px 0}
+.sec-head{text-align:center;max-width:660px;margin:0 auto 44px}
+.sec-head h2{font-size:clamp(26px,3.6vw,38px)}
+.sec-head p{margin-top:12px;color:var(--text-body)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px 28px;transition:border-color .25s}
+.card:hover{border-color:var(--border-hover)}
+.card .ic{width:46px;height:46px;border-radius:12px;background:rgba(94,92,230,.18);display:flex;align-items:center;justify-content:center;font-size:23px;margin-bottom:14px}
+.card h3{font-family:var(--f-body);font-size:18.5px;font-weight:700}
+.card p{margin-top:8px;font-size:15px;color:var(--text-body)}
+
+/* Khối tải về theo nền tảng */
+.dlgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.plat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+.plat .os{font-size:34px}
+.plat h3{font-family:var(--f-body);font-size:19px;font-weight:700}
+.plat .meta{font-size:13.5px;color:var(--text-muted)}
+.plat .cta-btn{font-size:15px;padding:13px 24px;margin-top:6px}
+.plat.soon{opacity:.55}
+.plat .soon-tag{display:inline-block;font-family:var(--f-label);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--o-300);border:1px solid rgba(201,96,40,.5);border-radius:20px;padding:6px 14px;margin-top:6px}
+.sum-link{text-align:center;margin-top:18px;font-size:13.5px;color:var(--text-muted)}
+.sum-link a{color:var(--o-300)}
+
+.install{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:clamp(26px,4vw,44px)}
+.step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step .n{width:44px;height:44px;flex:none;border-radius:50%;background:linear-gradient(150deg,var(--o-400),var(--o-600));color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
+.step h3{font-family:var(--f-body);font-size:17.5px;font-weight:700}
+.step p{margin-top:5px;font-size:15px;color:var(--text-body)}
+.ui{display:inline-block;margin-top:8px;background:#1E2A44;border:1px solid #3A4A6B;border-radius:8px;padding:6px 13px;font-size:13.5px;color:#9FCBFF;font-weight:600}
+.code{display:flex;align-items:center;gap:10px;margin-top:10px;background:#0D0D22;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 14px;max-width:100%}
+.code code{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;color:#C9F0D2;overflow-x:auto;white-space:nowrap}
+.code button{font-family:var(--f-body);flex:none;background:rgba(255,255,255,.12);color:#fff;border:none;border-radius:7px;padding:6px 12px;font-size:12.5px;font-weight:600;cursor:pointer}
+.code button:hover{background:rgba(255,255,255,.22)}
+.safe{margin-top:22px;background:rgba(63,154,106,.12);border:1px solid rgba(63,154,106,.4);border-radius:14px;padding:16px 20px;font-size:14.5px;color:#CDEBCF}
+.safe b{color:#8BE28F}
+
+.faq{max-width:var(--read);margin-inline:auto}
+.faq details{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin-bottom:12px}
+.faq summary{cursor:pointer;font-weight:600;color:var(--white);font-size:16px}
+.faq details p{margin-top:10px;font-size:15px;color:var(--text-body)}
+
+.final{text-align:center;background:linear-gradient(160deg,var(--surface-2),var(--surface));border:1px solid var(--border);border-radius:24px;padding:clamp(30px,5vw,54px)}
+.final h2{font-size:clamp(26px,3.6vw,38px)}
+.final h2 em{font-style:normal;color:var(--o-300)}
+.final .btn-row{margin-top:26px}
+.cta-sub{margin-top:14px;font-size:13.5px;color:var(--text-muted)}
+
+@media(max-width:560px){
+  .hero{padding:52px 0 30px}
+  .fbar{gap:9px;padding:13px 14px}
+  .fbar .esc{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua điều hướng</a>
+<div class="veil"></div>
+
+<nav class="nav" aria-label="Điều hướng chính">
+  <div class="wrap">
+    <a class="brand" href="/" style="text-decoration:none"><span class="mk-s"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><g fill="#fff"><rect x="0" y="3.5" width="2" height="13" rx="1"/><rect x="3" y="6" width="2" height="8" rx="1"/><rect x="6" y="7.5" width="2" height="5" rx="1"/><rect x="9" y="1" width="2" height="18" rx="1"/><rect x="12" y="7.5" width="2" height="5" rx="1"/><rect x="15" y="6" width="2" height="8" rx="1"/><rect x="18" y="3.5" width="2" height="13" rx="1"/></g></svg></span> 10xTyping</a>
+    <a class="dl" href="#taive">↓ Tải app</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow rv">App từ 10X Life OS · macOS + Android · Tiếng Việt trước tiên</div>
+  <h1 class="rv">Nói, để <em>chữ tự viết</em>.</h1>
+  <p class="sub rv">Giữ phím tắt trên Mac hoặc chạm mic trên Android, nói tự nhiên — kể cả ừm, à. AI bỏ từ thừa, thêm dấu câu đúng cảm xúc và viết thành văn bản sạch theo <b>4 chế độ: Chat · Email · Origin · Note</b>, dán thẳng vào app bạn đang dùng. Cần thì dịch luôn sang <b>Anh · Trung · Pháp</b>.</p>
+  <div class="fbar rv" role="img" aria-label="Thanh nổi 10xTyping đang ghi âm: sóng tím, đồng hồ 0:07, nút Dừng đỏ">
+    <span class="grip">⠿</span>
+    <svg viewBox="0 0 240 34" preserveAspectRatio="none" aria-hidden="true"><g fill="#7D7AFF"><rect x="0" y="13" width="3" height="8" rx="1.5"/><rect x="6" y="9" width="3" height="16" rx="1.5"/><rect x="12" y="5" width="3" height="24" rx="1.5"/><rect x="18" y="11" width="3" height="12" rx="1.5"/><rect x="24" y="7" width="3" height="20" rx="1.5"/><rect x="30" y="13" width="3" height="8" rx="1.5"/><rect x="36" y="3" width="3" height="28" rx="1.5"/><rect x="42" y="9" width="3" height="16" rx="1.5"/><rect x="48" y="12" width="3" height="10" rx="1.5"/><rect x="54" y="6" width="3" height="22" rx="1.5"/><rect x="60" y="10" width="3" height="14" rx="1.5"/><rect x="66" y="14" width="3" height="6" rx="1.5"/><rect x="72" y="8" width="3" height="18" rx="1.5"/><rect x="78" y="4" width="3" height="26" rx="1.5"/><rect x="84" y="11" width="3" height="12" rx="1.5"/><rect x="90" y="7" width="3" height="20" rx="1.5"/><rect x="96" y="13" width="3" height="8" rx="1.5"/><rect x="102" y="9" width="3" height="16" rx="1.5"/><rect x="108" y="5" width="3" height="24" rx="1.5"/><rect x="114" y="12" width="3" height="10" rx="1.5"/><rect x="120" y="8" width="3" height="18" rx="1.5"/><rect x="126" y="14" width="3" height="6" rx="1.5"/><rect x="132" y="6" width="3" height="22" rx="1.5"/><rect x="138" y="10" width="3" height="14" rx="1.5"/><rect x="144" y="3" width="3" height="28" rx="1.5"/><rect x="150" y="11" width="3" height="12" rx="1.5"/><rect x="156" y="7" width="3" height="20" rx="1.5"/><rect x="162" y="13" width="3" height="8" rx="1.5"/><rect x="168" y="9" width="3" height="16" rx="1.5"/><rect x="174" y="12" width="3" height="10" rx="1.5"/><rect x="180" y="5" width="3" height="24" rx="1.5"/><rect x="186" y="10" width="3" height="14" rx="1.5"/><rect x="192" y="7" width="3" height="20" rx="1.5"/><rect x="198" y="13" width="3" height="8" rx="1.5"/><rect x="204" y="9" width="3" height="16" rx="1.5"/><rect x="210" y="11" width="3" height="12" rx="1.5"/><rect x="216" y="6" width="3" height="22" rx="1.5"/><rect x="222" y="12" width="3" height="10" rx="1.5"/><rect x="228" y="8" width="3" height="18" rx="1.5"/><rect x="234" y="13" width="3" height="8" rx="1.5"/></g></svg>
+    <span class="tm">0:07</span>
+    <span class="stop">■ Dừng</span>
+    <span class="esc">esc</span>
+  </div>
+  <div class="fbar-cap rv">Thanh nổi trên macOS — khi ghi, sóng chạy theo giọng bạn; xong việc nó sổ nguyên đoạn text để kiểm tra &amp; sao chép.</div>
+  <div class="btn-row rv">
+    <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-macOS-AppleSilicon.dmg">💻 Tải cho macOS</a>
+    <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-Android.apk">🤖 Tải cho Android</a>
+    <a class="cta-btn alt" href="#caidat-mac">Hướng dẫn cài đặt</a>
+  </div>
+  <div class="chip rv">Windows sắp ra mắt · Không tài khoản · Dữ liệu chỉ nằm trên máy bạn · Miễn phí</div>
+</div></header>
+
+<!-- FEATURES -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head rv">
+    <h2>Nói 150 từ/phút thay vì gõ 40</h2>
+    <p>Soạn tin Zalo, viết email, prompt AI dài, ghi chú cuộc họp — bằng giọng nói, ở mọi app.</p>
+  </div>
+  <div class="grid">
+    <div class="card rv"><div class="ic">💬</div><h3>4 chế độ văn bản</h3><p><b>Chat</b> thân mật đúng cảm xúc · <b>Email</b> trang trọng đủ chào đủ kết · <b>Origin</b> chép nguyên văn · <b>Note</b> gạch đầu dòng gọn. App tự chọn chế độ theo app bạn đang dùng: Zalo ra Chat, Mail ra Email, Notes ra Note.</p></div>
+    <div class="card rv"><div class="ic">🌐</div><h3>Nói Việt — dán Anh · Trung · Pháp</h3><p>Bật dịch một chạm: bạn nói tiếng Việt, văn bản dán ra là tiếng Anh, tiếng Trung hoặc tiếng Pháp. Nói "gửi luôn" cuối câu — app tự nhấn Enter.</p></div>
+    <div class="card rv"><div class="ic">🎛️</div><h3>Thanh nổi trên Mac · bàn phím trên Android</h3><p>Mac: thanh điều khiển nổi mọi màn hình — đổi chế độ, đổi ngôn ngữ, bấm Rec không cần phím tắt. Android: bàn phím giọng nói đúng nghĩa với lịch sử, mẫu tin nhắn và clipboard ngay trên bàn phím.</p></div>
+    <div class="card rv"><div class="ic">🎙️</div><h3>Thư viện ghi âm — không mất chữ nào</h3><p>Mọi phiên nói được giữ file ghi âm trên Mac: nghe lại, hoặc đổi chế độ rồi <b>nhận dạng lại</b> thành bản mới. Mạng rớt giữa chừng? Bản ghi được giữ — bấm Xử lý lại, khỏi nói lại từ đầu.</p></div>
+    <div class="card rv"><div class="ic">📋</div><h3>Clipboard 7 ngày + kho mẫu</h3><p>Mọi thứ bạn copy (text lẫn ảnh) được giữ 7 ngày, tìm lại và dán trong một phím. Tin nhắn mẫu &amp; prompt dài lưu theo danh mục, gọi ra ở mọi app.</p></div>
+    <div class="card rv"><div class="ic">⚡</div><h3>2 bộ nhận dạng — chọn theo nhu cầu</h3><p><b>AI</b> (OpenRouter → Gemini): chính xác nhất với tiếng Việt, viết lại theo chế độ, dịch được — ~18đ/lần bằng key riêng của bạn. <b>Trên máy</b> (Apple/Google): 0 đồng, chữ hiện ngay khi đang nói.</p></div>
+  </div>
+</div></section>
+
+<!-- DOWNLOAD -->
+<section class="sec" id="taive" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv">
+    <h2>Tải về</h2>
+    <p>File phát hành chính thức trên GitHub Releases — link luôn trỏ bản mới nhất.</p>
+  </div>
+  <div class="dlgrid rv">
+    <div class="plat">
+      <div class="os">💻</div>
+      <h3>macOS</h3>
+      <div class="meta">Apple Silicon (M1 trở lên) · macOS 13+ · DMG ~4MB · v0.4.3</div>
+      <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-macOS-AppleSilicon.dmg">↓ Tải DMG</a>
+    </div>
+    <div class="plat">
+      <div class="os">🤖</div>
+      <h3>Android</h3>
+      <div class="meta">Android 8.0+ · APK ~12MB · v0.6.5</div>
+      <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-Android.apk">↓ Tải APK</a>
+    </div>
+    <div class="plat soon">
+      <div class="os">🪟</div>
+      <h3>Windows</h3>
+      <div class="meta">Đang phát triển trên cùng lõi Rust</div>
+      <span class="soon-tag">Sắp ra mắt</span>
+    </div>
+  </div>
+  <p class="sum-link rv">Kiểm tra file tải: <a href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/SHA256SUMS.txt">SHA256SUMS.txt</a> · <a href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases">Tất cả phiên bản</a></p>
+</div></section>
+
+<!-- INSTALL MACOS -->
+<section class="sec" id="caidat-mac" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv">
+    <h2>Cài trên macOS — 4 bước</h2>
+    <p>App chưa đăng ký công chứng với Apple (đang giai đoạn thử nghiệm) nên lần đầu mở cần thêm một lệnh nhỏ. Làm đúng thứ tự là chạy ngay.</p>
+  </div>
+  <div class="install rv">
+    <div class="step"><div class="n">1</div><div><h3>Mở file DMG, kéo vào Applications</h3><p>Bấm đúp <b>10xTyping-macOS-AppleSilicon.dmg</b> vừa tải → kéo icon <b>10xTyping</b> vào thư mục <b>Applications</b>.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h3>Mở khóa Gatekeeper <span style="font-weight:400;color:var(--text-muted)">(chỉ 1 lần)</span></h3><p>macOS sẽ báo app "bị hỏng / không mở được" vì app chưa công chứng Apple. Mở <b>Terminal</b> (⌘Space, gõ Terminal) và dán lệnh này:</p>
+      <div class="code"><code id="xattr-cmd">xattr -cr /Applications/10xTyping.app</code><button type="button" data-copy="xattr-cmd">Copy</button></div>
+    </div></div>
+    <div class="step"><div class="n">3</div><div><h3>Mở app, cấp 2 quyền</h3><p>Mở <b>10xTyping</b> → trang "Bắt đầu" dẫn bạn cấp quyền <b>Micro</b> (để nghe giọng) và <b>Accessibility</b> (để dán văn bản vào app khác). Cấp xong bấm "Khởi động lại app".</p></div></div>
+    <div class="step"><div class="n">4</div><div><h3>Chọn bộ nhận dạng rồi nói thử</h3><p>Muốn chất lượng cao nhất: dán <b>API key OpenRouter</b> của bạn vào Cài đặt (tạo tại openrouter.ai, ~18đ/lần đọc). Muốn 0 đồng: chọn bộ nhận dạng <b>"Trên máy (Apple)"</b>. Xong — đặt con trỏ vào ô chữ bất kỳ, giữ <b>⌥ Space</b> và nói.</p></div></div>
+    <div class="safe">✅ <b>Vì sao bị chặn lúc đầu?</b> Cảnh báo đó hiện với <b>mọi</b> app chưa mua chứng chỉ công chứng Apple (99$/năm), không phải vì app có vấn đề. 10xTyping không tài khoản, không server riêng — lịch sử và ghi âm chỉ nằm trên máy bạn.</div>
+  </div>
+</div></section>
+
+<!-- INSTALL ANDROID -->
+<section class="sec" id="caidat-android" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv">
+    <h2>Cài trên Android — 4 bước</h2>
+    <p>App chưa lên Play Store nên Android sẽ hỏi vài câu bảo mật — cảnh báo chuẩn với mọi file APK.</p>
+  </div>
+  <div class="install rv">
+    <div class="step"><div class="n">1</div><div><h3>Tải &amp; mở file APK</h3><p>Bấm <b>Tải cho Android</b> → trình duyệt hỏi "Vẫn tải xuống?" → chạm <b>Tải xuống</b> → mở file trong thanh thông báo hoặc thư mục <b>Download</b>.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h3>Cho phép cài từ nguồn này</h3><p>Máy báo "không được phép cài ứng dụng không xác định":</p><span class="ui">Cài đặt → bật "Cho phép từ nguồn này" → quay lại ◀</span><p style="margin-top:6px">Play Protect hỏi thêm thì chạm <b>Chi tiết khác → Vẫn cài đặt</b>.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h3>Bật bàn phím 10xTyping</h3><p>Mở app → làm theo 2 nút trong màn chào: <b>Bật bàn phím</b> trong Cài đặt hệ thống → <b>Chọn bàn phím</b> 10xTyping. (Đổi qua lại với bàn phím cũ bằng phím ⌨ ngay trên pad.)</p></div></div>
+    <div class="step"><div class="n">4</div><div><h3>Chạm mic và nói</h3><p>Vào ô chữ bất kỳ → chạm <b>nút mic</b> → nói → chạm lần nữa để dừng. Dán key OpenRouter trong app cho engine AI, hoặc chọn <b>"Trên máy (Google)"</b> trong Cài đặt để dùng 0 đồng — chữ hiện ngay khi đang nói.</p></div></div>
+    <div class="safe">✅ <b>Riêng tư:</b> không quảng cáo, không tài khoản. Khi dùng engine AI, âm thanh gửi qua OpenRouter → Google để xử lý rồi trả về; lịch sử chỉ lưu trên máy. Engine "Trên máy" thì không rời khỏi điện thoại.</div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><h2>Câu hỏi thường gặp</h2></div>
+  <div class="faq rv">
+    <details><summary>App có miễn phí không?</summary><p>App miễn phí. Bộ nhận dạng <b>Trên máy</b> (Apple/Google) hoàn toàn 0 đồng. Bộ nhận dạng <b>AI</b> dùng API key OpenRouter của chính bạn — trung bình ~18đ cho một lần đọc, nạp bao nhiêu dùng bấy nhiêu, không qua trung gian.</p></details>
+    <details><summary>Dữ liệu của tôi đi đâu?</summary><p>Không có tài khoản, không có server của 10xTyping. Lịch sử, ghi âm, clipboard đều nằm trên máy bạn. Riêng khi chọn engine AI, đoạn âm thanh được gửi qua OpenRouter → Google Vertex để chuyển thành chữ rồi trả về.</p></details>
+    <details><summary>Hai bộ nhận dạng khác nhau thế nào?</summary><p><b>AI</b>: chính xác nhất với tiếng Việt, tự bỏ ừm/à, viết lại theo 4 chế độ, dịch được — mất ~3 giây. <b>Trên máy</b>: chữ hiện ngay trong lúc nói, 0 đồng, không cần mạng (khi máy đã có gói tiếng Việt offline) — nhưng chép nguyên văn, không viết lại, không dịch.</p></details>
+    <details><summary>Vì sao macOS báo app "bị hỏng"?</summary><p>Vì app chưa mua chứng chỉ công chứng của Apple (giai đoạn thử nghiệm). Chạy đúng 1 lệnh <code style="color:#C9F0D2">xattr -cr /Applications/10xTyping.app</code> trong Terminal là mở bình thường — xem mục "Cài trên macOS" ở trên.</p></details>
+    <details><summary>Có bản Windows / Mac Intel không?</summary><p>Bản Windows đang được phát triển trên cùng lõi Rust — sẽ cập nhật ngay tại trang này. Mac Intel chưa hỗ trợ (bản hiện tại build cho Apple Silicon M1 trở lên).</p></details>
+    <details><summary>Link tải từ GitHub có an toàn không?</summary><p>Có — file phát hành tại kho chính thức <b>10xtyping-releases</b> của tác giả trên GitHub (nền tảng của Microsoft), kèm mã kiểm tra SHA256 cho từng file.</p></details>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="final rv">
+    <div class="eyebrow">10xTyping · macOS 0.4.3 · Android 0.6.5</div>
+    <h2>Bắt đầu <em>nói thay vì gõ</em> ngay hôm nay</h2>
+    <div class="btn-row">
+      <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-macOS-AppleSilicon.dmg">💻 macOS (Apple Silicon)</a>
+      <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-Android.apk">🤖 Android APK</a>
+    </div>
+    <div class="cta-sub">Miễn phí · Không tài khoản · Dữ liệu trên máy bạn · Dev by Thắng Huyền Đức</div>
+  </div>
+</div></section>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="/header.js"></script>
+<script src="/footer.js"></script>
+<script src="/icons.js"></script>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rv:not(.in)').forEach(el=>io.observe(el));
+  document.querySelectorAll('button[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+    const t=document.getElementById(b.dataset.copy).textContent;
+    navigator.clipboard.writeText(t).then(()=>{b.textContent='✓ Đã copy';setTimeout(()=>{b.textContent='Copy'},2000)});
+  }));
+</script>
+</body>
+</html>
