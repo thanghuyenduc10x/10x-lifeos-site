@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MarkPicture — Camera bằng chứng: đóng dấu giờ, GPS, địa chỉ lên ảnh · Android</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<meta property="og:title" content="MarkPicture — Camera bằng chứng cho thợ Việt" />
+<meta property="og:description" content="Chụp ảnh có giờ + GPS + địa chỉ đóng thẳng vào ảnh. Nói ghi chú thành chữ, chấm số lỗi 1-2-3, gửi thẳng nhóm Zalo. Miễn phí cho Android." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://10x-lifeos.com/markpicture/" />
+<meta property="og:image" content="https://10x-lifeos.com/markpicture/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="MarkPicture — Camera bằng chứng cho thợ Việt" />
+<meta name="twitter:description" content="Chụp ảnh có giờ + GPS + địa chỉ đóng thẳng vào ảnh. Nói ghi chú thành chữ, chấm số lỗi 1-2-3, gửi thẳng nhóm Zalo. Miễn phí cho Android." />
+<meta name="twitter:image" content="https://10x-lifeos.com/markpicture/assets/og-cover.png" />
+<meta name="description" content="MarkPicture: chụp ảnh có dấu thời gian, tọa độ GPS, địa chỉ tiếng Việt in thẳng vào ảnh. Đọc ghi chú bằng giọng nói, đánh dấu lỗi 1-2-3, chia sẻ thẳng nhóm Zalo. Miễn phí, không quảng cáo, dành cho Android." />
+<link rel="canonical" href="https://10x-lifeos.com/markpicture/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/theme.css?v=1" />
+<script src="/theme.js?v=1" defer></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-body);background:var(--n-950);color:var(--n-200);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--f-head);color:var(--white);font-weight:600;letter-spacing:-.015em;line-height:1.12;text-wrap:balance}
+b,strong{color:var(--white);font-weight:600}
+img{max-width:100%;height:auto;display:block}
+.skip{position:absolute;left:-9999px;top:0;background:var(--o-500);color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:100}
+.skip:focus{left:0}
+:focus-visible{outline:2px solid #E89060;outline-offset:2px}
+.veil{position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(120% 80% at 50% -10%,#16163e 0%,var(--n-900) 42%,var(--n-950) 100%)}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(22px,5vw,40px)}
+.eyebrow{font-family:var(--f-label);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--o-300)}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}}
+
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(7,7,24,.7);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:13px}
+.nav .brand{display:flex;align-items:center;gap:10px;font-family:var(--f-head);font-weight:600;color:#fff;font-size:16px}
+.nav .mk-s{width:30px;height:30px;border-radius:9px;background:linear-gradient(150deg,var(--o-400),var(--o-600));display:flex;align-items:center;justify-content:center;font-size:15px}
+.nav a.dl{font-family:var(--f-body);font-weight:600;font-size:13.5px;color:#fff;text-decoration:none;padding:9px 18px;border-radius:9px;background:linear-gradient(150deg,var(--o-400),var(--o-600))}
+
+.cta-btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--f-body);font-weight:600;font-size:16.5px;color:#fff;text-decoration:none;padding:16px 32px;border-radius:13px;background:linear-gradient(150deg,var(--o-400),var(--o-600));box-shadow:0 14px 32px -12px rgba(201,96,40,.7);transition:transform .2s var(--ease),box-shadow .2s}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 22px 44px -12px rgba(201,96,40,.85)}
+.cta-btn.alt{background:transparent;color:var(--o-300);border:1.5px solid rgba(201,96,40,.55);box-shadow:none}
+.cta-btn.alt:hover{background:rgba(201,96,40,.1);border-color:var(--o-400)}
+.btn-row{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
+.chip{display:inline-block;font-size:13px;color:var(--text-muted);margin-top:10px}
+
+.hero{padding:76px 0 44px;text-align:center}
+.hero h1{font-size:clamp(34px,5.4vw,58px);margin-top:14px}
+.hero h1 em{font-style:normal;color:var(--o-300)}
+.hero .sub{max-width:640px;margin:20px auto 0;font-size:clamp(16px,2vw,18.5px);color:var(--n-200)}
+.stamp-demo{margin:36px auto 0;max-width:520px;background:rgba(0,0,0,.5);border-left:5px solid #FFB300;border-radius:12px;padding:18px 22px;text-align:left}
+.stamp-demo .t{color:#FFB300;font-weight:700;font-size:19px}
+.stamp-demo .m{color:var(--n-100);font-size:14.5px;margin-top:4px}
+.hero .btn-row{margin-top:34px}
+
+.sec{padding:64px 0}
+.sec-head{text-align:center;max-width:660px;margin:0 auto 44px}
+.sec-head h2{font-size:clamp(26px,3.6vw,38px)}
+.sec-head p{margin-top:12px;color:var(--text-body)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px 28px;transition:border-color .25s}
+.card:hover{border-color:var(--border-hover)}
+.card .ic{width:46px;height:46px;border-radius:12px;background:rgba(217,117,56,.16);display:flex;align-items:center;justify-content:center;font-size:23px;margin-bottom:14px}
+.card h3{font-family:var(--f-body);font-size:18.5px;font-weight:700}
+.card p{margin-top:8px;font-size:15px;color:var(--text-body)}
+
+.install{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:clamp(26px,4vw,44px)}
+.step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step .n{width:44px;height:44px;flex:none;border-radius:50%;background:linear-gradient(150deg,var(--o-400),var(--o-600));color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
+.step h3{font-family:var(--f-body);font-size:17.5px;font-weight:700}
+.step p{margin-top:5px;font-size:15px;color:var(--text-body)}
+.ui{display:inline-block;margin-top:8px;background:#1E2A44;border:1px solid #3A4A6B;border-radius:8px;padding:6px 13px;font-size:13.5px;color:#9FCBFF;font-weight:600}
+.safe{margin-top:22px;background:rgba(63,154,106,.12);border:1px solid rgba(63,154,106,.4);border-radius:14px;padding:16px 20px;font-size:14.5px;color:#CDEBCF}
+.safe b{color:#8BE28F}
+
+.dlbox{display:flex;gap:34px;align-items:center;flex-wrap:wrap;justify-content:center;background:var(--surface-2);border:1px solid var(--border);border-radius:22px;padding:clamp(24px,4vw,40px);margin-top:36px}
+.dlbox .qr{width:190px;height:190px;background:#fff;border-radius:14px;padding:10px;flex:none}
+.dlbox .txt{max-width:420px}
+.dlbox h3{font-size:22px}
+.dlbox p{margin-top:8px;font-size:15px;color:var(--text-body)}
+
+.faq{max-width:var(--read);margin-inline:auto}
+.faq details{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin-bottom:12px}
+.faq summary{cursor:pointer;font-weight:600;color:var(--white);font-size:16px}
+.faq details p{margin-top:10px;font-size:15px;color:var(--text-body)}
+
+.final{text-align:center;background:linear-gradient(160deg,var(--surface-2),var(--surface));border:1px solid var(--border);border-radius:24px;padding:clamp(30px,5vw,54px)}
+.final h2{font-size:clamp(26px,3.6vw,38px)}
+.final h2 em{font-style:normal;color:var(--o-300)}
+.final .btn-row{margin-top:26px}
+.cta-sub{margin-top:14px;font-size:13.5px;color:var(--text-muted)}
+
+@media(max-width:560px){
+  .hero{padding:52px 0 30px}
+  .dlbox{gap:20px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua điều hướng</a>
+<div class="veil"></div>
+
+<nav class="nav" aria-label="Điều hướng chính">
+  <div class="wrap">
+    <a class="brand" href="/" style="text-decoration:none"><span class="mk-s">📷</span> MarkPicture</a>
+    <a class="dl" href="https://drive.google.com/drive/folders/1Zseitds5JLmCqLrlErq-JDmC-RCPo7Jg?usp=sharing">↓ Tải APK</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow rv">Quà tặng từ 10X Life OS · Android · Miễn phí</div>
+  <h1 class="rv">Camera <em>bằng chứng</em><br>cho thợ Việt</h1>
+  <p class="sub rv">Chụp ảnh có <b>giờ · tọa độ GPS · địa chỉ tiếng Việt</b> đóng thẳng vào ảnh — không thể chỉnh sửa. Đọc ghi chú bằng giọng nói, chấm số lỗi 1-2-3, gửi thẳng nhóm Zalo trong một chạm.</p>
+  <div class="stamp-demo rv" role="img" aria-label="Ví dụ tem đóng lên ảnh">
+    <div class="t">⏱ 06:16:42 31/07/2026</div>
+    <div class="m">🎯 20.933571, 105.784641</div>
+    <div class="m">📍 24 Khu Đô Thị Thanh Hà, Bình Minh, Hà Nội</div>
+    <div class="m">👤 Nguyễn Văn Thắng · 0963 028 523</div>
+  </div>
+  <div class="btn-row rv">
+    <a class="cta-btn" href="https://drive.google.com/drive/folders/1Zseitds5JLmCqLrlErq-JDmC-RCPo7Jg?usp=sharing">↓ Tải APK từ Google Drive</a>
+    <a class="cta-btn alt" href="#caidat">Xem hướng dẫn cài đặt</a>
+  </div>
+  <div class="chip rv">Miễn phí · Không quảng cáo · Không thu thập dữ liệu · Tiếng Việt &amp; English · Android 7.0+</div>
+</div></header>
+
+<!-- FEATURES -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head rv">
+    <h2>Một tấm ảnh = một báo cáo hoàn chỉnh</h2>
+    <p>Dành cho thợ kỹ thuật, bảo hành, thi công, giao hàng — và cả check-in buổi chạy bộ.</p>
+  </div>
+  <div class="grid">
+    <div class="card rv"><div class="ic">⏱️</div><h3>Tem thời gian + vị trí</h3><p>Giờ chính xác đến giây, tọa độ GPS và địa chỉ tiếng Việt in thẳng vào pixel ảnh. GPS lệch? Chạm vào tem để sửa địa chỉ tay — miễn phí.</p></div>
+    <div class="card rv"><div class="ic">🎤</div><h3>Nói thành chữ</h3><p>Bấm mic, đọc mô tả tình trạng ("máy bị rò nước phía sau…") — app chuyển thành chữ và in thành dải ghi chú ngay dưới ảnh. Khỏi gõ tay ngoài công trường.</p></div>
+    <div class="card rv"><div class="ic">🎯</div><h3>Chấm điểm lỗi 1-2-3</h3><p>Đánh số thứ tự, thả icon trạng thái (OK, lỗi, chờ xử lý, rò nước, sự cố điện…), vẽ mũi tên chỉ đúng chỗ hỏng ngay trên ảnh.</p></div>
+    <div class="card rv"><div class="ic">💬</div><h3>Gửi thẳng nhóm Zalo</h3><p>Chọn app chia sẻ một lần, tick "Ghi nhớ" — từ đó mỗi ảnh chỉ một chạm là tới thẳng nhóm báo cáo. App tự xếp app bạn hay dùng lên đầu.</p></div>
+    <div class="card rv"><div class="ic">👤</div><h3>Danh tính trên từng ảnh</h3><p>Cài tên + số điện thoại/mã nhân viên một lần trong Cài đặt — mọi ảnh tự có dòng "ảnh này của ai", khỏi nhắc lại từng lần.</p></div>
+    <div class="card rv"><div class="ic">🔒</div><h3>Riêng tư tuyệt đối</h3><p>Không tài khoản, không quảng cáo, không server. Ảnh và vị trí chỉ nằm trên máy của bạn — chia sẻ cho ai là quyền của bạn.</p></div>
+  </div>
+</div></section>
+
+<!-- INSTALL -->
+<section class="sec" id="caidat"><div class="wrap">
+  <div class="sec-head rv">
+    <h2>Cài đặt trong 5 bước — 2 phút</h2>
+    <p>App chưa lên Play Store (đang trong giai đoạn thử nghiệm) nên Android sẽ hỏi vài câu bảo mật. Làm theo từng bước dưới đây là xong.</p>
+  </div>
+  <div class="install rv">
+    <div class="step"><div class="n">1</div><div><h3>Tải file APK từ Google Drive</h3><p>Mở <a class="ghost" href="https://drive.google.com/drive/folders/1Zseitds5JLmCqLrlErq-JDmC-RCPo7Jg?usp=sharing" style="color:var(--o-300)">thư mục Google Drive</a> → chạm file <b>MarkPicture-v1.2.apk</b> → biểu tượng Tải xuống. Nếu Drive báo "Không xem trước được" thì vẫn chạm <b>Tải xuống</b>.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h3>Mở file vừa tải</h3><p>Kéo thanh thông báo xuống và chạm vào file, hoặc mở app <b>Files / Tệp của tôi</b> → thư mục <b>Download</b> → chạm <b>MarkPicture-v1.2.apk</b>.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h3>Cho phép cài từ nguồn này <span style="font-weight:400;color:var(--text-muted)">(chỉ hỏi 1 lần)</span></h3><p>Nếu máy báo "Vì lý do bảo mật, điện thoại không được phép cài ứng dụng không xác định từ nguồn này":</p><span class="ui">Cài đặt → bật "Cho phép từ nguồn này" → quay lại ◀</span></div></div>
+    <div class="step"><div class="n">4</div><div><h3>Play Protect quét — chạm "Vẫn cài đặt"</h3><p>Google có thể hiện "Ứng dụng chưa được kiểm tra" vì app chưa lên Play Store:</p><span class="ui">Chi tiết khác / More details → Vẫn cài đặt / Install anyway</span></div></div>
+    <div class="step"><div class="n">5</div><div><h3>Mở app, chọn tiếng Việt, cấp quyền</h3><p>Chọn <b>Tiếng Việt</b> → xem hướng dẫn 4 bước → cho phép <b>Camera</b> và <b>Vị trí</b> (để đóng dấu giờ + địa chỉ lên ảnh). Quyền Micro chỉ hỏi khi bạn bấm nút "Nói" lần đầu.</p></div></div>
+    <div class="safe">✅ <b>App có an toàn không?</b> Có. Cảnh báo ở bước 3–4 hiện với <b>mọi</b> app cài ngoài Play Store, không phải vì app có vấn đề. MarkPicture không quảng cáo, không thu thập dữ liệu — ảnh và vị trí chỉ nằm trên máy của bạn.</div>
+  </div>
+
+  <div class="dlbox rv">
+    <img class="qr" src="assets/qr-drive.png" alt="Mã QR dẫn đến thư mục Google Drive tải MarkPicture" loading="lazy" />
+    <div class="txt">
+      <div class="eyebrow">Chia sẻ cho đồng nghiệp</div>
+      <h3>Quét QR → tải app + hướng dẫn</h3>
+      <p>Trong thư mục Drive có sẵn file APK, <a href="assets/one-page.png" style="color:var(--o-300)">tờ giới thiệu 1 trang</a> và <a href="assets/huong-dan-cai-dat.png" style="color:var(--o-300)">ảnh hướng dẫn cài đặt</a> — gửi 1 ảnh qua Zalo là người nhận tự cài được.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><h2>Câu hỏi thường gặp</h2></div>
+  <div class="faq rv">
+    <details><summary>Vì sao app chưa có trên Google Play?</summary><p>App đang trong giai đoạn thử nghiệm cùng người dùng thật trước khi phát hành chính thức. Google Play yêu cầu app mới chạy thử nghiệm khép kín nhiều tuần — trong thời gian đó bạn cài trực tiếp bằng file APK, tính năng giống hệt.</p></details>
+    <details><summary>Ảnh chụp được lưu ở đâu?</summary><p>Ảnh đã đóng tem tự lưu vào Thư viện ảnh của máy, album <b>MarkPicture</b>. App không upload ảnh đi đâu cả.</p></details>
+    <details><summary>Tem trên ảnh có sửa được không?</summary><p>Tem được "nướng" thẳng vào pixel ảnh khi chụp — không có nút sửa giờ hay vị trí sau khi chụp. Đó chính là giá trị "bằng chứng" của ảnh khi gửi cho công ty hoặc khách hàng.</p></details>
+    <details><summary>Tính năng đọc ghi chú cần mạng không?</summary><p>Có — giọng nói được nhận dạng qua dịch vụ tiếng Việt của Google trên máy, cần kết nối mạng. Không có mạng bạn vẫn gõ ghi chú bằng tay bình thường.</p></details>
+    <details><summary>App có tốn phí không?</summary><p>Miễn phí hoàn toàn trong giai đoạn thử nghiệm — không quảng cáo, không giới hạn số ảnh.</p></details>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="final rv">
+    <div class="eyebrow">MarkPicture v1.2 · Android</div>
+    <h2>Nhận app ngay — <em>Miễn phí</em></h2>
+    <div class="btn-row">
+      <a class="cta-btn" href="https://drive.google.com/drive/folders/1Zseitds5JLmCqLrlErq-JDmC-RCPo7Jg?usp=sharing">↓ Tải MarkPicture-v1.2.apk</a>
+      <a class="cta-btn alt" href="assets/huong-dan-cai-dat.png">Ảnh hướng dẫn cài đặt</a>
+    </div>
+    <div class="cta-sub">APK ~57MB · Android 7.0 trở lên · không quảng cáo, không tài khoản, không thu thập dữ liệu</div>
+  </div>
+</div></section>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="/header.js"></script>
+<script src="/footer.js"></script>
+<script src="/icons.js"></script>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rv:not(.in)').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
