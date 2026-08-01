@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FC-FastCapture · One-pager</title>
 <link rel="icon" type="image/png" href="/favicon.png" />
-<meta property="og:title" content="FC-FastCapture — Chụp · Sửa · Quay GIF · Quét chữ (One-pager)" />
-<meta property="og:description" content="8 chế độ chụp, sửa thẳng trên ảnh, quay GIF, quét chữ (OCR), chụp cuộn thành ảnh dài. Quà tặng miễn phí trọn đời cho macOS & Windows. Quét QR để tải." />
+<meta property="og:title" content="FC-FastCapture — Chụp màn hình + GIF (One-pager)" />
+<meta property="og:description" content="Quà tặng miễn phí trọn đời cho macOS. Quét QR để tải." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://10x-lifeos.com/fc-fastcapture/one-pager.html" />
 <meta property="og:image" content="https://10x-lifeos.com/fc-fastcapture/assets/og-cover.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="FC-FastCapture — Chụp · Sửa · Quay GIF · Quét chữ (One-pager)" />
-<meta name="twitter:description" content="Quà tặng miễn phí trọn đời cho macOS & Windows. Quét QR để tải." />
+<meta name="twitter:title" content="FC-FastCapture — Chụp màn hình + GIF (One-pager)" />
+<meta name="twitter:description" content="Quà tặng miễn phí trọn đời cho macOS. Quét QR để tải." />
 <meta name="twitter:image" content="https://10x-lifeos.com/fc-fastcapture/assets/og-cover.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,76 +22,67 @@
 <link rel="stylesheet" href="/theme.css?v=1" />
 <script src="/theme.js?v=1" defer></script>
 <style>
+/* token: dùng /theme.css */
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#1a1a2e;display:flex;justify-content:center;padding:24px;font-family:var(--f-body)}
 .page{width:794px;min-height:1123px;background:radial-gradient(120% 70% at 50% -8%,#16163e,var(--n-900) 46%,var(--n-950));
-  color:var(--n-200);padding:34px 48px 26px;position:relative;overflow:hidden;border-radius:8px;
-  box-shadow:0 30px 80px -30px #000;display:flex;flex-direction:column}
+  color:var(--n-200);padding:54px 56px 44px;position:relative;overflow:hidden;border-radius:8px;
+  box-shadow:0 30px 80px -30px #000}
 .page::before{content:'';position:absolute;inset:0;opacity:.025;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 h1,h2,h3{font-family:var(--f-head);color:var(--white);font-weight:600;letter-spacing:-.015em;line-height:1.1}
-.eyebrow{font-family:var(--f-mono);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--o-300)}
+.eyebrow{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--o-300)}
 
 /* header */
-.head{display:flex;align-items:center;gap:15px;border-bottom:1px solid rgba(255,255,255,.09);padding-bottom:15px;margin-bottom:16px}
-.fc{width:52px;height:52px;border-radius:15px;background:linear-gradient(150deg,var(--o-400),var(--o-600));display:flex;align-items:center;justify-content:center;font-family:var(--f-head);font-weight:700;color:#fff;font-size:21px;flex-shrink:0;box-shadow:0 10px 26px -10px rgba(201,96,40,.7)}
-.head .nm{font-size:27px;color:#fff;font-weight:600;letter-spacing:-.02em}
-.head .ey{margin-top:4px}
+.head{display:flex;align-items:center;gap:18px;border-bottom:1px solid rgba(255,255,255,.09);padding-bottom:26px;margin-bottom:30px}
+.fc{width:64px;height:64px;border-radius:18px;background:linear-gradient(150deg,var(--o-400),var(--o-600));display:flex;align-items:center;justify-content:center;font-family:var(--f-head);font-weight:700;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 10px 26px -10px rgba(201,96,40,.7)}
+.head .nm{font-size:30px;color:#fff;font-weight:600;letter-spacing:-.02em}
+.head .ey{margin-top:5px}
 .head .gift{margin-left:auto;text-align:right}
-.head .gift .g1{font-family:var(--f-mono);font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--o-300)}
-.head .gift .g2{font-family:var(--f-head);font-style:italic;font-size:18px;color:#fff;margin-top:2px}
+.head .gift .g1{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;color:var(--o-300)}
+.head .gift .g2{font-family:var(--f-head);font-style:italic;font-size:19px;color:#fff;margin-top:2px}
 
-/* section header (eyebrow + rule) */
-.sh{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.sh .ln{flex:1;height:1px;background:linear-gradient(90deg,rgba(201,96,40,.4),transparent)}
+/* hero line */
+.hero-l{margin-bottom:30px}
+.hero-l h1{font-size:40px;font-weight:500;letter-spacing:-.025em;line-height:1.04;margin-bottom:14px}
+.hero-l h1 em{color:var(--o-400);font-style:italic}
+.hero-l p{font-size:16px;color:var(--n-200);line-height:1.6;max-width:560px}
+.hero-l p b{color:#fff;font-weight:500}
 
-/* PAIN */
-.pain{margin-bottom:15px}
-.pain h2{font-size:25px;font-weight:500;letter-spacing:-.02em;line-height:1.08;margin-bottom:11px}
-.pain h2 em{color:var(--o-400);font-style:italic}
-.pain-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px}
-.pn{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:12px 13px}
-.pn .pi{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;margin-bottom:7px}
-.pn .pi svg{width:17px;height:17px;color:var(--n-300);stroke-width:1.7}
-.pn .ph{font-family:var(--f-head);font-weight:600;color:var(--n-100);font-size:14px;line-height:1.25;margin-bottom:4px}
-.pn .pd{font-size:11.5px;color:var(--n-400);line-height:1.5}
+/* feature grid 2x2 */
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.ft{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
+.ft .ic{width:38px;height:38px;border-radius:11px;background:rgba(201,96,40,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ft .ic svg{width:20px;height:20px;color:var(--o-400);stroke-width:1.7}
+.ft .h{font-family:var(--f-head);font-weight:600;color:#fff;font-size:16px;margin-bottom:3px}
+.ft .d{font-size:12.5px;color:var(--n-300);line-height:1.55}
 
-/* VALUE band */
-.value{background:linear-gradient(120deg,rgba(201,96,40,.14),rgba(201,96,40,.03)),var(--n-800);
-  border:1px solid rgba(201,96,40,.3);border-radius:18px;padding:18px 26px;margin-bottom:15px;position:relative;overflow:hidden}
-.value::after{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(201,96,40,.16),transparent 70%)}
-.value .eyebrow{margin-bottom:6px;display:block}
-.value h2{font-size:26px;font-weight:500;letter-spacing:-.02em;line-height:1.05;margin-bottom:8px}
-.value h2 em{color:var(--o-400);font-style:italic}
-.value p{font-size:14px;color:var(--n-100);line-height:1.6;max-width:640px;position:relative}
-.value p b{color:#fff;font-weight:600}
-
-/* FEATURES grid 3x2 */
-.feats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;margin-bottom:14px}
-.ft{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:13px 14px}
-.ft .ic{width:30px;height:30px;border-radius:9px;background:rgba(201,96,40,.12);display:flex;align-items:center;justify-content:center;margin-bottom:8px}
-.ft .ic svg{width:19px;height:19px;color:var(--o-400);stroke-width:1.7}
-.ft .h{font-family:var(--f-head);font-weight:600;color:#fff;font-size:14.5px;margin-bottom:4px;line-height:1.2}
-.ft .h code{font-family:var(--f-mono);font-size:10px;font-weight:700;color:var(--o-300);background:rgba(201,96,40,.12);padding:1px 6px;border-radius:5px;margin-left:3px;letter-spacing:.02em}
-.ft .d{font-size:11.5px;color:var(--n-300);line-height:1.5}
-.ft .d i{font-style:normal;color:var(--o-300)}
+/* steps row */
+.howh{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.howh .eyebrow{white-space:nowrap}
+.howh .ln{flex:1;height:1px;background:linear-gradient(90deg,rgba(201,96,40,.4),transparent)}
+.flow{display:flex;align-items:stretch;gap:8px;margin-bottom:30px}
+.fs{flex:1;background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.07);border-radius:13px;padding:16px 16px;display:flex;gap:12px;align-items:center}
+.fs .n{font-family:var(--f-head);font-weight:600;font-size:18px;color:var(--o-400);width:30px;height:30px;border-radius:9px;background:rgba(201,96,40,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fs .t{font-size:13.5px;color:var(--n-100);font-weight:500;line-height:1.3}
+.fs .t code{font-family:var(--f-mono);font-size:11px;color:var(--o-300)}
 
 /* download band */
-.dl{display:flex;align-items:center;gap:22px;background:linear-gradient(120deg,rgba(201,96,40,.1),transparent),var(--n-800);
-  border:1px solid rgba(201,96,40,.24);border-radius:18px;padding:17px 24px;margin-top:auto}
-.qr{width:104px;height:104px;border-radius:12px;background:var(--cream);padding:7px;flex-shrink:0}
+.dl{display:flex;align-items:center;gap:26px;background:linear-gradient(120deg,rgba(201,96,40,.1),transparent),var(--n-800);
+  border:1px solid rgba(201,96,40,.24);border-radius:18px;padding:24px 28px;margin-top:auto}
+.qr{width:128px;height:128px;border-radius:12px;background:var(--cream);padding:8px;flex-shrink:0}
 .qr img{width:100%;height:100%;display:block}
 .dl .dt{flex:1}
-.dl .dt h3{font-size:20px;color:#fff;font-weight:600;margin-bottom:6px}
+.dl .dt h3{font-size:21px;color:#fff;font-weight:600;margin-bottom:6px}
 .dl .dt h3 em{color:var(--o-400);font-style:italic}
-.dl .dt .lk{font-family:var(--f-mono);font-size:12px;color:var(--o-300);margin-bottom:8px;word-break:break-all}
-.dl .dt .meta{font-family:var(--f-mono);font-size:10.5px;color:var(--n-400);letter-spacing:.03em;line-height:1.5}
-.dl .scan{font-family:var(--f-mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--n-400);text-align:center;margin-top:7px}
+.dl .dt .lk{font-family:var(--f-mono);font-size:12.5px;color:var(--o-300);margin-bottom:8px;word-break:break-all}
+.dl .dt .meta{font-family:var(--f-mono);font-size:11px;color:var(--n-400);letter-spacing:.04em}
+.dl .scan{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--n-400);text-align:center;margin-top:7px}
 
 /* footer */
-.foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}
-.foot .s1{font-family:var(--f-head);font-style:italic;font-size:14.5px;color:var(--n-100)}
-.foot .s2{font-family:var(--f-mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--n-400)}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
+.foot .s1{font-family:var(--f-head);font-style:italic;font-size:15px;color:var(--n-100)}
+.foot .s2{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--n-400)}
 @media print{body{background:#fff;padding:0}.page{box-shadow:none;border-radius:0;width:100%;min-height:100vh}}
 </style>
   <script src="/ga.js"></script>
@@ -103,7 +94,7 @@ h1,h2,h3{font-family:var(--f-head);color:var(--white);font-weight:600;letter-spa
     <div class="fc">FC</div>
     <div>
       <div class="nm">FC-FastCapture</div>
-      <div class="eyebrow ey">Chụp · Sửa · GIF · Quét chữ · Chụp cuộn · macOS &amp; Windows</div>
+      <div class="eyebrow ey">Chụp màn hình + GIF · macOS</div>
     </div>
     <div class="gift">
       <div class="g1">QUÀ TẶNG · 10X LIFE OS</div>
@@ -111,72 +102,25 @@ h1,h2,h3{font-family:var(--f-head);color:var(--white);font-weight:600;letter-spa
     </div>
   </div>
 
-  <!-- NỖI ĐAU -->
-  <div class="pain">
-    <div class="sh"><span class="eyebrow">Nỗi đau</span><span class="ln"></span></div>
-    <h2>Chụp màn hình xong — <em>rồi mắc kẹt.</em></h2>
-    <div class="pain-row">
-      <div class="pn">
-        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 L19 5 M19 5 H12 M19 5 V12"/><path d="M4 20 L8 16" opacity=".5"/></svg></div>
-        <div class="ph">Không vẽ nổi một mũi tên</div>
-        <div class="pd">macOS mặc định chụp xong chỉ ném ra một file. Muốn khoanh, che, đánh số? Phải mở app khác.</div>
-      </div>
-      <div class="pn">
-        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h11M4 10h8M4 14h11M4 18h6"/></svg></div>
-        <div class="ph">Chữ trong ảnh phải gõ lại tay</div>
-        <div class="pd">Slide, PDF scan, biển hiệu, ảnh chụp — cần lấy chữ ra thì ngồi chép lại từng dòng.</div>
-      </div>
-      <div class="pn">
-        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v10M9.5 9.3c0-1.2 1.1-2 2.5-2s2.5.8 2.5 2-1.1 1.8-2.5 1.8-2.5.8-2.5 2 1.1 2 2.5 2 2.5-.8 2.5-2"/></svg></div>
-        <div class="ph">Công cụ xịn thì $29–60</div>
-        <div class="pd">Lại còn bắt tạo tài khoản, hoặc đẩy ảnh lên đám mây của họ — chỉ để chụp một tấm hình.</div>
-      </div>
-    </div>
+  <div class="hero-l">
+    <h1>Chụp, sửa, gửi —<br><em>trong một nhịp.</em></h1>
+    <p>Chụp màn hình và quay GIF, sửa thẳng trên ảnh. Chạy <b>100% trên máy</b>: không tài khoản, không quảng cáo, không thu phí, không giới hạn.</p>
   </div>
 
-  <!-- GIÁ TRỊ -->
-  <div class="value">
-    <span class="eyebrow">Giá trị</span>
-    <h2>Một phím tắt — <em>xong việc.</em></h2>
-    <p>Chụp → sửa thẳng trên ảnh → copy trong <b>một nhịp</b>. Tự lưu đúng thư mục, quay GIF, <b>tự cuộn chụp thành ảnh dài</b>, và <b>quét chữ trong ảnh ra text</b> — cả tiếng Việt có dấu. Lõi chụp chạy <b>100% trên máy</b>: không tài khoản, không quảng cáo, không thu phí. Trọn đời.</p>
-  </div>
-
-  <!-- TÍNH NĂNG -->
-  <div class="sh"><span class="eyebrow">Tính năng</span><span class="ln"></span></div>
   <div class="feats">
-    <div class="ft">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg></div>
-      <div class="h">8 chế độ chụp</div>
-      <div class="d"><i>⌘1–⌘8</i> (Win: Ctrl+Alt): chụp nhanh, khóa kích thước, chụp cửa sổ, tự lưu… Đổi phím tùy ý.</div>
-    </div>
-    <div class="ft">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 L5.7 15.6 L15.4 5.9 A2 2 0 0 1 18.2 8.7 L8.5 18.4 Z"/><path d="M13.6 7.7 L16.4 10.5"/></svg></div>
-      <div class="h">Sửa ngay trên ảnh</div>
-      <div class="d">Mũi tên, khung, bút dạ, làm mờ che thông tin, đánh số bước, chữ, màu — tại chỗ.</div>
-    </div>
-    <div class="ft">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3.3" y="5.5" width="17.4" height="13" rx="2.5"/><path d="M10.4 9.9 L14.6 12 L10.4 14.1 Z"/></svg></div>
-      <div class="h">Quay GIF + click xuyên</div>
-      <div class="d">Quay vùng màn hình thành GIF, nhẹ RAM — vẫn thao tác app bên dưới trong lúc quay.</div>
-    </div>
-    <div class="ft">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3.5" width="13" height="8" rx="2"/><path d="M8.5 6.5h7M8.5 9h5"/><path d="M12 13.5v6.5M9 17.5l3 3 3-3"/></svg></div>
-      <div class="h">Chụp cuộn — ảnh dài <code>⌘8</code></div>
-      <div class="d">Khoanh vùng chat/trang dài — app <i>tự cuộn</i> rồi ghép thành 1 ảnh dài liền mạch. Click chuột là dừng.</div>
-    </div>
-    <div class="ft">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6.5A2.5 2.5 0 0 1 6.5 4H8M16 4h1.5A2.5 2.5 0 0 1 20 6.5V8M20 16v1.5A2.5 2.5 0 0 1 17.5 20H16M8 20H6.5A2.5 2.5 0 0 1 4 17.5V16"/><path d="M8 10.5h8"/><path d="M8 14h6"/></svg></div>
-      <div class="h">Quét lấy chữ · OCR <code>⌘7</code></div>
-      <div class="d">Khoanh vùng có chữ → ra text, cả tiếng Việt có dấu. <i>Tuỳ chọn online: cần API key OpenRouter của bạn.</i></div>
-    </div>
-    <div class="ft">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L19.4 6.1 V11.5 C19.4 16 16 19.4 12 20.6 C8 19.4 4.6 16 4.6 11.5 V6.1 Z"/><path d="M9 12 L11 14 L15 9.9"/></svg></div>
-      <div class="h">Riêng tư · miễn phí</div>
-      <div class="d">Lõi chụp — sửa — quay GIF chạy 100% trên máy, không gửi ảnh đi đâu. Không watermark, trọn đời.</div>
-    </div>
+    <div class="ft"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L20 7 V12 C20 16.5 16.5 20 12 21 C7.5 20 4 16.5 4 12 V7 Z"/><path d="M9 12 L11 14 L15 10"/></svg></div><div><div class="h">Riêng tư tuyệt đối</div><div class="d">100% trên máy. Không gửi ảnh đi đâu, không qua máy chủ ai cả.</div></div></div>
+    <div class="ft"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 L19 5 M19 5 H12 M19 5 V12"/></svg></div><div><div class="h">Sửa ngay trên ảnh</div><div class="d">Mũi tên, khung, bút dạ, làm mờ, đánh số, chữ, màu — tại chỗ.</div></div></div>
+    <div class="ft"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M10 9.5 L14.5 12 L10 14.5 Z" fill="currentColor"/></svg></div><div><div class="h">Quay GIF + click xuyên</div><div class="d">Quay vùng màn hình thành GIF, vẫn thao tác app bên dưới khi quay.</div></div></div>
+    <div class="ft"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="2"/><path d="M7 11 H7.01 M11 11 H11.01 M15 11 H15.01 M7 14.5 H15"/></svg></div><div><div class="h">Phím tắt ⌘ + số</div><div class="d">⌘1–⌘5 cho 5 chế độ, ⌘0 mở thanh nổi. Đổi được tuỳ ý.</div></div></div>
   </div>
 
-  <!-- TẢI -->
+  <div class="howh"><span class="eyebrow">Ba bước</span><span class="ln"></span></div>
+  <div class="flow">
+    <div class="fs"><span class="n">1</span><span class="t">Bấm phím tắt <code>⌘2</code></span></div>
+    <div class="fs"><span class="n">2</span><span class="t">Kéo chọn vùng</span></div>
+    <div class="fs"><span class="n">3</span><span class="t">Sửa &amp; Lưu <code>⌘C</code></span></div>
+  </div>
+
   <div class="dl">
     <div>
       <div class="qr"><img alt="QR tải FC-FastCapture" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=6&color=18-18-58&bgcolor=245-242-236&data=https%3A%2F%2F10x-lifeos.com%2Ffc-fastcapture%2F" /></div>
@@ -184,8 +128,8 @@ h1,h2,h3{font-family:var(--f-head);color:var(--white);font-weight:600;letter-spa
     </div>
     <div class="dt">
       <h3>Tải miễn phí — <em>macOS (Apple Silicon &amp; Intel) &amp; Windows</em></h3>
-      <div class="lk">10x-lifeos.com/fc-fastcapture</div>
-      <div class="meta">macOS .dmg &amp; Windows .exe · Trị giá $39, tặng riêng anh em · không tài khoản, không quảng cáo, không thu phí</div>
+      <div class="lk">github.com/thanghuyenduc10x/fc-fastcapture</div>
+      <div class="meta">macOS .dmg &amp; Windows .exe · Trị giá $39, tặng riêng anh em · không quảng cáo, không thu phí</div>
     </div>
   </div>
 

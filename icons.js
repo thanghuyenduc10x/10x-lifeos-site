@@ -35,10 +35,6 @@
     'offline': '<svg ' + A + '><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8 20h8M12 16.5V20"/><circle cx="12" cy="10.5" r="1" fill="' + O + '" stroke="none"/></svg>',
     /* ngôn ngữ / dịch (Việt–Anh) — thanh ngang chữ A màu cam */
     'translate': '<svg ' + A + '><path d="M3 5h9M7.5 3.5v1.5c0 5-3 8-5 9M4.5 9c0 3.5 4.5 6.5 8 7"/><path d="M13 20l4-9 4 9"/><path d="M14.5 17h5" stroke="' + O + '"/></svg>',
-    /* quét lấy chữ / OCR — khung quét + 2 dòng chữ, dòng dưới cam */
-    'scan-text': '<svg ' + A + '><path d="M4 8V6.5A2.5 2.5 0 0 1 6.5 4H8M16 4h1.5A2.5 2.5 0 0 1 20 6.5V8M20 16v1.5A2.5 2.5 0 0 1 17.5 20H16M8 20H6.5A2.5 2.5 0 0 1 4 17.5V16"/><path d="M8 10.5h8"/><path d="M8 14h6" stroke="' + O + '"/></svg>',
-    /* chụp cuộn / ảnh dài — khung trên + mũi tên cam cuộn xuống */
-    'scroll-long': '<svg ' + A + '><rect x="5.5" y="3.5" width="13" height="8" rx="2"/><path d="M8.5 6.5h7M8.5 9h5"/><path d="M12 13.5v6.5M9 17.5l3 3 3-3" stroke="' + O + '"/></svg>',
     /* tự cập nhật */
     'refresh': '<svg ' + A + '><path d="M20.5 12a8.5 8.5 0 1 1-2.5-6"/><path d="M20.5 4v5h-5" stroke="' + O + '"/></svg>',
     /* nhanh / tia sét — lõi sét chấm cam */

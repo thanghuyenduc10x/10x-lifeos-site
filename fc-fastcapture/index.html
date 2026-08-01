@@ -6,7 +6,7 @@
 <title>FC-FastCapture — Chụp màn hình + GIF cho macOS · Quà tặng 10X Life OS</title>
 <link rel="icon" type="image/png" href="/favicon.png" />
 <meta property="og:title" content="FC-FastCapture — Chụp màn hình + GIF cho macOS" />
-<meta property="og:description" content="Chụp màn hình, quay GIF, chụp cuộn thành ảnh dài, sửa thẳng trên ảnh. Chạy 100% trên máy: không tài khoản, không quảng cáo, không thu phí. Quà tặng miễn phí trọn đời từ Coach Thắng Huyền Đức." />
+<meta property="og:description" content="Chụp màn hình và quay GIF, sửa thẳng trên ảnh. Chạy 100% trên máy: không tài khoản, không quảng cáo, không thu phí. Quà tặng miễn phí trọn đời từ Coach Thắng Huyền Đức." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://10x-lifeos.com/fc-fastcapture/" />
 <meta property="og:image" content="https://10x-lifeos.com/fc-fastcapture/assets/og-cover.png" />
@@ -14,9 +14,9 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="FC-FastCapture — Chụp màn hình + GIF cho macOS" />
-<meta name="twitter:description" content="Chụp màn hình, quay GIF, chụp cuộn thành ảnh dài, sửa thẳng trên ảnh. Chạy 100% trên máy: không tài khoản, không quảng cáo, không thu phí. Quà tặng miễn phí trọn đời từ Coach Thắng Huyền Đức." />
+<meta name="twitter:description" content="Chụp màn hình và quay GIF, sửa thẳng trên ảnh. Chạy 100% trên máy: không tài khoản, không quảng cáo, không thu phí. Quà tặng miễn phí trọn đời từ Coach Thắng Huyền Đức." />
 <meta name="twitter:image" content="https://10x-lifeos.com/fc-fastcapture/assets/og-cover.png" />
-<meta name="description" content="Chụp màn hình + quay GIF + chụp cuộn ảnh dài, sửa ngay trên ảnh. Chạy 100% trên máy: không tài khoản, không quảng cáo, không thu phí. Miễn phí trọn đời cho macOS." />
+<meta name="description" content="Chụp màn hình + quay GIF, sửa ngay trên ảnh. Chạy 100% trên máy: không tài khoản, không quảng cáo, không thu phí. Miễn phí trọn đời cho macOS." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -119,100 +119,38 @@ b,strong{color:var(--white);font-weight:600}
 .stage{position:absolute;inset:30px 0 0 0}
 /* faux desktop content lines */
 .dk{position:absolute;left:8%;right:8%;height:8px;border-radius:4px;background:rgba(255,255,255,.08)}
-/* ===== DEMO 18s · 2 màn: (1) Chụp→sửa→tự lưu  (2) Quét lấy chữ / OCR ===== */
-/* floating bar in demo (Màn 1) */
+/* floating bar in demo */
 .d-fbar{position:absolute;top:14px;left:50%;transform:translateX(-50%);display:flex;gap:5px;align-items:center;padding:7px 9px;
   border-radius:12px;background:linear-gradient(180deg,#161636,#0d0d24);border:1px solid rgba(255,255,255,.1);box-shadow:0 12px 24px -10px #000;
-  opacity:0;animation:dBar 27s var(--ease) infinite}
+  opacity:0;animation:dBar 15s var(--ease) infinite}
 .d-fbar .m{width:20px;height:20px;border-radius:6px;background:rgba(255,255,255,.07)}
 .d-fbar .m.act{background:rgba(201,96,40,.35);box-shadow:0 0 0 2px rgba(201,96,40,.5)}
 .d-fbar .fc{width:20px;height:20px;border-radius:6px;background:linear-gradient(150deg,var(--o-400),var(--o-600));font-family:var(--f-head);font-weight:700;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center}
-/* selection rect (Màn 1) */
+/* selection rect */
 .d-sel{position:absolute;border:2px solid var(--o-400);background:rgba(201,96,40,.08);border-radius:3px;
-  left:22%;top:30%;width:0;height:0;opacity:0;animation:dSel 27s var(--ease) infinite}
-/* editor card (Màn 1) */
+  left:22%;top:30%;width:0;height:0;opacity:0;animation:dSel 15s var(--ease) infinite}
+/* editor card */
 .d-ed{position:absolute;left:20%;top:24%;width:60%;border-radius:11px;overflow:hidden;border:1px solid rgba(255,255,255,.12);
-  background:#0e1426;box-shadow:0 20px 40px -16px #000;opacity:0;transform:scale(.96);animation:dEd 27s var(--ease) infinite}
+  background:#0e1426;box-shadow:0 20px 40px -16px #000;opacity:0;transform:scale(.96);animation:dEd 15s var(--ease) infinite}
 .d-ed .et{display:flex;gap:4px;padding:7px 9px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.07)}
 .d-ed .et b{width:16px;height:16px;border-radius:5px;background:rgba(255,255,255,.08)}
 .d-ed .et b.on{background:rgba(201,96,40,.4)}
 .d-ed .et .save{margin-left:auto;font-family:var(--f-mono);font-size:9px;color:#fff;background:var(--o-500);padding:3px 9px;border-radius:5px;align-self:center}
 .d-ed .ec{height:96px;position:relative;background:linear-gradient(135deg,#1d2740,#141b2e)}
-.d-arrow{position:absolute;inset:0;opacity:0;animation:dArrow 27s var(--ease) infinite}
-.d-hl{position:absolute;left:14%;top:30%;width:34%;height:15px;border-radius:3px;background:rgba(201,96,40,.34);opacity:0;animation:dHl 27s var(--ease) infinite}
-.d-toast{position:absolute;right:14px;bottom:14px;font-family:var(--f-mono);font-size:10px;color:#fff;background:rgba(42,122,80,.92);padding:6px 12px;border-radius:7px;opacity:0;animation:dToast 27s var(--ease) infinite}
-
-/* ── Màn 2 — Quét lấy chữ (OCR) ── */
-.d-key{position:absolute;top:14px;left:50%;transform:translateX(-50%);font-family:var(--f-label);font-size:10px;font-weight:700;letter-spacing:.06em;color:#fff;
-  background:linear-gradient(180deg,#161636,#0d0d24);border:1px solid rgba(201,96,40,.5);border-radius:9px;padding:6px 12px;opacity:0;animation:dKey 27s var(--ease) infinite;z-index:4}
-.d-key b{color:var(--o-300)}
-.d-doc{position:absolute;left:10%;right:10%;top:16%;display:flex;flex-direction:column;gap:9px;opacity:0;animation:dDoc 27s var(--ease) infinite}
-.d-doc i{height:8px;border-radius:4px;background:rgba(255,255,255,.14);display:block;width:100%}
-.d-doc i:nth-child(2){width:92%}.d-doc i:nth-child(3){width:80%}.d-doc i:nth-child(4){width:88%}.d-doc i:nth-child(5){width:60%}
-.d-sel2{position:absolute;left:9%;top:19%;width:0;height:0;border:2px solid var(--o-400);background:rgba(201,96,40,.08);border-radius:3px;opacity:0;animation:dSel2 27s var(--ease) infinite;z-index:3}
-.d-ocr{position:absolute;left:18%;top:18%;width:64%;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.14);
-  background:#0e1426;box-shadow:0 24px 50px -18px #000;opacity:0;transform:translateY(14px) scale(.97);animation:dOcr 27s var(--ease) infinite;z-index:4}
-.d-ocr .oh{display:flex;align-items:center;gap:8px;padding:9px 13px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.07);font-family:var(--f-head);font-size:11px;color:#fff}
-.d-ocr .oh .dot{width:7px;height:7px;border-radius:50%;background:var(--o-400);box-shadow:0 0 7px var(--o-400)}
-.d-ocr .ob{padding:12px 15px;position:relative;overflow:hidden}
-.d-ocr .tx{font-family:var(--f-body);font-size:11px;line-height:1.6;color:var(--n-100);clip-path:inset(0 100% 0 0);animation:dTx 27s var(--ease) infinite}
-.d-scan{position:absolute;top:8px;bottom:8px;left:6%;width:2px;background:var(--o-400);box-shadow:0 0 10px var(--o-400);opacity:0;animation:dScan 27s var(--ease) infinite}
-.d-ocr .of{display:flex;align-items:center;justify-content:flex-end;padding:8px 13px;border-top:1px solid rgba(255,255,255,.07)}
-.d-ocr .of .cp{font-family:var(--f-label);font-weight:600;font-size:9px;color:#fff;background:var(--o-500);padding:4px 11px;border-radius:6px}
-.d-toast2{position:absolute;right:14px;bottom:14px;font-family:var(--f-mono);font-size:10px;color:#fff;background:rgba(42,122,80,.92);padding:6px 12px;border-radius:7px;opacity:0;animation:dToast2 27s var(--ease) infinite;z-index:5}
-
-/* ── Màn 3 — Chụp cuộn (Mode 8) ── */
-.d-key3{position:absolute;top:14px;left:50%;transform:translateX(-50%);font-family:var(--f-label);font-size:10px;font-weight:700;letter-spacing:.06em;color:#fff;background:linear-gradient(180deg,#161636,#0d0d24);border:1px solid rgba(201,96,40,.5);border-radius:9px;padding:6px 12px;opacity:0;animation:dKey3 27s var(--ease) infinite;z-index:4}
-.d-key3 b{color:var(--o-300)}
-.d-sel3{position:absolute;left:22%;top:20%;width:0;height:0;border:2px solid var(--o-400);background:transparent;border-radius:4px;opacity:0;animation:dSel3 27s var(--ease) infinite;z-index:3;overflow:hidden;box-shadow:0 0 0 9999px rgba(0,0,0,.28)}
-.d-strip{position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.13) 0 7px,transparent 7px 16px,rgba(201,96,40,.28) 16px 23px,transparent 23px 34px);animation:dStrip 27s linear infinite}
-.d-tall{position:absolute;right:7%;top:18%;width:46px;height:0;border-radius:7px;border:1.5px solid rgba(201,96,40,.65);background:repeating-linear-gradient(180deg,#1d2740 0 5px,#141b2e 5px 10px);opacity:0;animation:dTall 27s var(--ease) infinite;z-index:4}
-.d-toast3{position:absolute;right:14px;bottom:14px;font-family:var(--f-mono);font-size:10px;color:#fff;background:rgba(42,122,80,.92);padding:6px 12px;border-radius:7px;opacity:0;animation:dToast3 27s var(--ease) infinite;z-index:5}
-@keyframes dKey3{0%,66%{opacity:0;transform:translateX(-50%) translateY(-6px)}68%{opacity:1;transform:translateX(-50%) translateY(0)}95%{opacity:1}98%,100%{opacity:0}}
-@keyframes dSel3{0%,69%{opacity:0;width:0;height:0}71%{opacity:1;width:0;height:0}76%{opacity:1;width:44%;height:52%}94%{opacity:1;width:44%;height:52%}97%,100%{opacity:0}}
-@keyframes dStrip{0%,76%{transform:translateY(0)}92%{transform:translateY(-56%)}100%{transform:translateY(-56%)}}
-@keyframes dTall{0%,77%{opacity:0;height:0}79%{opacity:1;height:8%}91%{opacity:1;height:56%}94%{opacity:1;height:56%}97%,100%{opacity:0}}
-@keyframes dToast3{0%,91%{opacity:0;transform:translateY(6px)}93%{opacity:1;transform:translateY(0)}96%{opacity:1}98%,100%{opacity:0}}
-
-.d-cursor{position:absolute;width:14px;height:14px;left:30%;top:42%;opacity:0;animation:dCur 27s var(--ease) infinite;z-index:6}
+.d-arrow{position:absolute;inset:0;opacity:0;animation:dArrow 15s var(--ease) infinite}
+.d-hl{position:absolute;left:14%;top:30%;width:34%;height:15px;border-radius:3px;background:rgba(201,96,40,.34);opacity:0;animation:dHl 15s var(--ease) infinite}
+.d-toast{position:absolute;right:14px;bottom:14px;font-family:var(--f-mono);font-size:10px;color:#fff;background:rgba(42,122,80,.92);padding:6px 12px;border-radius:7px;opacity:0;animation:dToast 15s var(--ease) infinite}
+.d-cursor{position:absolute;width:14px;height:14px;left:30%;top:42%;opacity:0;animation:dCur 15s var(--ease) infinite;z-index:5}
 .demo-cap{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--n-300);text-align:center;margin-top:18px}
 
-/* Màn 1 (0→48%) */
-@keyframes dBar{0%,1%{opacity:0;transform:translateX(-50%) translateY(-8px)}3%{opacity:1;transform:translateX(-50%) translateY(0)}29%{opacity:1}31%,100%{opacity:0}}
-@keyframes dSel{0%,5%{opacity:0;width:0;height:0}7%{opacity:1;width:0;height:0}13%{opacity:1;width:42%;height:40%}17%{opacity:1;width:42%;height:40%}19%,100%{opacity:0}}
-@keyframes dEd{0%,17%{opacity:0;transform:scale(.96)}20%{opacity:1;transform:scale(1)}29%{opacity:1;transform:scale(1)}31%,100%{opacity:0;transform:scale(.98)}}
-@keyframes dArrow{0%,22%{opacity:0}25%{opacity:1}29%{opacity:1}31%,100%{opacity:0}}
-@keyframes dHl{0%,20%{opacity:0;width:0}23%{opacity:1;width:34%}29%{opacity:1;width:34%}31%,100%{opacity:0;width:34%}}
-@keyframes dToast{0%,26%{opacity:0;transform:translateY(6px)}28%{opacity:1;transform:translateY(0)}30%{opacity:1}31%,100%{opacity:0}}
-/* Màn 2 (49→100%) */
-@keyframes dKey{0%,33%{opacity:0;transform:translateX(-50%) translateY(-6px)}35%{opacity:1;transform:translateX(-50%) translateY(0)}62%{opacity:1}64%,100%{opacity:0}}
-@keyframes dDoc{0%,33%{opacity:0}35%{opacity:1}62%{opacity:1}64%,100%{opacity:0}}
-@keyframes dSel2{0%,36%{opacity:0;width:0;height:0}38%{opacity:1;width:0;height:0}43%{opacity:1;width:64%;height:46%}46%{opacity:1;width:64%;height:46%}48%,100%{opacity:0}}
-@keyframes dOcr{0%,44%{opacity:0;transform:translateY(14px) scale(.97)}47%{opacity:1;transform:translateY(0) scale(1)}61%{opacity:1;transform:translateY(0) scale(1)}64%,100%{opacity:0;transform:translateY(6px) scale(.99)}}
-@keyframes dTx{0%,47%{clip-path:inset(0 100% 0 0)}55%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 0 0)}}
-@keyframes dScan{0%,46%{opacity:0;left:6%}48%{opacity:1}53%{opacity:1;left:92%}56%,100%{opacity:0;left:92%}}
-@keyframes dToast2{0%,55%{opacity:0;transform:translateY(6px)}57%{opacity:1;transform:translateY(0)}61%{opacity:1}63%,100%{opacity:0}}
-@keyframes dCur{
-  0%,3%{opacity:0;left:30%;top:42%}
-  5%{opacity:1;left:50%;top:9%}
-  9%{opacity:1;left:22%;top:30%}
-  20%{opacity:1;left:64%;top:70%}
-  30%{opacity:1;left:60%;top:40%}
-  40%{opacity:1;left:40%;top:52%}
-  46%{opacity:0;left:45%;top:50%}
-  49%{opacity:0;left:50%;top:9%}
-  52%{opacity:1;left:50%;top:9%}
-  56%{opacity:1;left:11%;top:22%}
-  64%{opacity:1;left:70%;top:64%}
-  71%{opacity:1;left:60%;top:52%}
-  84%{opacity:1;left:73%;top:74%}
-  90%{opacity:0;left:70%;top:70%}
-  100%{opacity:0}}
-@media(prefers-reduced-motion:reduce){
-  .d-fbar,.d-sel,.d-ed,.d-arrow,.d-hl,.d-toast,.d-key,.d-doc,.d-sel2,.d-toast2,.d-cursor,.d-scan,.d-key3,.d-sel3,.d-strip,.d-tall,.d-toast3{animation:none!important;opacity:0!important}
-  .d-ocr{animation:none!important;opacity:1!important;transform:none!important}
-  .d-ocr .tx{animation:none!important;clip-path:none!important}
-}
+@keyframes dBar{0%,3%{opacity:0;transform:translateX(-50%) translateY(-8px)}6%,92%{opacity:1;transform:translateX(-50%) translateY(0)}97%,100%{opacity:0}}
+@keyframes dSel{0%,12%{opacity:0;width:0;height:0}16%{opacity:1;width:0;height:0}38%{opacity:1;width:42%;height:40%}41%{opacity:1;width:42%;height:40%}44%,100%{opacity:0;width:42%;height:40%}}
+@keyframes dEd{0%,42%{opacity:0;transform:scale(.96)}47%{opacity:1;transform:scale(1)}90%{opacity:1;transform:scale(1)}95%,100%{opacity:0;transform:scale(.98)}}
+@keyframes dArrow{0%,50%{opacity:0}56%{opacity:1}90%{opacity:1}95%,100%{opacity:0}}
+@keyframes dHl{0%,58%{opacity:0}63%{opacity:1}90%{opacity:1}95%,100%{opacity:0}}
+@keyframes dToast{0%,78%{opacity:0;transform:translateY(6px)}82%{opacity:1;transform:translateY(0)}90%{opacity:1}94%,100%{opacity:0}}
+@keyframes dCur{0%,14%{opacity:0;left:30%;top:42%}17%{opacity:1;left:22%;top:30%}38%{opacity:1;left:64%;top:70%}46%{opacity:1;left:60%;top:40%}58%{opacity:1;left:40%;top:46%}66%{opacity:0;left:50%;top:50%}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.d-fbar,.d-ed{opacity:1!important;animation:none!important}.d-sel,.d-arrow,.d-hl,.d-toast,.d-cursor{animation:none!important}}
 
 /* metrics strip */
 .metrics{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(20px,5vw,56px);padding:30px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
@@ -245,7 +183,7 @@ b,strong{color:var(--white);font-weight:600}
 .maker .mq{font-size:14.5px;color:var(--n-200);line-height:1.65;font-style:italic}
 
 /* differentiators */
-.diff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.diff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
 .diff{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:15px;padding:26px;transition:all .3s var(--ease)}
 .diff:hover{border-color:rgba(201,96,40,.28);transform:translateY(-3px)}
 .diff .ic{width:44px;height:44px;border-radius:12px;background:rgba(201,96,40,.1);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
@@ -341,13 +279,11 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
       <!-- DEMO 15s (animated) — giữ nguyên -->
       <div class="demo-wrap rv in" id="demo">
     <div class="device">
-      <div class="dev-bar"><i></i><i></i><i></i><span class="lbl">demo · 27s</span></div>
+      <div class="dev-bar"><i></i><i></i><i></i><span class="lbl">demo · 15s</span></div>
       <div class="stage">
         <div class="dk" style="top:18px"></div>
         <div class="dk" style="top:36px;right:24%"></div>
         <div class="dk" style="top:64px;width:auto;left:8%;right:40%"></div>
-
-        <!-- ═══ MÀN 1 · Chụp → sửa → tự lưu ═══ -->
         <!-- floating bar -->
         <div class="d-fbar"><span class="fc">FC</span><span class="m"></span><span class="m act"></span><span class="m"></span><span class="m"></span><span class="m"></span></div>
         <!-- selection -->
@@ -361,32 +297,11 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
             <div class="d-toast">Đã lưu ✓</div>
           </div>
         </div>
-
-        <!-- ═══ MÀN 2 · Quét lấy chữ (OCR) ═══ -->
-        <div class="d-key">Quét lấy chữ · <b>⌘7</b></div>
-        <div class="d-doc"><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="d-sel2"></div>
-        <div class="d-ocr">
-          <div class="oh"><span class="dot"></span>Văn bản nhận được</div>
-          <div class="ob">
-            <div class="tx">Học một lần, dùng cả đời.<br>Chụp — sửa — gửi trong một nhịp.<br>Chạy trên máy của bạn.</div>
-            <div class="d-scan"></div>
-          </div>
-          <div class="of"><span class="cp">⌘↵ Sao chép</span></div>
-        </div>
-        <div class="d-toast2">Đã copy chữ ✓</div>
-
-        <!-- ═══ MÀN 3 · Chụp cuộn (Mode 8) ═══ -->
-        <div class="d-key3">Chụp cuộn · <b>⌘8</b> · click để dừng</div>
-        <div class="d-sel3"><div class="d-strip"></div></div>
-        <div class="d-tall"></div>
-        <div class="d-toast3">Đã ghép ảnh dài ✓</div>
-
         <!-- cursor -->
         <svg class="d-cursor" viewBox="0 0 24 24" fill="#fff" stroke="#0A0A24" stroke-width="1.5"><path d="M5 3 L19 12 L12 13 L9 20 Z"/></svg>
       </div>
     </div>
-    <div class="demo-cap">Chụp → sửa → lưu · <b style="color:var(--o-300)">quét chữ (OCR)</b> · rồi <b style="color:var(--o-300)">tự cuộn thành ảnh dài</b></div>
+    <div class="demo-cap">Bấm phím tắt → kéo chọn vùng → sửa trên ảnh → lưu</div>
       </div>
     </div>
   </div>
@@ -394,7 +309,7 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
 
 <!-- METRICS -->
 <section><div class="wrap metrics rv">
-  <div class="metric"><div class="v">8</div><div class="k">chế độ chụp</div></div>
+  <div class="metric"><div class="v">6</div><div class="k">chế độ chụp</div></div>
   <div class="metric"><div class="v">0₫</div><div class="k">trọn đời</div></div>
   <div class="metric"><div class="v">28/28</div><div class="k">kiểm thử đối kháng</div></div>
   <div class="metric"><div class="v">100%</div><div class="k">chạy trên máy</div></div>
@@ -424,12 +339,10 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
 
 <!-- DIFFERENTIATORS -->
 <section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="sec-head rv"><span class="eyebrow">Khác biệt</span><h2>Bảy điều khiến nó <em>đáng để bên cạnh</em></h2></div>
+  <div class="sec-head rv"><span class="eyebrow">Khác biệt</span><h2>Năm điều khiến nó <em>đáng để bên cạnh</em></h2></div>
   <div class="diff-grid">
-    <div class="diff rv"><div class="ic"><span class="ic10" data-ic="shield"></span></div><h3>Riêng tư tuyệt đối</h3><p>Lõi chụp — sửa — quay GIF chạy 100% trên máy. Không gửi một tấm ảnh nào đi đâu, không qua máy chủ ai cả.</p></div>
+    <div class="diff rv"><div class="ic"><span class="ic10" data-ic="shield"></span></div><h3>Riêng tư tuyệt đối</h3><p>Chạy 100% trên máy. Không gửi một tấm ảnh nào đi đâu, không qua máy chủ ai cả.</p></div>
     <div class="diff rv"><div class="ic"><span class="ic10" data-ic="edit"></span></div><h3>Sửa ngay trên ảnh</h3><p>Mũi tên, khung, vẽ tay, bút dạ quang, làm mờ che thông tin, đánh số bước, chữ, màu — tại chỗ, không mở app khác.</p></div>
-    <div class="diff rv"><div class="ic"><span class="ic10" data-ic="scan-text"></span></div><h3>Quét lấy chữ (OCR)</h3><p>Chế độ 7: bấm <code>⌘7</code>, khoanh vùng có chữ — app đọc ra text, kể cả <b>tiếng Việt có dấu</b>, sửa rồi copy. Ảnh chụp, biển hiệu, PDF scan, slide. <b style="color:var(--o-300)">Tuỳ chọn online</b>: cần API key OpenRouter của bạn, vùng ảnh được gửi tới dịch vụ AI để đọc — không bật sẵn.</p></div>
-    <div class="diff rv"><div class="ic"><span class="ic10" data-ic="scroll-long"></span></div><h3>Chụp cuộn — ảnh dài</h3><p>Chế độ 8: bấm <code>⌘8</code>, khoanh vùng chat/trang dài — app <b>tự cuộn xuống đều đặn</b> rồi ghép thành <b>1 ảnh dài liền mạch</b>. Click chuột là dừng. Tự bỏ thanh dính lỡ khoanh, tự dừng khi hết trang.</p></div>
     <div class="diff rv"><div class="ic"><span class="ic10" data-ic="capture"></span></div><h3>Chụp là tự lưu</h3><p>Chế độ 6: bấm <code>⌘6</code>, chọn vùng — ảnh tự lưu vào thư mục bạn chốt sẵn (chọn một lần), kèm luôn clipboard. Hợp gom tư liệu bài giảng, quy trình.</p></div>
     <div class="diff rv"><div class="ic"><span class="ic10" data-ic="video"></span></div><h3>Quay GIF + click xuyên</h3><p>Quay vùng màn hình thành GIF, nhẹ RAM — và vẫn thao tác được app bên dưới trong lúc quay. Chụp/quay được cả khi app khác đang toàn màn hình.</p></div>
     <div class="diff rv"><div class="ic"><span class="ic10" data-ic="infinity"></span></div><h3>Miễn phí, không giới hạn</h3><p>Không tài khoản, không quảng cáo, không watermark, không bản dùng thử. Trọn đời.</p></div>
@@ -440,7 +353,7 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
 <section class="sec" style="padding-top:0"><div class="wrap">
   <div class="sec-head rv"><span class="eyebrow">Dùng thế nào</span><h2>Ba bước, <em>quen tay là quên luôn</em></h2></div>
   <div class="steps">
-    <div class="step rv"><div><div class="st">Bấm phím tắt</div><div class="sd"><code>⌘1</code>–<code>⌘8</code> cho 8 chế độ (Windows: <code>Ctrl+Alt+1–8</code>), hoặc click thanh nổi.</div></div></div>
+    <div class="step rv"><div><div class="st">Bấm phím tắt</div><div class="sd"><code>⌘1</code>–<code>⌘6</code> cho 6 chế độ (Windows: <code>Ctrl+Alt+1–6</code>), hoặc click thanh nổi.</div></div></div>
     <div class="step rv"><div><div class="st">Kéo chọn vùng</div><div class="sd">Kéo một hình chữ nhật — hoặc chọn cả cửa sổ. Thả là xong.</div></div></div>
     <div class="step rv"><div><div class="st">Sửa &amp; Lưu</div><div class="sd">Vẽ trên ảnh ngay tại chỗ → <code>⌘C</code> vào clipboard hoặc lưu <code>.png</code>/<code>.gif</code>.</div></div></div>
   </div>
@@ -455,8 +368,6 @@ footer .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-t
       <tbody>
         <tr><td>Sửa ngay trên ảnh</td><td class="n">✗</td><td class="y">✓</td><td class="us y">✓</td></tr>
         <tr><td>Quay GIF</td><td class="n">✗</td><td class="y">✓</td><td class="us y">✓</td></tr>
-        <tr><td>Quét chữ trong ảnh (OCR)</td><td class="p">một phần</td><td class="y">✓</td><td class="us y">✓</td></tr>
-        <tr><td>Chụp cuộn thành ảnh dài</td><td class="n">✗</td><td class="y">✓</td><td class="us y">✓</td></tr>
         <tr><td>Phím tắt tuỳ chỉnh</td><td class="p">một phần</td><td class="y">✓</td><td class="us y">✓</td></tr>
         <tr><td>Chạy offline, không gửi ảnh</td><td class="y">✓</td><td class="n">✗ (cloud)</td><td class="us y">✓</td></tr>
         <tr><td>Cần tài khoản</td><td class="y">không</td><td class="n">có</td><td class="us y">không</td></tr>
