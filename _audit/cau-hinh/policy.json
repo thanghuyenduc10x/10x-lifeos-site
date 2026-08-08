@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "_doc": "Bộ nhớ quyết định của Coach Thắng. Claude ghi vào đây sau mỗi lần anh quyết điều gì; lần chạy sau đọc lại và cư xử theo. Đây là thứ biến 'báo cáo hằng ngày' thành 'quản trị 5 phút'.",
+
+  "ngay_bat_dau": "2026-08-08",
+  "muc_tu_chu": 0,
+  "_doc_muc_tu_chu": "0 = chỉ báo cáo · 1 = báo cáo + hỏi + ghi policy · 2 = mở PR đề xuất diff · 3 = tự sửa lớp A · 4 = ổn định. CHỈ nâng bậc khi có ≥5 quy tắc da_xac_nhan VÀ ≥1 PR được merge nguyên vẹn — không nâng theo lịch.",
+
+  "quy_tac": [],
+  "_doc_quy_tac": {
+    "khuon": {
+      "id": "R-0001",
+      "ngay": "YYYY-MM-DD",
+      "ap_cho": "ID check, hoặc tiền tố có * như DATA-*",
+      "pham_vi": { "tat_ca": false, "file": ["duong/dan.html"] },
+      "hanh_dong": "ha_muc | nang_muc | bo_qua | cho_tu_sua",
+      "muc_moi": "do | vang | xanh",
+      "het_han": "YYYY-MM-DD hoặc null",
+      "chu_noi": "Nguyên văn lời Coach Thắng, tiếng Việt.",
+      "claude_hieu": "Claude diễn giải tổng quát. CHỈ TRƯỜNG NÀY được áp cho ca mới.",
+      "tong_quat_hoa": false,
+      "da_xac_nhan": false
+    },
+    "van_an_toan": [
+      "tong_quat_hoa mặc định false — quy tắc chỉ áp cho đúng file đã liệt kê, không tự suy rộng.",
+      "da_xac_nhan phải là true mới có hiệu lực. Claude phải hỏi 'tôi hiểu vậy đúng chưa?' trước.",
+      "ha_muc mặc định het_han sau 90 ngày. Không có gì tắt vĩnh viễn trong im lặng.",
+      "muc_goc luôn được giữ trong latest.json — policy đổi cách trình bày, KHÔNG xoá sự thật.",
+      "cho_tu_sua nâng được B lên A. KHÔNG BAO GIỜ nâng được C lên A (ràng buộc cứng trong code)."
+    ]
+  },
+
+  "hoan": [],
+  "_doc_hoan": "Nút 'để mai tính'. Bắt buộc có den_ngay, tối đa 30 ngày. Mục hoãn ra khỏi đỏ/vàng nhưng vẫn được đếm và in trong báo cáo.",
+
+  "bai_hoc": [],
+  "_doc_bai_hoc": "Câu tiếng Việt tự do về cách Coach Thắng ưu tiên. Nạp vào ngữ cảnh mỗi phiên để định hình CÁCH VIẾT và THỨ TỰ ƯU TIÊN — không ảnh hưởng cách tính mức. Hành vi máy = quy_tac; phong cách = bai_hoc."
+}

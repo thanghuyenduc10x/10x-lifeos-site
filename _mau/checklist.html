@@ -7,8 +7,8 @@
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Montserrat:wght@700;800&family=Be+Vietnam+Pro:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/brand.css" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/theme.css?v=1" />
 <style>
   .page{max-width:760px;margin-inline:auto;padding:48px clamp(20px,5vw,32px) 80px}
   .khead{font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--o-300);margin-bottom:10px}
@@ -37,13 +37,13 @@
 <div class="page">
   <div class="khead">10X · Trước khi push</div>
   <h1>Checklist một trang</h1>
-  <p class="sub">Soi trước khi <code>git push</code>. Lưới an toàn cuối — code chung (brand.css/icons.js) đã ép phần lớn, cái này soi phần còn lại.</p>
+  <p class="sub">Soi trước khi <code>git push</code>. Lưới an toàn cuối — code chung (theme.css/icons.js) đã ép phần lớn, cái này soi phần còn lại.</p>
   <div class="bar"><i id="bar"></i></div>
   <div class="prog"><span id="done">0</span>/<span id="total">0</span> mục</div>
 
   <div class="grp">
     <div class="cat">① Khung chung (đừng tự chế)</div>
-    <label class="item"><input type="checkbox"><span>Dùng <b>brand.css</b> (<code>&lt;link href="/brand.css"&gt;</code>) + font Google đủ 4 (Fraunces · Montserrat · Be Vietnam Pro · JetBrains Mono).</span></label>
+    <label class="item"><input type="checkbox"><span>Dùng <b>theme.css</b> (<code>&lt;link href="/theme.css?v=1"&gt;</code> ĐẶT TRƯỚC CSS riêng) + URL font CHUẨN chép y hệt từ đầu <code>theme.css</code>. KHÔNG tự khai <code>:root</code> (luật 2).</span></label>
     <label class="item"><input type="checkbox"><span>Có <b>topbar</b> (logo + Trang chủ + <code>#site-langtog</code> + Tải app) và nạp <code>/header.js</code> + <code>/footer.js</code>.</span></label>
     <label class="item"><input type="checkbox"><span>App mới: <b>copy từ <code>_mau/landing-san-pham.html</code></b> — không dựng lại từ số 0.</span></label>
   </div>
@@ -66,7 +66,7 @@
     <div class="cat">④ Footer · demo · nút tải</div>
     <label class="item"><input type="checkbox"><span>Footer chung (footer.js): emblem <b>la bàn</b> (không hải đăng), watermark căn giữa mờ. Có đủ app trong cột Sản phẩm.</span></label>
     <label class="item"><input type="checkbox"><span>Card demo <b>rộng bằng khổ viết</b> (16:9). Caption mono 12px màu <code>--n-300</code>.</span></label>
-    <label class="item"><input type="checkbox"><span>Nút tải trỏ <b>file cục bộ <code>download/</code></b>, tên SẠCH không kèm version (link không hỏng khi ra bản mới).</span></label>
+    <label class="item"><input type="checkbox"><span>Nút tải trỏ <b>GitHub Releases</b> dạng <code>releases/latest/download/&lt;file&gt;</code> — KHÔNG commit file cài đặt vào repo (luật 1).</span></label>
   </div>
 
   <div class="grp">

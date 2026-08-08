@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "_doc": "Ngưỡng số và loại trừ kỹ thuật. Khác policy.json: đây là sự thật kỹ thuật về site, không phải quyết định của chủ site.",
+
+  "host_chay_luc_runtime": [
+    "www.google-analytics.com",
+    "analytics.google.com",
+    "stats.g.doubleclick.net"
+  ],
+  "_doc_host_runtime": "Host chỉ được gọi lúc chạy bởi script bên thứ ba (gtag.js gửi beacon). Quét tĩnh không bao giờ thấy chúng, nên SEC-CSP-STALE phải bỏ qua, nếu không sẽ báo nhầm vĩnh viễn.",
+
+  "nguong": {
+    "html_kb_vang": 150,
+    "html_kb_do": 500,
+    "base64_kb": 50,
+    "asset_kb": 200,
+    "lastmod_lech_ngay": 2,
+    "noi_dung_het_han_ngay_len_do": 14,
+    "title_dai": 65,
+    "title_ngan": 20,
+    "description_ngan": 50,
+    "hex_la_toi_da": 8,
+    "ttfb_ms": 1500,
+    "tls_con_lai_ngay": 14
+  },
+
+  "duong_dan_bo_qua": ["_audit/", ".git/"],
+
+  "trang_khong_can_nav": ["fc-fastcapture/one-pager.html"],
+  "_doc_khong_can_nav": "Trang in/gửi riêng, cố ý không có điều hướng site."
+}

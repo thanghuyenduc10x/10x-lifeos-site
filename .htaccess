@@ -4,8 +4,8 @@
 # — Chuyển hướng thư mục blog cũ về bài chính thức —
 RedirectMatch 301 ^/blog-case-thuc-chien/.*$ /blog/case-thuc-chien.html
 
-# — Chặn thư mục template nội bộ khỏi công chúng —
-RedirectMatch 403 ^/_mau/.*$
+# — Chặn thư mục nội bộ khỏi công chúng (_mau = template, _audit = bộ kiểm tra) —
+RedirectMatch 403 ^/_(mau|audit)/.*$
 
 <IfModule mod_headers.c>
   # Buộc trình duyệt luôn dùng HTTPS trong 1 năm
@@ -18,8 +18,13 @@ RedirectMatch 403 ^/_mau/.*$
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   # Tắt các quyền trình duyệt không dùng tới
   Header always set Permissions-Policy "geolocation=(), camera=(), microphone=(), payment=(), interest-cohort=()"
-  # Chỉ cho phép tải tài nguyên từ chính site + Google Fonts (thêm domain analytics vào đây khi lắp)
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+  # Chỉ cho phép tải tài nguyên từ chính site + các host đã duyệt.
+  # LUẬT: mọi host xuất hiện trong img/script/style/font/iframe/fetch của trang PHẢI có mặt ở đây,
+  # nếu không trình duyệt chặn im lặng. Check SEC-CSP-HOST tự đối chiếu việc này mỗi sáng.
+  #   img.vietqr.io      → QR chuyển khoản đặt cọc (bootcamp)
+  #   api.qrserver.com   → QR tải app (fc-fastcapture/one-pager)
+  #   script.google.com  → nơi form gửi dữ liệu về (Apps Script), duyệt trước để form không nổ khi lắp
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://img.vietqr.io https://api.qrserver.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com; frame-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
 
   # HTML luôn hỏi bản mới → deploy hiện ngay, hết cảnh cache 7 ngày
   <FilesMatch "\.(html)$">
