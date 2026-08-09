@@ -257,6 +257,19 @@ select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns=
 .err{display:none;color:#FF9B9B;font-size:14px;margin-top:8px}
 /* thankyou */
 #thankyou{display:none}
+
+/* ── CHẾ ĐỘ "ĐÃ DIỄN RA" ───────────────────────────────────────────
+   Bật tự động khi endDate trong JSON-LD đã qua (xem script cuối trang).
+   Mục đích: trang KHÔNG BAO GIỜ nhận cọc cho một khoá đã học xong,
+   kể cả khi quên cập nhật ngày. Ẩn mọi lối dẫn tới chuyển tiền. */
+body[data-trang-thai="da-dien-ra"] #buoc-coc,
+body[data-trang-thai="da-dien-ra"] .price-card .pc-dep,
+body[data-trang-thai="da-dien-ra"] #stickycta{display:none !important}
+.bang-da-dien-ra{display:none}
+body[data-trang-thai="da-dien-ra"] .bang-da-dien-ra{
+  display:block;max-width:640px;margin:0 auto 22px;padding:14px 18px;
+  border:1px solid rgba(168,130,240,.45);border-radius:12px;
+  background:rgba(168,130,240,.10);font-size:16px;line-height:1.55}
 .ty-card{max-width:620px;margin:0 auto;background:linear-gradient(180deg,#241357,#160B38);border:2px solid rgba(255,211,77,.55);border-radius:22px;padding:38px 30px;text-align:center;box-shadow:0 0 60px rgba(245,163,0,.16)}
 .ty-card h2{font-weight:900}
 .ty-steps{text-align:left;margin:24px 0}
@@ -693,7 +706,11 @@ select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns=
 <section class="reg" id="dang-ky">
   <div class="wrap10 center">
     <div class="sec-title rv"><span class="bar"></span><h2 class="gold-grad">Đăng ký giữ chỗ</h2><span class="bar"></span></div>
-    <p class="sec-sub rv">Giữ một ghế cho ngày <b style="color:var(--gold-hi)">1–2/08</b>. Điền 30 giây — nhận ngay hướng dẫn vào Zalo và đặt cọc.</p>
+    <p class="sec-sub rv" id="reg-sub">Giữ một ghế cho ngày <b style="color:var(--gold-hi)">1–2/08</b>. Điền 30 giây — nhận ngay hướng dẫn vào Zalo và đặt cọc.</p>
+    <div class="bang-da-dien-ra rv">
+      <b>Đợt này đã diễn ra.</b> Bạn vẫn để lại thông tin được — chúng tôi sẽ báo lịch đợt kế tiếp trước tiên.
+      Chưa cần chuyển khoản gì lúc này.
+    </div>
     <form class="form-card rv" id="regform" novalidate>
       <div class="f-row">
         <label for="hoten">Họ và tên <span class="req">*</span></label>
@@ -717,8 +734,13 @@ select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns=
       </div>
       <p class="micro-proof"><b>6h → 2,5h</b>/tuần việc content · <b>2h → 1h</b>/ngày xử lý hóa đơn — số học viên tự báo, có ghi hình.</p>
       <button class="btn big" type="submit" id="submitbtn">Đăng ký giữ chỗ</button>
+      <p class="note-s" id="fallback-lienhe" style="display:none">
+        Nếu nút trên không gửi được, nhắn thẳng cho chúng tôi qua
+        <a href="https://zalo.me/g/nbm6ltkf7qfex2bsirgn" target="_blank" rel="noopener">nhóm Zalo</a>
+        hoặc email <a href="mailto:hello@10x-lifeos.com">hello@10x-lifeos.com</a>.
+      </p>
       <p class="err" id="formerr" role="alert" aria-live="assertive">Vui lòng điền họ tên và số điện thoại hợp lệ.</p>
-      <p class="note-s">Thông tin chỉ dùng để xác nhận chỗ — không spam.</p>
+      <p class="note-s">Thông tin chỉ dùng để xác nhận chỗ — không spam. Xem <a href="/chinh-sach-bao-mat/">Chính sách bảo mật</a>.</p>
     </form>
   </div>
 </section>
@@ -730,7 +752,7 @@ select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns=
       <h2>🎉 <span class="gold-grad">Đã nhận đăng ký của bạn!</span></h2>
       <p class="lead" style="margin:8px auto 0">Còn 2 bước nữa để chốt ghế:</p>
       <div class="ty-steps">
-        <div class="ty-step">
+        <div class="ty-step" id="buoc-coc">
           <div class="n">1</div>
           <div>
             <b>Đặt cọc 500.000đ để chốt ghế</b>
@@ -786,18 +808,42 @@ select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns=
 /* ===== cấu hình ===== */
 var APPS_SCRIPT_URL = ""; /* dán URL webapp Google Apps Script vào đây khi Coach deploy xong */
 
-/* ===== countdown tới khai giảng (cập nhật mỗi phút — không hao pin) ===== */
+/* ===== MỘT NGUỒN SỰ THẬT VỀ NGÀY =====
+   Lịch đọc THẲNG từ khối JSON-LD Event ở đầu trang. Đổi ngày ở đó là countdown,
+   trạng thái trang và cả những gì Google đọc cùng đổi theo — không thể lệch nhau.
+   MỞ ĐỢT MỚI: chỉ cần sửa startDate/endDate trong JSON-LD, không đụng gì ở đây. */
+var LICH = (function(){
+  try{
+    var el = document.querySelector('script[type="application/ld+json"]');
+    var d = JSON.parse(el.textContent);
+    return { batDau: new Date(d.startDate), ketThuc: new Date(d.endDate) };
+  }catch(e){ return null; }
+})();
+
+/* Quá ngày kết thúc → trang tự chuyển sang chế độ "đã diễn ra":
+   ẩn QR cọc, ẩn dòng đặt cọc, ẩn sticky CTA, hiện băng thông báo.
+   Đây là cái chốt an toàn: kể cả khi quên cập nhật ngày, trang KHÔNG BAO GIỜ
+   nhận tiền cọc cho một khoá đã học xong. */
+var DA_DIEN_RA = !!(LICH && Date.now() > LICH.ketThuc.getTime());
+if (DA_DIEN_RA) document.body.setAttribute('data-trang-thai','da-dien-ra');
+
 (function(){
   var el = document.getElementById('countdown');
-  if(!el) return;
-  var T = new Date('2026-08-01T08:30:00+07:00').getTime();
+  if(!el || !LICH) return;
+  function dm(d){ return ('0'+d.getDate()).slice(-2)+'/'+('0'+(d.getMonth()+1)).slice(-2)+'/'+d.getFullYear(); }
   function tick(){
-    var d = T - Date.now();
+    if (DA_DIEN_RA){ el.textContent = 'Đợt gần nhất đã diễn ra ' + dm(LICH.batDau) + ' — để lại thông tin để nhận lịch đợt sau'; return; }
+    var d = LICH.batDau.getTime() - Date.now();
     if(d <= 0){ el.textContent = 'Đang khai giảng'; return; }
     var ngay = Math.floor(d/86400000), gio = Math.floor(d%86400000/3600000), phut = Math.floor(d%3600000/60000);
     el.textContent = '⏳ Khai giảng sau ' + (ngay>0 ? ngay+' ngày ' : '') + gio + ' giờ ' + phut + ' phút';
   }
-  tick(); setInterval(tick, 60000);
+  tick();
+  if (!DA_DIEN_RA) setInterval(tick, 60000);
+  else {
+    var sub = document.getElementById('reg-sub'); if (sub) sub.style.display = 'none';
+    var btn = document.getElementById('submitbtn'); if (btn) btn.textContent = 'Nhận lịch đợt sau';
+  }
 })();
 
 /* ===== sticky CTA: chỉ hiện sau khi cuộn qua hero ===== */
@@ -856,21 +902,47 @@ var APPS_SCRIPT_URL = ""; /* dán URL webapp Google Apps Script vào đây khi C
       var info = ('BOOTCAMP ' + ten + ' ' + sdt).replace(/\s+/g,' ').trim();
       document.getElementById('cknote').textContent = info;
       var qr = document.getElementById('vietqr');
-      qr.src = 'https://img.vietqr.io/image/VPB-131577362-compact2.png?amount=500000&addInfo=' +
-               encodeURIComponent(info) + '&accountName=' + encodeURIComponent('NGUYEN THI HANG');
+      /* Đợt đã diễn ra thì không dựng QR cọc nữa — không nhận tiền cho khoá đã xong. */
+      if (!DA_DIEN_RA && qr) {
+        qr.src = 'https://img.vietqr.io/image/VPB-131577362-compact2.png?amount=500000&addInfo=' +
+                 encodeURIComponent(info) + '&accountName=' + encodeURIComponent('NGUYEN THI HANG');
+      }
       document.getElementById('thankyou').style.display = 'block';
       document.getElementById('dang-ky').style.display = 'none';
       var sc = document.getElementById('stickycta'); if(sc) sc.style.display='none';
       document.getElementById('thankyou').scrollIntoView({behavior:'smooth'});
     }
+
+    /* Không gửi được (chưa nối endpoint, hoặc mạng lỗi): nói thật + đưa lối liên hệ khác.
+       Thà mất một lượt đăng ký còn hơn để người ta tưởng đã đăng ký xong rồi ngồi đợi. */
+    function khongGuiDuoc(){
+      btn.disabled = false;
+      btn.textContent = DA_DIEN_RA ? 'Nhận lịch đợt sau' : 'Đăng ký giữ chỗ';
+      err.textContent = 'Chưa gửi được đăng ký của bạn. Vui lòng nhắn qua Zalo hoặc email bên dưới — chúng tôi trả lời trong 24h.';
+      err.style.display = 'block';
+      var fb = document.getElementById('fallback-lienhe');
+      if (fb) { fb.style.display = 'block'; fb.scrollIntoView({behavior:'smooth', block:'center'}); }
+    }
+    /* LUẬT: chỉ báo thành công KHI ĐÃ GỬI THÀNH CÔNG THẬT.
+       Trước đây nhánh else gọi thẳng done() nên người dùng thấy "Đã nhận đăng ký"
+       trong khi dữ liệu không đi đâu cả — mất 100% lead mà không ai biết. */
     if (APPS_SCRIPT_URL){
-      fetch(APPS_SCRIPT_URL, {method:'POST', mode:'no-cors',
+      fetch(APPS_SCRIPT_URL, {
+        method:'POST',
         headers:{'Content-Type':'text/plain;charset=utf-8'},
         body: JSON.stringify(payload)
-      }).catch(function(){}).finally(done);
-    } else { done(); }
+      })
+      .then(function(r){
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        done();
+      })
+      .catch(function(){ khongGuiDuoc(); });
+    } else {
+      khongGuiDuoc();
+    }
   });
 })();
 </script>
+<script src="/ga.js"></script>
 </body>
 </html>

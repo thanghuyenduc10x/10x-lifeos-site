@@ -1,5 +1,6 @@
 User-agent: *
 Disallow: /_mau/
+Disallow: /_audit/
 Allow: /
 
 Sitemap: https://10x-lifeos.com/sitemap.xml

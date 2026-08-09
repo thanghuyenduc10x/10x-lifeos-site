@@ -150,7 +150,7 @@
       </div>\
     </div>\
     <div class="x10f__bar">\
-      <div>© ' + YEAR + ' · <b style="color:#D97538">10X Life OS</b> · Coach Thắng Huyền Đức · <a href="mailto:hello@10x-lifeos.com">hello@10x-lifeos.com</a></div>\
+      <div>© ' + YEAR + ' · <b style="color:#D97538">10X Life OS</b> · Coach Thắng Huyền Đức · <a href="mailto:hello@10x-lifeos.com">hello@10x-lifeos.com</a> · <a href="/chinh-sach-bao-mat/">' + L('Chính sách bảo mật', 'Privacy') + '</a></div>\
       <div class="right">' + L('Thiết kế &amp; phát triển bởi Thắng Huyền Đức', 'Designed &amp; built by Thắng Huyền Đức') + '</div>\
     </div>\
   </div></footer>';
