@@ -139,7 +139,7 @@ img{max-width:100%;height:auto;display:block}
 
 <!-- HERO -->
 <header class="hero"><div class="wrap">
-  <div class="eyebrow rv">App từ 10X Life OS · macOS + Android · Tiếng Việt trước tiên</div>
+  <div class="eyebrow rv">App từ 10X Life OS · macOS + Windows + Android · Tiếng Việt trước tiên</div>
   <h1 class="rv">Nói, để <em>chữ tự viết</em>.</h1>
   <p class="sub rv">Giữ phím tắt trên Mac hoặc chạm mic trên Android, nói tự nhiên — kể cả ừm, à. AI bỏ từ thừa, thêm dấu câu đúng cảm xúc và viết thành văn bản sạch theo <b>4 chế độ: Chat · Email · Origin · Note</b>, dán thẳng vào app bạn đang dùng. Cần thì dịch luôn sang <b>Anh · Trung · Pháp</b>.</p>
   <div class="fbar rv" role="img" aria-label="Thanh nổi 10xTyping đang ghi âm: sóng tím, đồng hồ 0:07, nút Dừng đỏ">
@@ -153,9 +153,10 @@ img{max-width:100%;height:auto;display:block}
   <div class="btn-row rv">
     <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-macOS-AppleSilicon.dmg">💻 Tải cho macOS</a>
     <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-Android.apk">🤖 Tải cho Android</a>
+    <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-Windows-x64-setup.exe">🪟 Tải cho Windows</a>
     <a class="cta-btn alt" href="#caidat-mac">Hướng dẫn cài đặt</a>
   </div>
-  <div class="chip rv">Windows sắp ra mắt · Không tài khoản · Dữ liệu chỉ nằm trên máy bạn · Miễn phí</div>
+  <div class="chip rv">macOS · Windows · Android · Không tài khoản · Dữ liệu chỉ nằm trên máy bạn · Miễn phí</div>
 </div></header>
 
 <!-- FEATURES -->
@@ -184,20 +185,20 @@ img{max-width:100%;height:auto;display:block}
     <div class="plat">
       <div class="os">💻</div>
       <h3>macOS</h3>
-      <div class="meta">Apple Silicon (M1 trở lên) · macOS 13+ · DMG ~4MB · v0.4.3</div>
+      <div class="meta">Apple Silicon (M1 trở lên) · macOS 13+ · DMG ~4MB · v0.5.0</div>
       <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-macOS-AppleSilicon.dmg">↓ Tải DMG</a>
     </div>
     <div class="plat">
       <div class="os">🤖</div>
       <h3>Android</h3>
-      <div class="meta">Android 8.0+ · APK ~12MB · v0.6.5</div>
+      <div class="meta">Android 8.0+ · APK ~12MB · v0.7.1</div>
       <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-Android.apk">↓ Tải APK</a>
     </div>
-    <div class="plat soon">
+    <div class="plat">
       <div class="os">🪟</div>
       <h3>Windows</h3>
-      <div class="meta">Đang phát triển trên cùng lõi Rust</div>
-      <span class="soon-tag">Sắp ra mắt</span>
+      <div class="meta">Windows 10/11 · 64-bit · Setup ~3MB · v0.5.0<br>Bản đầu chưa ký code — SmartScreen hỏi thì bấm <b>More info → Run anyway</b></div>
+      <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-Windows-x64-setup.exe">↓ Tải bản cài</a>
     </div>
   </div>
   <p class="sum-link rv">Kiểm tra file tải: <a href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/SHA256SUMS.txt">SHA256SUMS.txt</a> · <a href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases">Tất cả phiên bản</a></p>
@@ -243,7 +244,7 @@ img{max-width:100%;height:auto;display:block}
     <details><summary>Dữ liệu của tôi đi đâu?</summary><p>Không có tài khoản, không có server của 10xTyping. Lịch sử, ghi âm, clipboard đều nằm trên máy bạn. Riêng khi chọn engine AI, đoạn âm thanh được gửi qua OpenRouter → Google Vertex để chuyển thành chữ rồi trả về.</p></details>
     <details><summary>Hai bộ nhận dạng khác nhau thế nào?</summary><p><b>AI</b>: chính xác nhất với tiếng Việt, tự bỏ ừm/à, viết lại theo 4 chế độ, dịch được — mất ~3 giây. <b>Trên máy</b>: chữ hiện ngay trong lúc nói, 0 đồng, không cần mạng (khi máy đã có gói tiếng Việt offline) — nhưng chép nguyên văn, không viết lại, không dịch.</p></details>
     <details><summary>Vì sao macOS báo app "bị hỏng"?</summary><p>Vì app chưa mua chứng chỉ công chứng của Apple (giai đoạn thử nghiệm). Chạy đúng 1 lệnh <code style="color:#C9F0D2">xattr -cr /Applications/10xTyping.app</code> trong Terminal là mở bình thường — xem mục "Cài trên macOS" ở trên.</p></details>
-    <details><summary>Có bản Windows / Mac Intel không?</summary><p>Bản Windows đang được phát triển trên cùng lõi Rust — sẽ cập nhật ngay tại trang này. Mac Intel chưa hỗ trợ (bản hiện tại build cho Apple Silicon M1 trở lên).</p></details>
+    <details><summary>Có bản Windows / Mac Intel không?</summary><p>Bản Windows ĐÃ CÓ (Windows 10/11 64-bit) — tải ngay ở trên. Bản đầu chưa ký code nên SmartScreen sẽ hỏi: bấm More info → Run anyway. Mac Intel chưa hỗ trợ (bản hiện tại build cho Apple Silicon M1 trở lên).</p></details>
     <details><summary>Link tải từ GitHub có an toàn không?</summary><p>Có — file phát hành tại kho chính thức <b>10xtyping-releases</b> của tác giả trên GitHub (nền tảng của Microsoft), kèm mã kiểm tra SHA256 cho từng file.</p></details>
   </div>
 </div></section>
