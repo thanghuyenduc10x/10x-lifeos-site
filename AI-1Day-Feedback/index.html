@@ -1,0 +1,273 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Phản hồi buổi học AI 1 Day · 10X Life OS</title>
+<meta name="description" content="Ba phút, ẩn danh — giúp buổi học sau tốt hơn. Có nút nói thay vì gõ cho ai ngại đánh máy." />
+<link rel="canonical" href="https://10x-lifeos.com/AI-1Day-Feedback/" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<meta property="og:title" content="Phản hồi buổi học AI 1 Day · 10X Life OS" />
+<meta property="og:description" content="Ba phút, ẩn danh — giúp buổi học sau tốt hơn." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://10x-lifeos.com/AI-1Day-Feedback/" />
+<meta property="og:image" content="https://10x-lifeos.com/AI-1Day-Feedback/assets/og-cover.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://10x-lifeos.com/AI-1Day-Feedback/assets/og-cover.jpg" />
+<meta name="theme-color" content="#0A0A24" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,600&family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap&subset=vietnamese" rel="stylesheet" />
+<style>
+:root{
+  --n-950:#070718;--n-900:#0A0A24;--n-800:#12123A;--n-700:#1A1A50;
+  --n-300:#8888C0;--n-200:#B0B0D8;--n-100:#DDDDF0;
+  --o-600:#A84F20;--o-500:#C96028;--o-400:#D97538;--o-300:#E89060;
+  --cream:#F5F2EC;
+  --f-head:'Fraunces',Georgia,serif;
+  --f-body:'Be Vietnam Pro',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  --f-label:'Montserrat',ui-sans-serif,-apple-system,sans-serif;
+  --line:rgba(255,255,255,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:radial-gradient(130% 80% at 50% -10%,#16163e,var(--n-900) 46%,var(--n-950) 100%);
+  color:var(--n-200);font-family:var(--f-body);line-height:1.65;font-size:17px;min-height:100vh;
+  padding:clamp(20px,4vw,56px) clamp(18px,4vw,32px) 64px}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--o-300)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--o-500);color:#fff;padding:10px 16px;z-index:99;font-weight:600;border-radius:0 0 10px 0}
+.skip:focus{left:0}
+:focus-visible{outline:2px solid #E89060;outline-offset:3px}
+.wrap{max-width:660px;margin-inline:auto}
+h1,h2,h3{font-family:var(--f-head);color:#fff;font-weight:600;line-height:1.14;letter-spacing:-.015em}
+em{font-style:italic;color:var(--o-400)}
+
+.eyebrow{font-family:var(--f-label);font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--o-300);display:inline-flex;align-items:center;gap:11px;margin-bottom:18px}
+.eyebrow svg{width:22px;height:22px;color:var(--n-100)}
+h1{font-size:clamp(28px,6vw,42px);font-weight:400;margin-bottom:12px;text-wrap:balance}
+h1 em{font-weight:600}
+.sub{color:var(--n-200);font-size:17px;max-width:52ch}
+.tag{display:inline-flex;align-items:center;gap:8px;background:rgba(201,96,40,.1);border:1px solid rgba(201,96,40,.3);
+  border-radius:999px;padding:6px 15px;color:var(--o-300);font-family:var(--f-label);font-size:11.5px;letter-spacing:.05em;margin-top:18px}
+
+.card{background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,28px);margin-top:26px}
+.card.hot{border-color:rgba(201,96,40,.32);background:var(--n-800)}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  background:var(--o-500);color:#fff;font-family:var(--f-label);font-weight:700;font-size:16.5px;
+  padding:18px 26px;border-radius:14px;text-decoration:none;border:none;cursor:pointer;
+  transition:background .18s ease,transform .18s ease}
+.btn:hover{background:var(--o-400);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--n-100);border:1.5px solid rgba(255,255,255,.18);font-size:15.5px;padding:15px 22px}
+.btn.ghost:hover{background:rgba(255,255,255,.05);border-color:rgba(201,96,40,.45)}
+.btn svg{width:20px;height:20px;flex:0 0 auto}
+
+.qs{list-style:none;counter-reset:q}
+.qs li{counter-increment:q;display:flex;gap:14px;padding:11px 0;border-top:1px solid var(--line);font-size:15.5px;color:var(--n-100)}
+.qs li:first-child{border-top:none;padding-top:0}
+.qs li::before{content:counter(q);font-family:var(--f-head);font-style:italic;font-size:17px;color:var(--o-400);flex:0 0 20px}
+
+.sec-h{font-family:var(--f-label);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--o-300);
+  display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.sec-h::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(201,96,40,.3),transparent)}
+
+/* voice */
+.mic-row{display:flex;gap:10px;flex-wrap:wrap}
+.mic-row .btn{flex:1;min-width:180px}
+#micBtn.rec{background:#C15A3E}
+.dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35);display:inline-block;transition:background .2s ease,box-shadow .2s ease}
+#micBtn.rec .dot{background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.22)}
+#txt{width:100%;min-height:130px;margin-top:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);
+  border-radius:12px;color:#fff;font-family:var(--f-body);font-size:16px;padding:14px 16px;resize:vertical;line-height:1.6}
+#txt::placeholder{color:#6E6E9E}
+#txt:focus{border-color:var(--o-500);outline:none}
+.hint{font-size:13px;color:var(--n-300);margin-top:10px}
+.hint b{color:var(--n-100);font-weight:600}
+#status{font-size:13.5px;color:var(--o-300);margin-top:10px;min-height:20px;font-family:var(--f-label)}
+
+/* qr */
+.qr-wrap{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.qr-wrap img{width:132px;border-radius:12px;background:#fff;padding:8px;flex:0 0 auto}
+.qr-wrap .qt{flex:1;min-width:180px}
+.qr-wrap .qt b{color:#fff;font-family:var(--f-head);font-size:17px;display:block;margin-bottom:4px}
+.qr-wrap .qt span{font-size:13.5px;color:var(--n-300)}
+
+.foot{margin-top:38px;padding-top:20px;border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.foot svg{width:26px;height:26px;color:var(--o-400)}
+.foot .ft{font-family:var(--f-head);font-size:15px;color:#fff}.foot .ft b{color:var(--o-400)}
+.foot .fs{margin-left:auto;font-family:var(--f-label);font-size:12px;color:var(--n-300)}
+@media(max-width:520px){.foot .fs{margin-left:0;width:100%}}
+</style>
+
+<a class="skip" href="#main">Bỏ qua, tới nội dung chính</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="compass" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".5"/>
+    <path d="M50 12 L57 50 L50 88 L43 50 Z" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".75"/>
+    <path d="M50 12 L57 50 L43 50 Z" style="fill:var(--o-500)"/>
+    <circle cx="50" cy="50" r="3.4" fill="currentColor"/>
+  </symbol>
+  <symbol id="mic" viewBox="0 0 24 24">
+    <path d="M12 15a3.5 3.5 0 0 0 3.5-3.5v-6a3.5 3.5 0 1 0-7 0v6A3.5 3.5 0 0 0 12 15Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M5 11.5a7 7 0 0 0 14 0M12 18.5V22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="copy" viewBox="0 0 24 24">
+    <rect x="9" y="9" width="11" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <path d="M15 6.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="arrow" viewBox="0 0 24 24">
+    <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<main id="main" class="wrap">
+
+  <div class="eyebrow"><svg><use href="#compass"/></svg> 10X Life OS · AI 1 Day</div>
+  <h1>Cảm ơn bạn đã đi trọn <em>một ngày</em>.</h1>
+  <p class="sub">Ba phút cuối cùng — nói thật giúp mình. Buổi sau tốt hơn là nhờ những dòng này.</p>
+  <div class="tag">◆ Hoàn toàn ẩn danh — không hỏi tên, không hỏi số điện thoại</div>
+
+  <!-- CTA chính -->
+  <div class="card hot">
+    <a class="btn" id="formBtn" href="#" target="_blank" rel="noopener">
+      Điền phản hồi ngay <svg><use href="#arrow"/></svg>
+    </a>
+    <p class="hint" style="text-align:center;margin-top:14px">4 câu · khoảng 3 phút · không cần đăng nhập</p>
+  </div>
+
+  <!-- 4 câu -->
+  <div class="card">
+    <div class="sec-h">Bốn câu bạn sẽ trả lời</div>
+    <ol class="qs">
+      <li>Điều giá trị nhất bạn mang về hôm nay là gì?</li>
+      <li>Bạn sẽ áp dụng điều gì trong 24 giờ tới?</li>
+      <li>Cho buổi học hôm nay mấy điểm trên 10?</li>
+      <li>Điều gì mình có thể làm tốt hơn cho buổi sau?</li>
+    </ol>
+  </div>
+
+  <!-- Voice to text -->
+  <div class="card">
+    <div class="sec-h">Ngại gõ? Nói thẳng vào đây</div>
+    <p class="hint" style="margin-top:0;margin-bottom:14px">Bấm <b>Bắt đầu nói</b>, nói tự nhiên bằng tiếng Việt. Nói xong bấm <b>Chép lại</b> rồi dán vào form. Nói nhanh gấp ba lần gõ.</p>
+    <div class="mic-row">
+      <button class="btn" id="micBtn" type="button">
+        <span class="dot"></span> <svg><use href="#mic"/></svg> Bắt đầu nói
+      </button>
+      <button class="btn ghost" id="copyBtn" type="button">
+        <svg><use href="#copy"/></svg> Chép lại
+      </button>
+    </div>
+    <textarea id="txt" placeholder="Chữ của bạn sẽ hiện ở đây khi bạn nói…" aria-label="Nội dung bạn nói được chuyển thành chữ"></textarea>
+    <p id="status" role="status" aria-live="polite"></p>
+    <p class="hint">Chạy thẳng trên trình duyệt — không gửi giọng nói của bạn đi đâu cả. Dùng tốt nhất trên Chrome và Safari.</p>
+  </div>
+
+  <!-- QR -->
+  <div class="card">
+    <div class="sec-h">Chia sẻ cho người bên cạnh</div>
+    <div class="qr-wrap">
+      <img src="assets/qr-feedback.png" alt="Mã QR mở trang phản hồi 10x-lifeos.com/AI-1Day-Feedback" width="132" height="132" />
+      <div class="qt">
+        <b>10x-lifeos.com/AI-1Day-Feedback</b>
+        <span>Quét mã hoặc gõ thẳng địa chỉ này. Cùng một trang, ai cũng vào được.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <svg><use href="#compass"/></svg>
+    <span class="ft">10X <b>Life OS</b> · Trở về 0. Khai phóng cùng AI.</span>
+    <span class="fs">Phản hồi buổi AI 1 Day</span>
+  </div>
+
+</main>
+
+<script>
+/* ==== Link Google Form — sửa đúng 1 dòng này khi có form ==== */
+var FORM_URL = "";
+
+(function(){
+  var b = document.getElementById('formBtn');
+  if (FORM_URL) { b.href = FORM_URL; return; }
+  b.href = '#';
+  b.removeAttribute('target');
+  b.addEventListener('click', function(e){
+    e.preventDefault();
+    document.getElementById('status').textContent = 'Link form đang được cập nhật — bạn cứ nói vào ô bên dưới trước nhé.';
+    document.getElementById('txt').focus();
+  });
+})();
+
+/* ==== Nói thành chữ — Web Speech API, chạy ngay trên máy, không cần khóa API ==== */
+(function(){
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var btn = document.getElementById('micBtn');
+  var copyBtn = document.getElementById('copyBtn');
+  var txt = document.getElementById('txt');
+  var status = document.getElementById('status');
+
+  copyBtn.addEventListener('click', function(){
+    if (!txt.value.trim()) { status.textContent = 'Chưa có chữ nào để chép.'; return; }
+    txt.select();
+    navigator.clipboard.writeText(txt.value).then(function(){
+      status.textContent = 'Đã chép. Giờ dán vào form là xong.';
+    }).catch(function(){
+      document.execCommand('copy');
+      status.textContent = 'Đã chép. Giờ dán vào form là xong.';
+    });
+  });
+
+  if (!SR) {
+    btn.disabled = true;
+    btn.style.opacity = '.5';
+    btn.style.cursor = 'not-allowed';
+    status.textContent = 'Trình duyệt này chưa hỗ trợ nói thành chữ — bạn mở bằng Chrome hoặc Safari, hoặc gõ tay vào ô trên.';
+    return;
+  }
+
+  var rec = new SR();
+  rec.lang = 'vi-VN';
+  rec.continuous = true;
+  rec.interimResults = true;
+  var running = false, base = '';
+
+  rec.onresult = function(e){
+    var interim = '', fin = '';
+    for (var i = e.resultIndex; i < e.results.length; i++) {
+      var t = e.results[i][0].transcript;
+      if (e.results[i].isFinal) fin += t; else interim += t;
+    }
+    if (fin) base += fin;
+    txt.value = (base + interim).trim();
+  };
+  rec.onerror = function(e){
+    if (e.error === 'not-allowed') status.textContent = 'Trình duyệt chưa được cấp quyền micro. Bấm vào biểu tượng khoá trên thanh địa chỉ để bật.';
+    else if (e.error === 'no-speech') status.textContent = 'Chưa nghe thấy gì. Bấm nói lại và nói to hơn một chút.';
+    else status.textContent = 'Có lỗi khi nghe: ' + e.error + '. Bạn thử lại hoặc gõ tay nhé.';
+    stop();
+  };
+  rec.onend = function(){ if (running) { try { rec.start(); } catch(err){} } };
+
+  function start(){
+    base = txt.value ? txt.value + ' ' : '';
+    try { rec.start(); } catch(err){}
+    running = true;
+    btn.classList.add('rec');
+    btn.innerHTML = '<span class="dot"></span> <svg><use href="#mic"/></svg> Đang nghe — bấm để dừng';
+    status.textContent = 'Đang nghe… cứ nói tự nhiên.';
+  }
+  function stop(){
+    running = false;
+    try { rec.stop(); } catch(err){}
+    btn.classList.remove('rec');
+    btn.innerHTML = '<span class="dot"></span> <svg><use href="#mic"/></svg> Bắt đầu nói';
+  }
+  btn.addEventListener('click', function(){ running ? (stop(), status.textContent = 'Đã dừng. Bấm Chép lại để copy.') : start(); });
+})();
+</script>
+
+<div id="site-footer"></div>
+<script src="/icons.js"></script>
+<script src="/footer.js"></script>
