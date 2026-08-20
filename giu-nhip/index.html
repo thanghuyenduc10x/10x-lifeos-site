@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>21 Ngày Giữ Nhịp — Mentor Fellowship | 10X Life OS</title>
+<meta name="theme-color" content="#070718" />
+<meta name="description" content="Bạn đồng hành 21 ngày sau 2Day Mentor Foundation. Mỗi ngày một cuộc trò chuyện thật: Thấy mình → Thấy người → Khai mở. Kèm sổ tay cốt lõi và bộ prompt AI Partner Coach." />
+<link rel="canonical" href="https://10x-lifeos.com/giu-nhip/" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<meta property="og:title" content="21 Ngày Giữ Nhịp — Mentor Fellowship" />
+<meta property="og:description" content="21 ngày. 21 cuộc thực hành. Một câu chuyện thay đổi. Không cần hoàn hảo — chỉ cần không bỏ nhịp." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://10x-lifeos.com/giu-nhip/" />
+<meta property="og:image" content="https://10x-lifeos.com/giu-nhip/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="21 Ngày Giữ Nhịp — Mentor Fellowship, Thấy mình · Thấy người · Khai mở" />
+<meta property="og:locale" content="vi_VN" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://10x-lifeos.com/giu-nhip/assets/og-cover.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap&subset=vietnamese" rel="stylesheet" />
+<style>
+:root{
+  --navy:#070718; --navy-2:#0A0A24; --navy-3:#12123A;
+  --line:rgba(201,183,156,.20); --line-hi:rgba(201,183,156,.42);
+  --cam:#C96028; --cam-hi:#D97538; --cam-glow:#E89060;
+  --sand:#C9B79C; --sand-dim:#8E8474;
+  --text:#F4F1EA; --muted:#BDB6A8; --dim:#8A8478;
+  --ok:#7FB48A;
+  --maxw:900px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+/* overflow-x phải nằm ở html — đặt trên body sẽ biến body thành vùng cuộn
+   riêng, làm hỏng scrollIntoView và nhảy anchor #ngay-N. */
+html{scroll-behavior:smooth;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+body{
+  background:var(--navy); color:var(--text);
+  font-family:'Be Vietnam Pro',system-ui,-apple-system,sans-serif;
+  font-size:17px; line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;line-height:1.15;letter-spacing:-.01em}
+.lbl{font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:700}
+a{color:var(--cam-glow);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--sand)}
+:focus-visible{outline:2px solid var(--cam-glow);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--cam);color:#fff;padding:10px 18px;z-index:1000;font-weight:700;border-radius:0 0 10px 0}
+.skip:focus{left:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:70px 0 54px;border-bottom:1px solid var(--line);overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 70% at 50% -10%, rgba(201,96,40,.20), transparent 62%);
+}
+.hero .wrap{position:relative}
+.eyebrow{color:var(--sand);margin-bottom:20px}
+.hero h1{font-size:clamp(2.7rem,9vw,4.7rem);font-weight:900;margin-bottom:8px}
+.hero h1 .g{color:var(--cam-hi)}
+.tagline{font-size:clamp(1rem,2.6vw,1.2rem);color:var(--muted);max-width:34ch;margin-bottom:34px}
+
+/* day counter */
+.counter{
+  border:1px solid var(--line-hi);border-radius:16px;padding:22px 24px;
+  background:linear-gradient(160deg,rgba(18,18,58,.9),rgba(10,10,36,.6));
+  display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
+}
+.counter .big{font-family:'Fraunces',serif;font-size:clamp(2.6rem,8vw,3.6rem);font-weight:900;color:var(--cam-hi);line-height:1}
+.counter .big small{font-size:.4em;color:var(--sand-dim);font-weight:600}
+.counter .meta{color:var(--muted);font-size:.95rem}
+.counter .meta strong{color:var(--sand);font-weight:600}
+.bar{height:6px;border-radius:99px;background:rgba(201,183,156,.14);overflow:hidden;margin-top:14px;width:100%}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--cam),var(--cam-glow));border-radius:99px;width:0}
+.motion .bar i{transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+
+.pledge{margin-top:30px;font-family:'Fraunces',serif;font-size:clamp(1.15rem,3.4vw,1.5rem);font-weight:700;color:var(--text)}
+.pledge span{color:var(--cam-hi)}
+
+/* ---------- SECTIONS ---------- */
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+section > .wrap > .lbl{color:var(--cam-hi);margin-bottom:12px}
+h2{font-size:clamp(1.7rem,5vw,2.5rem);font-weight:700;margin-bottom:14px}
+.lead{color:var(--muted);max-width:60ch;margin-bottom:34px}
+
+/* ---------- CHẶNG / DAYS ---------- */
+.stage{margin-bottom:34px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(10,10,36,.5)}
+.stage > summary{
+  list-style:none;cursor:pointer;padding:22px 24px;display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;
+}
+.stage > summary::-webkit-details-marker{display:none}
+.stage > summary:hover{background:rgba(201,96,40,.07)}
+.stage .no{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--cam-hi)}
+.stage .nm{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;flex:1;min-width:180px}
+.stage .rg{color:var(--sand-dim);font-size:.85rem;font-family:'Montserrat',sans-serif;letter-spacing:.06em}
+.stage .sub{width:100%;color:var(--muted);font-size:.95rem;margin-top:-4px}
+.stage[open] > summary{border-bottom:1px solid var(--line);background:rgba(201,96,40,.06)}
+.days{padding:8px 0}
+
+.day{display:grid;grid-template-columns:64px 1fr;gap:4px 18px;padding:20px 24px;border-bottom:1px solid rgba(201,183,156,.09)}
+.day:last-child{border-bottom:0}
+.day:target,.day.today{background:rgba(201,96,40,.12)}
+.day:target{box-shadow:inset 3px 0 0 var(--cam)}
+.day .n{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--sand);grid-row:span 2;padding-top:2px}
+.day .d{font-family:'Montserrat',sans-serif;font-size:.68rem;letter-spacing:.1em;color:var(--sand-dim);font-weight:700;display:block;margin-top:2px}
+.day h3{font-size:1.15rem;font-weight:700;margin-bottom:8px}
+.day .q{color:var(--sand);font-style:italic;font-size:.95rem;margin-bottom:10px;border-left:2px solid var(--cam);padding-left:12px}
+.day .do{color:var(--text);margin-bottom:8px}
+.day .do b{color:var(--cam-glow);font-weight:600}
+.day .rf{color:var(--dim);font-size:.9rem}
+.day .rf b{color:var(--muted);font-weight:600}
+.day.ck{background:rgba(201,96,40,.09)}
+.day.ck .n{color:var(--cam-hi)}
+
+/* ---------- LOOP ---------- */
+.loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px;counter-reset:s}
+.loop li{list-style:none;border:1px solid var(--line);border-radius:14px;padding:18px 16px;background:rgba(18,18,58,.42)}
+.loop li::before{counter-increment:s;content:"0" counter(s);font-family:'Montserrat',sans-serif;font-size:.7rem;letter-spacing:.12em;color:var(--cam-hi);font-weight:700;display:block;margin-bottom:8px}
+.loop b{font-family:'Fraunces',serif;font-size:1.05rem;display:block;margin-bottom:5px}
+.loop span{color:var(--muted);font-size:.9rem}
+
+/* ---------- CARDS with copy ---------- */
+.card{border:1px solid var(--line);border-radius:16px;background:rgba(10,10,36,.6);margin-bottom:18px;overflow:hidden}
+.card .hd{padding:18px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.card .hd .t{flex:1;min-width:160px}
+.card .hd b{font-family:'Fraunces',serif;font-size:1.15rem;display:block}
+.card .hd em{color:var(--sand-dim);font-size:.85rem;font-style:normal}
+.card .bd{padding:20px 22px}
+.card .bd p{color:var(--muted);margin-bottom:10px}
+.card .bd p:last-child{margin-bottom:0}
+pre{
+  background:#05050F;border:1px solid var(--line);border-radius:12px;padding:16px;
+  overflow-x:auto;font-size:.83rem;line-height:1.6;color:var(--muted);
+  font-family:ui-monospace,'SF Mono',Menlo,monospace;white-space:pre-wrap;max-height:340px;
+}
+.btn{
+  background:var(--cam);color:#fff;border:0;border-radius:99px;padding:9px 20px;
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.1em;
+  text-transform:uppercase;cursor:pointer;white-space:nowrap;
+}
+.btn:hover{background:var(--cam-hi)}
+.btn.done{background:var(--ok);color:#05150A}
+
+/* ---------- REFERENCE ---------- */
+.ref{border:1px solid var(--line);border-radius:16px;margin-bottom:14px;background:rgba(10,10,36,.45)}
+.ref > summary{list-style:none;cursor:pointer;padding:16px 22px;font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.ref > summary::-webkit-details-marker{display:none}
+.ref > summary::after{content:"+";color:var(--cam-hi);font-size:1.4rem;line-height:1}
+.ref[open] > summary::after{content:"–"}
+.ref > summary:hover{color:var(--cam-glow)}
+.ref .bd{padding:4px 22px 22px;border-top:1px solid var(--line)}
+.ref .bd p{color:var(--muted);margin:12px 0}
+.ref ol,.ref ul{margin:12px 0 12px 20px;color:var(--muted)}
+.ref li{margin-bottom:7px}
+.ref li b,.ref p b{color:var(--text);font-weight:600}
+.tblw{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:440px;font-size:.92rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--sand);font-family:'Montserrat',sans-serif;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase}
+td{color:var(--muted)}
+td b{color:var(--text)}
+blockquote{border-left:2px solid var(--cam);padding:2px 0 2px 16px;margin:14px 0;color:var(--sand);font-style:italic}
+
+/* ---------- CHECKIN ---------- */
+.cks{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-bottom:26px}
+.ck-c{border:1px solid var(--line-hi);border-radius:16px;padding:22px;background:linear-gradient(165deg,rgba(201,96,40,.11),rgba(10,10,36,.5))}
+.ck-c .lbl{color:var(--cam-hi);display:block;margin-bottom:8px}
+.ck-c b{font-family:'Fraunces',serif;font-size:1.5rem;display:block;margin-bottom:4px}
+.ck-c .dt{color:var(--sand);font-size:.9rem;margin-bottom:10px;font-weight:600}
+.ck-c span{color:var(--muted);font-size:.92rem}
+
+/* ---------- FINAL ---------- */
+.final{text-align:center;background:radial-gradient(90% 120% at 50% 0%, rgba(201,96,40,.16), transparent 60%)}
+.final h2{font-size:clamp(2rem,7vw,3.2rem);font-weight:900}
+.final .five{max-width:520px;margin:28px auto 0;text-align:left}
+.final .five li{list-style:none;padding:13px 0;border-bottom:1px solid var(--line);color:var(--muted);display:flex;gap:14px}
+.final .five li b{font-family:'Fraunces',serif;color:var(--cam-hi);flex:none}
+.deliv{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.deliv span{border:1px solid var(--line-hi);border-radius:99px;padding:9px 20px;font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sand)}
+.closer{margin-top:34px;font-family:'Fraunces',serif;font-size:clamp(1.2rem,4vw,1.7rem);font-weight:700}
+.closer span{color:var(--cam-hi)}
+
+/* reveal — chạy 1 lần rồi dừng */
+.rv{opacity:0;transform:translateY(16px)}
+.motion .rv{transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .bar i{transition:none}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  section{padding:48px 0}
+  .day{grid-template-columns:44px 1fr;gap:4px 12px;padding:18px 16px}
+  .day .n{font-size:1.2rem}
+  .stage > summary{padding:18px 16px}
+  .card .hd,.card .bd,.ref > summary,.ref .bd{padding-left:16px;padding-right:16px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua tới nội dung chính</a>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow lbl">Mentor Fellowship · K1 HCM · sau 2Day Mentor Foundation</p>
+    <h1>21 Ngày<br /><span class="g">Giữ Nhịp</span></h1>
+    <p class="tagline">Mỗi ngày một cuộc trò chuyện thật. Không học thêm. Không bài tập giả lập.</p>
+
+    <div class="counter">
+      <div>
+        <div class="big"><span id="dayNum">Ngày —</span><small id="daySuffix"></small></div>
+        <div class="meta" id="dayMeta">Đang tính…</div>
+      </div>
+      <div class="meta" style="text-align:right">
+        <strong id="stageName">—</strong><br />
+        <span id="dayLeft"></span>
+      </div>
+      <div class="bar"><i id="progBar"></i></div>
+    </div>
+
+    <p class="pledge">21 ngày không cần hoàn hảo.<br />Chỉ cần <span>không bỏ nhịp.</span></p>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ 21 NGÀY ============ -->
+<section>
+  <div class="wrap">
+    <p class="lbl">Lộ trình</p>
+    <h2>Ba chặng</h2>
+    <p class="lead">Đây không phải lịch trình. Đây là hành trình chuyển hoá. Bấm vào từng chặng để mở ra bảy ngày bên trong.</p>
+
+    <details class="stage rv" open>
+      <summary>
+        <span class="no">01</span>
+        <span class="nm">Thấy mình</span>
+        <span class="rg">Ngày 1–7 · 16–22/08</span>
+        <span class="sub">Trước khi thấy người, hãy thấy mình. Cả tuần này chỉ tập trung vào giai đoạn <em>trước</em> cuộc trò chuyện.</span>
+      </summary>
+      <div class="days">
+
+        <article class="day" id="ngay-1">
+          <div class="n">1<span class="d">16/08</span></div>
+          <div>
+            <h3>Gọi tên con ma</h3>
+            <p class="q">“Đừng có ra ngoài kia, con ma nó bắt đấy. Nhưng có bao giờ nghĩ con ma nó hình hài thế nào? Nó là một cái bóng vô thức.”</p>
+            <p class="do">Viết ra <b>một</b> cuộc trò chuyện mình đang né — đủ 7 vế: với ai · về điều gì · mình muốn nói gì · mình sợ gì · mình đang mang gì · mình đang né thế nào · nếu cứ thế thì hệ quả gì.</p>
+            <p class="rf"><b>Nhìn lại:</b> Vế nào khó viết nhất?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-2">
+          <div class="n">2<span class="d">17/08</span></div>
+          <div>
+            <h3>Chọn người dễ trước</h3>
+            <p class="q">“Để dành cái vấn đề to lắm vào ngày mai. Nhưng con giải quyết vấn đề nhỏ trước đi.”</p>
+            <p class="do">Chọn một người <b>dễ</b> — bạn học, đồng nghiệp thân, người thân không có mâu thuẫn. Nói chuyện 15 phút. Tuần này là tuần tập đứng, chưa phải tuần chạy.</p>
+            <p class="rf"><b>Nhìn lại:</b> Vì sao mình chọn người này?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-3">
+          <div class="n">3<span class="d">18/08</span></div>
+          <div>
+            <h3>Bốn ô, ba mươi giây</h3>
+            <p class="q">“Thực ra câu hỏi không quan trọng bằng trạng thái. Trạng thái nó quan trọng hơn.”</p>
+            <p class="do">Trước cuộc trò chuyện, dừng 30 giây và hỏi đủ bốn câu: <b>Mình đang mang gì vào? · Mình thật sự muốn gì? · Mình có đủ bình tâm không? · Đây có phải bối cảnh an toàn không?</b></p>
+            <p class="rf"><b>Nhìn lại:</b> 30 giây đó có làm cuộc trò chuyện khác đi không?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-4">
+          <div class="n">4<span class="d">19/08</span></div>
+          <div>
+            <h3>Thân · Tâm · Trí</h3>
+            <p class="q">“Biết nhiều nên sinh ra đoán nhiều, mà đoán nhiều thì sinh ra phán xét.”</p>
+            <p class="do">Trước khi gặp ai, tự chấm cả ba: <b>Thân</b> — sắc mặt, hơi thở, tư thế, giọng. <b>Tâm</b> — bình an hay bất an. <b>Trí</b> — mình biết gì, và mình đang <em>đoán</em> gì.</p>
+            <p class="rf"><b>Nhìn lại:</b> Cái nào của mình đang lệch nhất?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-5">
+          <div class="n">5<span class="d">20/08</span></div>
+          <div>
+            <h3>Sự thật và lăng kính</h3>
+            <p class="q">Sự thật: “Anh ấy đã trễ ba lần.” — Lăng kính: “Anh ấy là người vô trách nhiệm.”</p>
+            <p class="do">Nghĩ về một người đang làm mình khó chịu. Kẻ hai cột: cột trái chỉ ghi <b>những gì camera quay lại được</b>, cột phải ghi phần mình gán thêm. Cột phải thường dài hơn rất nhiều.</p>
+            <p class="rf"><b>Nhìn lại:</b> Mình đã sống với cột phải bao lâu rồi?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-6">
+          <div class="n">6<span class="d">21/08</span></div>
+          <div>
+            <h3>Đặt cược</h3>
+            <p class="q">“Cái thứ kỳ vọng sẽ làm cho mình thất vọng. Nhưng cái thứ mà tôi niềm tin sẽ khiến tôi hành động.”</p>
+            <p class="do">Đừng cố ngăn kịch bản xấu chạy trong đầu — <em>“cứ để nó chạy, mình cứ nhìn thấy nó là được.”</em> Viết ra kịch bản xấu mình đang tin. Rồi viết một kịch bản khác. Và <b>đặt cược vào cửa còn lại</b>, dù chỉ 20%.</p>
+            <p class="rf"><b>Nhìn lại:</b> Mình đang đặt cửa nào?</p>
+          </div>
+        </article>
+
+        <article class="day ck" id="ngay-7">
+          <div class="n">7<span class="d">22/08 · T7</span></div>
+          <div>
+            <h3>Check-in chặng 1</h3>
+            <p class="do">Nhóm huynh đệ ngồi lại. 60–90 phút, cà phê trực tiếp là tốt nhất. Format: <b>Check-in → Case review → Practice → Commitment.</b></p>
+            <p class="rf"><b>Bốn câu mang theo:</b> Tuần này mình đã bước vào bao nhiêu cuộc trò chuyện thật? · Mình đã nhìn thấy điều gì về <em>chính mình</em>? · Có lần nào mình dừng được 30 giây trước khi bước vào? · Tuần tới mình sẽ làm khác điều gì?</p>
+            <p class="rf">Ai chưa làm được ngày nào cũng cứ đến. Đến là đã giữ nhịp rồi.</p>
+          </div>
+        </article>
+
+      </div>
+    </details>
+
+    <details class="stage rv">
+      <summary>
+        <span class="no">02</span>
+        <span class="nm">Thấy người</span>
+        <span class="rg">Ngày 8–14 · 23–29/08</span>
+        <span class="sub">Bỏ lăng kính của mình xuống. Bước vào thế giới của người kia.</span>
+      </summary>
+      <div class="days">
+
+        <article class="day" id="ngay-8">
+          <div class="n">8<span class="d">23/08</span></div>
+          <div>
+            <h3>Bắt sóng, không phát sóng</h3>
+            <p class="q">“Hãy tưởng tượng mình là một cái máy đo sóng. Nếu máy đang cạn pin, chạy hết công suất, thì nó không nhạy.”</p>
+            <p class="do">Dành <b>2 phút đầu</b> không nói gì có trọng lượng. Chỉ quan sát — nhịp thở, ánh mắt, tư thế, tốc độ nói, họ đang căng hay đang mở. Quan sát thôi, <b>không kết luận</b>.</p>
+            <p class="rf"><b>Nhìn lại:</b> Mình thấy gì mà bình thường mình bỏ qua?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-9">
+          <div class="n">9<span class="d">24/08</span></div>
+          <div>
+            <h3>Mang oxy vào phòng</h3>
+            <p class="q">“Mình sẽ là người mang oxy vào cuộc trò chuyện đó, mang oxy vào căn phòng.”</p>
+            <p class="do">Bất an của họ <b>sẽ lây sang mình</b>. Khi thấy mình căng: quay về hơi thở, thả lỏng vai, rồi thầm gửi sang họ — <em>“Tôi thấy bạn đang lo.”</em> Áo giáp được cởi bằng năng lượng, không bằng lời.</p>
+            <p class="rf"><b>Nhìn lại:</b> Hôm nay mình mang gì vào phòng?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-10">
+          <div class="n">10<span class="d">25/08</span></div>
+          <div>
+            <h3>Đồng điệu</h3>
+            <p class="q">“Một người đánh mà mình hất thôi, không đỡ được… một lần lạc rồi lạc lại, ngay lập tức đi vào nhàm chán.”</p>
+            <p class="do">Đồng điệu ba tầng: <b>âm thanh · cử chỉ · năng lượng</b>. Họ nói chậm thì mình chậm lại. Họ trầm thì mình đừng hào hứng. Tìm một điểm chạm chung trước khi vào chuyện chính.</p>
+            <p class="rf"><b>Nhìn lại:</b> Lúc nào hai bên vào được cùng một nhịp?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-11">
+          <div class="n">11<span class="d">26/08</span></div>
+          <div>
+            <h3>Trong nghe chỉ có nghe</h3>
+            <p class="q">“Nghe câu đầu sang câu thứ hai thì trong đầu mình bắt đầu chạy một cái kịch bản. Đến câu thứ ba là không nghe nữa.”</p>
+            <p class="do">Một cuộc trò chuyện, <b>5 phút đầu mục tiêu duy nhất là hiểu</b>. Không góp ý. Không kể chuyện mình. Không chuẩn bị câu trả lời. Thấy suy nghĩ chạy thì buông ra, quay lại giọng người kia.</p>
+            <p class="rf"><b>Nhìn lại:</b> Mình rời khỏi việc lắng nghe ở giây thứ bao nhiêu?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-12">
+          <div class="n">12<span class="d">27/08</span></div>
+          <div>
+            <h3>Mirror</h3>
+            <p class="q">“Khi mình nói lại những thứ họ nói mà mình hiểu, mình lại cho họ một cơ hội để tôi được sai.”</p>
+            <p class="do">Tập đúng một câu: <b>“Tôi nghe bạn đang…”</b> Nói lại 2–3 điều cốt lõi, bằng <b>đúng từ họ đã dùng</b>. Họ nói “bực” thì đừng đổi thành “khó chịu” cho hay hơn.</p>
+            <p class="rf"><b>Nhìn lại:</b> Khi nghe mình nói lại, nét mặt họ thay đổi thế nào?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-13">
+          <div class="n">13<span class="d">28/08</span></div>
+          <div>
+            <h3>Confirm</h3>
+            <p class="q">“Nếu mình không nói lại điều đó — có nghĩa là mình cắt luôn cái quyền được sửa sai của họ.”</p>
+            <p class="do">Mirror xong chưa đủ. Phải hỏi: <b>“Tôi hiểu như vậy có đúng với bạn không?”</b> Nếu họ nói <em>chưa đúng</em> — đừng giải thích, đừng bảo vệ cách hiểu của mình. Nghe lại từ đầu. <b>Chưa confirm thì chưa được coi là đã hiểu.</b></p>
+            <p class="rf"><b>Nhìn lại:</b> Mình có bị phòng thủ khi họ nói mình hiểu sai không?</p>
+          </div>
+        </article>
+
+        <article class="day ck" id="ngay-14">
+          <div class="n">14<span class="d">29/08 · T7</span></div>
+          <div>
+            <h3>Check-in chặng 2</h3>
+            <p class="do">Hai phần ba chặng đường. Tuần này nhìn sâu hơn — <b>tìm pattern, không chỉ kể chuyện.</b></p>
+            <p class="rf"><b>Bốn câu mang theo:</b> Có ai đã nói với mình “đúng rồi, đúng cái mình muốn nói” chưa? · Loại cuộc trò chuyện nào mình vẫn đang né — có gì chung giữa chúng? · Khoảnh khắc nào mình bắt được người kia mở ra, và ngay trước đó đã xảy ra chuyện gì? · Điều gì lặp lại ở mình qua cả hai tuần?</p>
+            <p class="rf">Gợi ý: dán toàn bộ ghi chép hai tuần vào vai <b>Archivist</b> bên dưới để nó chỉ ra pattern giúp mình.</p>
+          </div>
+        </article>
+
+      </div>
+    </details>
+
+    <details class="stage rv">
+      <summary>
+        <span class="no">03</span>
+        <span class="nm">Khai mở</span>
+        <span class="rg">Ngày 15–21 · 30/08–05/09</span>
+        <span class="sub">Không đưa câu trả lời. Giúp người kia tự thấy.</span>
+      </summary>
+      <div class="days">
+
+        <article class="day" id="ngay-15">
+          <div class="n">15<span class="d">30/08</span></div>
+          <div>
+            <h3>Cảm · Nghĩ · Thấy</h3>
+            <p class="q">“Tôi <em>nghĩ</em> chạy bộ là tốt — nhưng thực tế là tôi đang không chạy. Tôi <em>thấy</em> là tôi không kỷ luật, chứ không phải tôi <em>nghĩ</em> là tôi không kỷ luật.”</p>
+            <p class="do">Hỏi đủ ba câu, đúng thứ tự: <b>“Bạn cảm thấy thế nào?”</b> (cảm xúc) → <b>“Bạn nghĩ thế nào?”</b> (chủ quan của họ) → <b>“Bạn thấy thế nào?”</b> (nhận thức). Nếu họ trả lời <em>“em cảm thấy đúng”</em> — đó chính là chỗ đang lẫn lộn.</p>
+            <p class="rf"><b>Nhìn lại:</b> Ba câu đó mở ra ba lớp khác nhau chứ?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-16">
+          <div class="n">16<span class="d">31/08</span></div>
+          <div>
+            <h3>Vùng vàng</h3>
+            <p class="q">“Đừng tập trung vào những thứ họ chưa có. Mà hãy tập trung vào thứ mà họ <em>có</em> nhưng <em>chưa thấy</em>. Đây chính là vùng đất tuyệt vời nhất của mình.”</p>
+            <p class="do">Bốn dạng: họ <b>có năng lực</b> chưa nhận ra · <b>có lựa chọn</b> nhưng tưởng mình không có · <b>có một pattern</b> nhưng xem là bình thường · <b>có một khả năng dùng mỗi ngày</b> nhưng chưa từng gọi tên. Tìm cho ra một thứ. Rồi nói ra.</p>
+            <p class="rf"><b>Nhìn lại:</b> Mình có đang quen nhìn vào chỗ người ta thiếu không?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-17">
+          <div class="n">17<span class="d">01/09</span></div>
+          <div>
+            <h3>Giả thuyết, không kết luận</h3>
+            <p class="q">“Hãy cho phép cái tôi của họ được gọt rũa từ từ, chứ không phải chọc thẳng vào.”</p>
+            <p class="do">✕ <em>“Anh thấy em là người hay né tránh.”</em><br />✓ <b>“Từ nãy giờ anh đang thấy một điều lặp lại. Anh nói ra được không?”</b><br />Xin phép trước. Đưa như giả thuyết. Rồi hỏi: <em>“Có đúng với em không?”</em></p>
+            <p class="rf"><b>Nhìn lại:</b> Mình có đang cài sẵn kết luận trong câu hỏi không?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-18">
+          <div class="n">18<span class="d">02/09</span></div>
+          <div>
+            <h3>Nói ra điều thật</h3>
+            <p class="q">Truth + Love + Responsibility. Không xả. Không phán xét. Không ép họ phải thay đổi.</p>
+            <p class="do">Cấu trúc: <b>Tôi quan sát… / Tôi cảm thấy… / Tôi nhận ra… / Tôi trân trọng — hoặc kỳ vọng… / Điều tôi muốn chia sẻ là…</b> Nói <em>“Tôi đang…”</em>, đừng nói <em>“Bạn luôn…”</em> Gửi một thông điệp thật cho một người thật.</p>
+            <p class="rf"><b>Nhìn lại:</b> Điều gì thay đổi trong mình khi mình dám nói mà không cần họ phải đổi?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-19">
+          <div class="n">19<span class="d">03/09</span></div>
+          <div>
+            <h3>Chịu được khoảng lặng</h3>
+            <p class="q">Khoảng lặng là chỗ người ta tự thấy. Mình lấp vào là mình lấy mất.</p>
+            <p class="do">Chọn <b>một</b> câu hỏi, hỏi xong thì im: <em>“Nếu chuyện này lặp lại thêm một năm nữa thì sao?” · “Điều gì đã ngăn bạn không đối diện — bạn sợ điều gì?” · “Cái điểm yếu này đang bảo vệ cho bạn điều gì?” · “Nếu không còn nỗi sợ đó, bạn sẽ chọn gì?”</em></p>
+            <p class="rf"><b>Nhìn lại:</b> Mình chịu được bao nhiêu giây im lặng?</p>
+          </div>
+        </article>
+
+        <article class="day" id="ngay-20">
+          <div class="n">20<span class="d">04/09</span></div>
+          <div>
+            <h3>Để họ tự chọn</h3>
+            <p class="q">“Làm cho người ta thấy — và người ta có thể tự thấy — và sau người ta tự chọn — và cuối cùng người ta sẽ tự trở thành.”</p>
+            <p class="do">Kết thúc bằng lựa chọn của <b>họ</b>, không phải kết luận của mình. Đừng tóm tắt hộ. Đừng dặn dò. Hỏi: <b>“Vậy bạn thấy bước tiếp theo của mình là gì?”</b> Rồi thôi.</p>
+            <p class="rf"><b>Nhìn lại:</b> Mình có kìm được không?</p>
+          </div>
+        </article>
+
+        <article class="day ck" id="ngay-21">
+          <div class="n">21<span class="d">05/09 · T7</span></div>
+          <div>
+            <h3>My Conversation Journey</h3>
+            <p class="do">Không phải kết thúc. Là khoảnh khắc nhìn lại mình đã trở thành ai. Chi tiết ở <a href="#ngay21">phần cuối trang</a>.</p>
+          </div>
+        </article>
+
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ VÒNG LẶP ============ -->
+<section>
+  <div class="wrap">
+    <p class="lbl">Mỗi ngày</p>
+    <h2>Vòng lặp thực hành</h2>
+    <p class="lead">Không học thêm. Không làm bài tập giả lập. Đem framework về đời sống — cuộc sống là phòng thực hành.</p>
+    <ol class="loop rv">
+      <li><b>Chọn</b><span>Cuộc trò chuyện thật nào tôi cần bước vào hôm nay? Gia đình · Công việc · Cá nhân.</span></li>
+      <li><b>Thấy mình</b><span>Tôi đang mang gì vào? Định kiến, phán xét, sợ hãi, kỳ vọng, kiểm soát.</span></li>
+      <li><b>Zero &amp; Tác ý</b><span>Thấy điều đang có nhưng không để nó điều khiển mình. Tôi muốn trở thành ai?</span></li>
+      <li><b>Trò chuyện thật</b><span>Bắt sóng → Đồng điệu → Mirror → Confirm → Khai mở.</span></li>
+      <li><b>AI Reflection</b><span>Sau cuộc trò chuyện, đừng vội kết luận. Hãy nhìn lại.</span></li>
+      <li><b>Nhìn lại</b><span>Tôi đã thấy gì? Học gì? Lần sau làm khác điều gì?</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ NHÌN LẠI ============ -->
+<section>
+  <div class="wrap">
+    <p class="lbl">Sau mỗi cuộc trò chuyện</p>
+    <h2>Nhìn lại</h2>
+    <p class="lead">Không phải tôi đã làm đúng hay sai — mà là <em>tôi đã nhìn thấy gì</em> sau trải nghiệm đó.</p>
+    <div class="card rv">
+      <div class="hd">
+        <div class="t"><b>Template Nhìn lại</b><em>Reflection → Insight → Next practice</em></div>
+        <button class="btn" data-copy="tmplReflect">Sao chép</button>
+      </div>
+      <div class="bd">
+<pre id="tmplReflect">NHÌN LẠI — [ngày] — cuộc trò chuyện với [ai]
+
+1. EXPERIENCE — Tôi đã trải nghiệm điều gì?
+   · Điều gì đã xảy ra?
+   · Tôi đã cảm nhận gì?
+   · Tôi trở nên căng thẳng, mở lòng hay phòng vệ ở đâu?
+
+2. INSIGHT — Tôi đã thấy ra điều gì?
+   · Tôi khám phá điều gì về chính mình?
+   · Tôi khám phá điều gì về người kia?
+
+3. BEHAVIOR — Tôi đã làm khác điều gì?
+
+4. NEXT MOVE — Lần sau tôi sẽ thử gì?
+   · Một thí nghiệm nhỏ.
+   · Một cuộc trò chuyện tiếp theo.
+   · Một hành vi mới.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI PARTNER COACH ============ -->
+<section>
+  <div class="wrap">
+    <p class="lbl">Công cụ</p>
+    <h2>AI Partner Coach</h2>
+    <p class="lead"><b>AI không thay Mentor. AI giúp tôi nhìn lại chính mình.</b> AI không đưa đáp án thay tôi — AI giúp tôi tự nhìn thấy. Bấm sao chép, dán vào ChatGPT hoặc Claude. Mỗi vai một cuộc hội thoại riêng.</p>
+
+    <div class="card rv">
+      <div class="hd"><div class="t"><b>01 · Journal</b><em>“Lưu lại” — ngay sau một cuộc trò chuyện</em></div><button class="btn" data-copy="pJournal">Sao chép</button></div>
+      <div class="bd"><pre id="pJournal">Bạn là JOURNAL — người ghi chép của tôi trong hành trình 21 ngày thực hành trò chuyện giá trị cao.
+
+VIỆC CỦA BẠN: giúp tôi ghi lại một cuộc trò chuyện vừa xảy ra, đầy đủ và trung thực.
+
+VIỆC KHÔNG PHẢI CỦA BẠN: đánh giá tôi làm đúng hay sai, khen tôi, an ủi tôi, đưa lời khuyên, hay gợi ý lần sau tôi nên làm gì. Tuyệt đối không.
+
+CÁCH LÀM:
+Hỏi tôi từng câu một, mỗi lần MỘT câu, đợi tôi trả lời rồi mới hỏi tiếp:
+
+1. Hôm nay bạn đã bước vào cuộc trò chuyện nào? Với ai? Trong bối cảnh nào?
+2. Trước khi bước vào, bạn đang mang gì? (định kiến, phán xét, nỗi sợ, kỳ vọng, nhu cầu kiểm soát)
+3. Điều gì đã thực sự xảy ra? Kể lại theo trình tự, càng cụ thể càng tốt.
+4. Trong lúc đó bạn cảm thấy gì? Ở khoảnh khắc nào bạn căng lên, mở lòng ra, hay phòng vệ?
+5. Người kia đã nói gì, làm gì, phản ứng ra sao?
+6. Bạn thấy ra điều gì — về chính mình, và về người kia?
+
+Khi tôi trả lời xong hết, hãy viết lại thành một bản ghi gọn theo đúng 4 mục này, dùng NGUYÊN VĂN chữ của tôi, không diễn giải lại theo cách của bạn:
+
+CUỘC TRÒ CHUYỆN — với ai, bối cảnh nào
+ĐIỀU ĐÃ XẢY RA — sự việc, không phải diễn giải
+CẢM XÚC — của tôi, và điều tôi quan sát ở người kia
+INSIGHT — điều tôi thấy ra
+
+Cuối bản ghi, tách rõ hai cột: đâu là SỰ THẬT (điều thực sự đã xảy ra, ai cũng quay phim lại được), đâu là DIỄN GIẢI của tôi (điều tôi gán cho nó). Chỉ tách ra thôi. Không bình luận.
+
+Bắt đầu bằng câu hỏi 1.</pre></div>
+    </div>
+
+    <div class="card rv">
+      <div class="hd"><div class="t"><b>02 · Mirror</b><em>“Phản chiếu” — nghe lại chính mình từ bên ngoài</em></div><button class="btn" data-copy="pMirror">Sao chép</button></div>
+      <div class="bd"><pre id="pMirror">Bạn là MIRROR — tấm gương phản chiếu của tôi.
+
+VIỆC CỦA BẠN: nói lại cho tôi nghe điều tôi vừa nói, để tôi nghe thấy chính mình. Chỉ vậy thôi.
+
+VIỆC KHÔNG PHẢI CỦA BẠN: phân tích, kết luận, chẩn đoán tâm lý, đưa góc nhìn mới, khuyên nhủ, hay an ủi. Bạn không thêm gì cả.
+
+CÁCH LÀM:
+Sau khi tôi kể, bạn phản chiếu theo đúng ba nhịp này:
+
+1. MIRROR — "Tôi đang nghe bạn nói rằng…"
+   Nói lại 2–3 điều cốt lõi bạn nghe được. Ưu tiên dùng ĐÚNG TỪ tôi đã dùng, đừng thay bằng từ hay hơn của bạn. Nếu tôi nói "bực", đừng viết "khó chịu".
+
+2. Phản chiếu cả phần tôi KHÔNG nói thành lời nhưng lộ ra trong cách tôi kể:
+   "Có vẻ điều làm bạn nặng nhất là…"
+   Nói như một quan sát, không như một kết luận.
+
+3. CONFIRM — hỏi lại: "Tôi hiểu như vậy có đúng với bạn không?"
+   Rồi DỪNG. Đợi tôi trả lời.
+
+Nếu tôi nói "chưa đúng": đừng bảo vệ cách hiểu của bạn, đừng giải thích. Nghe lại và phản chiếu lại từ đầu.
+Nếu tôi nói "đúng": hỏi đúng một câu — "Điều bạn đang thực sự nhìn thấy là gì?" — rồi im lặng đợi.
+
+Không bao giờ chuyển sang lời khuyên. Kể cả khi tôi hỏi xin lời khuyên, hãy phản chiếu lại câu hỏi đó cho tôi.
+
+Tôi bắt đầu kể đây.</pre></div>
+    </div>
+
+    <div class="card rv">
+      <div class="hd"><div class="t"><b>03 · Challenger</b><em>“Đặt câu hỏi ngược” — khi vẫn thấy mình mắc</em></div><button class="btn" data-copy="pChal">Sao chép</button></div>
+      <div class="bd"><pre id="pChal">Bạn là CHALLENGER — người đặt câu hỏi ngược cho tôi.
+
+VIỆC CỦA BẠN: đặt những câu hỏi khiến tôi tự nhìn thấy điều tôi chưa nhìn thấy.
+
+VIỆC KHÔNG PHẢI CỦA BẠN: trả lời thay tôi, gợi ý đáp án, hay đặt câu hỏi đã cài sẵn kết luận của bạn ở trong. Nếu bạn đã biết mình muốn tôi trả lời gì, đó là câu hỏi dẫn dụ — bỏ đi, hỏi câu khác.
+
+CÁCH LÀM:
+Mỗi lượt CHỈ hỏi MỘT câu. Hỏi xong thì dừng, đợi tôi trả lời. Không hỏi dồn, không hỏi kèm giải thích.
+
+Bộ câu hỏi lõi:
+· Bạn đang bảo vệ điều gì?
+· Điều gì bạn chưa nhìn thấy trong chuyện này?
+· Pattern nào đang lặp lại?
+
+Bộ câu hỏi mở rộng — chọn theo điều tôi vừa nói, đừng hỏi tuần tự:
+· Điều gì đang khiến bạn giữ nó lại thay vì nói ra?
+· Nếu chuyện này tiếp tục thêm một năm nữa thì sao?
+· Nếu ngược lại thì sao? Nếu người kia đúng thì sao?
+· Nếu không còn nỗi sợ đó, bạn sẽ chọn gì?
+· Bạn muốn người kia thay đổi — để làm gì? Để bạn được cái gì?
+· Điều nào là sự thật, điều nào là kịch bản bạn đã viết sẵn trong đầu?
+· Bạn đang muốn hiểu họ, hay đang muốn chứng minh mình đúng?
+
+QUY TẮC QUAN TRỌNG NHẤT:
+Sau khi hỏi, hãy để khoảng trống. Nếu tôi trả lời ngắn hoặc né, đừng lấp bằng lời giải thích — hỏi tiếp một câu ngắn hơn: "Còn gì nữa không?" hoặc "Thật sự là vậy à?"
+
+Nếu tôi nói ra một điều mà chính tôi vừa mới nhận ra, đừng khen, đừng tổng kết. Chỉ hỏi: "Bạn vừa thấy ra điều gì?"
+
+Bắt đầu bằng việc hỏi tôi đang mắc ở đâu.</pre></div>
+    </div>
+
+    <div class="card rv">
+      <div class="hd"><div class="t"><b>04 · Archivist</b><em>“Nhìn lại hành trình” — mốc Ngày 7 · 14 · 21</em></div><button class="btn" data-copy="pArch">Sao chép</button></div>
+      <div class="bd"><pre id="pArch">Bạn là ARCHIVIST — người giúp tôi nhìn lại cả một chặng đường.
+
+Tôi sẽ dán vào đây toàn bộ ghi chép của tôi trong những ngày vừa qua.
+
+VIỆC CỦA BẠN: đọc hết, rồi chỉ cho tôi thấy thứ tôi không thấy được khi đứng quá gần — những gì đang LẶP LẠI.
+
+VIỆC KHÔNG PHẢI CỦA BẠN: chấm điểm tôi, khen tôi tiến bộ, động viên tôi, hay bảo tôi nên làm gì tiếp.
+
+CÁCH LÀM — trình bày đúng bốn tầng này:
+
+PATTERN — Điều gì lặp lại qua nhiều ngày?
+Lặp trong loại cuộc trò chuyện tôi chọn, loại người tôi né, thời điểm tôi căng lên, thứ tôi hay mang vào, cách tôi hay thoát ra.
+Mỗi pattern phải dẫn chứng ít nhất 2 lần xuất hiện, trích nguyên văn chữ tôi viết.
+
+INSIGHT — Những pattern đó đang nói gì về tôi?
+Trình bày như GIẢ THUYẾT, không phải kết luận. Dùng đúng cách này: "Tôi đang thấy… — có đúng với bạn không?"
+Không chẩn đoán tâm lý. Không gán nhãn tính cách. Không suy đoán động cơ.
+
+BEHAVIOR — Tôi đã thực sự làm khác điều gì so với ngày đầu?
+Chỉ ra hành vi cụ thể quan sát được, không phải cảm nhận chung chung.
+Nếu không tìm thấy thay đổi hành vi nào, hãy nói thẳng là chưa thấy. Đừng bịa ra để tôi vui.
+
+CHANGE — Điều gì đã thay đổi trong những mối quan hệ thật của tôi?
+Ai đã phản ứng khác đi? Cuộc trò chuyện nào đã đổi hướng?
+
+Kết thúc bằng đúng MỘT câu hỏi mở cho chặng tới. Không phải lời khuyên — một câu hỏi. Rồi dừng.
+
+Đây là ghi chép của tôi:
+[DÁN JOURNAL VÀO ĐÂY]</pre></div>
+    </div>
+
+    <div class="card rv">
+      <div class="bd">
+        <p><b>Ranh giới.</b> AI không phải chuyên gia — nó không biết điều gì là đúng cho mình. AI không ra quyết định thay. AI là gương phản chiếu, không phải người thay thế. Nếu AI bắt đầu khuyên, dán lại đúng một câu: <em>“Bạn đang khuyên tôi. Quay lại vai của bạn.”</em></p>
+        <p><b>Riêng tư.</b> Nội dung thực hành thường là chuyện gia đình, xung đột, nỗi sợ. Cân nhắc dùng tên viết tắt thay tên thật, và tắt chế độ lưu lịch sử / huấn luyện trong cài đặt công cụ AI đang dùng.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SỔ TAY ============ -->
+<section>
+  <div class="wrap">
+    <p class="lbl">Tra cứu nhanh</p>
+    <h2>Sổ tay cốt lõi</h2>
+    <p class="lead">Không đọc một lượt. Mở ra khi cần.</p>
+
+    <details class="ref rv">
+      <summary>Khung 11 bước — High-Value Conversation</summary>
+      <div class="bd">
+        <div class="tblw"><table>
+          <tr><th>#</th><th>Bước</th><th>Câu hỏi lõi</th></tr>
+          <tr><td>01</td><td><b>Thấy mình</b></td><td>Tôi đang mang gì vào cuộc trò chuyện này?</td></tr>
+          <tr><td>02</td><td><b>Trở về Zero</b></td><td>Tôi có để trạng thái của mình điều khiển cuộc trò chuyện không?</td></tr>
+          <tr><td>03</td><td><b>Tác ý</b></td><td>Tôi muốn trở thành ai trong cuộc trò chuyện này?</td></tr>
+          <tr><td>04</td><td><b>Bắt sóng</b></td><td>Trạng thái của người kia đang thế nào?</td></tr>
+          <tr><td>05</td><td><b>Đồng điệu</b></td><td>Tôi vào được thế giới của họ mà không đánh mất mình chứ?</td></tr>
+          <tr><td>06</td><td><b>Mirror → Confirm</b></td><td>Tôi có thực sự hiểu điều họ đang thấy không?</td></tr>
+          <tr><td>07</td><td><b>Thấy người</b></td><td>Tôi thấy được cái họ đang thấy và cái họ chưa thấy chứ?</td></tr>
+          <tr><td>08</td><td><b>Quản trị bối cảnh</b></td><td>Điều này có cần nói ngay lúc này không?</td></tr>
+          <tr><td>09</td><td><b>Phản hồi</b></td><td>Tôi nói được sự thật mà vẫn giữ kết nối chứ?</td></tr>
+          <tr><td>10</td><td><b>Khai mở</b></td><td>Tôi tạo được khoảng trống để họ tự thấy không?</td></tr>
+          <tr><td>11</td><td><b>Tự chọn</b></td><td>Sau cuộc trò chuyện, họ đứng được trên đôi chân mình chứ?</td></tr>
+        </table></div>
+        <p><b>Vòng hồi tiếp</b> — dùng khi thấy mình đang lệch: <em>Phán xét / muốn sửa / mất bình an → Thấy mình → Zero → Tác ý → Hiện diện → tiếp tục.</em></p>
+        <blockquote>Tâm không: “Tôi có đang mong người kia phải thay đổi theo ý của tôi không?”</blockquote>
+      </div>
+    </details>
+
+    <details class="ref rv">
+      <summary>Nhận diện — cấu trúc 7 vế</summary>
+      <div class="bd">
+        <ol>
+          <li>Tôi đang có một cuộc trò chuyện khó nói <b>với ai</b> — một người cụ thể</li>
+          <li><b>Về điều gì</b> — chủ đề thật cụ thể</li>
+          <li>Tôi <b>muốn nói với họ rằng</b>…</li>
+          <li>Nhưng tôi chưa nói vì tôi <b>sợ</b> điều gì sẽ diễn ra</li>
+          <li>Tôi nhận ra mình đang <b>mang</b> gì — thất vọng, bất an, kỳ vọng, áp lực phải chứng minh…</li>
+          <li>Vì thế tôi đang <b>trì hoãn / né tránh / im lặng</b></li>
+          <li>Nhưng nếu tiếp tục như vậy thì <b>hệ quả</b> gì sẽ xảy ra</li>
+        </ol>
+        <p>Vế 5 là vế hầu hết mọi người bỏ qua.</p>
+        <blockquote>Nói ra thì tôi sợ, nhưng không nói ra thì không ổn — nên giải pháp mặc định là giữ nguyên hiện trạng.</blockquote>
+      </div>
+    </details>
+
+    <details class="ref rv">
+      <summary>Thân · Tâm · Trí — ba thứ ta mang vào</summary>
+      <div class="bd">
+        <div class="tblw"><table>
+          <tr><th></th><th>Là gì</th><th>Biểu hiện</th></tr>
+          <tr><td><b>Thân</b></td><td>Sự hiện diện</td><td>Sắc mặt, hơi thở, tư thế, cử chỉ, giọng, tốc độ nói, ánh mắt. Dễ kiểm soát nhất — và là thứ người ta nhìn thấy được.</td></tr>
+          <tr><td><b>Tâm</b></td><td>Năng lượng mang vào</td><td>Bất an – sợ – lo – phòng thủ, hay bình an – hiện diện – chấp nhận – yêu thương.</td></tr>
+          <tr><td><b>Trí</b></td><td>Thông tin &amp; mục đích</td><td>Biết gì về họ, hiểu gì về vấn đề, bối cảnh, mục đích.</td></tr>
+        </table></div>
+        <blockquote>Trước khi xử lý vấn đề, chúng ta phải học cách xử lý trạng thái của mình. Không phải bước vào cuộc trò chuyện để xử lý họ, cũng không phải để xử lý vấn đề.</blockquote>
+      </div>
+    </details>
+
+    <details class="ref rv">
+      <summary>Biết vs Thấy · Khai thông vs Khai mở</summary>
+      <div class="bd">
+        <p><b>Biết</b> là một suy nghĩ. <b>Thấy</b> là một nhận thức thật sự.</p>
+        <blockquote>Tôi thấy khát nước, chứ không phải là tôi biết khát nước.<br />Nếu họ thấy thì họ sẽ sửa. Còn họ biết thì chưa chắc họ sẽ sửa.</blockquote>
+        <p><b>Khai thông</b> thuộc về <b>tâm</b> — nó tắc nên phải thông, để họ bộc lộ được. <b>Khai mở</b> thuộc về <b>trí</b> — nó bọc lại nên phải mở. <b>Không được đảo thứ tự.</b></p>
+        <blockquote>Tâm mà chưa thông suốt, chưa thoải mái — nhồi cái gì vào cũng không nghe đâu.</blockquote>
+      </div>
+    </details>
+
+    <details class="ref rv">
+      <summary>Ma trận Có / Chưa có × Thấy / Chưa thấy</summary>
+      <div class="bd">
+        <div class="tblw"><table>
+          <tr><th></th><th>Họ đã thấy</th><th>Họ chưa thấy</th></tr>
+          <tr><td><b>Họ có</b></td><td>Chỉ cần xác nhận để hai bên đồng thuận</td><td><b>Vùng vàng</b> — chỗ đứng của mentor</td></tr>
+          <tr><td><b>Họ chưa có</b></td><td>Vùng bẫy: soi vào chỗ mình thiếu → tự ti</td><td>Điểm mù về thiếu sót — rất lâu mới lấp được</td></tr>
+        </table></div>
+        <p><b>Vùng vàng có bốn dạng:</b></p>
+        <ul>
+          <li>Họ <b>có năng lực</b> còn chưa nhận ra.</li>
+          <li>Họ <b>có lựa chọn</b>, nhưng tưởng mình không có lựa chọn.</li>
+          <li>Họ <b>có một pattern</b> nhưng xem nó là bình thường.</li>
+          <li>Họ <b>có một khả năng đang dùng mỗi ngày</b>, nhưng chưa từng gọi tên.</li>
+        </ul>
+        <blockquote>Như một người ngồi trên đống gạo mà suốt ngày kêu tôi đói quá.</blockquote>
+      </div>
+    </details>
+
+    <details class="ref rv">
+      <summary>Bối cảnh × Năng lượng × Thông tin</summary>
+      <div class="bd">
+        <div class="tblw"><table>
+          <tr><th>Bối cảnh</th><th>Năng lượng</th><th>Thông tin</th></tr>
+          <tr>
+            <td>Khi nào nói? Ở đâu? Riêng hay trước nhóm? Mức tin cậy hiện tại? Người kia đang ở trạng thái nào?</td>
+            <td>Tôi đang nói từ tình yêu thương hay từ bực tức? Tôi muốn giúp hay muốn chứng minh mình đúng? Tôi đang khai mở hay đang kiểm soát?</td>
+            <td>Điều gì là sự thật? Điều gì chỉ là diễn giải của tôi? Điều gì người kia cần nghe?</td>
+          </tr>
+        </table></div>
+        <p>Cùng một câu nói, đổi bối cảnh và năng lượng → kết quả hoàn toàn khác.</p>
+      </div>
+    </details>
+
+    <details class="ref rv">
+      <summary>Năm tầng giao tiếp</summary>
+      <div class="bd">
+        <div class="tblw"><table>
+          <tr><th>Tầng</th><th>Câu mở</th></tr>
+          <tr><td><b>01 Ghi nhận</b></td><td>Tôi nhìn thấy điều tốt ở bạn.</td></tr>
+          <tr><td><b>02 Phản hồi</b></td><td>Tôi nhìn thấy một hành vi và tác động của nó.</td></tr>
+          <tr><td><b>03 Góp ý</b></td><td>Tôi nhìn thấy một khả năng để bạn làm tốt hơn.</td></tr>
+          <tr><td><b>04 Đối thoại khó</b></td><td>Tôi nói điều đang tồn tại giữa chúng ta nhưng chưa được nói ra.</td></tr>
+          <tr><td><b>05 Khai mở</b></td><td>Tôi giúp bạn tự nhìn thấy điều bạn chưa nhìn thấy.</td></tr>
+        </table></div>
+      </div>
+    </details>
+
+    <details class="ref rv">
+      <summary>Checklist cho người quan sát (Observer)</summary>
+      <div class="bd">
+        <ol>
+          <li>Mentor có đưa ra lời khuyên <b>quá sớm</b> không?</li>
+          <li>Mentor có <b>áp đặt cái thấy</b> của mình không?</li>
+          <li>Mentor đưa <b>giả thuyết</b> hay <b>kết luận</b>?</li>
+          <li>Mentor có cho mentee <b>đủ khoảng trống để suy nghĩ</b> không?</li>
+          <li>Mentor có <b>hỏi thay vì kết luận</b> không?</li>
+          <li>Khi mentee đồng ý, mentor có <b>bảo vệ quan điểm</b> của mình không?</li>
+        </ol>
+        <p>Vai người quan sát là <b>yểm trợ</b> — giữ năng lượng bình an, không sốt ruột.</p>
+      </div>
+    </details>
+
+    <details class="ref rv">
+      <summary>Cạm bẫy — những chỗ dễ trượt nhất</summary>
+      <div class="bd">
+        <ul>
+          <li><b>Vội khuyên.</b> Cạm bẫy số một. <em>“Lời khuyên nó chỉ đúng với người khuyên thôi.”</em></li>
+          <li><b>Mirror mà không Confirm.</b> Tưởng đã hiểu.</li>
+          <li><b>Đưa kết luận thay vì giả thuyết.</b></li>
+          <li><b>Câu hỏi dẫn dụ</b> — hỏi để chứng minh mình đúng.</li>
+          <li><b>Khai mở khi tâm người kia còn ức chế.</b></li>
+          <li><b>Lấp khoảng lặng.</b> Người kia im, mình sốt ruột, mình nói.</li>
+          <li><b>Chỉ nhìn vào cái người ta chưa có.</b></li>
+          <li><b>Nhảy vào sửa</b> — hoặc ngược lại, <b>bỏ rơi</b>. Cả hai đều sai.</li>
+          <li><b>Phơi nhiễm năng lượng</b> — bị cuốn theo năng lượng của người kia.</li>
+          <li><b>“Dí” người ta vào cuộc coaching.</b> <em>“Tao thấy mày có vấn đề, tao coach cho.”</em></li>
+          <li><b>Đặt lịch sai cách.</b> <em>“Tối nay anh muốn nói chuyện sâu sắc với em.”</em> → người kia sợ.</li>
+        </ul>
+        <blockquote>Vụng về trong việc lắng nghe, vụng về trong việc đặt câu hỏi, vụng về trong việc khai mở… Đó là một thứ chúng ta có quyền được sai — thế mới cần học.</blockquote>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ CHECK-IN ============ -->
+<section>
+  <div class="wrap">
+    <p class="lbl">Nhóm huynh đệ</p>
+    <h2>Giữ nhịp cùng nhau</h2>
+    <p class="lead">Accountability không phải là kiểm soát. Là cùng nhau giữ nhịp. Ba mốc, đều rơi vào thứ Bảy.</p>
+    <div class="cks rv">
+      <div class="ck-c"><span class="lbl">Check-in</span><b>Ngày 7</b><div class="dt">Thứ Bảy 22/08</div><span>Nhìn lại. Chia sẻ. Điều chỉnh.</span></div>
+      <div class="ck-c"><span class="lbl">Check-in</span><b>Ngày 14</b><div class="dt">Thứ Bảy 29/08</div><span>Nhìn lại sâu hơn. Học ra pattern. Điều chỉnh nhịp.</span></div>
+      <div class="ck-c"><span class="lbl">Check-in</span><b>Ngày 21</b><div class="dt">Thứ Bảy 05/09</div><span>Nhìn lại toàn hành trình. Ghi nhận. Cam kết bước tiếp.</span></div>
+    </div>
+    <div class="card rv">
+      <div class="hd"><div class="t"><b>Format buổi gặp</b><em>60–90 phút · cà phê trực tiếp là tốt nhất</em></div></div>
+      <div class="bd">
+        <ol style="margin-left:20px;color:var(--muted)">
+          <li style="margin-bottom:7px"><b style="color:var(--text)">Check-in</b> — Tuần này mình đã thực hành gì?</li>
+          <li style="margin-bottom:7px"><b style="color:var(--text)">Case review</b> — Điều gì đáng học nhất?</li>
+          <li style="margin-bottom:7px"><b style="color:var(--text)">Practice</b> — Thử lại ngay. Xoay đủ ba vai Mentor – Mentee – Observer, mỗi lượt 15 phút.</li>
+          <li><b style="color:var(--text)">Commitment</b> — Tuần tới mình sẽ bước vào cuộc trò chuyện nào?</li>
+        </ol>
+        <p style="margin-top:14px">Nhóm 3–5 người. Ai chưa làm được ngày nào cũng cứ đến — đến là đã giữ nhịp rồi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NGÀY 21 ============ -->
+<section class="final" id="ngay21">
+  <div class="wrap">
+    <p class="lbl">Ngày 21 · 05/09</p>
+    <h2>My Conversation Journey</h2>
+    <p class="lead" style="margin:0 auto 0;text-align:center">Không phải kết thúc. Là khoảnh khắc nhìn lại mình đã trở thành ai.</p>
+    <blockquote style="border:0;text-align:center;font-size:1.15rem;margin:24px auto;max-width:32ch">Không phải tôi đã học được gì. Mà là: tôi đã sống khác đi như thế nào?</blockquote>
+    <ol class="five rv">
+      <li><b>01</b><span>Cuộc trò chuyện tôi từng né tránh.</span></li>
+      <li><b>02</b><span>Điều tôi đã nhìn thấy về chính mình.</span></li>
+      <li><b>03</b><span>Cuộc trò chuyện đã thực sự thay đổi.</span></li>
+      <li><b>04</b><span>Điều tôi đã giúp người khác tự thấy.</span></li>
+      <li><b>05</b><span>Tôi đã trở thành người như thế nào?</span></li>
+    </ol>
+    <div class="deliv rv">
+      <span>01 slide</span><span>Journal</span><span>Video 2–3 phút</span>
+    </div>
+    <p class="closer rv">21 ngày. 21 cuộc thực hành.<br /><span>Một câu chuyện thay đổi.</span></p>
+  </div>
+</section>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="/icons.js"></script>
+<script src="/footer.js"></script>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce) document.body.classList.add('motion');
+
+  /* ---- Bộ đếm ngày: Ngày 1 = 16/08/2026 ---- */
+  var START = new Date(2026, 7, 16);      // tháng 7 = tháng 8
+  var TOTAL = 21;
+  var STAGES = [
+    {from:1,  to:7,  name:'Chặng 1 · Thấy mình'},
+    {from:8,  to:14, name:'Chặng 2 · Thấy người'},
+    {from:15, to:21, name:'Chặng 3 · Khai mở'}
+  ];
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var n = Math.floor((today - START) / 86400000) + 1;
+
+  var elNum   = document.getElementById('dayNum');
+  var elSuf   = document.getElementById('daySuffix');
+  var elMeta  = document.getElementById('dayMeta');
+  var elStage = document.getElementById('stageName');
+  var elLeft  = document.getElementById('dayLeft');
+  var elBar   = document.getElementById('progBar');
+
+  function fmt(d){ return ('0'+d.getDate()).slice(-2) + '/' + ('0'+(d.getMonth()+1)).slice(-2); }
+
+  if(n < 1){
+    elNum.textContent = 'Sắp bắt đầu';
+    elSuf.textContent = '';
+    elMeta.textContent = 'Khởi hành ' + fmt(START);
+    elStage.textContent = 'Chặng 1 · Thấy mình';
+    elLeft.textContent = '';
+  } else if(n > TOTAL){
+    elNum.textContent = 'Hoàn thành';
+    elSuf.textContent = '';
+    elMeta.textContent = '21 ngày. 21 cuộc thực hành.';
+    elStage.textContent = 'Một câu chuyện thay đổi';
+    elLeft.textContent = '';
+    elBar.style.width = '100%';
+  } else {
+    var st = STAGES.filter(function(s){ return n >= s.from && n <= s.to; })[0];
+    elNum.textContent = 'Ngày ' + n;
+    elSuf.textContent = '/21';
+    elMeta.textContent = 'Hôm nay ' + fmt(today);
+    elStage.textContent = st ? st.name : '';
+    elLeft.textContent = 'còn ' + (TOTAL - n) + ' ngày';
+    setTimeout(function(){ elBar.style.width = (n / TOTAL * 100) + '%'; }, 120);
+
+    /* mở đúng chặng của hôm nay, đóng các chặng khác */
+    var stages = document.querySelectorAll('.stage');
+    STAGES.forEach(function(s, i){
+      if(stages[i]) stages[i].open = (st === s);
+    });
+    /* làm nổi ngày hôm nay */
+    var elToday = document.getElementById('ngay-' + n);
+    if(elToday) elToday.classList.add('today');
+  }
+
+  /* ---- Link #ngay-N phải mở được chặng đang đóng ---- */
+  function openForHash(hash, smooth){
+    var m = /^#ngay-(\d{1,2})$/.exec(hash || '');
+    if(!m) return false;
+    var target = document.getElementById('ngay-' + m[1]);
+    if(!target) return false;
+    var host = target.closest('.stage');
+    /* mở chặng VÀ bỏ luôn hiệu ứng ẩn — deep-link không được rơi vào trang trắng */
+    if(host){ host.open = true; host.classList.add('on'); }
+    /* đợi <details> giãn ra rồi mới cuộn */
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        /* 'instant', KHÔNG phải 'auto': theo chuẩn CSSOM, 'auto' nghĩa là
+           dùng giá trị CSS scroll-behavior — ở đây đang là smooth. */
+        target.scrollIntoView({block:'center', behavior:(smooth && !reduce) ? 'smooth' : 'instant'});
+      });
+    });
+    return true;
+  }
+  /* Mở trang bằng link — cuộn TỨC THÌ. Cuộn mượt qua 18.000px vừa chậm
+     vừa chóng mặt, và không phải trình duyệt nào cũng chạy xong. */
+  openForHash(location.hash, false);
+  window.addEventListener('hashchange', function(){ openForHash(location.hash, true); });
+
+  /* ---- Nút sao chép ---- */
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var src = document.getElementById(btn.getAttribute('data-copy'));
+      if(!src) return;
+      var text = src.textContent;
+      var done = function(){
+        var old = btn.textContent;
+        btn.textContent = '✓ Đã chép';
+        btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 2000);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(text, done); });
+      } else { fallback(text, done); }
+    });
+  });
+  function fallback(text, cb){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly','');
+    ta.style.cssText = 'position:absolute;left:-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try{ document.execCommand('copy'); cb(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  /* ---- Reveal: chạy 1 lần rồi ngắt observer ----
+     Nội dung KHÔNG bao giờ được kẹt ở opacity:0 — mọi nhánh hỏng đều
+     phải rơi về trạng thái hiện đầy đủ. */
+  var rv = document.querySelectorAll('.rv');
+  function revealAll(){ rv.forEach(function(el){ el.classList.add('on'); }); }
+
+  if(reduce || !('IntersectionObserver' in window)){
+    revealAll();
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){ io.observe(el); });
+    /* Lưới an toàn: dù observer có lỡ nhịp (deep-link, in trang, tab nền)
+       thì sau 1,5s mọi thứ vẫn hiện. */
+    setTimeout(function(){ io.disconnect(); revealAll(); }, 1500);
+  }
+})();
+</script>
+</body>
+</html>
