@@ -95,6 +95,7 @@ img{max-width:100%;height:auto;display:block}
 .install{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:clamp(26px,4vw,44px)}
 .step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--border)}
 .step:last-child{border-bottom:none}
+.step>div{min-width:0}
 .step .n{width:44px;height:44px;flex:none;border-radius:50%;background:linear-gradient(150deg,var(--o-400),var(--o-600));color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
 .step h3{font-family:var(--f-body);font-size:17.5px;font-weight:700}
 .step p{margin-top:5px;font-size:15px;color:var(--text-body)}
@@ -208,11 +209,12 @@ img{max-width:100%;height:auto;display:block}
 <section class="sec" id="caidat-mac" style="padding-top:0"><div class="wrap">
   <div class="sec-head rv">
     <h2>Cài trên macOS — 4 bước</h2>
-    <p>App chưa đăng ký công chứng với Apple (đang giai đoạn thử nghiệm) nên lần đầu mở cần thêm một lệnh nhỏ. Làm đúng thứ tự là chạy ngay.</p>
+    <p>App chưa đăng ký công chứng với Apple (đang giai đoạn thử nghiệm) nên lần đầu mở cần bấm cho phép một lần trong Cài đặt hệ thống. Làm đúng thứ tự là chạy ngay.</p>
   </div>
   <div class="install rv">
     <div class="step"><div class="n">1</div><div><h3>Mở file DMG, kéo vào Applications</h3><p>Bấm đúp <b>10xTyping-macOS-AppleSilicon.dmg</b> vừa tải → kéo icon <b>10xTyping</b> vào thư mục <b>Applications</b>.</p></div></div>
-    <div class="step"><div class="n">2</div><div><h3>Mở khóa Gatekeeper <span style="font-weight:400;color:var(--text-muted)">(chỉ 1 lần)</span></h3><p>macOS sẽ báo app "bị hỏng / không mở được" vì app chưa công chứng Apple. Mở <b>Terminal</b> (⌘Space, gõ Terminal) và dán lệnh này:</p>
+    <div class="step"><div class="n">2</div><div><h3>Cho phép mở lần đầu <span style="font-weight:400;color:var(--text-muted)">(chỉ 1 lần)</span></h3><p>Bấm đúp <b>10xTyping</b> trong Applications. Vì app chưa công chứng Apple, macOS báo <b>“10xTyping” chưa được mở</b> → bấm <b>Xong</b>. Vào <b>Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật</b>, kéo xuống dòng <i>“10xTyping” đã bị chặn để bảo vệ máy Mac của bạn</i> → bấm <b>Vẫn mở</b> rồi xác nhận bằng mật khẩu máy (hoặc Touch ID).</p>
+      <p>Quen dùng Terminal? Một lệnh thay cho cả bước này:</p>
       <div class="code"><code id="xattr-cmd">xattr -cr /Applications/10xTyping.app</code><button type="button" data-copy="xattr-cmd">Copy</button></div>
     </div></div>
     <div class="step"><div class="n">3</div><div><h3>Mở app, cấp 2 quyền</h3><p>Mở <b>10xTyping</b> → trang "Bắt đầu" dẫn bạn cấp quyền <b>Micro</b> (để nghe giọng) và <b>Accessibility</b> (để dán văn bản vào app khác). Cấp xong bấm "Khởi động lại app".</p></div></div>
@@ -243,7 +245,7 @@ img{max-width:100%;height:auto;display:block}
     <details><summary>App có miễn phí không?</summary><p>App miễn phí. Bộ nhận dạng <b>Trên máy</b> (Apple/Google) hoàn toàn 0 đồng. Bộ nhận dạng <b>AI</b> dùng API key OpenRouter của chính bạn — trung bình ~18đ cho một lần đọc, nạp bao nhiêu dùng bấy nhiêu, không qua trung gian.</p></details>
     <details><summary>Dữ liệu của tôi đi đâu?</summary><p>Không có tài khoản, không có server của 10xTyping. Lịch sử, ghi âm, clipboard đều nằm trên máy bạn. Riêng khi chọn engine AI, đoạn âm thanh được gửi qua OpenRouter → Google Vertex để chuyển thành chữ rồi trả về.</p></details>
     <details><summary>Hai bộ nhận dạng khác nhau thế nào?</summary><p><b>AI</b>: chính xác nhất với tiếng Việt, tự bỏ ừm/à, viết lại theo 4 chế độ, dịch được — mất ~3 giây. <b>Trên máy</b>: chữ hiện ngay trong lúc nói, 0 đồng, không cần mạng (khi máy đã có gói tiếng Việt offline) — nhưng chép nguyên văn, không viết lại, không dịch.</p></details>
-    <details><summary>Vì sao macOS báo app "bị hỏng"?</summary><p>Vì app chưa mua chứng chỉ công chứng của Apple (giai đoạn thử nghiệm). Chạy đúng 1 lệnh <code style="color:#C9F0D2">xattr -cr /Applications/10xTyping.app</code> trong Terminal là mở bình thường — xem mục "Cài trên macOS" ở trên.</p></details>
+    <details><summary>Vì sao macOS chặn app ở lần mở đầu tiên?</summary><p>Vì app chưa mua chứng chỉ công chứng của Apple (giai đoạn thử nghiệm). Vào <b>Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật</b> → bấm <b>Vẫn mở</b> là xong — xem mục "Cài trên macOS" ở trên. Nếu máy báo app <b>“bị hỏng và không thể mở được”</b> thì bạn đang giữ file tải trước ngày 20/09/2026: tải lại bản mới, hoặc chạy lệnh <code style="color:#C9F0D2">xattr -cr /Applications/10xTyping.app</code> trong Terminal.</p></details>
     <details><summary>Có bản Windows / Mac Intel không?</summary><p>Bản Windows ĐÃ CÓ (Windows 10/11 64-bit) — tải ngay ở trên. Bản đầu chưa ký code nên SmartScreen sẽ hỏi: bấm More info → Run anyway. Mac Intel chưa hỗ trợ (bản hiện tại build cho Apple Silicon M1 trở lên).</p></details>
     <details><summary>Link tải từ GitHub có an toàn không?</summary><p>Có — file phát hành tại kho chính thức <b>10xtyping-releases</b> của tác giả trên GitHub (nền tảng của Microsoft), kèm mã kiểm tra SHA256 cho từng file.</p></details>
   </div>
