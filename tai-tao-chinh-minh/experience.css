@@ -113,3 +113,21 @@ input:not([type=checkbox]),textarea,select{border-radius:0;background:#faf9f6;bo
 .contact-card p{color:#59636b;margin-bottom:27px}
 .contact-card .privacy{font-size:12px;margin:24px 0 0}
 @media(max-width:600px){#site-header .x10h__cta{display:none}}
+
+/* Coach portrait and original 10X compass emblem */
+.coach-section{overflow:hidden;background:var(--n-950);color:#f7f1e8}
+.coach-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);min-height:520px;align-items:center;gap:clamp(24px,5vw,80px)}
+.coach-copy{position:relative;z-index:2;padding-block:clamp(72px,8vw,120px)}
+.coach-compass{display:block;width:88px;height:90px;object-fit:contain;margin-bottom:28px}
+.coach-copy .eyebrow{color:#e4b785;margin-bottom:18px}
+.coach-copy h2{font-family:'Fraunces',Georgia,serif;font-size:clamp(44px,5.2vw,76px);font-weight:400;line-height:1.1;letter-spacing:-.045em;margin:0 0 18px}
+.coach-copy h2 em{font-weight:400;color:#f1c58c}
+.coach-copy>p:not(.eyebrow){font-size:clamp(16px,1.5vw,20px);color:#d7d1ca;margin:0 0 34px}
+.coach-link{display:inline-flex;gap:18px;align-items:center;border-bottom:1px solid #c8925d;padding-bottom:8px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#f1c58c}
+.coach-link:hover{color:#fff}
+.coach-portrait{position:relative;align-self:end;display:flex;align-items:end;justify-content:center;min-width:0;height:100%;max-height:620px}
+.coach-glow{position:absolute;left:50%;top:48%;width:min(44vw,520px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(235,177,113,.25);box-shadow:0 0 0 45px rgba(210,119,63,.055),0 0 0 105px rgba(210,119,63,.025);background:radial-gradient(circle,rgba(201,96,40,.24),transparent 65%)}
+.coach-portrait img{position:relative;z-index:1;display:block;width:min(100%,620px);height:auto;object-fit:contain;object-position:bottom;filter:drop-shadow(0 25px 35px rgba(0,0,0,.35))}
+@media(max-width:700px){.coach-grid{grid-template-columns:1fr;gap:0}.coach-copy{padding-block:72px 20px}.coach-compass{width:74px;height:76px}.coach-portrait{max-height:400px}.coach-portrait img{width:min(90vw,500px)}.coach-glow{width:min(80vw,380px)}}
+/* Readable heading ink on the light sections of the shared theme. */
+.section:not(.schedule) h2,.level:not(.active) h3,.step h3{color:#1c2730}
