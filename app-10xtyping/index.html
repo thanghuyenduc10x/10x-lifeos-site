@@ -186,7 +186,7 @@ img{max-width:100%;height:auto;display:block}
     <div class="plat">
       <div class="os">💻</div>
       <h3>macOS</h3>
-      <div class="meta">Apple Silicon (M1 trở lên) · macOS 13+ · DMG ~4MB · v0.5.0</div>
+      <div class="meta">Apple Silicon (M1 trở lên) · macOS 13+ · DMG ~4MB · v0.5.1</div>
       <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-macOS-AppleSilicon.dmg">↓ Tải DMG</a>
     </div>
     <div class="plat">
@@ -244,6 +244,8 @@ img{max-width:100%;height:auto;display:block}
   <div class="faq rv">
     <details><summary>App có miễn phí không?</summary><p>App miễn phí. Bộ nhận dạng <b>Trên máy</b> (Apple/Google) hoàn toàn 0 đồng. Bộ nhận dạng <b>AI</b> dùng API key OpenRouter của chính bạn — trung bình ~18đ cho một lần đọc, nạp bao nhiêu dùng bấy nhiêu, không qua trung gian.</p></details>
     <details><summary>Dữ liệu của tôi đi đâu?</summary><p>Không có tài khoản, không có server của 10xTyping. Lịch sử, ghi âm, clipboard đều nằm trên máy bạn. Riêng khi chọn engine AI, đoạn âm thanh được gửi qua OpenRouter → Google Vertex để chuyển thành chữ rồi trả về.</p></details>
+    <details><summary>Nói được dài nhất bao lâu?</summary><p>Mỗi lần ghi tối đa <b>15 phút</b> — chạm mốc là app tự dừng và xử lý phần đã nói, không mất gì. Bản ghi dài được tự cắt thành từng đoạn gửi lần lượt rồi ghép lại, chỗ cắt rơi vào quãng im nên không cắt giữa từ. (macOS từ bản 0.5.1.)</p></details>
+    <details><summary>Chọn được mô hình AI không?</summary><p>Có — <b>Cài đặt → Bộ nhận dạng giọng nói → Mô hình AI</b>, 4 lựa chọn kèm giá để bạn cân tốc độ và chi phí: Cân bằng (mặc định) · Tiết kiệm nhất · Mới nhất chính xác hơn · Kỹ nhất. Lịch sử hiện tên mô hình đã chạy cho từng lần đọc. (macOS từ bản 0.5.1.)</p></details>
     <details><summary>Hai bộ nhận dạng khác nhau thế nào?</summary><p><b>AI</b>: chính xác nhất với tiếng Việt, tự bỏ ừm/à, viết lại theo 4 chế độ, dịch được — mất ~3 giây. <b>Trên máy</b>: chữ hiện ngay trong lúc nói, 0 đồng, không cần mạng (khi máy đã có gói tiếng Việt offline) — nhưng chép nguyên văn, không viết lại, không dịch.</p></details>
     <details><summary>Vì sao macOS chặn app ở lần mở đầu tiên?</summary><p>Vì app chưa mua chứng chỉ công chứng của Apple (giai đoạn thử nghiệm). Vào <b>Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật</b> → bấm <b>Vẫn mở</b> là xong — xem mục "Cài trên macOS" ở trên. Nếu máy báo app <b>“bị hỏng và không thể mở được”</b> thì bạn đang giữ file tải trước ngày 20/09/2026: tải lại bản mới, hoặc chạy lệnh <code style="color:#C9F0D2">xattr -cr /Applications/10xTyping.app</code> trong Terminal.</p></details>
     <details><summary>Có bản Windows / Mac Intel không?</summary><p>Bản Windows ĐÃ CÓ (Windows 10/11 64-bit) — tải ngay ở trên. Bản đầu chưa ký code nên SmartScreen sẽ hỏi: bấm More info → Run anyway. Mac Intel chưa hỗ trợ (bản hiện tại build cho Apple Silicon M1 trở lên).</p></details>
