@@ -68,7 +68,7 @@ img{max-width:100%;height:auto;display:block}
 <main id="main">
 <section class="pp"><div class="wrap">
   <h1>Chính sách quyền riêng tư — 10X BizOS</h1>
-  <p class="upd">Hiệu lực từ 13/10/2026 · Phiên bản 1.1 (cập nhật 14/10: thêm thông tin đăng ký) · Áp dụng cho 10X BizOS (app.10x-lifeos.com)</p>
+  <p class="upd">Hiệu lực từ 13/10/2026 · Phiên bản 1.1 (cập nhật 14/10: thêm thông tin đăng ký; cập nhật 15/10: bé Chồi gọi thẳng Anthropic, bỏ OpenRouter) · Áp dụng cho 10X BizOS (app.10x-lifeos.com)</p>
 
   <p>10X BizOS là nơi bạn xem lại hành trình coaching của mình với tôi: tóm tắt từng buổi, điều đã nhận ra, việc cần làm, và trò chuyện với <b>bé Chồi</b> giữa các buổi. Những gì bạn chia sẻ trong coaching là chuyện riêng của bạn. Nguyên tắc của tôi: <b>chỉ lưu những gì cần cho hành trình của bạn, nói thẳng ai chạm vào dữ liệu, và bạn rút lại được bất cứ lúc nào.</b></p>
 
@@ -108,7 +108,7 @@ img{max-width:100%;height:auto;display:block}
   <h2>4. AI xử lý dữ liệu của bạn thế nào</h2>
   <ul>
     <li><span><b>Tằm — soạn nháp sau buổi:</b> bản chữ buổi coaching được mô hình Claude của Anthropic xử lý qua Claude Code <b>trên máy của tôi</b>, với tài khoản đã tắt tuỳ chọn dùng dữ liệu để huấn luyện. Bản nháp luôn qua tôi duyệt, sửa hoặc bỏ trước khi tới bạn.</span></li>
-    <li><span><b>bé Chồi — trả lời giữa các buổi:</b> tin nhắn của bạn và các mục tôi đã duyệt được xử lý bằng mô hình Claude của Anthropic thông qua OpenRouter. Tôi yêu cầu nhà cung cấp <b>không lưu lại và không dùng để huấn luyện</b>. Chồi chỉ đọc hồ sơ đã duyệt của chính bạn, mỗi câu trả lời ghi rõ nguồn, và không bao giờ đọc dữ liệu của người khác.</span></li>
+    <li><span><b>bé Chồi — trả lời giữa các buổi:</b> tin nhắn của bạn và các mục tôi đã duyệt được gửi thẳng tới Anthropic và xử lý bằng mô hình Claude, không qua bên trung gian nào. Anthropic <b>không dùng dữ liệu này để huấn luyện</b> và tự xoá trong vòng 30 ngày, trừ nội dung bị hệ thống an toàn của Anthropic đánh dấu vi phạm. Chồi chỉ đọc hồ sơ đã duyệt của chính bạn, mỗi câu trả lời ghi rõ nguồn, và không bao giờ đọc dữ liệu của người khác.</span></li>
     <li><span>AI có thể sai. Chồi không thay thế tôi và không tư vấn y tế, tâm lý hay pháp lý. Khi gặp điều quan trọng, Chồi chuyển câu hỏi cho tôi.</span></li>
     <li><span>Bé Chồi chỉ được bật khi bạn đã đồng ý cho AI xử lý. Bạn rút lại đồng ý thì Chồi tắt với bạn.</span></li>
   </ul>
@@ -119,8 +119,7 @@ img{max-width:100%;height:auto;display:block}
     <thead><tr><th>Dịch vụ</th><th>Làm gì</th><th>Dữ liệu</th><th>Nơi xử lý</th></tr></thead>
     <tbody>
       <tr><td data-label="Dịch vụ">Hostinger</td><td data-label="Làm gì">Máy chủ chạy BizOS và cơ sở dữ liệu</td><td data-label="Dữ liệu">Mọi dữ liệu trên máy chủ (mục 2, trừ bản ghi và bản chữ)</td><td data-label="Nơi xử lý">Malaysia</td></tr>
-      <tr><td data-label="Dịch vụ">Anthropic (Claude)</td><td data-label="Làm gì">Tằm soạn nháp; mô hình của bé Chồi</td><td data-label="Dữ liệu">Bản chữ buổi (qua máy của tôi); câu hỏi và hồ sơ đã duyệt (qua OpenRouter)</td><td data-label="Nơi xử lý">Hoa Kỳ</td></tr>
-      <tr><td data-label="Dịch vụ">OpenRouter</td><td data-label="Làm gì">Chuyển câu hỏi của bạn tới mô hình của Chồi</td><td data-label="Dữ liệu">Câu hỏi, hồ sơ đã duyệt liên quan</td><td data-label="Nơi xử lý">Hoa Kỳ</td></tr>
+      <tr><td data-label="Dịch vụ">Anthropic (Claude)</td><td data-label="Làm gì">Tằm soạn nháp; mô hình của bé Chồi</td><td data-label="Dữ liệu">Bản chữ buổi (qua máy của tôi); câu hỏi và hồ sơ đã duyệt (gửi thẳng tới Anthropic)</td><td data-label="Nơi xử lý">Hoa Kỳ</td></tr>
       <tr><td data-label="Dịch vụ">Google</td><td data-label="Làm gì">Đăng nhập bằng Google</td><td data-label="Dữ liệu">Email, tên, mã tài khoản Google</td><td data-label="Nơi xử lý">Toàn cầu</td></tr>
       <tr><td data-label="Dịch vụ">Telegram</td><td data-label="Làm gì">Báo cho tôi khi có tin cần xử lý</td><td data-label="Dữ liệu">Chỉ mã học viên, mức độ và giờ — <b>không có nội dung tin nhắn, tên hay email</b></td><td data-label="Nơi xử lý">Toàn cầu</td></tr>
       <tr><td data-label="Dịch vụ">Nền tảng ghi hình và họp (Tella, Zoom, Google Meet)</td><td data-label="Làm gì">Ghi hình buổi coaching và buổi học khi bạn đồng ý</td><td data-label="Dữ liệu">Video, âm thanh, bản chữ của buổi</td><td data-label="Nơi xử lý">Theo từng nền tảng</td></tr>
@@ -172,7 +171,7 @@ img{max-width:100%;height:auto;display:block}
     <ul>
       <li><span><b>Data:</b> account data (name, e-mail; with Google sign-in: e-mail, name and Google account ID only — no profile photo, no Google access tokens kept), coaching records approved by the Coach, chats with the assistant "bé Chồi", consent records, and technical data (session cookie, IP address for sign-in rate limiting, server logs).</span></li>
       <li><span><b>Use:</b> to provide each learner's coaching journey, AI-drafted summaries reviewed by the Coach, assistant answers grounded only in the learner's own approved record, urgent alerts to the Coach, and security. No sale, no advertising, no AI training.</span></li>
-      <li><span><b>Processors:</b> Hostinger (hosting, Malaysia), Anthropic and OpenRouter (AI, United States; asked not to retain or train on data), Google (sign-in), Telegram (alerts without message content), recording platforms. Data is transferred abroad under Vietnam's Decree 13/2023/ND-CP.</span></li>
+      <li><span><b>Processors:</b> Hostinger (hosting, Malaysia), Anthropic (AI, United States; called directly, no training on this data, inputs and outputs deleted within 30 days unless flagged by its safety systems), Google (sign-in), Telegram (alerts without message content), recording platforms. Data is transferred abroad under Vietnam's Decree 13/2023/ND-CP.</span></li>
       <li><span><b>Retention:</b> during the coaching engagement and up to 12 months after; daily backups kept 14 days.</span></li>
       <li><span><b>Rights:</b> access, correction, withdrawal of consent, deletion, restriction, objection and complaint — reply within 72 hours, full deletion within 30 days.</span></li>
       <li><span><b>Google user data:</b> 10X BizOS's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements. Only e-mail, name and account ID are used, solely to sign the invited learner in.</span></li>
