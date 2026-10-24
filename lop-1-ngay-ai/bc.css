@@ -1,0 +1,58 @@
+/* Bootcamp 02 · đoạn hoạt hình đầu trang (khoảng 18 giây, chạy MỘT lần rồi dừng ở khung cuối; nút "Xem lại" chạy lại).
+   Bảy cảnh nối nhau trong cùng một khung, mỗi cảnh 2,4 giây; khung cuối hiện từ giây 16,8 và đứng yên.
+   prefers-reduced-motion: không chạy, hiện ngay khung cuối. Token từ /theme.css. */
+
+.bc-stage{position:relative;margin:22px 0 0;min-height:300px;border-radius:18px;background:var(--n-950);color:#fff;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.bc-scene,.bc-final{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px 20px;text-align:center;opacity:0}
+.bc-scene svg{width:64px;height:64px;flex:none}
+.bc-big{font-family:var(--f-head);font-weight:600;font-size:clamp(30px,8vw,46px);line-height:1.15;margin:0;color:#fff}
+.bc-big b{color:var(--o-400);font-weight:700}
+.bc-sub{font-size:17px;line-height:1.5;color:var(--n-100);margin:0;max-width:30ch}
+.bc-tag{font-family:var(--f-label);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);margin:0}
+
+/* Khung cuối: 6 ô số. Nằm trong dòng chảy để khung cao theo nội dung (không cắt ô cuối ở 375px). */
+.bc-final{position:relative;min-height:300px;justify-content:flex-start;align-items:stretch;gap:12px;padding:20px 16px 18px;text-align:left}
+.bc-final .bc-tag{text-align:center}
+.bc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.bc-grid li{margin:0;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:14px;line-height:1.35;color:var(--n-100)}
+.bc-grid b{display:block;font-family:var(--f-head);font-size:24px;line-height:1.1;color:#fff;font-weight:600}
+.bc-grid b span{color:var(--o-400)}
+.bc-replay{align-self:center;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.bc-replay:hover{background:rgba(255,255,255,.08)}
+.bc-replay:focus-visible{outline:2px solid #E89060;outline-offset:3px}
+
+@keyframes bc-scene{0%{opacity:0;transform:translateY(10px)}12%{opacity:1;transform:none}85%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-8px)}}
+@keyframes bc-final{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
+@keyframes bc-grow{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+
+.bc-stage.is-playing .bc-scene{animation:bc-scene 2.6s ease both}
+.bc-stage.is-playing .bc-s1{animation-delay:0s}
+.bc-stage.is-playing .bc-s2{animation-delay:2.4s}
+.bc-stage.is-playing .bc-s3{animation-delay:4.8s}
+.bc-stage.is-playing .bc-s4{animation-delay:7.2s}
+.bc-stage.is-playing .bc-s5{animation-delay:9.6s}
+.bc-stage.is-playing .bc-s6{animation-delay:12s}
+.bc-stage.is-playing .bc-s7{animation-delay:14.4s}
+.bc-stage.is-playing .bc-final{animation:bc-final .8s ease 16.8s both}
+.bc-stage.is-playing .bc-scene svg{animation:bc-grow .6s ease both;animation-delay:inherit}
+.bc-stage.is-done .bc-final{opacity:1}
+.bc-stage:not(.is-playing):not(.is-done) .bc-final{opacity:1}
+
+@media (min-width:640px){
+  .bc-stage,.bc-final{min-height:340px}
+  .bc-final{justify-content:center}
+  .bc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){
+  .bc-stage .bc-scene{display:none}
+  .bc-stage .bc-final{opacity:1!important;animation:none!important}
+}
+
+/* Hai đường vào app. */
+.bc-path{background:#fff;border:1px solid rgba(10,10,36,.12);border-radius:16px;padding:18px 18px 6px;margin:0 0 16px}
+.bc-path h3{font-family:var(--f-head);font-weight:600;font-size:21px;line-height:1.3;margin:0 0 6px;color:var(--n-900)}
+.bc-path .bc-when{font-size:15px;color:var(--n-600);margin:0 0 10px}
+.bc-path ol{margin:0 0 12px;padding-left:24px}
+.bc-path li{margin:0 0 8px}
+.bc-tip{background:var(--n-900);color:#fff;border-radius:14px;padding:14px 16px;margin:0 0 16px;font-size:16px}
+.bc-tip strong{color:var(--o-400)}
