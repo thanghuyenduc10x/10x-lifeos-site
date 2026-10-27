@@ -186,19 +186,19 @@ img{max-width:100%;height:auto;display:block}
     <div class="plat">
       <div class="os">💻</div>
       <h3>macOS</h3>
-      <div class="meta">Apple Silicon (M1 trở lên) · macOS 13+ · DMG ~4MB · v0.5.1</div>
+      <div class="meta">Apple Silicon (M1 trở lên) · macOS 13+ · DMG ~4MB · v0.5.5</div>
       <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-macOS-AppleSilicon.dmg">↓ Tải DMG</a>
     </div>
     <div class="plat">
       <div class="os">🤖</div>
       <h3>Android</h3>
-      <div class="meta">Android 8.0+ · APK ~12MB · v0.7.1</div>
+      <div class="meta">Android 8.0+ · APK ~12MB · v0.7.2<br>Đang có bản cũ: <b>gỡ app cũ trước</b> rồi mới cài, sau đó dán lại API key</div>
       <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-Android.apk">↓ Tải APK</a>
     </div>
     <div class="plat">
       <div class="os">🪟</div>
       <h3>Windows</h3>
-      <div class="meta">Windows 10/11 · 64-bit · Setup ~3MB · v0.5.0<br>Bản đầu chưa ký code — SmartScreen hỏi thì bấm <b>More info → Run anyway</b></div>
+      <div class="meta">Windows 10/11 · 64-bit · Setup ~3MB · v0.5.5<br>Chưa ký code — SmartScreen hỏi thì bấm <b>More info → Run anyway</b> · <a href="#caidat-windows">Cách cài</a></div>
       <a class="cta-btn" href="https://github.com/thanghuyenduc10x/10xtyping-releases/releases/latest/download/10xTyping-Windows-x64-setup.exe">↓ Tải bản cài</a>
     </div>
   </div>
@@ -223,6 +223,23 @@ img{max-width:100%;height:auto;display:block}
   </div>
 </div></section>
 
+<!-- INSTALL WINDOWS -->
+<section class="sec" id="caidat-windows" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv">
+    <h2>Cài trên Windows — 4 bước</h2>
+    <p>Bản Windows dùng bộ nhận dạng AI nên cần một API key OpenRouter của chính bạn. App miễn phí, không hết hạn; tiền AI bạn tự nạp ở OpenRouter, dùng bao nhiêu trả bấy nhiêu.</p>
+  </div>
+  <div class="install rv">
+    <div class="step"><div class="n">1</div><div><h3>Mở file cài</h3><p>Bấm đúp <b>10xTyping-Windows-x64-setup.exe</b>. Nếu hiện <b>“Windows protected your PC”</b>, bấm <b>More info</b> → <b>Run anyway</b>. Bản chưa ký số nên Windows hỏi lại, đây là bình thường.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h3>Cài cho tài khoản đang dùng</h3><p>Không cần quyền admin. Máy thiếu WebView2 thì bộ cài tự tải về, nên cần có mạng. Cài xong app nằm ở <b>khay hệ thống</b> (góc phải dưới, có thể nằm trong mũi tên <b>^</b>).</p></div></div>
+    <div class="step"><div class="n">3</div><div><h3>Dán API key OpenRouter</h3><p>Tạo key tại openrouter.ai: vào <b>Credits</b> nạp tiền, vào <b>Keys</b> → <b>Create Key</b>, copy key (bắt đầu bằng <code style="color:#C9F0D2">sk-or-v1-</code>). Mở 10xTyping → <b>Cài đặt</b> → ô <b>OpenRouter API key</b> → dán → <b>Lưu</b>. Thấy <b>✓ Key hợp lệ, đã lưu</b> là xong. Không chia sẻ key cho ai.</p></div></div>
+    <div class="step"><div class="n">4</div><div><h3>Nói thử</h3><p>Bấm vào chỗ cần gõ (Zalo, Word, Gmail…), <b>giữ Alt + Space</b>, nói, rồi thả phím: chữ tự dán vào chỗ con trỏ. Nói dài: bấm <b>Alt + Shift + Space</b> để bắt đầu, bấm lần nữa để dừng. Windows hỏi quyền micro lần đầu thì chọn <b>Cho phép</b>.</p>
+      <p>Không thu được tiếng: <b>Settings → Privacy &amp; security → Microphone</b>, bật <b>Let desktop apps access your microphone</b>. Trùng phím với app khác (ví dụ PowerToys Run): đổi trong <b>Cài đặt → Phím tắt</b>.</p>
+    </div></div>
+    <div class="safe">🛠️ <b>Gặp lỗi?</b> Vào trang <b>Chẩn đoán</b> trong app → bấm <b>Kiểm tra kết nối</b> → chụp màn hình gửi nhóm, ghi kèm số phiên bản (góc dưới bên trái app). Bản 0.5.5 đã sửa lỗi trang Cài đặt không mở được và nút Lưu không chạy trên Windows.</div>
+  </div>
+</div></section>
+
 <!-- INSTALL ANDROID -->
 <section class="sec" id="caidat-android" style="padding-top:0"><div class="wrap">
   <div class="sec-head rv">
@@ -230,7 +247,7 @@ img{max-width:100%;height:auto;display:block}
     <p>App chưa lên Play Store nên Android sẽ hỏi vài câu bảo mật — cảnh báo chuẩn với mọi file APK.</p>
   </div>
   <div class="install rv">
-    <div class="step"><div class="n">1</div><div><h3>Tải &amp; mở file APK</h3><p>Bấm <b>Tải cho Android</b> → trình duyệt hỏi "Vẫn tải xuống?" → chạm <b>Tải xuống</b> → mở file trong thanh thông báo hoặc thư mục <b>Download</b>.</p></div></div>
+    <div class="step"><div class="n">1</div><div><h3>Tải &amp; mở file APK</h3><p>Bấm <b>Tải cho Android</b> → trình duyệt hỏi "Vẫn tải xuống?" → chạm <b>Tải xuống</b> → mở file trong thanh thông báo hoặc thư mục <b>Download</b>.</p><p>Máy đã có 10xTyping bản cũ: <b>gỡ app cũ trước</b> (giữ tay lên biểu tượng → Gỡ cài đặt). Bản 0.7.2 ký bằng khoá mới nên Android không cho cài đè; cài xong dán lại API key.</p></div></div>
     <div class="step"><div class="n">2</div><div><h3>Cho phép cài từ nguồn này</h3><p>Máy báo "không được phép cài ứng dụng không xác định":</p><span class="ui">Cài đặt → bật "Cho phép từ nguồn này" → quay lại ◀</span><p style="margin-top:6px">Play Protect hỏi thêm thì chạm <b>Chi tiết khác → Vẫn cài đặt</b>.</p></div></div>
     <div class="step"><div class="n">3</div><div><h3>Bật bàn phím 10xTyping</h3><p>Mở app → làm theo 2 nút trong màn chào: <b>Bật bàn phím</b> trong Cài đặt hệ thống → <b>Chọn bàn phím</b> 10xTyping. (Đổi qua lại với bàn phím cũ bằng phím ⌨ ngay trên pad.)</p></div></div>
     <div class="step"><div class="n">4</div><div><h3>Chạm mic và nói</h3><p>Vào ô chữ bất kỳ → chạm <b>nút mic</b> → nói → chạm lần nữa để dừng. Dán key OpenRouter trong app cho engine AI, hoặc chọn <b>"Trên máy (Google)"</b> trong Cài đặt để dùng 0 đồng — chữ hiện ngay khi đang nói.</p></div></div>
@@ -248,7 +265,7 @@ img{max-width:100%;height:auto;display:block}
     <details><summary>Chọn được mô hình AI không?</summary><p>Có — <b>Cài đặt → Bộ nhận dạng giọng nói → Mô hình AI</b>, 4 lựa chọn kèm giá để bạn cân tốc độ và chi phí: Cân bằng (mặc định) · Tiết kiệm nhất · Mới nhất chính xác hơn · Kỹ nhất. Lịch sử hiện tên mô hình đã chạy cho từng lần đọc. (macOS từ bản 0.5.1.)</p></details>
     <details><summary>Hai bộ nhận dạng khác nhau thế nào?</summary><p><b>AI</b>: chính xác nhất với tiếng Việt, tự bỏ ừm/à, viết lại theo 4 chế độ, dịch được — mất ~3 giây. <b>Trên máy</b>: chữ hiện ngay trong lúc nói, 0 đồng, không cần mạng (khi máy đã có gói tiếng Việt offline) — nhưng chép nguyên văn, không viết lại, không dịch.</p></details>
     <details><summary>Vì sao macOS chặn app ở lần mở đầu tiên?</summary><p>Vì app chưa mua chứng chỉ công chứng của Apple (giai đoạn thử nghiệm). Vào <b>Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật</b> → bấm <b>Vẫn mở</b> là xong — xem mục "Cài trên macOS" ở trên. Nếu máy báo app <b>“bị hỏng và không thể mở được”</b> thì bạn đang giữ file tải trước ngày 20/09/2026: tải lại bản mới, hoặc chạy lệnh <code style="color:#C9F0D2">xattr -cr /Applications/10xTyping.app</code> trong Terminal.</p></details>
-    <details><summary>Có bản Windows / Mac Intel không?</summary><p>Bản Windows ĐÃ CÓ (Windows 10/11 64-bit) — tải ngay ở trên. Bản đầu chưa ký code nên SmartScreen sẽ hỏi: bấm More info → Run anyway. Mac Intel chưa hỗ trợ (bản hiện tại build cho Apple Silicon M1 trở lên).</p></details>
+    <details><summary>Có bản Windows / Mac Intel không?</summary><p>Bản Windows ĐÃ CÓ (Windows 10/11 64-bit) — tải ngay ở trên, cách cài ở mục "Cài trên Windows". Bản chưa ký code nên SmartScreen sẽ hỏi: bấm More info → Run anyway. Mac Intel chưa hỗ trợ (bản hiện tại build cho Apple Silicon M1 trở lên).</p></details>
     <details><summary>Link tải từ GitHub có an toàn không?</summary><p>Có — file phát hành tại kho chính thức <b>10xtyping-releases</b> của tác giả trên GitHub (nền tảng của Microsoft), kèm mã kiểm tra SHA256 cho từng file.</p></details>
   </div>
 </div></section>
